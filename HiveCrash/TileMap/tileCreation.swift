@@ -48,7 +48,7 @@ extension GameScene {
     }
     
     func placeHive(_ column: Int, _ row: Int ) {
-        print("Hive placed")
+        print("Hive placed at", column, row)
         hivePlaced = true
         hiveTile = [column, row]
         map.setTileGroup(hive, forColumn: hiveTile[0], row: hiveTile[1])
@@ -57,6 +57,22 @@ extension GameScene {
     
     func readTile(_ column: Int, _ row: Int) {
         print(column, row)
+    }
+    
+    func clearFog(_ centreTile: [Int]) {
+        let tiles = [
+            [0, 1],
+            [1, 0],
+            [1, -1],
+            [0, -1],
+            [-1, -1],
+            [-1, 0],
+            ]
+        let column = centreTile[0]
+        let row = centreTile[1]
+        for tile in tiles {
+            map.setTileGroup(meadow, forColumn: column + tile[0], row: row + tile[1]  )
+        }
     }
     
     }
