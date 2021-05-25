@@ -34,6 +34,7 @@ class GameScene: SKScene {
             let location = touch.location(in: map)
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
+            print("Adjacent tiles are", column, row)
             let tile = map.tileDefinition(atColumn: column, row: row)
             if let _ = tile?.userData?.value(forKey: "fog") {
                hivePlaced == false ? placeHive(column, row) : readTile(column, row)

@@ -60,21 +60,51 @@ extension GameScene {
     }
     
     func clearFog(_ centreTile: [Int]) {
-        let tiles = [
-            [0, 1],
-            [1, 0],
-            [1, -1],
-            [0, -1],
-            [-1, -1],
-            [-1, 0],
-            ]
         let column = centreTile[0]
         let row = centreTile[1]
+        let tiles = getTiles(column % 2)
         for tile in tiles {
             map.setTileGroup(meadow, forColumn: column + tile[0], row: row + tile[1]  )
         }
     }
     
+    func getTiles(_ even: Int) -> [[Int]] {
+        switch even {
+        case 0 :
+        return [
+         [0, 1],
+         [1, 0],
+         [1, -1],
+         [0, -1],
+         [-1, -1],
+         [-1, 0],
+          ]
+        default:
+         return [
+             [0, 1],
+             [1, 1],
+             [1, 0],
+             [-1, 0],
+             [0, -1],
+             [-1, 0],
+             [-1, 1],
+              ]
+        }
     }
+    
+    func chooseTile() -> SKTileGroup {
+    
+       let tile = Int.random(in: 0...6)
+    
+       switch tile {
+        case 1:
+            return rock
+       case 2:
+            return lake
+        default:
+            return meadow
+        }
+    }
+}
     
     
