@@ -12,30 +12,41 @@ extension GameScene {
     
     func addBee(_ location: CGPoint, _ column: Int, _ row: Int) {
         let bee = Bee(location, column, row)
-        let beeSprite = bee.createBee()
-        map.addChild(beeSprite)
-        beeSprite.position = hive.location
-        map.setTileGroup(tiles.chooseTile(), forColumn: column, row: row)
-        let flight = SKAction.move(to: bee.destination, duration: 10)
-        let flyHome = SKAction.move(to: hive.location, duration: 10)
-        let flightPath = SKAction.sequence([flight, flyHome])
-        beeSprite.run(flightPath)
+     //   let beeSprite = bee.createBee()
+        map.addChild(bee.sprite)
+        bees.append(bee)
+        bee.sprite.position = hive.location
+        let flight = SKAction.move(to: bee.destination, duration: bee.speed)
+        let flightPath = SKAction.sequence([flight, flyHome()])
+        bee.sprite.run(flightPath)
     }
     
     func beeFlight() {
     
-        map.enumerateChildNodes(withName: "bee", using: ({
-        (node, error) in
-        let bee = node as! SKSpriteNode
-        print(bee)
-        let column = self.map.tileColumnIndex(fromPosition: bee.position)
-        let row = self.map.tileRowIndex(fromPosition: bee.position)
-        print("TILE:", column, row)
+        for bee in bees {
+            print(bee)
+            if  bee.homewardBound == false {
+                checkFlightPath(bee)
+     }
+    }
+}
+    
+    func checkFlightPath(_ bee: Bee) {
+        let column = self.map.tileColumnIndex(fromPosition: bee.sprite.position)
+        let row = self.map.tileRowIndex(fromPosition: bee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
         if let _ = tile?.userData?.value(forKey: "fog") {
             self.clearFog(column, row, false)
         }
-        }))
+        if let _ = tile?.userData?.value(forKey: "rock") {
+            bee.sprite.removeAllActions()
+            bee.sprite.run(self.flyHome())
+            bee.homewardBound = true
+        }
+    }
+
+    func flyHome() -> SKAction {
+       return SKAction.move(to: hive.location, duration: 8)
     }
     
 

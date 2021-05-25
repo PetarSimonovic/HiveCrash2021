@@ -14,6 +14,7 @@ class GameScene: SKScene {
    var tiles = Tiles()
    var map = SKTileMapNode()
    var hive = Hive()
+    var bees: [Bee] = []
 
   
     override func didMove(to view: SKView) {
@@ -51,10 +52,11 @@ class GameScene: SKScene {
     
 
     override func update(_ currentTime: TimeInterval) {
-        beeFlight()
         // Called before each frame is rendered
 
         // Initialize _lastUpdateTime if it has not already been
+        beeFlight()
+
 
     }
 }

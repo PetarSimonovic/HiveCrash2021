@@ -15,31 +15,36 @@ class Bee {
     var destination: CGPoint
     var destinationRow: Int
     var destinationColumn: Int
+    var speed: TimeInterval
+    var sprite: SKSpriteNode
+    var id = UUID()
+    var homewardBound: Bool = false
     
     init(_ destination: CGPoint, _ destinationRow: Int, _ destinationColumn: Int) {
         self.destination = destination
         self.destinationRow = destinationRow
         self.destinationColumn = destinationColumn
-        
+        self.speed = 8
+        self.sprite = SKSpriteNode()
+        self.createBee()
     }
     
-    func createBee() -> SKSpriteNode {
+    func createBee() {
      // Assign image
-     let bee = SKSpriteNode(imageNamed: "bee")
-     bee.physicsBody = SKPhysicsBody(texture: bee.texture!, size: bee.size)
-     bee.name = "bee"
+        self.sprite = SKSpriteNode(imageNamed: "bee")
+        self.sprite.physicsBody = SKPhysicsBody(texture: self.sprite.texture!, size: self.sprite.size)
+        self.sprite.name = "bee"
     // bee.physicsBody?.categoryBitMask = CollisionBitMask.seedCategory
     // bee.physicsBody?.collisionBitMask = CollisionBitMask.rockCategory | CollisionBitMask.canyonCategory
    //  bee.physicsBody?.contactTestBitMask = CollisionBitMask.rockCategory | CollisionBitMask.canyonCategory | CollisionBitMask.fireflyCategory
-     bee.physicsBody?.affectedByGravity = false
-     bee.physicsBody?.isDynamic = false
-     bee.zPosition = 1
+        self.sprite.physicsBody?.affectedByGravity = false
+        self.sprite.physicsBody?.isDynamic = false
+        self.sprite.zPosition = 1
 //     if let seedParticles = SKEmitterNode(fileNamed: "threadship") {
 //         seedParticles.setScale(CGFloat(0.15))
 //         seed.addChild(seedParticles)
 //     }
-     return bee
-       
+      //  return self.beeSprite
    }
  }
     
