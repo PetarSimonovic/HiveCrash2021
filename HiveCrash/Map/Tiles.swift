@@ -10,7 +10,16 @@ import SpriteKit
 
 
 
-extension GameScene {
+class Tiles {
+    
+    var tileSet = SKTileSet ()
+    var hive = SKTileGroup()
+    var meadow = SKTileGroup()
+    var lake = SKTileGroup()
+    var rock = SKTileGroup()
+    var fog = SKTileGroup()
+    var hiveTile: [Int] = []
+    var hivePlaced: Bool = false
     
     func prepareTiles() {
         tileSet = loadTiles()
@@ -19,8 +28,7 @@ extension GameScene {
         lake = assignTiles("lake")
         rock = assignTiles("rock")
         fog = assignTiles("fog")
-        map = startMap()
-        self.addChild(map)
+      
     }
     
     func loadTiles() -> SKTileSet {
@@ -34,12 +42,11 @@ extension GameScene {
     
     func startMap() -> SKTileMapNode {
 
-               let tileSize = tileSet.defaultTileSize // from image size
-               let tileMap = SKTileMapNode(tileSet: tileSet, columns: 12, rows: 11, tileSize: tileSize)
-                   tileMap.fill(with: fog) // fill or set by column/row
+          let tileSize = tileSet.defaultTileSize // from image size
+          let tileMap = SKTileMapNode(tileSet: tileSet, columns: 12, rows: 11, tileSize: tileSize)
+              tileMap.fill(with: fog) // fill or set by column/row
                //tileMap.setTileGroup(tileGroup, forColumn: 5, row: 5)
-        tileMap.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
-        tileMap.setScale(self.frame.width / 3200)
+       
         return tileMap
            }
 
@@ -47,26 +54,11 @@ extension GameScene {
         return tileSet.tileGroups.first { $0.name == tileName }!
     }
     
-    func placeHive(_ column: Int, _ row: Int ) {
-        print("Hive placed at", column, row)
-        hivePlaced = true
-        hiveTile = [column, row]
-        map.setTileGroup(hive, forColumn: hiveTile[0], row: hiveTile[1])
-
-    }
     
     func readTile(_ column: Int, _ row: Int) {
         print(column, row)
     }
     
-    func clearFog(_ centreTile: [Int]) {
-        let column = centreTile[0]
-        let row = centreTile[1]
-        let tiles = getTiles(column % 2)
-        for tile in tiles {
-            map.setTileGroup(chooseTile(), forColumn: column + tile[0], row: row + tile[1]  )
-        }
-    }
     
     func getTiles(_ even: Int) -> [[Int]] {
         switch even {

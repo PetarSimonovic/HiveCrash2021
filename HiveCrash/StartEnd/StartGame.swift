@@ -11,7 +11,11 @@ import SpriteKit
 extension GameScene {
     
     func startGame() {
-      prepareTiles()
+        tiles.prepareTiles()
+        map = tiles.startMap()
+        self.addChild(map)
+        map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
+        map.setScale(self.frame.width / 3200)
     }
     
 }

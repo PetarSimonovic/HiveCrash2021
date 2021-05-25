@@ -14,10 +14,12 @@
 		0DE92CF2265B8B1500CE5F4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE92CF0265B8B1500CE5F4B /* Assets.xcassets */; };
 		0DE92CF7265BC45F00CE5F4B /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DE92CF5265BC45F00CE5F4B /* TileSet.sks */; };
 		0DE92CF8265BC45F00CE5F4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE92CF6265BC45F00CE5F4B /* Assets.xcassets */; };
-		0DE92CFB265BDC7C00CE5F4B /* tileCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CFA265BDC7C00CE5F4B /* tileCreation.swift */; };
+		0DE92CFB265BDC7C00CE5F4B /* Tiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CFA265BDC7C00CE5F4B /* Tiles.swift */; };
 		0DE92CFE265BDD4A00CE5F4B /* StartGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CFD265BDD4A00CE5F4B /* StartGame.swift */; };
 		0DE92D08265BE7DC00CE5F4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE92D07265BE7DC00CE5F4B /* Main.storyboard */; };
 		0DE92D0A265BE99C00CE5F4B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D09265BE99C00CE5F4B /* GameViewController.swift */; };
+		0DE92D0D265D0F3A00CE5F4B /* Hive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D0C265D0F3A00CE5F4B /* Hive.swift */; };
+		0DE92D0F265D10CA00CE5F4B /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D0E265D10CA00CE5F4B /* Map.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +53,12 @@
 		0DE92CF0265B8B1500CE5F4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DE92CF5265BC45F00CE5F4B /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		0DE92CF6265BC45F00CE5F4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0DE92CFA265BDC7C00CE5F4B /* tileCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tileCreation.swift; sourceTree = "<group>"; };
+		0DE92CFA265BDC7C00CE5F4B /* Tiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiles.swift; sourceTree = "<group>"; };
 		0DE92CFD265BDD4A00CE5F4B /* StartGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGame.swift; sourceTree = "<group>"; };
 		0DE92D07265BE7DC00CE5F4B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0DE92D09265BE99C00CE5F4B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		0DE92D0C265D0F3A00CE5F4B /* Hive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hive.swift; sourceTree = "<group>"; };
+		0DE92D0E265D10CA00CE5F4B /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +89,6 @@
 		0DE92CB2265B8AFA00CE5F4B = {
 			isa = PBXGroup;
 			children = (
-				0DE92D09265BE99C00CE5F4B /* GameViewController.swift */,
 				0DE92CF0265B8B1500CE5F4B /* Assets.xcassets */,
 				0DE92CBD265B8AFA00CE5F4B /* HiveCrash */,
 				0DE92CD5265B8AFB00CE5F4B /* HiveCrashTests */,
@@ -107,9 +110,10 @@
 		0DE92CBD265B8AFA00CE5F4B /* HiveCrash */ = {
 			isa = PBXGroup;
 			children = (
+				0DE92D0B265D0F2B00CE5F4B /* Hive */,
 				0DE92CFF265BE27600CE5F4B /* Controllers */,
 				0DE92CFC265BDD3900CE5F4B /* StartEnd */,
-				0DE92CF9265BDC3C00CE5F4B /* TileMap */,
+				0DE92CF9265BDC3C00CE5F4B /* Map */,
 				0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */,
 				0DE92CCD265B8AFB00CE5F4B /* Info.plist */,
 				0DE92CF6265BC45F00CE5F4B /* Assets.xcassets */,
@@ -135,13 +139,14 @@
 			path = HiveCrashUITests;
 			sourceTree = "<group>";
 		};
-		0DE92CF9265BDC3C00CE5F4B /* TileMap */ = {
+		0DE92CF9265BDC3C00CE5F4B /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				0DE92CF5265BC45F00CE5F4B /* TileSet.sks */,
-				0DE92CFA265BDC7C00CE5F4B /* tileCreation.swift */,
+				0DE92CFA265BDC7C00CE5F4B /* Tiles.swift */,
+				0DE92D0E265D10CA00CE5F4B /* Map.swift */,
 			);
-			path = TileMap;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		0DE92CFC265BDD3900CE5F4B /* StartEnd */ = {
@@ -156,9 +161,18 @@
 			isa = PBXGroup;
 			children = (
 				0DE92D07265BE7DC00CE5F4B /* Main.storyboard */,
+				0DE92D09265BE99C00CE5F4B /* GameViewController.swift */,
 				0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0DE92D0B265D0F2B00CE5F4B /* Hive */ = {
+			isa = PBXGroup;
+			children = (
+				0DE92D0C265D0F3A00CE5F4B /* Hive.swift */,
+			);
+			path = Hive;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +309,10 @@
 				0DE92D0A265BE99C00CE5F4B /* GameViewController.swift in Sources */,
 				0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */,
 				0DE92CFE265BDD4A00CE5F4B /* StartGame.swift in Sources */,
-				0DE92CFB265BDC7C00CE5F4B /* tileCreation.swift in Sources */,
+				0DE92D0F265D10CA00CE5F4B /* Map.swift in Sources */,
+				0DE92CFB265BDC7C00CE5F4B /* Tiles.swift in Sources */,
 				0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */,
+				0DE92D0D265D0F3A00CE5F4B /* Hive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
