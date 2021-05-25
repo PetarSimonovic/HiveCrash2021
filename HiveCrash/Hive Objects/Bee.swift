@@ -24,10 +24,9 @@ class Bee {
     }
     
     func createBee() -> SKSpriteNode {
-     // Assign image and position
+     // Assign image
      let bee = SKSpriteNode(imageNamed: "bee")
      bee.physicsBody = SKPhysicsBody(texture: bee.texture!, size: bee.size)
- //    bee.setScale(scale)
      bee.name = "bee"
     // bee.physicsBody?.categoryBitMask = CollisionBitMask.seedCategory
     // bee.physicsBody?.collisionBitMask = CollisionBitMask.rockCategory | CollisionBitMask.canyonCategory
