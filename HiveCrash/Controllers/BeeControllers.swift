@@ -22,5 +22,21 @@ extension GameScene {
         beeSprite.run(flightPath)
     }
     
+    func beeFlight() {
+    
+        map.enumerateChildNodes(withName: "bee", using: ({
+        (node, error) in
+        let bee = node as! SKSpriteNode
+        print(bee)
+        let column = self.map.tileColumnIndex(fromPosition: bee.position)
+        let row = self.map.tileRowIndex(fromPosition: bee.position)
+        print("TILE:", column, row)
+        let tile = self.map.tileDefinition(atColumn: column, row: row)
+        if let _ = tile?.userData?.value(forKey: "fog") {
+            self.clearFog(column, row, false)
+        }
+        }))
+    }
+    
 
 }

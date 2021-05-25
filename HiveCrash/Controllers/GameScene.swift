@@ -49,11 +49,12 @@ class GameScene: SKScene {
     
    
     
-//
-//    override func update(_ currentTime: TimeInterval) {
-//        // Called before each frame is rendered
-//
-//        // Initialize _lastUpdateTime if it has not already been
-//
-//}
+
+    override func update(_ currentTime: TimeInterval) {
+        beeFlight()
+        // Called before each frame is rendered
+
+        // Initialize _lastUpdateTime if it has not already been
+
+    }
 }
