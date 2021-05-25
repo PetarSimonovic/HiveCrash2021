@@ -14,6 +14,7 @@ class GameScene: SKScene {
    var tiles = Tiles()
    var map = SKTileMapNode()
    var hive = Hive()
+
   
     override func didMove(to view: SKView) {
      startGame()
@@ -37,7 +38,8 @@ class GameScene: SKScene {
                     map.setTileGroup(tiles.hive, forColumn: hive.location[0], row: hive.location[1])
                 }
                 else {
-                    tiles.readTile(column, row)
+                    map.setTileGroup(tiles.chooseTile(), forColumn: column, row: row)
+                    clearFog([column, row])
                 }
             }
 
@@ -52,7 +54,10 @@ class GameScene: SKScene {
         let row = centreTile[1]
         let adjacentTiles = tiles.getTiles(column % 2)
         for tile in adjacentTiles {
+            let checkTile = map.tileDefinition(atColumn: column + tile[0], row: row + tile[1])
+            if let _ = checkTile?.userData?.value(forKey: "fog") {
             map.setTileGroup(tiles.chooseTile(), forColumn: column + tile[0], row: row + tile[1]  )
+            }
         }
     }
   

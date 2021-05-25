@@ -21,24 +21,6 @@ class Tiles {
     var hiveTile: [Int] = []
     var hivePlaced: Bool = false
     
-    func prepareTiles() {
-        tileSet = loadTiles()
-        hive = assignTiles("hive")
-        meadow = assignTiles("meadow")
-        lake = assignTiles("lake")
-        rock = assignTiles("rock")
-        fog = assignTiles("fog")
-      
-    }
-    
-    func loadTiles() -> SKTileSet {
-        guard let tiles = SKTileSet(named: "TileSet") else {
-                   // hint: don't use the filename for named, use the tileset inside
-                   fatalError()
-               }
-        return tiles
-    }
-    
     
     func startMap() -> SKTileMapNode {
 
@@ -49,8 +31,27 @@ class Tiles {
        
         return tileMap
            }
+    
+    func prepareTiles() {
+        tileSet = loadTiles()
+        hive = assignTiles("hive")
+        meadow = assignTiles("meadow")
+        lake = assignTiles("lake")
+        rock = assignTiles("rock")
+        fog = assignTiles("fog")
+      
+    }
+    
+    private func loadTiles() -> SKTileSet {
+        guard let tiles = SKTileSet(named: "TileSet") else {
+                   // hint: don't use the filename for named, use the tileset inside
+                   fatalError()
+               }
+        return tiles
+    }
+    
 
-    func assignTiles(_ tileName: String) -> SKTileGroup {
+    private func assignTiles(_ tileName: String) -> SKTileGroup {
         return tileSet.tileGroups.first { $0.name == tileName }!
     }
     

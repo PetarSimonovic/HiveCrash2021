@@ -10,5 +10,10 @@ import SpriteKit
 
 class Map {
     
+    
+    func readTile(_ column: Int, _ row: Int) {
+        print(column, row)
+    }
+    
 }
 
