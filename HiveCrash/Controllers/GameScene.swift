@@ -14,6 +14,7 @@ class GameScene: SKScene {
    var tiles = Tiles()
    var map = SKTileMapNode()
    var hive = Hive()
+   var bee = Bee()
 
   
     override func didMove(to view: SKView) {
@@ -27,19 +28,24 @@ class GameScene: SKScene {
         
         for touch in touches {
             let location = touch.location(in: map)
+            print("X", location.x)
+            print("Y", location.y)
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
             print("Adjacent tiles are", column, row)
             let tile = map.tileDefinition(atColumn: column, row: row)
             if let _ = tile?.userData?.value(forKey: "fog") {
                 if hive.isPlaced == false {
-                    hive.place(column, row)
-                    clearFog(hive.location)
-                    map.setTileGroup(tiles.hive, forColumn: hive.location[0], row: hive.location[1])
+                    hive.place(column, row, location.x, location.y)
+                    clearFog(hive.column, hive.row)
+                    map.setTileGroup(tiles.hive, forColumn: hive.column, row: hive.row)
                 }
                 else {
+                    let newBee = bee.createBee(self.frame.width / 3200)
+                    map.addChild(newBee)
+                    newBee.position = hive.location
                     map.setTileGroup(tiles.chooseTile(), forColumn: column, row: row)
-                    clearFog([column, row])
+                    print("Bee added")
                 }
             }
 
@@ -49,9 +55,7 @@ class GameScene: SKScene {
         }
 
 
-    func clearFog(_ centreTile: [Int]) {
-        let column = centreTile[0]
-        let row = centreTile[1]
+    func clearFog(_ column: Int, _ row: Int) {
         let adjacentTiles = tiles.getTiles(column % 2)
         for tile in adjacentTiles {
             let checkTile = map.tileDefinition(atColumn: column + tile[0], row: row + tile[1])

@@ -20,6 +20,7 @@
 		0DE92D0A265BE99C00CE5F4B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D09265BE99C00CE5F4B /* GameViewController.swift */; };
 		0DE92D0D265D0F3A00CE5F4B /* Hive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D0C265D0F3A00CE5F4B /* Hive.swift */; };
 		0DE92D0F265D10CA00CE5F4B /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D0E265D10CA00CE5F4B /* Map.swift */; };
+		0DE92D13265D372500CE5F4B /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D12265D372500CE5F4B /* Bee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		0DE92D09265BE99C00CE5F4B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		0DE92D0C265D0F3A00CE5F4B /* Hive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hive.swift; sourceTree = "<group>"; };
 		0DE92D0E265D10CA00CE5F4B /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		0DE92D12265D372500CE5F4B /* Bee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				0DE92D0C265D0F3A00CE5F4B /* Hive.swift */,
+				0DE92D12265D372500CE5F4B /* Bee.swift */,
 			);
 			path = Hive;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DE92D13265D372500CE5F4B /* Bee.swift in Sources */,
 				0DE92D0A265BE99C00CE5F4B /* GameViewController.swift in Sources */,
 				0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */,
 				0DE92CFE265BDD4A00CE5F4B /* StartGame.swift in Sources */,
