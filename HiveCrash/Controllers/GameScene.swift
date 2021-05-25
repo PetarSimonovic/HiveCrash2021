@@ -18,6 +18,8 @@ class GameScene: SKScene {
    var lake = SKTileGroup()
    var rock = SKTileGroup()
    var fog = SKTileGroup()
+    var hiveTile: [Int] = []
+    var hivePlaced: Bool = false
   
     override func didMove(to view: SKView) {
      startGame()
@@ -30,16 +32,11 @@ class GameScene: SKScene {
         
         for touch in touches {
             let location = touch.location(in: map)
-            print(location)
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
-            print(column)
-            print(row)
-
             let tile = map.tileDefinition(atColumn: column, row: row)
             if let _ = tile?.userData?.value(forKey: "fog") {
-                print("Here")
-                map.setTileGroup(hive, forColumn: column, row: row)
+               hivePlaced == false ? placeHive(column, row) : readTile(column, row)
             }
 
 

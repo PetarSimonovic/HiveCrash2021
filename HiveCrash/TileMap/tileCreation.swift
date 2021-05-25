@@ -47,6 +47,18 @@ extension GameScene {
         return tileSet.tileGroups.first { $0.name == tileName }!
     }
     
+    func placeHive(_ column: Int, _ row: Int ) {
+        print("Hive placed")
+        hivePlaced = true
+        hiveTile = [column, row]
+        map.setTileGroup(hive, forColumn: hiveTile[0], row: hiveTile[1])
+
+    }
+    
+    func readTile(_ column: Int, _ row: Int) {
+        print(column, row)
+    }
+    
     }
     
     
