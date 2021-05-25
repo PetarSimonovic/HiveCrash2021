@@ -24,7 +24,6 @@ extension GameScene {
     func beeFlight() {
     
         for bee in bees {
-            print(bee)
             if  bee.homewardBound == false {
                 checkFlightPath(bee)
      }
