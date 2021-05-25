@@ -17,8 +17,9 @@ extension GameScene {
         beeSprite.position = hive.location
         map.setTileGroup(tiles.chooseTile(), forColumn: column, row: row)
         let flight = SKAction.move(to: bee.destination, duration: 10)
-        beeSprite.run(flight)
-
+        let flyHome = SKAction.move(to: hive.location, duration: 10)
+        let flightPath = SKAction.sequence([flight, flyHome])
+        beeSprite.run(flightPath)
     }
     
 
