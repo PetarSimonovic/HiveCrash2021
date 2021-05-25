@@ -14,7 +14,6 @@ class GameScene: SKScene {
    var tiles = Tiles()
    var map = SKTileMapNode()
    var hive = Hive()
-   var bee = Bee()
 
   
     override func didMove(to view: SKView) {
@@ -41,9 +40,12 @@ class GameScene: SKScene {
                     map.setTileGroup(tiles.hive, forColumn: hive.column, row: hive.row)
                 }
                 else {
-                    let newBee = bee.createBee(self.frame.width / 3200)
-                    map.addChild(newBee)
-                    newBee.position = hive.location
+                    let bee = Bee(location, column, row)
+                    let beeSprite = bee.createBee()
+                    map.addChild(beeSprite)
+                    beeSprite.position = hive.location
+                    print("Bee destination:", bee.destination)
+                    print("column, row:", bee.destinationColumn, bee.destinationRow)
                     map.setTileGroup(tiles.chooseTile(), forColumn: column, row: row)
                     print("Bee added")
                 }
