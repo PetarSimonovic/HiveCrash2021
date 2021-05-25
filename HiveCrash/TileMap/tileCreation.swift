@@ -64,7 +64,7 @@ extension GameScene {
         let row = centreTile[1]
         let tiles = getTiles(column % 2)
         for tile in tiles {
-            map.setTileGroup(meadow, forColumn: column + tile[0], row: row + tile[1]  )
+            map.setTileGroup(chooseTile(), forColumn: column + tile[0], row: row + tile[1]  )
         }
     }
     
