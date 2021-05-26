@@ -30,7 +30,7 @@ extension GameScene {
             let newTile = tiles.chooseTile()
        //     print(newTile.SKTileGroup)
             map.setTileGroup(newTile, forColumn: column, row: row)
-        //    addFlower(newTile, column, row)
+            addFlower(newTile, column, row)
 //            if newTile == meadow {
 //                addFlower(column, row)
 //            }
@@ -38,7 +38,7 @@ extension GameScene {
     }
     
     func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
-        if tile.name! == "meadow" {
+        if tile.name! == "meadow" && Int.random(in: 0...10) == 1 {
         
             let location = map.centerOfTile(atColumn: column, row: row)
             let flower = Flower(location, column, row)
