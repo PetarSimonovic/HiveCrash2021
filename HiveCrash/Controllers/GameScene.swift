@@ -14,7 +14,8 @@ class GameScene: SKScene {
    var tiles = Tiles()
    var map = SKTileMapNode()
    var hive = Hive()
-    var bees: [Bee] = []
+   var bees: [Bee] = []
+    var moveHive: Bool = false
 
   
     override func didMove(to view: SKView) {
@@ -31,19 +32,15 @@ class GameScene: SKScene {
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
             let tile = map.tileDefinition(atColumn: column, row: row)
-            if let _ = tile?.userData?.value(forKey: "fog") {
-                if hive.isPlaced == false {
-                    placeHive(location, column, row)
-                }
-                else {
-                    addBee(location, column, row)
-                }
+            if (tile?.userData?.value(forKey: "fog") != nil) && hive.isPlaced == false || (tile?.userData?.value(forKey: "meadow") != nil) && moveHive == true {
+                placeHive(location, column, row)
+            } else if let _ = tile?.userData?.value(forKey: "hive") {
+                moveHive = true
+            } else {
+              addBee(location, column, row)
+              }
             }
-
-
          }
-
-        }
     
 
   
