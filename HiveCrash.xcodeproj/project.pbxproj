@@ -51,7 +51,7 @@
 /* Begin PBXFileReference section */
 		0D2F1166265E3B70008B1171 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D2F1169265E3C93008B1171 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
-		0D2F1171265E8259008B1171 /* hollyhock.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hollyhock.sks; sourceTree = "<group>"; };
+		0D2F1171265E8259008B1171 /* hollyhock.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = hollyhock.sks; path = ../../hollyhock.sks; sourceTree = "<group>"; };
 		0D2F1175265E8AD7008B1171 /* FlightSpeedCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSpeedCalculator.swift; sourceTree = "<group>"; };
 		0DE92CBB265B8AFA00CE5F4B /* HiveCrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveCrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +107,7 @@
 		0D2F1164265E3B52008B1171 /* FlowerParticles */ = {
 			isa = PBXGroup;
 			children = (
+				0D2F1171265E8259008B1171 /* hollyhock.sks */,
 				0D2F1166265E3B70008B1171 /* Assets.xcassets */,
 			);
 			path = FlowerParticles;
@@ -116,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				0DE92CF0265B8B1500CE5F4B /* Assets.xcassets */,
-				0D2F1171265E8259008B1171 /* hollyhock.sks */,
 				0DE92CBD265B8AFA00CE5F4B /* HiveCrash */,
 				0DE92CD5265B8AFB00CE5F4B /* HiveCrashTests */,
 				0DE92CE0265B8AFB00CE5F4B /* HiveCrashUITests */,
