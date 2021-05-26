@@ -10,6 +10,7 @@
 		0D2F1168265E3B70008B1171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F1166265E3B70008B1171 /* Assets.xcassets */; };
 		0D2F116A265E3C93008B1171 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F1169265E3C93008B1171 /* Flower.swift */; };
 		0D2F1172265E8259008B1171 /* hollyhock.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F1171265E8259008B1171 /* hollyhock.sks */; };
+		0D2F1176265E8AD7008B1171 /* FlightSpeedCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F1175265E8AD7008B1171 /* FlightSpeedCalculator.swift */; };
 		0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */; };
 		0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */; };
 		0DE92CD7265B8AFB00CE5F4B /* HiveCrashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CD6265B8AFB00CE5F4B /* HiveCrashTests.swift */; };
@@ -51,6 +52,7 @@
 		0D2F1166265E3B70008B1171 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D2F1169265E3C93008B1171 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
 		0D2F1171265E8259008B1171 /* hollyhock.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hollyhock.sks; sourceTree = "<group>"; };
+		0D2F1175265E8AD7008B1171 /* FlightSpeedCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSpeedCalculator.swift; sourceTree = "<group>"; };
 		0DE92CBB265B8AFA00CE5F4B /* HiveCrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveCrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				0DE92D14265D4D9900CE5F4B /* BeeControllers.swift */,
 				0DE92D16265D4DCB00CE5F4B /* MapControllers.swift */,
 				0DE92D18265D4E4700CE5F4B /* HiveControllers.swift */,
+				0D2F1175265E8AD7008B1171 /* FlightSpeedCalculator.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				0DE92D19265D4E4700CE5F4B /* HiveControllers.swift in Sources */,
 				0DE92CFE265BDD4A00CE5F4B /* StartGame.swift in Sources */,
 				0DE92D0F265D10CA00CE5F4B /* Map.swift in Sources */,
+				0D2F1176265E8AD7008B1171 /* FlightSpeedCalculator.swift in Sources */,
 				0DE92CFB265BDC7C00CE5F4B /* Tiles.swift in Sources */,
 				0DE92D15265D4D9900CE5F4B /* BeeControllers.swift in Sources */,
 				0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */,

@@ -15,7 +15,7 @@ class Bee {
     var destination: CGPoint
     var destinationRow: Int
     var destinationColumn: Int
-    var speed: TimeInterval
+    var speed: Int
     var sprite: SKSpriteNode
     var id = UUID()
     var homewardBound: Bool = false
@@ -24,7 +24,7 @@ class Bee {
         self.destination = destination
         self.destinationRow = destinationRow
         self.destinationColumn = destinationColumn
-        self.speed = 5
+        self.speed = 300
         self.sprite = SKSpriteNode()
         self.createBee()
     }

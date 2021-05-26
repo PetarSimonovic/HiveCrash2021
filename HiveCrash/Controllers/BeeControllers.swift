@@ -10,15 +10,19 @@ import SpriteKit
 
 extension GameScene {
     
-    func addBee(_ location: CGPoint, _ column: Int, _ row: Int) {
-        let bee = Bee(location, column, row)
+    func addBee(_ destination: CGPoint, _ column: Int, _ row: Int) {
+        let bee = Bee(destination, column, row)
      //   let beeSprite = bee.createBee()
         map.addChild(bee.sprite)
         bees.append(bee)
         bee.sprite.position = hive.location
-        let flight = SKAction.move(to: bee.destination, duration: bee.speed)
+        print("Hive", hive.location)
+        print("Bee position", bee.sprite.position)
+        print("Bee destination", bee.destination)
+        let beeSpeed = flightSpeed(bee.sprite.position, bee.destination, bee.speed)
+        let flight = SKAction.move(to: bee.destination, duration: beeSpeed)
         let removeBee = SKAction.run(bee.sprite.removeFromParent)
-        let flightPath = SKAction.sequence([flight, flyHome(bee.speed), removeBee])
+        let flightPath = SKAction.sequence([flight, flyHome(bee, bee.destination), removeBee])
         bee.sprite.run(flightPath)
     }
     
@@ -40,13 +44,15 @@ extension GameScene {
         }
         if let _ = tile?.userData?.value(forKey: "rock") {
             bee.sprite.removeAllActions()
-            bee.sprite.run(self.flyHome(bee.speed))
+            bee.sprite.run(self.flyHome(bee, bee.sprite.position))
             bee.homewardBound = true
         }
     }
 
-    func flyHome(_ speed: TimeInterval) -> SKAction {
-       return SKAction.move(to: hive.location, duration: speed)
+    func flyHome(_ bee: Bee, _ beeLocation: CGPoint) -> SKAction {
+        print ("flying home")
+        let beeSpeed = flightSpeed(beeLocation, hive.location, bee.speed)
+        return SKAction.move(to: hive.location, duration: beeSpeed)
     }
     
 
