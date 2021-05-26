@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D2F1167265E3B70008B1171 /* hollyhock.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F1165265E3B70008B1171 /* hollyhock.sks */; };
+		0D2F1168265E3B70008B1171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F1166265E3B70008B1171 /* Assets.xcassets */; };
 		0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */; };
 		0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */; };
 		0DE92CD7265B8AFB00CE5F4B /* HiveCrashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CD6265B8AFB00CE5F4B /* HiveCrashTests.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D2F1165265E3B70008B1171 /* hollyhock.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hollyhock.sks; sourceTree = "<group>"; };
+		0D2F1166265E3B70008B1171 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DE92CBB265B8AFA00CE5F4B /* HiveCrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveCrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -96,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D2F1164265E3B52008B1171 /* FlowerParticles */ = {
+			isa = PBXGroup;
+			children = (
+				0D2F1165265E3B70008B1171 /* hollyhock.sks */,
+				0D2F1166265E3B70008B1171 /* Assets.xcassets */,
+			);
+			path = FlowerParticles;
+			sourceTree = "<group>";
+		};
 		0DE92CB2265B8AFA00CE5F4B = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +133,7 @@
 		0DE92CBD265B8AFA00CE5F4B /* HiveCrash */ = {
 			isa = PBXGroup;
 			children = (
+				0D2F1164265E3B52008B1171 /* FlowerParticles */,
 				0DE92D0B265D0F2B00CE5F4B /* Hive Objects */,
 				0DE92CFF265BE27600CE5F4B /* Controllers */,
 				0DE92CFC265BDD3900CE5F4B /* StartEnd */,
@@ -296,6 +310,8 @@
 				0DE92CF2265B8B1500CE5F4B /* Assets.xcassets in Resources */,
 				0DE92D08265BE7DC00CE5F4B /* Main.storyboard in Resources */,
 				0DE92CF8265BC45F00CE5F4B /* Assets.xcassets in Resources */,
+				0D2F1167265E3B70008B1171 /* hollyhock.sks in Resources */,
+				0D2F1168265E3B70008B1171 /* Assets.xcassets in Resources */,
 				0DE92CF7265BC45F00CE5F4B /* TileSet.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

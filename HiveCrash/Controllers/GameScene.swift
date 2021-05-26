@@ -35,6 +35,7 @@ class GameScene: SKScene {
             if (tile?.userData?.value(forKey: "fog") != nil) && hive.isPlaced == false || (tile?.userData?.value(forKey: "meadow") != nil) && moveHive == true {
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
+                moveHive = false
             } else if let _ = tile?.userData?.value(forKey: "hive") {
                 moveHive = true
             } else {
