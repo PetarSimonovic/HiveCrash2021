@@ -18,6 +18,8 @@ class Bee {
     var speed: Int
     var sprite: SKSpriteNode
     var id = UUID()
+    var pollen: Int
+    var pollenCapacity: Int
     var homewardBound: Bool = false
     
     init(_ destination: CGPoint, _ destinationRow: Int, _ destinationColumn: Int) {
@@ -26,6 +28,8 @@ class Bee {
         self.destinationColumn = destinationColumn
         self.speed = 300
         self.sprite = SKSpriteNode()
+        self.pollen = 0
+        self.pollenCapacity = 10
         self.createBee()
     }
     
