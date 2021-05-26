@@ -39,15 +39,18 @@ extension GameScene {
         let column = self.map.tileColumnIndex(fromPosition: bee.sprite.position)
         let row = self.map.tileRowIndex(fromPosition: bee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
-        if let _ = tile?.userData?.value(forKey: "fog") {
-            self.clearFog(column, row, false)
-        }
-        if let _ = tile?.userData?.value(forKey: "rock") {
+        
+        switch tile!.name! {
+        case "fog":
+                self.clearFog(column, row, false)
+        case "rock":
             bee.sprite.removeAllActions()
             let removeBee = SKAction.run(bee.sprite.removeFromParent)
             let returnToHive = SKAction.sequence([flyHome(bee, bee.sprite.position), removeBee])
             bee.sprite.run(returnToHive)
             bee.homewardBound = true
+        default:
+            return
         }
     }
 
