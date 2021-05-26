@@ -44,7 +44,9 @@ extension GameScene {
         }
         if let _ = tile?.userData?.value(forKey: "rock") {
             bee.sprite.removeAllActions()
-            bee.sprite.run(self.flyHome(bee, bee.sprite.position))
+            let removeBee = SKAction.run(bee.sprite.removeFromParent)
+            let returnToHive = SKAction.sequence([flyHome(bee, bee.sprite.position), removeBee])
+            bee.sprite.run(returnToHive)
             bee.homewardBound = true
         }
     }
