@@ -24,7 +24,7 @@ class Bee {
         self.destination = destination
         self.destinationRow = destinationRow
         self.destinationColumn = destinationColumn
-        self.speed = 8
+        self.speed = 5
         self.sprite = SKSpriteNode()
         self.createBee()
     }

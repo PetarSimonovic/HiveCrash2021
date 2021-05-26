@@ -17,7 +17,8 @@ extension GameScene {
         bees.append(bee)
         bee.sprite.position = hive.location
         let flight = SKAction.move(to: bee.destination, duration: bee.speed)
-        let flightPath = SKAction.sequence([flight, flyHome()])
+        let removeBee = SKAction.run(bee.sprite.removeFromParent)
+        let flightPath = SKAction.sequence([flight, flyHome(bee.speed), removeBee])
         bee.sprite.run(flightPath)
     }
     
@@ -39,13 +40,13 @@ extension GameScene {
         }
         if let _ = tile?.userData?.value(forKey: "rock") {
             bee.sprite.removeAllActions()
-            bee.sprite.run(self.flyHome())
+            bee.sprite.run(self.flyHome(bee.speed))
             bee.homewardBound = true
         }
     }
 
-    func flyHome() -> SKAction {
-       return SKAction.move(to: hive.location, duration: 8)
+    func flyHome(_ speed: TimeInterval) -> SKAction {
+       return SKAction.move(to: hive.location, duration: speed)
     }
     
 
