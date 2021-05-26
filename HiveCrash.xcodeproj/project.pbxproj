@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D2F1167265E3B70008B1171 /* hollyhock.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F1165265E3B70008B1171 /* hollyhock.sks */; };
 		0D2F1168265E3B70008B1171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F1166265E3B70008B1171 /* Assets.xcassets */; };
+		0D2F116A265E3C93008B1171 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F1169265E3C93008B1171 /* Flower.swift */; };
 		0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */; };
 		0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */; };
 		0DE92CD7265B8AFB00CE5F4B /* HiveCrashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CD6265B8AFB00CE5F4B /* HiveCrashTests.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		0D2F1165265E3B70008B1171 /* hollyhock.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hollyhock.sks; sourceTree = "<group>"; };
 		0D2F1166265E3B70008B1171 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0D2F1169265E3C93008B1171 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
 		0DE92CBB265B8AFA00CE5F4B /* HiveCrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveCrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				0DE92D0C265D0F3A00CE5F4B /* Hive.swift */,
 				0DE92D12265D372500CE5F4B /* Bee.swift */,
 				0DE92D1A265D6A1F00CE5F4B /* Rock.swift */,
+				0D2F1169265E3C93008B1171 /* Flower.swift */,
 			);
 			path = "Hive Objects";
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			files = (
 				0DE92D1B265D6A1F00CE5F4B /* Rock.swift in Sources */,
 				0DE92D13265D372500CE5F4B /* Bee.swift in Sources */,
+				0D2F116A265E3C93008B1171 /* Flower.swift in Sources */,
 				0DE92D0A265BE99C00CE5F4B /* GameViewController.swift in Sources */,
 				0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */,
 				0DE92D19265D4E4700CE5F4B /* HiveControllers.swift in Sources */,
