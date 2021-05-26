@@ -15,7 +15,8 @@ class GameScene: SKScene {
    var map = SKTileMapNode()
    var hive = Hive()
    var bees: [Bee] = []
-    var moveHive: Bool = false
+   var flowers: [Flower] = []
+   var moveHive: Bool = false
 
   
     override func didMove(to view: SKView) {
@@ -28,11 +29,13 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
+            print(moveHive)
             let location = touch.location(in: map)
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
             let tile = map.tileDefinition(atColumn: column, row: row)
             if (tile?.userData?.value(forKey: "fog") != nil) && hive.isPlaced == false || (tile?.userData?.value(forKey: "meadow") != nil) && moveHive == true {
+                print("Moving Hive")
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
                 moveHive = false

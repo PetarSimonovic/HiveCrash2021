@@ -21,7 +21,7 @@ class Flower {
     var particleNode: SKEmitterNode
     
     
-    init(_ location: CGPoint, _ row: Int, _ column: Int) {
+    init(_ location: CGPoint,_ column: Int, _ row: Int) {
         self.location = location
         self.row = row
         self.column = column

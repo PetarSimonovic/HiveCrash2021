@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "poppy.png",
+      "filename" : "spark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "poppy-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "poppy-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

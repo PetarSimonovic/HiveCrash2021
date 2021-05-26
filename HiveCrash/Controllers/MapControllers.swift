@@ -18,16 +18,38 @@ extension GameScene {
             for tile in adjacentTiles {
                 let checkTile = map.tileDefinition(atColumn: column + tile[0], row: row + tile[1])
                     if let _ = checkTile?.userData?.value(forKey: "fog") {
-                    map.setTileGroup(tiles.chooseTile(), forColumn: column + tile[0], row: row + tile[1]  )
+                    let newTile = tiles.chooseTile()
+                    map.setTileGroup(newTile, forColumn: column + tile[0], row: row + tile[1])
+                    addFlower(newTile, column + tile[0], row + tile[1])
+//                        if newTile == meadow {
+//                            addFlower(column, row)
+//                        }
             }
         }
         default:
-            map.setTileGroup(tiles.chooseTile(), forColumn: column, row: row)
+            let newTile = tiles.chooseTile()
+       //     print(newTile.SKTileGroup)
+            map.setTileGroup(newTile, forColumn: column, row: row)
+        //    addFlower(newTile, column, row)
+//            if newTile == meadow {
+//                addFlower(column, row)
+//            }
         }
     }
     
-   
+    func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
+        if tile.name! == "meadow" {
         
+            let location = map.centerOfTile(atColumn: column, row: row)
+            let flower = Flower(location, column, row)
+     //   let beeSprite = bee.createBee()
+            map.addChild(flower.node)
+            flowers.append(flower)
+            flower.node.position = location
+        }
+    
+   
+    }
 
     
 }

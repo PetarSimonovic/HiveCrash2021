@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "cornflower.png",
+      "filename" : "spark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "cornflower-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "cornflower-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
