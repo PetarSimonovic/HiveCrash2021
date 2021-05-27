@@ -14,6 +14,7 @@ class Hive {
     var column: Int = 0
     var row: Int = 0
     var location = CGPoint()
+    var node = SKNode()
     
 
     func place(_ location: CGPoint, _ column: Int, _ row: Int) {
@@ -22,6 +23,13 @@ class Hive {
         self.column = column
         self.row = row
         self.location = location
+        self.node.position = location
+    }
+    
+    func pulse() {
+        self.node.removeAllChildren()
+        let pulseNode = SKEmitterNode(fileNamed: "HivePulse")!
+        self.node.addChild(pulseNode)
     }
     
     

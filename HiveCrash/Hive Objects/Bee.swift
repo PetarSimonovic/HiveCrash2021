@@ -20,7 +20,9 @@ class Bee {
     var id = UUID()
     var pollen: Int
     var pollenCapacity: Int
-    var homewardBound: Bool = false
+    var homewardBound: Bool
+    var pollenCollected: Bool
+
     
     init(_ destination: CGPoint, _ destinationRow: Int, _ destinationColumn: Int) {
         self.destination = destination
@@ -30,6 +32,8 @@ class Bee {
         self.sprite = SKSpriteNode()
         self.pollen = 0
         self.pollenCapacity = 10
+        self.pollenCollected = false
+        self.homewardBound = false
         self.createBee()
     }
     
@@ -39,7 +43,7 @@ class Bee {
         self.sprite.name = "bee"
         self.sprite.physicsBody?.affectedByGravity = false
         self.sprite.physicsBody?.isDynamic = false
-        self.sprite.zPosition = 1.5
+        self.sprite.zPosition = 1
    }
     
     func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {
@@ -50,22 +54,27 @@ class Bee {
     }
     
     func flyHome(_ destination: CGPoint, _ beeSpeed: TimeInterval ) {
-        self.sprite.removeAllActions()
-        let removeBee = SKAction.run(self.sprite.removeFromParent)
-        let flyHome = SKAction.move(to: destination, duration: beeSpeed)
-        let returnToHive = SKAction.sequence([flyHome, removeBee])
-        self.sprite.run(returnToHive)
-        self.homewardBound = true
+        print("Flying Home")
+        if self.homewardBound == false {
+            self.sprite.removeAllActions()
+            let removeBee = SKAction.run(self.sprite.removeFromParent)
+            let flyHome = SKAction.move(to: destination, duration: beeSpeed)
+            let returnToHive = SKAction.sequence([flyHome, removeBee])
+            self.sprite.run(returnToHive)
+            self.homewardBound = true
+        }
     }
     
     func collectPollen(_ flower: Flower, _ hive: CGPoint,_ beeSpeed: TimeInterval) {
-        if flower.inBloom {
-            self.sprite.removeAction(forKey: "flight")
-            self.sprite.run(SKAction.rotate(byAngle: 10, duration: 0.5))
-            self.sprite.run(SKAction.move(to: flower.location, duration: 1))
-        } else {
-            flyHome(hive, beeSpeed)
-        }
+     //   if flower.inBloom {
+        self.pollenCollected = true
+        self.sprite.removeAction(forKey: "flight")
+        self.sprite.run(SKAction.rotate(byAngle: 10, duration: 0.5))
+        self.sprite.run(SKAction.move(to: flower.location, duration: 1))
+     //   } else {
+   //         homewardBound ? self.sprite.run(SKAction.move(to: hive, duration: beeSpeed)) : self.sprite.run(SKAction.move(to: self.destination, duration: beeSpeed))
+
+    //    }
        
 
     }

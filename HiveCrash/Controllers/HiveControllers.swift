@@ -17,5 +17,6 @@ extension GameScene {
       self.hive.place(location, column, row)
       clearFog(hive.column, hive.row, true)
       map.setTileGroup(tiles.hive, forColumn: hive.column, row: hive.row)
+      map.addChild(hive.node)
     }
 }

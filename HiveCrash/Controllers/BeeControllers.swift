@@ -16,16 +16,15 @@ extension GameScene {
         map.addChild(bee.sprite)
         bees.append(bee)
         bee.sprite.position = hive.location
+        hive.pulse()
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
     }
     
     func beeFlight() {
         for bee in bees {
-            if  bee.homewardBound == false {
-                checkFlightPath(bee)
-     }
+            checkFlightPath(bee)
+            }
     }
-}
     
     func checkFlightPath(_ bee: Bee) {
         let column = self.map.tileColumnIndex(fromPosition: bee.sprite.position)
@@ -39,9 +38,15 @@ extension GameScene {
         case "flowerMeadow":
             for flower in flowers {
                 if flower.column == column && flower.row == row {
-                   bee.collectPollen(flower, hive.location, flightSpeed(bee, hive.location))
+                    if flower.inBloom {
+                        bee.collectPollen(flower, hive.location, flightSpeed(bee, hive.location))
+                    } else if bee.pollenCollected {
+                        bee.homewardBound ? bee.flyHome(hive.location, flightSpeed(bee, hive.location)) : bee.fly(bee.sprite.position, flightSpeed(bee, bee.destination))
+                    }
                 }
             }
+        case "hive":
+            hive.pulse()
         default:
             return
         }
