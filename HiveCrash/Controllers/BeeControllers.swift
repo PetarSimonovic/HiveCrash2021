@@ -16,9 +16,6 @@ extension GameScene {
         map.addChild(bee.sprite)
         bees.append(bee)
         bee.sprite.position = hive.location
-        print("Hive", hive.location)
-        print("Bee position", bee.sprite.position)
-        print("Bee destination", bee.destination)
         let beeSpeed = flightSpeed(bee.sprite.position, bee.destination, bee.speed)
         let flight = SKAction.move(to: bee.destination, duration: beeSpeed)
         let removeBee = SKAction.run(bee.sprite.removeFromParent)

@@ -11,7 +11,7 @@ import SpriteKit
 
 class Flower {
     
-    // add subclasses for different flower types, with variance in pollent etc
+    // add subclasses for different flower types, with variance in pollent, growthSpeed etc
     
     var location: CGPoint
     var column: Int
@@ -19,6 +19,8 @@ class Flower {
     var pollen: Int
     var sprite: SKSpriteNode
     var particleNode: SKEmitterNode
+    var inBloom: Bool
+    var growthSpeed: TimeInterval
     
     
     init(_ location: CGPoint,_ column: Int, _ row: Int) {
@@ -28,21 +30,37 @@ class Flower {
         self.sprite = SKSpriteNode()
         self.particleNode = SKEmitterNode()
         self.pollen = 10
-     //   createFlower()
+        self.inBloom = false
+        self.growthSpeed = 10
+        grow()
+
+//        createFlower()
+
     }
     
-    func createFlower() {
-        self.sprite = SKSpriteNode(imageNamed: "meadow")
-        self.sprite.physicsBody = SKPhysicsBody(texture: self.sprite.texture!, size: self.sprite.size)
-        self.sprite.name = "flower"
-//        self.sprite.physicsBody?.categoryBitMask = CollisionBitMask.flowerCategory
-//        self.sprite.physicsBody?.collisionBitMask = CollisionBitMask.beeCategory
-//        self.sprite.physicsBody?.contactTestBitMask = CollisionBitMask.beeCategory
-        self.sprite.physicsBody?.affectedByGravity = false
-        self.sprite.physicsBody?.isDynamic = false
-        self.sprite.zPosition = 0
-        self.particleNode = SKEmitterNode(fileNamed: "hollyhock")!
-     //   self.sprite.addChild(self.particleNode)
+    func grow() {
+        let growthTimer = SKAction.wait(forDuration: growthSpeed)
+        let bloom = SKAction.run({ self.bloom() })
+        let wither = SKAction.run({self.wither() })
+        let growthCycle = SKAction.sequence([growthTimer, bloom, growthTimer, wither])
+        self.sprite.run(SKAction.repeatForever(growthCycle))
+    }
+    
+    func bloom() {
+        print("In Bloom!")
+        self.inBloom = true
+        let bloomNode = SKEmitterNode(fileNamed: "hollyhock")!
+        self.sprite.addChild(bloomNode)
+        
+    }
+    
+    func wither() {
+        print("Dying!")
+        self.inBloom = false
+        let witherNode = SKEmitterNode(fileNamed: "hollyhockDisperse")!
+        witherNode.advanceSimulationTime(3)
+        self.sprite.removeAllChildren()
+        self.sprite.addChild(witherNode)
         
     }
     
