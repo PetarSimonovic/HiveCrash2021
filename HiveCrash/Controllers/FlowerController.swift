@@ -21,6 +21,13 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
         flower.sprite.position = location
     }
 
-
 }
+    func collectPollen(_ bee: Bee, _ flower: Flower) {
+        if flower.inBloom == true {
+            print("In Bloom - bee can collect pollen")
+        } else {
+            print("Flower is not in bloom - no pollen to collect")
+        }
+        
+    }
 }

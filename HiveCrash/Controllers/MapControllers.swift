@@ -21,21 +21,12 @@ extension GameScene {
                     let newTile = tiles.chooseTile()
                     map.setTileGroup(newTile, forColumn: column + tile[0], row: row + tile[1])
                     addFlower(newTile, column + tile[0], row + tile[1])
-//                        if newTile == meadow {
-//                            addFlower(column, row)
-//                        }
-            }
-        }
+                    }
+                }
         default:
             let newTile = tiles.chooseTile()
-       //     print(newTile.SKTileGroup)
             map.setTileGroup(newTile, forColumn: column, row: row)
             addFlower(newTile, column, row)
-//            if newTile == meadow {
-//                addFlower(column, row)
-//            }
         }
     }
-
-    
 }

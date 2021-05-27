@@ -24,7 +24,6 @@ extension GameScene {
     }
     
     func beeFlight() {
-    
         for bee in bees {
             if  bee.homewardBound == false {
                 checkFlightPath(bee)
@@ -36,10 +35,9 @@ extension GameScene {
         let column = self.map.tileColumnIndex(fromPosition: bee.sprite.position)
         let row = self.map.tileRowIndex(fromPosition: bee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
-        
         switch tile?.name! {
         case "fog":
-             self.clearFog(column, row, false)
+             clearFog(column, row, false)
         case "rock":
             bee.sprite.removeAllActions()
             let removeBee = SKAction.run(bee.sprite.removeFromParent)
@@ -47,7 +45,11 @@ extension GameScene {
             bee.sprite.run(returnToHive)
             bee.homewardBound = true
         case "flowerMeadow":
-            print("Bee is in meadow")
+            for flower in flowers {
+                if flower.column == column && flower.row == row {
+                   collectPollen(bee, flower)
+                }
+            }
         default:
             return
         }
@@ -58,6 +60,7 @@ extension GameScene {
         let beeSpeed = flightSpeed(beeLocation, hive.location, bee.speed)
         return SKAction.move(to: hive.location, duration: beeSpeed)
     }
+    
     
 
 }

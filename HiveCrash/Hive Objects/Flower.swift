@@ -47,7 +47,7 @@ class Flower {
     }
     
     func bloom() {
-        print("In Bloom!")
+       // print("In Bloom!")
         self.inBloom = true
         let bloomNode = SKEmitterNode(fileNamed: "hollyhock")!
         self.sprite.addChild(bloomNode)
@@ -55,7 +55,7 @@ class Flower {
     }
     
     func wither() {
-        print("Dying!")
+       // print("Dying!")
         self.inBloom = false
         let witherNode = SKEmitterNode(fileNamed: "hollyhockDisperse")!
         witherNode.advanceSimulationTime(3)
