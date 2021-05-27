@@ -16,8 +16,7 @@ extension GameScene {
         map.addChild(bee.sprite)
         bees.append(bee)
         bee.sprite.position = hive.location
-        let beeSpeed = flightSpeed(bee.sprite.position, bee.destination, bee.speed)
-        bee.fly(hive.location, beeSpeed)
+        bee.fly(hive.location, flightSpeed(bee, bee.destination))
     }
     
     func beeFlight() {
@@ -36,25 +35,16 @@ extension GameScene {
         case "fog":
              clearFog(column, row, false)
         case "rock":
-            let beeSpeed = flightSpeed(bee.sprite.position, hive.location, bee.speed)
-            bee.flyHome(hive.location, beeSpeed)
+            bee.flyHome(hive.location, flightSpeed(bee, hive.location))
         case "flowerMeadow":
             for flower in flowers {
                 if flower.column == column && flower.row == row {
-                   collectPollen(bee, flower)
+                   checkPollen(bee, flower)
                 }
             }
         default:
             return
         }
     }
-
-    func flyHome(_ bee: Bee, _ beeLocation: CGPoint) -> SKAction {
-        print ("flying home")
-        let beeSpeed = flightSpeed(beeLocation, hive.location, bee.speed)
-        return SKAction.move(to: hive.location, duration: beeSpeed)
-    }
     
-    
-
 }

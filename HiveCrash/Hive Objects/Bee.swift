@@ -50,13 +50,20 @@ class Bee {
     }
     
     func flyHome(_ destination: CGPoint, _ beeSpeed: TimeInterval ) {
-        print("Now in BEE CLASS")
         self.sprite.removeAllActions()
         let removeBee = SKAction.run(self.sprite.removeFromParent)
         let flyHome = SKAction.move(to: destination, duration: beeSpeed)
         let returnToHive = SKAction.sequence([flyHome, removeBee])
         self.sprite.run(returnToHive)
         self.homewardBound = true
+    }
+    
+    func collectPollen(_ flower: Flower) {
+        if flower.inBloom {
+            self.sprite.run(SKAction.rotate(byAngle: 10, duration: 0.5))
+        }
+       
+
     }
  }
     
