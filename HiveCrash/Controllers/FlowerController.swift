@@ -22,13 +22,13 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
     }
 
 }
-    func checkPollen(_ bee: Bee, _ flower: Flower) {
-        
-        switch flower.inBloom {
-        case true:
-            bee.collectPollen(flower)
-        default:
-            return
-        }
-    }
+//    func checkPollen(_ bee: Bee, _ flower: Flower) {
+//        
+//        switch flower.inBloom {
+//        case true:
+//            bee.collectPollen(flower, hive.location, flightSpeed(bee, hive.location))
+//        default:
+//            return
+//        }
+//    }
 }

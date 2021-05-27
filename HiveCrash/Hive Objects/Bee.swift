@@ -39,14 +39,14 @@ class Bee {
         self.sprite.name = "bee"
         self.sprite.physicsBody?.affectedByGravity = false
         self.sprite.physicsBody?.isDynamic = false
-        self.sprite.zPosition = 1
+        self.sprite.zPosition = 1.5
    }
     
     func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {
         let flight = SKAction.move(to: self.destination, duration: beeSpeed)
         let flyHome = SKAction.run ( { self.flyHome(hiveLocation, beeSpeed)} )
         let flightPath = SKAction.sequence([flight, flyHome])
-        self.sprite.run(flightPath)
+        self.sprite.run(flightPath, withKey: "flight")
     }
     
     func flyHome(_ destination: CGPoint, _ beeSpeed: TimeInterval ) {
@@ -58,9 +58,13 @@ class Bee {
         self.homewardBound = true
     }
     
-    func collectPollen(_ flower: Flower) {
+    func collectPollen(_ flower: Flower, _ hive: CGPoint,_ beeSpeed: TimeInterval) {
         if flower.inBloom {
+            self.sprite.removeAction(forKey: "flight")
             self.sprite.run(SKAction.rotate(byAngle: 10, duration: 0.5))
+            self.sprite.run(SKAction.move(to: flower.location, duration: 1))
+        } else {
+            flyHome(hive, beeSpeed)
         }
        
 

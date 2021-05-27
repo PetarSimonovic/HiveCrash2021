@@ -39,7 +39,7 @@ extension GameScene {
         case "flowerMeadow":
             for flower in flowers {
                 if flower.column == column && flower.row == row {
-                   checkPollen(bee, flower)
+                   bee.collectPollen(flower, hive.location, flightSpeed(bee, hive.location))
                 }
             }
         default:
