@@ -18,6 +18,7 @@ class Hive {
     
 
     func place(_ location: CGPoint, _ column: Int, _ row: Int) {
+        self.node.removeFromParent()
         print("Hive placed at", column, row)
         isPlaced = true
         self.column = column
