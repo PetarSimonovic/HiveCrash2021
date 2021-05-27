@@ -42,6 +42,13 @@ class Bee {
         self.sprite.zPosition = 1
    }
     
+    func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {
+        let flight = SKAction.move(to: self.destination, duration: beeSpeed)
+        let flyHome = SKAction.run ( { self.flyHome(hiveLocation, beeSpeed)} )
+        let flightPath = SKAction.sequence([flight, flyHome])
+        self.sprite.run(flightPath)
+    }
+    
     func flyHome(_ destination: CGPoint, _ beeSpeed: TimeInterval ) {
         print("Now in BEE CLASS")
         self.sprite.removeAllActions()

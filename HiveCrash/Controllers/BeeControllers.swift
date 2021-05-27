@@ -17,10 +17,7 @@ extension GameScene {
         bees.append(bee)
         bee.sprite.position = hive.location
         let beeSpeed = flightSpeed(bee.sprite.position, bee.destination, bee.speed)
-        let flight = SKAction.move(to: bee.destination, duration: beeSpeed)
-        let removeBee = SKAction.run(bee.sprite.removeFromParent)
-        let flightPath = SKAction.sequence([flight, flyHome(bee, bee.destination), removeBee])
-        bee.sprite.run(flightPath)
+        bee.fly(hive.location, beeSpeed)
     }
     
     func beeFlight() {
