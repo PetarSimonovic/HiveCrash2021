@@ -46,6 +46,8 @@ extension GameScene {
             let returnToHive = SKAction.sequence([flyHome(bee, bee.sprite.position), removeBee])
             bee.sprite.run(returnToHive)
             bee.homewardBound = true
+        case "flowerMeadow":
+            print("Bee is in meadow")
         default:
             return
         }
