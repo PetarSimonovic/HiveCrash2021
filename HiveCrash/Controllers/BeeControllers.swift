@@ -22,6 +22,7 @@ extension GameScene {
     
     func beeFlight() {
         for bee in bees {
+            print(bee.sprite.position)
             checkFlightPath(bee)
             }
     }
@@ -36,28 +37,13 @@ extension GameScene {
         case "rock":
             bee.flyHome(hive.location, flightSpeed(bee, hive.location))
         case "flowerMeadow":
-            for flower in flowers {
-                if flower.column == column && flower.row == row {
-                    if flower.inBloom {
-                        bee.collectPollen(flower, hive.location, flightSpeed(bee, hive.location))
-                    } else if bee.pollenCollecting {
-                        bee.pollenCollecting = false
-                        if  bee.homewardBound {
-                            bee.homewardBound = false
-                            bee.flyHome(hive.location, flightSpeed(bee, hive.location))
-                            continue
-                        } else {
-                            bee.fly(hive.location, flightSpeed(bee, hive.location))
-                            continue
-                        }
-                    }
-                }
-            }
+            checkPollination(bee, column, row)
         case "hive":
             hive.pulse()
         default:
             return
         }
     }
+    
     
 }

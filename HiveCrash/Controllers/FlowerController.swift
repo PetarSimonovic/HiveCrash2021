@@ -22,13 +22,25 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
     }
 
 }
-//    func checkPollen(_ bee: Bee, _ flower: Flower) {
-//        
-//        switch flower.inBloom {
-//        case true:
-//            bee.collectPollen(flower, hive.location, flightSpeed(bee, hive.location))
-//        default:
-//            return
-//        }
-//    }
+
+    func checkPollination(_ bee: Bee, _ column: Int, _ row: Int) {
+        for flower in flowers {
+            if flower.column == column && flower.row == row {
+                if flower.inBloom {
+                    bee.collectPollen(flower, hive.location, flightSpeed(bee, hive.location))
+                } else if bee.pollenCollecting {
+                    bee.pollenCollecting = false
+                    if  bee.homewardBound {
+                        bee.homewardBound = false
+                        bee.flyHome(hive.location, flightSpeed(bee, hive.location))
+                        continue
+                    } else {
+                        bee.fly(hive.location, flightSpeed(bee, hive.location))
+                        continue
+                    }
+                }
+            }
+        }
+    }
+    
 }

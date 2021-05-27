@@ -28,7 +28,6 @@ class Hive {
     }
     
     func pulse() {
-        self.node.removeAllChildren()
         let pulseNode = SKEmitterNode(fileNamed: "HivePulse")!
         self.node.addChild(pulseNode)
     }

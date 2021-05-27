@@ -22,6 +22,7 @@ class Bee {
     var pollenCapacity: Int
     var homewardBound: Bool
     var pollenCollecting: Bool
+    var inHive: Bool
 
     
     init(_ destination: CGPoint, _ destinationRow: Int, _ destinationColumn: Int) {
@@ -34,6 +35,7 @@ class Bee {
         self.pollenCapacity = 10
         self.pollenCollecting = false
         self.homewardBound = false
+        self.inHive = false
         self.createBee()
     }
     
@@ -57,13 +59,19 @@ class Bee {
     func flyHome(_ destination: CGPoint, _ beeSpeed: TimeInterval ) {
         if self.homewardBound == false {
             self.sprite.removeAllActions()
-            let removeBee = SKAction.run(self.sprite.removeFromParent)
+            let removeBee = SKAction.run( { self.removeBee() } )
             let flyHome = SKAction.move(to: destination, duration: beeSpeed)
             let returnToHive = SKAction.sequence([flyHome, removeBee])
             self.sprite.run(returnToHive, withKey: "flyHome")
             self.homewardBound = true
         }
          self.pollenCollecting = false
+    }
+    
+    func removeBee() {
+       // self.inHive == true
+        self.sprite.removeFromParent()
+        self.sprite.position = CGPoint(x: 0, y: 0)
     }
     
         
