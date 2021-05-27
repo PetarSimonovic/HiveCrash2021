@@ -34,21 +34,22 @@ class Bee {
     }
     
     func createBee() {
-     // Assign image
         self.sprite = SKSpriteNode(imageNamed: "bee")
         self.sprite.physicsBody = SKPhysicsBody(texture: self.sprite.texture!, size: self.sprite.size)
         self.sprite.name = "bee"
-//        self.sprite.physicsBody?.categoryBitMask = CollisionBitMask.beeCategory
-//        self.sprite.physicsBody?.collisionBitMask = CollisionBitMask.flowerCategory
-//        self.sprite.physicsBody?.contactTestBitMask = CollisionBitMask.flowerCategory
         self.sprite.physicsBody?.affectedByGravity = false
         self.sprite.physicsBody?.isDynamic = false
         self.sprite.zPosition = 1
-//     if let seedParticles = SKEmitterNode(fileNamed: "threadship") {
-//         seedParticles.setScale(CGFloat(0.15))
-//         seed.addChild(seedParticles)
-//     }
-      //  return self.beeSprite
    }
+    
+    func flyHome(_ destination: CGPoint, _ beeSpeed: TimeInterval ) {
+        print("Now in BEE CLASS")
+        self.sprite.removeAllActions()
+        let removeBee = SKAction.run(self.sprite.removeFromParent)
+        let flyHome = SKAction.move(to: destination, duration: beeSpeed)
+        let returnToHive = SKAction.sequence([flyHome, removeBee])
+        self.sprite.run(returnToHive)
+        self.homewardBound = true
+    }
  }
     

@@ -39,11 +39,8 @@ extension GameScene {
         case "fog":
              clearFog(column, row, false)
         case "rock":
-            bee.sprite.removeAllActions()
-            let removeBee = SKAction.run(bee.sprite.removeFromParent)
-            let returnToHive = SKAction.sequence([flyHome(bee, bee.sprite.position), removeBee])
-            bee.sprite.run(returnToHive)
-            bee.homewardBound = true
+            let beeSpeed = flightSpeed(bee.sprite.position, hive.location, bee.speed)
+            bee.flyHome(hive.location, beeSpeed)
         case "flowerMeadow":
             for flower in flowers {
                 if flower.column == column && flower.row == row {
