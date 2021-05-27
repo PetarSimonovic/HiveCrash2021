@@ -18,6 +18,7 @@ class Tiles {
     var lake = SKTileGroup()
     var rock = SKTileGroup()
     var fog = SKTileGroup()
+    var flowerMeadow = SKTileGroup()
     var hiveTile: [Int] = []
     var hivePlaced: Bool = false
     
@@ -36,6 +37,7 @@ class Tiles {
         tileSet = loadTiles()
         hive = assignTiles("hive")
         meadow = assignTiles("meadow")
+        flowerMeadow = assignTiles("flowerMeadow")
         lake = assignTiles("lake")
         rock = assignTiles("rock")
         fog = assignTiles("fog")
@@ -94,6 +96,8 @@ class Tiles {
             return rock
        case 2:
             return lake
+       case 3:
+            return flowerMeadow
         default:
             return meadow
         }

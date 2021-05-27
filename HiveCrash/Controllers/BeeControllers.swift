@@ -40,9 +40,9 @@ extension GameScene {
         let row = self.map.tileRowIndex(fromPosition: bee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
         
-        switch tile!.name! {
+        switch tile?.name! {
         case "fog":
-                self.clearFog(column, row, false)
+             self.clearFog(column, row, false)
         case "rock":
             bee.sprite.removeAllActions()
             let removeBee = SKAction.run(bee.sprite.removeFromParent)

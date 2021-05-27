@@ -38,9 +38,9 @@ class Bee {
         self.sprite = SKSpriteNode(imageNamed: "bee")
         self.sprite.physicsBody = SKPhysicsBody(texture: self.sprite.texture!, size: self.sprite.size)
         self.sprite.name = "bee"
-    // bee.physicsBody?.categoryBitMask = CollisionBitMask.seedCategory
-    // bee.physicsBody?.collisionBitMask = CollisionBitMask.rockCategory | CollisionBitMask.canyonCategory
-   //  bee.physicsBody?.contactTestBitMask = CollisionBitMask.rockCategory | CollisionBitMask.canyonCategory | CollisionBitMask.fireflyCategory
+//        self.sprite.physicsBody?.categoryBitMask = CollisionBitMask.beeCategory
+//        self.sprite.physicsBody?.collisionBitMask = CollisionBitMask.flowerCategory
+//        self.sprite.physicsBody?.contactTestBitMask = CollisionBitMask.flowerCategory
         self.sprite.physicsBody?.affectedByGravity = false
         self.sprite.physicsBody?.isDynamic = false
         self.sprite.zPosition = 1

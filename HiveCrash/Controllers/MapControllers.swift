@@ -38,14 +38,14 @@ extension GameScene {
     }
     
     func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
-        if tile.name! == "meadow" && Int.random(in: 0...10) == 1 {
+        if tile.name! == "flowerMeadow" {
         
             let location = map.centerOfTile(atColumn: column, row: row)
             let flower = Flower(location, column, row)
      //   let beeSprite = bee.createBee()
-            map.addChild(flower.node)
+            map.addChild(flower.sprite)
             flowers.append(flower)
-            flower.node.position = location
+            flower.sprite.position = location
         }
     
    

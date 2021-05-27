@@ -9,7 +9,7 @@ import SpriteKit
 import GameplayKit
 import SwiftUI
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
    var tiles = Tiles()
    var map = SKTileMapNode()

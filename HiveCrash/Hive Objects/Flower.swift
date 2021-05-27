@@ -17,7 +17,7 @@ class Flower {
     var column: Int
     var row: Int
     var pollen: Int
-    var node: SKNode
+    var sprite: SKSpriteNode
     var particleNode: SKEmitterNode
     
     
@@ -25,15 +25,24 @@ class Flower {
         self.location = location
         self.row = row
         self.column = column
-        self.node = SKNode()
+        self.sprite = SKSpriteNode()
         self.particleNode = SKEmitterNode()
         self.pollen = 10
-        addFlowerParticles()
+     //   createFlower()
     }
     
-    func addFlowerParticles() {
+    func createFlower() {
+        self.sprite = SKSpriteNode(imageNamed: "meadow")
+        self.sprite.physicsBody = SKPhysicsBody(texture: self.sprite.texture!, size: self.sprite.size)
+        self.sprite.name = "flower"
+//        self.sprite.physicsBody?.categoryBitMask = CollisionBitMask.flowerCategory
+//        self.sprite.physicsBody?.collisionBitMask = CollisionBitMask.beeCategory
+//        self.sprite.physicsBody?.contactTestBitMask = CollisionBitMask.beeCategory
+        self.sprite.physicsBody?.affectedByGravity = false
+        self.sprite.physicsBody?.isDynamic = false
+        self.sprite.zPosition = 0
         self.particleNode = SKEmitterNode(fileNamed: "hollyhock")!
-        node.addChild(self.particleNode)
+     //   self.sprite.addChild(self.particleNode)
         
     }
     
