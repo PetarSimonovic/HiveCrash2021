@@ -20,6 +20,7 @@ extension GameScene {
                     if let _ = checkTile?.userData?.value(forKey: "fog") {
                     let newTile = tiles.chooseTile()
                     map.setTileGroup(newTile, forColumn: column + tile[0], row: row + tile[1])
+                    addMeadow(newTile, column + tile[0], row + tile[0])
                     addFlower(newTile, column + tile[0], row + tile[1])
                     }
                 }
