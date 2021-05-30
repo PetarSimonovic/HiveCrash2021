@@ -29,7 +29,7 @@ class Flower {
         self.column = column
         self.sprite = SKSpriteNode()
         self.particleNode = SKEmitterNode()
-        self.pollen = 10
+        self.pollen = 100
         self.inBloom = false
         self.growthSpeed = 10
         grow()
@@ -47,7 +47,7 @@ class Flower {
     }
     
     func bloom() {
-       // print("In Bloom!")
+        print("Flower is in bloom!", self.pollen)
         self.inBloom = true
         let bloomNode = SKEmitterNode(fileNamed: "hollyhock")!
         self.sprite.addChild(bloomNode)
@@ -61,6 +61,7 @@ class Flower {
         witherNode.advanceSimulationTime(3)
         self.sprite.removeAllChildren()
         self.sprite.addChild(witherNode)
+        self.pollen = 100
         
     }
     

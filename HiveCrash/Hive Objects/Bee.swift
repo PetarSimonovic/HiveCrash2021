@@ -77,7 +77,9 @@ class Bee {
         
     func collectPollen(_ flower: Flower, _ hive: CGPoint,_ beeSpeed: TimeInterval) {
      //   if flower.inBloom {
-        self.pollenCollecting = true
+        // exrract the collection into its own class?
+        print("BEE POLLEN", self.pollen)
+        print("FLOWER POLLEN", flower.pollen)
         self.sprite.removeAction(forKey: "flight")
         self.sprite.removeAction(forKey: "flyHome")
         self.sprite.run(SKAction.rotate(byAngle: 10, duration: 0.5))
@@ -89,5 +91,6 @@ class Bee {
        
 
     }
+           
  }
     
