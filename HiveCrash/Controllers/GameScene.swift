@@ -16,6 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var hive = Hive()
    var bees: [Bee] = []
    var flowers: [Flower] = []
+   var meadows: [Meadow] = []
    var moveHive: Bool = false
 
   

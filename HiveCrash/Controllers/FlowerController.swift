@@ -58,13 +58,27 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
     }
     
     func shedPollen(_ bee: Bee, _ column: Int, _ row: Int) {
+      if let meadow = meadows.first(where: {$0.column == column && $0.row == row}) {
       if bee.pollen - (bee.speed/10) / 2 > 0 {
+             meadow.pollen += (bee.speed/10) / 2
             bee.pollen -= (bee.speed/10) / 2
         } else {
+            meadow.pollen += bee.pollen
             bee.pollen -= bee.pollen
         }
+        print("Meadow", meadow.pollen)
+        if meadow.pollen >= 100 && meadow.flowerMeadow == false {
+            meadow.flowerMeadow = true
+            createFlowerMeadow(column, row)
+        }
+        }
+        
+        }
+     
+    func createFlowerMeadow(_ column: Int, _ row: Int) {
         map.setTileGroup(tiles.flowerMeadow, forColumn: column, row: row)
         addFlower(tiles.flowerMeadow, column, row)
     }
-    
 }
+
+   

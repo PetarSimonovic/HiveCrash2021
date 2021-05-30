@@ -22,7 +22,6 @@ extension GameScene {
     
     func beeFlight() {
         for bee in bees {
-            print(bee.pollenCloud.particleBirthRate)
             bee.pollenCloud.particleBirthRate = CGFloat(bee.pollen)
             checkFlightPath(bee)
             }

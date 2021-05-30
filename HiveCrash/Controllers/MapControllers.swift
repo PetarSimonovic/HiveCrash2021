@@ -26,7 +26,16 @@ extension GameScene {
         default:
             let newTile = tiles.chooseTile()
             map.setTileGroup(newTile, forColumn: column, row: row)
+            addMeadow(newTile, column, row)
             addFlower(newTile, column, row)
         }
+    }
+    
+    func addMeadow(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
+        if tile.name  == "meadow" {
+            let meadow = Meadow(column, row)
+            meadows.append(meadow)
+        }
+        
     }
 }
