@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D151FC426638FE200E933E1 /* BeePollen.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D151FC326638FE200E933E1 /* BeePollen.sks */; };
 		0D2F1168265E3B70008B1171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F1166265E3B70008B1171 /* Assets.xcassets */; };
 		0D2F116A265E3C93008B1171 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F1169265E3C93008B1171 /* Flower.swift */; };
 		0D2F1172265E8259008B1171 /* hollyhock.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F1171265E8259008B1171 /* hollyhock.sks */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D151FC326638FE200E933E1 /* BeePollen.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BeePollen.sks; sourceTree = "<group>"; };
 		0D2F1166265E3B70008B1171 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D2F1169265E3C93008B1171 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
 		0D2F1171265E8259008B1171 /* hollyhock.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = hollyhock.sks; path = ../../hollyhock.sks; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				0D2F117B265F968D008B1171 /* hollyhockDisperse.sks */,
 				0D2F1166265E3B70008B1171 /* Assets.xcassets */,
 				0D2F117D265FB43F008B1171 /* HivePulse.sks */,
+				0D151FC326638FE200E933E1 /* BeePollen.sks */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D2F117C265F968D008B1171 /* hollyhockDisperse.sks in Resources */,
+				0D151FC426638FE200E933E1 /* BeePollen.sks in Resources */,
 				0D2F117E265FB43F008B1171 /* HivePulse.sks in Resources */,
 				0DE92CF2265B8B1500CE5F4B /* Assets.xcassets in Resources */,
 				0DE92D08265BE7DC00CE5F4B /* Main.storyboard in Resources */,

@@ -23,6 +23,7 @@ class Bee {
     var homewardBound: Bool
     var pollenCollecting: Bool
     var inHive: Bool
+    var pollenCloud: SKEmitterNode
 
     
     init(_ destination: CGPoint, _ destinationRow: Int, _ destinationColumn: Int) {
@@ -31,6 +32,7 @@ class Bee {
         self.destinationColumn = destinationColumn
         self.speed = 300
         self.sprite = SKSpriteNode()
+        self.pollenCloud = SKEmitterNode()
         self.pollen = 0
         self.pollenCapacity = 10
         self.pollenCollecting = false
@@ -46,6 +48,8 @@ class Bee {
         self.sprite.physicsBody?.affectedByGravity = false
         self.sprite.physicsBody?.isDynamic = false
         self.sprite.zPosition = 1
+        self.pollenCloud = SKEmitterNode(fileNamed: "BeePollen")!
+        self.sprite.addChild(self.pollenCloud)
    }
     
     func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {
