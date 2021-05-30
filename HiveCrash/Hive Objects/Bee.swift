@@ -50,6 +50,7 @@ class Bee {
         self.sprite.zPosition = 1
         self.pollenCloud = SKEmitterNode(fileNamed: "BeePollen")!
         self.sprite.addChild(self.pollenCloud)
+        self.pollenCloud.particleBirthRate = CGFloat(self.pollen)
    }
     
     func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {
