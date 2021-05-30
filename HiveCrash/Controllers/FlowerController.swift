@@ -57,4 +57,14 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
         bee.pollenCollecting = true
     }
     
+    func shedPollen(_ bee: Bee, _ column: Int, _ row: Int) {
+      if bee.pollen - (bee.speed/10) / 2 > 0 {
+            bee.pollen -= (bee.speed/10) / 2
+        } else {
+            bee.pollen -= bee.pollen
+        }
+        map.setTileGroup(tiles.flowerMeadow, forColumn: column, row: row)
+        addFlower(tiles.flowerMeadow, column, row)
+    }
+    
 }

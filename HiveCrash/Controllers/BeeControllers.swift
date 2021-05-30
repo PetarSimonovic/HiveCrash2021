@@ -37,6 +37,10 @@ extension GameScene {
              clearFog(column, row, false)
         case "rock":
             bee.flyHome(hive.location, flightSpeed(bee, hive.location))
+        case "meadow":
+            if bee.pollen != 0 {
+              shedPollen(bee, column, row)
+            }
         case "flowerMeadow":
             checkPollination(bee, column, row)
         case "hive":
