@@ -20,10 +20,5 @@ extension GameScene {
        
  
     }
-    
-    func createInfoPane() {
-        addChild(infoPane.tileName)
-        infoPane.tileName.position = CGPoint(x: frame.minX, y: frame.maxY)
-    }
-    
+
 }

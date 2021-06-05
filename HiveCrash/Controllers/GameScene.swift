@@ -48,18 +48,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
               }
             }
          }
-    
-    func updateInfoPane(_ tile: SKTileDefinition, _ column: Int, _ row: Int) {
-        if tile.name != nil {
-          infoPane.updateTileInfo(tile.name!)
-          print(infoPane.tileName)
-        }
 
-    }
 
-  
-    
-   
     
 
     override func update(_ currentTime: TimeInterval) {
