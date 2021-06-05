@@ -16,6 +16,14 @@ extension GameScene {
         self.addChild(map)
         map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
         map.setScale(self.frame.width / 3200)
+        createInfoPane()
+       
+ 
+    }
+    
+    func createInfoPane() {
+        addChild(infoPane.tileName)
+        infoPane.tileName.position = CGPoint(x: frame.minX, y: frame.maxY)
     }
     
 }

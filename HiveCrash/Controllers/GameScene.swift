@@ -17,6 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var bees: [Bee] = []
    var flowers: [Flower] = []
    var meadows: [Meadow] = []
+   var infoPane = InfoPane()
    var moveHive: Bool = false
 
   
@@ -34,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
             let tile = map.tileDefinition(atColumn: column, row: row)
+            updateInfoPane(tile!, column, row)
             if (tile?.userData?.value(forKey: "fog") != nil) && hive.isPlaced == false || (tile?.userData?.value(forKey: "meadow") != nil) && moveHive == true {
                 print("Moving Hive")
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
@@ -47,6 +49,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
          }
     
+    func updateInfoPane(_ tile: SKTileDefinition, _ column: Int, _ row: Int) {
+        if tile.name != nil {
+          infoPane.updateTileInfo(tile.name!)
+          print(infoPane.tileName)
+        }
+
+    }
 
   
     
