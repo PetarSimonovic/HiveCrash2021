@@ -44,7 +44,7 @@ class Bee {
     func createBee() {
         self.sprite = SKSpriteNode(imageNamed: "bee")
         self.sprite.physicsBody = SKPhysicsBody(texture: self.sprite.texture!, size: self.sprite.size)
-        self.sprite.name = "bee"
+        self.sprite.name = "\(self.id)"
         self.sprite.physicsBody?.affectedByGravity = false
         self.sprite.physicsBody?.isDynamic = false
         self.sprite.zPosition = 1
