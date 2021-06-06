@@ -47,7 +47,6 @@ class Flower {
     }
     
     func bloom() {
-        print("Flower is in bloom!", self.pollen)
         self.inBloom = true
         let bloomNode = SKEmitterNode(fileNamed: "hollyhock")!
         self.sprite.addChild(bloomNode)

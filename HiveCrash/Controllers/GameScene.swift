@@ -48,7 +48,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             } else {
               addBee(location, column, row)
               }
+            let beePosition = touch.location(in: self)
+            let node:SKNode = self.atPoint(beePosition)
+            print(node.name!)
             }
+
          }
 
 
