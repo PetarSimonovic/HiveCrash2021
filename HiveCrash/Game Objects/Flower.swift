@@ -40,9 +40,11 @@ class Flower {
     
     func grow() {
         let growthTimer = SKAction.wait(forDuration: growthSpeed)
+        let witherTimer = SKAction.wait(forDuration: 5)
         let bloom = SKAction.run({ self.bloom() })
         let wither = SKAction.run({self.wither() })
-        let growthCycle = SKAction.sequence([growthTimer, bloom, growthTimer, wither])
+        let removeFlower = SKAction.run({self.removeFlower()})
+        let growthCycle = SKAction.sequence([growthTimer, bloom, growthTimer, wither, witherTimer, removeFlower])
         self.sprite.run(SKAction.repeatForever(growthCycle))
     }
     
@@ -62,6 +64,10 @@ class Flower {
         self.sprite.addChild(witherNode)
         self.pollen = 100
         
+    }
+    
+    func removeFlower() {
+        self.sprite.removeAllChildren()
     }
     
 }

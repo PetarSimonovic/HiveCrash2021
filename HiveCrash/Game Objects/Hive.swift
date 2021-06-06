@@ -32,8 +32,9 @@ class Hive {
         self.node.addChild(pulseNode)
     }
     
-    func updatePollen(_ pollenCount: Int) {
-        self.pollen += pollenCount
+    func updatePollen(_ bee: Bee) {
+        self.pollen += bee.pollen
+        bee.pollen = 0
     }
     
     

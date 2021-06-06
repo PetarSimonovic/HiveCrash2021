@@ -44,7 +44,7 @@ extension GameScene {
             checkPollination(bee, column, row)
         case "hive":
             hive.pulse()
-            hive.updatePollen(bee.pollen)
+            hive.updatePollen(bee)
         default:
             return
         }
