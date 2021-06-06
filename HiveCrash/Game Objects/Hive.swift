@@ -15,7 +15,7 @@ class Hive {
     var row: Int = 0
     var location = CGPoint()
     var node = SKNode()
-    
+    var pollen: Int = 0
 
     func place(_ location: CGPoint, _ column: Int, _ row: Int) {
         self.node.removeFromParent()
@@ -30,6 +30,10 @@ class Hive {
     func pulse() {
         let pulseNode = SKEmitterNode(fileNamed: "HivePulse")!
         self.node.addChild(pulseNode)
+    }
+    
+    func updatePollen(_ pollenCount: Int) {
+        self.pollen += pollenCount
     }
     
     

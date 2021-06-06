@@ -10,7 +10,8 @@ import SpriteKit
 class InfoPane {
     
     var tileName = SKLabelNode(fontNamed: "Menlo-Regular")
-    var pollenCount = SKLabelNode(fontNamed: "Menlo-Regular")
+    var flowerPollen = SKLabelNode(fontNamed: "Menlo-Regular")
+    var hivePollen = SKLabelNode(fontNamed: "Menlo-Regular")
     
     func updateTileName (_ name: String) {
         self.tileName.text = name
@@ -19,11 +20,16 @@ class InfoPane {
      
     func updateFlowerInfo(_ column: Int, _ row: Int, _ flower: Flower) {
         if flower.inBloom {
-          self.pollenCount.text = "Pollen count: \(flower.pollen)"
+            self.flowerPollen.text = "Pollen count: \(flower.pollen)"
         } else {
-          self.pollenCount.text = "Dormant"
+          self.flowerPollen.text = "Dormant"
         }
-        formatText(self.pollenCount)
+        formatText(self.flowerPollen)
+    }
+    
+    func updateHiveInfo(_ hive: Hive) {
+        self.hivePollen.text = "Hive pollen count: \(hive.pollen)"
+        formatText(self.hivePollen)
     }
     
     private func formatText(_ text: SKLabelNode) {

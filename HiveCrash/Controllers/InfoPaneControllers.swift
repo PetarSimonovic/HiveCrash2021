@@ -12,9 +12,13 @@ extension GameScene {
 
     func createInfoPane() {
         addChild(infoPane.tileName)
-        addChild(infoPane.pollenCount)
-        infoPane.tileName.position = CGPoint(x: frame.minX + 10, y: frame.maxY - 10)
-        infoPane.pollenCount.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 30)
+        addChild(infoPane.hivePollen)
+        addChild(infoPane.flowerPollen)
+        infoPane.hivePollen.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 10)
+        infoPane.tileName.position = CGPoint(x: frame.minX + 10, y: frame.maxY - 30)
+        infoPane.flowerPollen.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 50)
+
+
     }
     
     func updateInfoPane(_ tile: SKTileDefinition, _ column: Int, _ row: Int) {
@@ -31,8 +35,6 @@ extension GameScene {
             infoPane.updateTileName("Rock")
         case "lake":
             infoPane.updateTileName("Lake")
-        case "hive":
-            infoPane.updateTileName("Hive")
         default:
             return
         }
