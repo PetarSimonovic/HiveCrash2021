@@ -47,9 +47,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             } else if tile!.name == "hive" {
                 moveHive = true
             } else {
-               if let bee = bees.first(where: {$0.inHive == true} ) {
-                    self.releaseBee(bee, location, column, row)
-              }
+               let bee = bees.first(where: {$0.inHive == true} )
+               switch bee {
+               case nil:
+                infoPane.updateBeeStatus("All are bees in flight")
+               default:
+                self.releaseBee(bee!, location, column, row)
+               }
             }
             let beePosition = touch.location(in: self)
             let node:SKNode = self.atPoint(beePosition)

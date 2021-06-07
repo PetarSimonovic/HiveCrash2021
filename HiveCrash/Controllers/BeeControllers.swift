@@ -30,7 +30,7 @@ extension GameScene {
         bee.sprite.position = hive.location
         hive.pulse()
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
-        print("\(bee.name) has left the hive")
+        infoPane.updateBeeStatus("\(bee.name) has left the hive")
     }
 
     
