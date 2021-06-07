@@ -11,16 +11,15 @@ import SpriteKit
 extension GameScene {
     
     func startGame() {
-        print("Startibg game)")
+        print("Starting game")
         tiles.prepareTiles()
         map = tiles.startMap()
         self.addChild(map)
         map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
         map.setScale(self.frame.width / 3200)
-        beeButton.createBeeButton()
-        self.addChild(beeButton.sprite)
-        beeButton.sprite.setScale(self.frame.width / 800)
-        beeButton.sprite.position = CGPoint(x: self.frame.maxX/2, y: self.frame.minY + 80 )
+        self.addChild(button)
+        button.setScale(self.frame.width / 800)
+        button.position = CGPoint(x: self.frame.maxX/2, y: self.frame.minY + 80 )
         createInfoPane()
  
     }
@@ -28,8 +27,12 @@ extension GameScene {
     func gameOver() {
         if bees.count <= 0 {
             infoPane.gameOver()
-            self.run(SKAction.wait(forDuration: 20))
-            resetGame()
+            let wait = SKAction.wait(forDuration: 10)
+            let reset = SKAction.run({ self.resetGame() } )
+            let gameOverSequence = SKAction.sequence([wait, reset])
+            self.run(gameOverSequence)
+        } else {
+            return
         }
 
     }

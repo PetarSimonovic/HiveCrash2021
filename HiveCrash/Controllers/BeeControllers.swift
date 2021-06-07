@@ -86,7 +86,7 @@ extension GameScene {
         if bee.health <= 0 {
            killBee(bee)
         } else {
-        infoPane.updateBeeStatus("Not enough food for \(bee.name). Health is now \(bee.health)")
+        infoPane.updateBeeStatus("Not enough food for \(bee.name)")
        }
     }
     
@@ -94,12 +94,13 @@ extension GameScene {
         if let beeIndex = bees.firstIndex(where: {$0.id == bee.id}) {
         bees.remove(at: beeIndex)
         infoPane.updateBeeStatus("\(bee.name) starved")
+        gameOver()
         }
      }
     
     func buyBee() {
-        if hive.pollen >= cost {
-           hive.pollen -= cost
+        if hive.pollen >= beeCost {
+           hive.pollen -= beeCost
            addBee()
         } else {
             infoPane.updateGameStatus("Not enough pollen to create a bee")

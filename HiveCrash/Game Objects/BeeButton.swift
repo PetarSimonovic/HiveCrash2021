@@ -8,17 +8,12 @@
 import Foundation
 import SpriteKit
 
-class BeeButton {
-    
-    var sprite = SKSpriteNode()
-    
-    func createBeeButton() {
-        self.sprite = SKSpriteNode(imageNamed: "bee")
-        self.sprite.physicsBody = SKPhysicsBody(texture: self.sprite.texture!, size: self.sprite.size)
-        self.sprite.name = "beeButton"
-        self.sprite.physicsBody?.affectedByGravity = false
-        self.sprite.physicsBody?.isDynamic = false
-        self.sprite.zPosition = 2
+        
+    func createBeeButton() -> SKSpriteNode {
+        let button = SKSpriteNode(imageNamed: "bee")
+        button.name = "beeButton"
+        button.zPosition = 1
+        return button
+
    }
     
-}

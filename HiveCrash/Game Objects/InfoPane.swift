@@ -54,12 +54,12 @@ class InfoPane {
     
     func updateGameStatus(_ gameText: String) {
         self.gameStatus.text = gameText
-        formatText(self.beeStatus)
+        formatText(self.gameStatus)
     }
     
     func updateBeeStatus(_ beeText: String) {
         self.beeStatus.text = beeText
-        formatText(self.gameStatus)
+        formatText(self.beeStatus)
     }
     
     func gameOver() {

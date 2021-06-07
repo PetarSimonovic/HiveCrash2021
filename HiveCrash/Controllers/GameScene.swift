@@ -14,7 +14,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var tiles = Tiles()
    var map = SKTileMapNode()
    var hive = Hive()
-   var beeButton = BeeButton()
    var bees: [Bee] = []
    var flowers: [Flower] = []
    var meadows: [Meadow] = []
@@ -22,8 +21,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var moveHive: Bool = false
    var gameTimer: Timer?
    var appetite: Int =  5
-   var cost: Int = 25
-
+   var beeCost: Int = 25
+   var hiveCost: Int = 100
+   var button = createBeeButton()
   
     override func didMove(to view: SKView) {
      startGame()
@@ -40,6 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let row = map.tileRowIndex(fromPosition: location)
             let tile = map.tileDefinition(atColumn: column, row: row)
             if tile?.name == nil {
+                checkButtonTap(touch)
                 return
             }
             updateInfoPane(tile!, column, row)
@@ -48,7 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 placeHive(hiveLocation, column, row)
                 moveHive = false
             } else if tile!.name == "hive" {
-                moveHive = true
+                hive.pollen > hiveCost ? allowHiveMove() : refuseHiveMove()
             } else {
                let bee = bees.first(where: {$0.inHive == true} )
                switch bee {
@@ -62,20 +63,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let beePosition = touch.location(in: self)
             let node:SKNode = self.atPoint(beePosition)
             if node.name != nil {
-                print(node.name!)
-                switch node.name {
-                case "beeButton":
-                    print("pressing Bee Button")
-                    buyBee()
-                default:
                   let beeID = UUID(uuidString: node.name!)
                   if let bee = bees.first(where: {$0.id == beeID}) {
                   infoPane.updateBeeInfo(bee)
                 }
             }
+    }
+    }
+    
+    func checkButtonTap(_ touch: UITouch ) {
+        let position = touch.location(in: self)
+        let node:SKNode = self.atPoint(position)
+        if node.name != nil && node.name == "beeButton" {
+            buyBee()
             }
-
-         }
     }
 
     
@@ -89,7 +90,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             infoPane.updateGameStatus("Move the hive to a new meadow")
         }
         beeFlight()
-        gameOver()
         infoPane.updateHiveInfo(hive, bees.count)
 
 

@@ -21,7 +21,7 @@ extension GameScene {
         5.times {
            addBee()
         }
-        gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateHive), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(updateHive), userInfo: nil, repeats: true)
         }
       self.hive.place(location, column, row)
       clearFog(hive.column, hive.row, true)
@@ -39,5 +39,14 @@ extension GameScene {
             hive.pollen -= bee.appetite
             hive.pollen <= 0 ? beeStarves(bee) : beeEats(bee)
       }
+    }
+    
+    func allowHiveMove() {
+        hive.pollen -= hiveCost
+        moveHive = true
+    }
+    
+    func refuseHiveMove() {
+        infoPane.updateGameStatus("Not enough pollen to move the hive")
     }
 }
