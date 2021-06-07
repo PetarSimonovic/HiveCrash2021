@@ -24,3 +24,11 @@ extension Int {
         }
     }
 }
+
+extension Array {
+
+    mutating func rotateBees() {
+        append(removeFirst())
+    }
+}
+

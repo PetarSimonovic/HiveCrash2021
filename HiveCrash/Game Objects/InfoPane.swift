@@ -39,8 +39,8 @@ class InfoPane {
     }
     
     func updateBeeInfo(_ bee: Bee) {
-        self.beeName.text = "\(bee.name), \(bee.destination), hive \(bee.inHive)"
-        self.beePollen.text = "\(bee.pollen), flyHome\(bee.homewardBound)"
+        self.beeName.text = "\(bee.name)"
+        self.beePollen.text = "\(bee.pollen)"
         formatText(self.beeName)
         formatText(self.beePollen)
 

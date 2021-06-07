@@ -21,6 +21,7 @@ extension GameScene {
     }
     
     func releaseBee(_ bee: Bee, _ destination: CGPoint, _ column: Int, _ row: Int) {
+        bees.rotateBees()
         bee.destination = destination
         bee.destinationColumn = column
         bee.destinationRow = row
