@@ -17,24 +17,25 @@ extension GameScene {
         self.addChild(map)
         map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
         map.setScale(self.frame.width / 3200)
+        beeButton.createBeeButton()
+        self.addChild(beeButton.sprite)
+        beeButton.sprite.setScale(self.frame.width / 800)
+        beeButton.sprite.position = CGPoint(x: self.frame.maxX/2, y: self.frame.minY + 80 )
         createInfoPane()
-        5.times {
-            addBee()
-        }
-       
  
     }
     
     func gameOver() {
         if bees.count <= 0 {
             infoPane.gameOver()
-            self.run(SKAction.wait(forDuration: 10))
+            self.run(SKAction.wait(forDuration: 20))
             resetGame()
         }
 
     }
     
     @objc func resetGame() {
+        gameTimer?.invalidate()
         print("Reset game")
         self.removeAllActions()
         self.removeAllChildren()

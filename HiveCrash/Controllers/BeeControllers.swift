@@ -15,6 +15,7 @@ extension GameScene {
      //   let beeSprite = bee.createBee()
        // map.addChild(bee.sprite)
         bees.append(bee)
+        infoPane.updateGameStatus("\(bee.name) has joined the hive")
        // bee.sprite.position = hive.location
        // hive.pulse()
        // bee.fly(hive.location, flightSpeed(bee, bee.destination))
@@ -95,6 +96,15 @@ extension GameScene {
         infoPane.updateBeeStatus("\(bee.name) starved")
         }
      }
+    
+    func buyBee() {
+        if hive.pollen >= cost {
+           hive.pollen -= cost
+           addBee()
+        } else {
+            infoPane.updateGameStatus("Not enough pollen to create a bee")
+        }
+    }
     
     
 }

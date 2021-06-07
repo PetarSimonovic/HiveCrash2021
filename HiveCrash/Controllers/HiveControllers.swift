@@ -18,6 +18,9 @@ extension GameScene {
            infoPane.updateGameStatus("Hive has moved")
         } else {
         infoPane.updateGameStatus("Hive created")
+        5.times {
+           addBee()
+        }
         gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateHive), userInfo: nil, repeats: true)
         }
       self.hive.place(location, column, row)
