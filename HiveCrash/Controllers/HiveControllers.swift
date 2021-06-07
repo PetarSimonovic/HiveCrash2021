@@ -14,8 +14,13 @@ extension GameScene {
       if moveHive == true {
         map.setTileGroup(tiles.meadow, forColumn: hive.column, row: hive.row)
         }
+        if hive.isPlaced == true {
+           infoPane.updateGameStatus("Hive has moved")
+        } else {
+        infoPane.updateGameStatus("Hive created")
+        gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateHive), userInfo: nil, repeats: true)
+        }
       self.hive.place(location, column, row)
-      infoPane.updateGameStatus("Hive has moved")
       clearFog(hive.column, hive.row, true)
       map.setTileGroup(tiles.hive, forColumn: hive.column, row: hive.row)
       map.addChild(hive.node)

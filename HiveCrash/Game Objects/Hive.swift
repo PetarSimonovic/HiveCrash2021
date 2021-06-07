@@ -10,13 +10,24 @@ import SpriteKit
 
 class Hive {
     
-    var isPlaced: Bool = false
-    var column: Int = 0
-    var row: Int = 0
+    var isPlaced: Bool
+    var column: Int
+    var row: Int
     var location = CGPoint()
-    var node = SKNode()
+    var node: SKNode
     var pollen: Int = 0
-    var pollenCount: Int = 1
+    var pollenCount: Int
+    
+    init() {
+        self.isPlaced = false
+        self.column = 0
+        self.row = 0
+        self.location = CGPoint(x: 0, y: 0)
+        self.pollen = 0
+        self.node = SKNode()
+        self.pollenCount = 1
+        
+    }
 
     func place(_ location: CGPoint, _ column: Int, _ row: Int) {
         self.node.removeFromParent()

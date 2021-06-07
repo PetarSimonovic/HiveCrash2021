@@ -67,6 +67,19 @@ class InfoPane {
         self.gameStatus.text = "Game Over"
     }
     
+    func reset() {
+        tileName.text = ""
+        pollenStatus.text = ""
+        hivePollen.text = ""
+        beeName.text = ""
+        beePollen.text = ""
+        beePopulation.text = ""
+        gameStatus.text = ""
+        beeStatus.text = ""
+ 
+        
+    }
+    
     private func formatText(_ text: SKLabelNode) {
         text.fontColor = UIColor(red: 116, green: 120, blue: 128, alpha: 1)
         text.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left

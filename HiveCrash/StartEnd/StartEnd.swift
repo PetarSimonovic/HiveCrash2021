@@ -11,7 +11,7 @@ import SpriteKit
 extension GameScene {
     
     func startGame() {
-        gameTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(updateHive), userInfo: nil, repeats: true)
+        print("Startibg game)")
         tiles.prepareTiles()
         map = tiles.startMap()
         self.addChild(map)
@@ -21,7 +21,6 @@ extension GameScene {
         5.times {
             addBee()
         }
-        print(bees)
        
  
     }
@@ -29,14 +28,22 @@ extension GameScene {
     func gameOver() {
         if bees.count <= 0 {
             infoPane.gameOver()
-            perform(#selector(resetGame), with: nil, afterDelay: 4.0)
+            self.run(SKAction.wait(forDuration: 10))
+            resetGame()
         }
 
     }
     
     @objc func resetGame() {
+        print("Reset game")
         self.removeAllActions()
         self.removeAllChildren()
+        flowers.removeAll()
+        meadows.removeAll()
+        bees.removeAll()
+        hive = Hive()
+        infoPane.reset()
+        moveHive = false
         startGame()
     }
     

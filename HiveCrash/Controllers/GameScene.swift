@@ -20,7 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var infoPane = InfoPane()
    var moveHive: Bool = false
    var gameTimer: Timer?
-    var appetite: Int =  5
+   var appetite: Int =  5
 
   
     override func didMove(to view: SKView) {
