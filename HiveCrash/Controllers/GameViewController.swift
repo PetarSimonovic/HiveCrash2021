@@ -10,10 +10,10 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+       
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            
             // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
             // including entities and graphs.
             let scene = GameScene(size: view.bounds.size)
@@ -25,6 +25,5 @@ class GameViewController: UIViewController {
             skView.ignoresSiblingOrder = true
             scene.scaleMode = .aspectFill
             skView.presentScene(scene)
-
       }
 }

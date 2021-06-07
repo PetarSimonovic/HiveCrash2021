@@ -19,6 +19,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var meadows: [Meadow] = []
    var infoPane = InfoPane()
    var moveHive: Bool = false
+   var gameTimer: Timer?
 
   
     override func didMove(to view: SKView) {
@@ -40,7 +41,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             updateInfoPane(tile!, column, row)
             if (tile?.name == "fog") && hive.isPlaced == false || (tile?.name == "meadow") && moveHive == true {
-                print("Moving Hive")
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
                 moveHive = false

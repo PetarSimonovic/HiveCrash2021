@@ -20,4 +20,8 @@ extension GameScene {
       map.setTileGroup(tiles.hive, forColumn: hive.column, row: hive.row)
       map.addChild(hive.node)
     }
+    
+     @objc func updateHive() {
+        hive.checkPollen(bees.count)
+    }
 }

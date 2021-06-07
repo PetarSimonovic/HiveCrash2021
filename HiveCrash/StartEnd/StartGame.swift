@@ -11,6 +11,7 @@ import SpriteKit
 extension GameScene {
     
     func startGame() {
+        gameTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(updateHive), userInfo: nil, repeats: true)
         tiles.prepareTiles()
         map = tiles.startMap()
         self.addChild(map)
