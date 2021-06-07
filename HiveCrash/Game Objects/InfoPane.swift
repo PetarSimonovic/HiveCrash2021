@@ -14,6 +14,7 @@ class InfoPane {
     var hivePollen = SKLabelNode(fontNamed: "Menlo-Regular")
     var beeName = SKLabelNode(fontNamed: "Menlo-Regular")
     var beePollen = SKLabelNode(fontNamed: "Menlo-Regular")
+    var beePopulation = SKLabelNode(fontNamed: "Menlo-Regular")
 
     
     func updateTileName (_ name: String) {
@@ -30,9 +31,11 @@ class InfoPane {
         formatText(self.flowerPollen)
     }
     
-    func updateHiveInfo(_ hive: Hive) {
+    func updateHiveInfo(_ hive: Hive, _ bees: Int) {
         self.hivePollen.text = "Hive pollen count: \(hive.pollen)"
+        self.beePopulation.text = "Bee population: \(bees)"
         formatText(self.hivePollen)
+        formatText(self.beePopulation)
     }
     
     func updateBeeInfo(_ bee: Bee) {

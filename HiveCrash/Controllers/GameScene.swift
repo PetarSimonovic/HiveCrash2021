@@ -68,7 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         // Initialize _lastUpdateTime if it has not already been
         beeFlight()
-        infoPane.updateHiveInfo(hive)
+        infoPane.updateHiveInfo(hive, bees.count)
 
 
     }

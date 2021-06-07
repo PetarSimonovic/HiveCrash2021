@@ -16,9 +16,11 @@ extension GameScene {
         addChild(infoPane.flowerPollen)
         addChild(infoPane.beeName)
         addChild(infoPane.beePollen)
+        addChild(infoPane.beePopulation)
         infoPane.hivePollen.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 10)
-        infoPane.tileName.position = CGPoint(x: frame.minX + 10, y: frame.maxY - 30)
-        infoPane.flowerPollen.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 50)
+        infoPane.beePopulation.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 30)
+        infoPane.tileName.position = CGPoint(x: frame.minX + 10, y: frame.maxY - 50)
+        infoPane.flowerPollen.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 70)
         infoPane.beeName.position = CGPoint(x: frame.maxX - 100 , y: frame.maxY - 10)
         infoPane.beePollen.position = CGPoint(x: frame.maxX - 100 , y: frame.maxY - 30)
 
