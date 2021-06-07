@@ -35,10 +35,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
             let tile = map.tileDefinition(atColumn: column, row: row)
-            if tile!.name != nil {
-                updateInfoPane(tile!, column, row)
+            if tile?.name == nil {
+                return
             }
-            if (tile!.name == "fog") && hive.isPlaced == false || (tile!.name == "meadow") && moveHive == true {
+            updateInfoPane(tile!, column, row)
+            if (tile?.name == "fog") && hive.isPlaced == false || (tile?.name == "meadow") && moveHive == true {
                 print("Moving Hive")
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
@@ -46,8 +47,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             } else if tile!.name == "hive" {
                 moveHive = true
             } else {
-              addBee(location, column, row)
+               if let bee = bees.first(where: {$0.inHive == true} ) {
+                    self.releaseBee(bee, location, column, row)
               }
+            }
             let beePosition = touch.location(in: self)
             let node:SKNode = self.atPoint(beePosition)
             if node.name != nil {
@@ -59,7 +62,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
          }
     }
-
 
     
 

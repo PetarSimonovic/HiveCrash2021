@@ -17,8 +17,14 @@ extension GameScene {
         map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
         map.setScale(self.frame.width / 3200)
         createInfoPane()
+        5.times {
+            addBee()
+        }
+        print(bees)
        
  
     }
+    
+    
 
 }

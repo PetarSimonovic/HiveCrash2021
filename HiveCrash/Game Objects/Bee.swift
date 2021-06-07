@@ -27,10 +27,10 @@ class Bee {
     var name: String
 
     
-    init(_ destination: CGPoint, _ destinationRow: Int, _ destinationColumn: Int) {
-        self.destination = destination
-        self.destinationRow = destinationRow
-        self.destinationColumn = destinationColumn
+    init() {
+        self.destinationRow = 0
+        self.destinationColumn = 0
+        self.destination = CGPoint(x: 0, y: 0)
         self.speed = 300
         self.sprite = SKSpriteNode()
         self.pollenCloud = SKEmitterNode()
@@ -38,7 +38,7 @@ class Bee {
         self.pollenCapacity = 10
         self.pollenCollecting = false
         self.homewardBound = false
-        self.inHive = false
+        self.inHive = true
         self.name = chooseName()
         self.createBee()
     }
@@ -56,6 +56,7 @@ class Bee {
    }
     
     func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {
+        self.inHive = false
         self.pollenCollecting = false
         let flight = SKAction.move(to: self.destination, duration: beeSpeed)
         let flyHome = SKAction.run ( { self.flyHome(hiveLocation, beeSpeed)} )
@@ -79,6 +80,12 @@ class Bee {
        // self.inHive == true
         self.sprite.removeFromParent()
         self.sprite.position = CGPoint(x: 0, y: 0)
+        self.inHive = true
+        self.homewardBound = false
+        self.pollenCollecting = false
+        self.pollen = 0
+
+
     }
     
         

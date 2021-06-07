@@ -10,20 +10,39 @@ import SpriteKit
 
 extension GameScene {
     
-    func addBee(_ destination: CGPoint, _ column: Int, _ row: Int) {
-        let bee = Bee(destination, column, row)
+    func addBee() {
+        let bee = Bee()
      //   let beeSprite = bee.createBee()
-        map.addChild(bee.sprite)
+       // map.addChild(bee.sprite)
         bees.append(bee)
+       // bee.sprite.position = hive.location
+       // hive.pulse()
+       // bee.fly(hive.location, flightSpeed(bee, bee.destination))
+    }
+    
+    func releaseBee(_ bee: Bee, _ destination: CGPoint, _ column: Int, _ row: Int) {
+        bee.destination = destination
+        bee.destinationColumn = column
+        bee.destinationRow = row
+        //   let beeSprite = bee.createBee()
+        map.addChild(bee.sprite)
         bee.sprite.position = hive.location
         hive.pulse()
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
+        print("\(bee.name) has left the hive")
     }
+
     
     func beeFlight() {
         for bee in bees {
-            bee.pollenCloud.particleBirthRate = CGFloat(bee.pollen)
-            checkFlightPath(bee)
+            switch bee.inHive {
+            case false:
+                bee.pollenCloud.particleBirthRate = CGFloat(bee.pollen)
+                checkFlightPath(bee)
+            default:
+                continue
+            }
+           
             }
     }
     
