@@ -63,8 +63,11 @@ extension GameScene {
         case "flowerMeadow":
             checkPollination(bee, column, row)
         case "hive":
+            if bee.homewardBound == true {
             hive.pulse()
             hive.updatePollen(bee)
+            infoPane.updateBeeStatus("\(bee.name) has returned to the hive")
+            }
         default:
             return
         }
