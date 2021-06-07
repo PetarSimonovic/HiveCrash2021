@@ -37,6 +37,12 @@ extension GameScene {
 
     }
     
+    func levelComplete() {
+        if hiddenTiles <= 0 {
+            levelComplete()
+        }        
+    }
+    
     @objc func resetGame() {
         gameTimer?.invalidate()
         print("Reset game")

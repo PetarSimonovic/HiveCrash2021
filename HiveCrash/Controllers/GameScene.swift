@@ -23,6 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var appetite: Int =  5
    var beeCost: Int = 25
    var hiveCost: Int = 100
+   let hiddenTiles: Int = 132
    var button = createBeeButton()
   
     override func didMove(to view: SKView) {
