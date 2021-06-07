@@ -20,6 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var infoPane = InfoPane()
    var moveHive: Bool = false
    var gameTimer: Timer?
+    var appetite: Int =  5
 
   
     override func didMove(to view: SKView) {
@@ -79,6 +80,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             infoPane.updateGameStatus("Move the hive to a new meadow")
         }
         beeFlight()
+        gameOver()
         infoPane.updateHiveInfo(hive, bees.count)
 
 

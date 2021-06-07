@@ -25,9 +25,13 @@ class Bee {
     var inHive: Bool
     var pollenCloud: SKEmitterNode
     var name: String
+    var appetite: Int
+    var health: Int
 
     
     init() {
+        self.appetite = 5
+        self.health = 5
         self.destinationRow = 0
         self.destinationColumn = 0
         self.destination = CGPoint(x: 0, y: 0)

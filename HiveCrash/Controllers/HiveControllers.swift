@@ -28,8 +28,8 @@ extension GameScene {
     func feedBees() {
         print("bees are eating")
         for bee in bees {
-           hive.pollen -= 5
-            hive.pollen <= 0 ? infoPane.updateBeeStatus("Not enough food for \(bee.name)") : infoPane.updateBeeStatus("\(bee.name) has eaten")
+            hive.pollen -= bee.appetite
+            hive.pollen <= 0 ? beeStarves(bee) : beeEats(bee)
       }
     }
 }

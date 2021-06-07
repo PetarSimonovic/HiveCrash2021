@@ -16,6 +16,7 @@ class Hive {
     var location = CGPoint()
     var node = SKNode()
     var pollen: Int = 0
+    var pollenCount: Int = 1
 
     func place(_ location: CGPoint, _ column: Int, _ row: Int) {
         self.node.removeFromParent()

@@ -29,7 +29,7 @@
 		0DE92CF7265BC45F00CE5F4B /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DE92CF5265BC45F00CE5F4B /* TileSet.sks */; };
 		0DE92CF8265BC45F00CE5F4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE92CF6265BC45F00CE5F4B /* Assets.xcassets */; };
 		0DE92CFB265BDC7C00CE5F4B /* Tiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CFA265BDC7C00CE5F4B /* Tiles.swift */; };
-		0DE92CFE265BDD4A00CE5F4B /* StartGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CFD265BDD4A00CE5F4B /* StartGame.swift */; };
+		0DE92CFE265BDD4A00CE5F4B /* StartEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CFD265BDD4A00CE5F4B /* StartEnd.swift */; };
 		0DE92D08265BE7DC00CE5F4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE92D07265BE7DC00CE5F4B /* Main.storyboard */; };
 		0DE92D0A265BE99C00CE5F4B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D09265BE99C00CE5F4B /* GameViewController.swift */; };
 		0DE92D0D265D0F3A00CE5F4B /* Hive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D0C265D0F3A00CE5F4B /* Hive.swift */; };
@@ -87,7 +87,7 @@
 		0DE92CF5265BC45F00CE5F4B /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		0DE92CF6265BC45F00CE5F4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DE92CFA265BDC7C00CE5F4B /* Tiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiles.swift; sourceTree = "<group>"; };
-		0DE92CFD265BDD4A00CE5F4B /* StartGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGame.swift; sourceTree = "<group>"; };
+		0DE92CFD265BDD4A00CE5F4B /* StartEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartEnd.swift; sourceTree = "<group>"; };
 		0DE92D07265BE7DC00CE5F4B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0DE92D09265BE99C00CE5F4B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		0DE92D0C265D0F3A00CE5F4B /* Hive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hive.swift; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 		0DE92CFC265BDD3900CE5F4B /* StartEnd */ = {
 			isa = PBXGroup;
 			children = (
-				0DE92CFD265BDD4A00CE5F4B /* StartGame.swift */,
+				0DE92CFD265BDD4A00CE5F4B /* StartEnd.swift */,
 				0D1A737A266E463C0076CCAE /* Extensions.swift */,
 			);
 			path = StartEnd;
@@ -386,7 +386,7 @@
 				0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */,
 				0DE92D19265D4E4700CE5F4B /* HiveControllers.swift in Sources */,
 				0D2F117A265EACBE008B1171 /* Collision.swift in Sources */,
-				0DE92CFE265BDD4A00CE5F4B /* StartGame.swift in Sources */,
+				0DE92CFE265BDD4A00CE5F4B /* StartEnd.swift in Sources */,
 				0DE92D0F265D10CA00CE5F4B /* Map.swift in Sources */,
 				0D2F1176265E8AD7008B1171 /* FlightSpeedCalculator.swift in Sources */,
 				0D2F1178265EAB97008B1171 /* FlowerController.swift in Sources */,

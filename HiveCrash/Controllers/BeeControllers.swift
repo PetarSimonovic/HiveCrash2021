@@ -73,5 +73,28 @@ extension GameScene {
         }
     }
     
+    func beeEats(_ bee: Bee) {
+        bee.health += 1
+        infoPane.updateBeeStatus("\(bee.name) has eaten. Health is now \(bee.health)")
+       }
+    
+     
+    
+    func beeStarves(_ bee: Bee) {
+        bee.health -= 1
+        if bee.health <= 0 {
+           killBee(bee)
+        } else {
+        infoPane.updateBeeStatus("Not enough food for \(bee.name). Health is now \(bee.health)")
+       }
+    }
+    
+    func killBee(_ bee: Bee) {
+        if let beeIndex = bees.firstIndex(where: {$0.id == bee.id}) {
+        bees.remove(at: beeIndex)
+        infoPane.updateBeeStatus("\(bee.name) starved")
+        }
+     }
+    
     
 }

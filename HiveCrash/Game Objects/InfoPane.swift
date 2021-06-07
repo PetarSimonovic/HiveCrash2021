@@ -33,7 +33,7 @@ class InfoPane {
     }
     
     func updateHiveInfo(_ hive: Hive, _ bees: Int) {
-        self.hivePollen.text = "Hive pollen count: \(hive.pollen)"
+        self.hivePollen.text = "Hive pollen count: \(hive.pollen) | \(hive.pollenCount)%"
         self.beePopulation.text = "Bee population: \(bees)"
         formatText(self.hivePollen)
         formatText(self.beePopulation)
@@ -46,7 +46,7 @@ class InfoPane {
     
     func updateBeeInfo(_ bee: Bee) {
         self.beeName.text = "\(bee.name)"
-        self.beePollen.text = "\(bee.pollen)"
+        self.beePollen.text = "\(bee.pollen) | \(bee.health)"
         formatText(self.beeName)
         formatText(self.beePollen)
 
@@ -62,6 +62,11 @@ class InfoPane {
         formatText(self.gameStatus)
     }
     
+    func gameOver() {
+        self.beeStatus.text = "HiveCrash"
+        self.gameStatus.text = "Game Over"
+    }
+    
     private func formatText(_ text: SKLabelNode) {
         text.fontColor = UIColor(red: 116, green: 120, blue: 128, alpha: 1)
         text.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
@@ -69,5 +74,6 @@ class InfoPane {
         text.fontSize = 12
         text.zPosition = CGFloat(1.0)
     }
+
 
 }

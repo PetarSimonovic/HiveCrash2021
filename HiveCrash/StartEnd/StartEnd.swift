@@ -26,6 +26,20 @@ extension GameScene {
  
     }
     
+    func gameOver() {
+        if bees.count <= 0 {
+            infoPane.gameOver()
+            perform(#selector(resetGame), with: nil, afterDelay: 4.0)
+        }
+
+    }
+    
+    @objc func resetGame() {
+        self.removeAllActions()
+        self.removeAllChildren()
+        startGame()
+    }
+    
     
 
 }
