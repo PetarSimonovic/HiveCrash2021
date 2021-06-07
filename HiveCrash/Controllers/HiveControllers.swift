@@ -15,6 +15,7 @@ extension GameScene {
         map.setTileGroup(tiles.meadow, forColumn: hive.column, row: hive.row)
         }
       self.hive.place(location, column, row)
+      infoPane.updateBeeStatus("Hive has moved")
       clearFog(hive.column, hive.row, true)
       map.setTileGroup(tiles.hive, forColumn: hive.column, row: hive.row)
       map.addChild(hive.node)

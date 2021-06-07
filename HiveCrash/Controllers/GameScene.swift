@@ -52,6 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                case nil:
                 infoPane.updateBeeStatus("All bees are in flight")
                default:
+                hive.pulse()
                 self.releaseBee(bee!, location, column, row)
                }
             }
@@ -73,6 +74,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
 
         // Initialize _lastUpdateTime if it has not already been
+        if moveHive == true {
+            hive.pulse()
+            infoPane.updateBeeStatus("Move the hive to a new meadow")
+        }
         beeFlight()
         infoPane.updateHiveInfo(hive, bees.count)
 

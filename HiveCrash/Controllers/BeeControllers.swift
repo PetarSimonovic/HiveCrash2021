@@ -25,10 +25,8 @@ extension GameScene {
         bee.destination = destination
         bee.destinationColumn = column
         bee.destinationRow = row
-        //   let beeSprite = bee.createBee()
         map.addChild(bee.sprite)
         bee.sprite.position = hive.location
-        hive.pulse()
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
         infoPane.updateBeeStatus("\(bee.name) has left the hive")
     }
@@ -67,6 +65,8 @@ extension GameScene {
             hive.pulse()
             hive.updatePollen(bee)
             infoPane.updateBeeStatus("\(bee.name) has returned to the hive")
+            } else {
+                hive.pulse()
             }
         default:
             return
