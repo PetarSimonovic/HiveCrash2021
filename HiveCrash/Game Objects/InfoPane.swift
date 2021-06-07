@@ -12,7 +12,9 @@ class InfoPane {
     var tileName = SKLabelNode(fontNamed: "Menlo-Regular")
     var flowerPollen = SKLabelNode(fontNamed: "Menlo-Regular")
     var hivePollen = SKLabelNode(fontNamed: "Menlo-Regular")
-    var beeInfo = SKLabelNode(fontNamed: "Menlo-Regular")
+    var beeName = SKLabelNode(fontNamed: "Menlo-Regular")
+    var beePollen = SKLabelNode(fontNamed: "Menlo-Regular")
+
     
     func updateTileName (_ name: String) {
         self.tileName.text = name
@@ -34,8 +36,11 @@ class InfoPane {
     }
     
     func updateBeeInfo(_ bee: Bee) {
-        self.beeInfo.text = "\(String(describing: bee.sprite.name))\nPollen: \(bee.pollen)"
-        formatText(self.beeInfo)
+        self.beeName.text = "\(bee.name)"
+        self.beePollen.text = "\(bee.pollen)"
+        formatText(self.beeName)
+        formatText(self.beePollen)
+
     }
     
     private func formatText(_ text: SKLabelNode) {

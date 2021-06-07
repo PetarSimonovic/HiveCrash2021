@@ -24,6 +24,7 @@ class Bee {
     var pollenCollecting: Bool
     var inHive: Bool
     var pollenCloud: SKEmitterNode
+    var name: String
 
     
     init(_ destination: CGPoint, _ destinationRow: Int, _ destinationColumn: Int) {
@@ -38,6 +39,7 @@ class Bee {
         self.pollenCollecting = false
         self.homewardBound = false
         self.inHive = false
+        self.name = chooseName()
         self.createBee()
     }
     

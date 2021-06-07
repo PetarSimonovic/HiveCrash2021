@@ -11,6 +11,7 @@
 		0D151FC626639A2C00E933E1 /* Meadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D151FC526639A2C00E933E1 /* Meadow.swift */; };
 		0D1A7373266B76880076CCAE /* InfoPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A7372266B76880076CCAE /* InfoPane.swift */; };
 		0D1A7377266B7E060076CCAE /* InfoPaneControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A7376266B7E060076CCAE /* InfoPaneControllers.swift */; };
+		0D1A7379266E412E0076CCAE /* BeeNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A7378266E412E0076CCAE /* BeeNames.swift */; };
 		0D2F1168265E3B70008B1171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F1166265E3B70008B1171 /* Assets.xcassets */; };
 		0D2F116A265E3C93008B1171 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F1169265E3C93008B1171 /* Flower.swift */; };
 		0D2F1172265E8259008B1171 /* hollyhock.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F1171265E8259008B1171 /* hollyhock.sks */; };
@@ -61,6 +62,7 @@
 		0D151FC526639A2C00E933E1 /* Meadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meadow.swift; sourceTree = "<group>"; };
 		0D1A7372266B76880076CCAE /* InfoPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPane.swift; sourceTree = "<group>"; };
 		0D1A7376266B7E060076CCAE /* InfoPaneControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPaneControllers.swift; sourceTree = "<group>"; };
+		0D1A7378266E412E0076CCAE /* BeeNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeeNames.swift; sourceTree = "<group>"; };
 		0D2F1166265E3B70008B1171 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D2F1169265E3C93008B1171 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
 		0D2F1171265E8259008B1171 /* hollyhock.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = hollyhock.sks; path = ../../hollyhock.sks; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				0D2F1169265E3C93008B1171 /* Flower.swift */,
 				0D151FC526639A2C00E933E1 /* Meadow.swift */,
 				0D1A7372266B76880076CCAE /* InfoPane.swift */,
+				0D1A7378266E412E0076CCAE /* BeeNames.swift */,
 			);
 			path = "Game Objects";
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				0D2F116A265E3C93008B1171 /* Flower.swift in Sources */,
 				0D1A7373266B76880076CCAE /* InfoPane.swift in Sources */,
 				0DE92D0A265BE99C00CE5F4B /* GameViewController.swift in Sources */,
+				0D1A7379266E412E0076CCAE /* BeeNames.swift in Sources */,
 				0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */,
 				0DE92D19265D4E4700CE5F4B /* HiveControllers.swift in Sources */,
 				0D2F117A265EACBE008B1171 /* Collision.swift in Sources */,
