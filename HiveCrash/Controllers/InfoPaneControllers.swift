@@ -13,18 +13,20 @@ extension GameScene {
     func createInfoPane() {
         addChild(infoPane.tileName)
         addChild(infoPane.hivePollen)
-        addChild(infoPane.flowerPollen)
+        addChild(infoPane.pollenStatus)
         addChild(infoPane.beeName)
         addChild(infoPane.beePollen)
         addChild(infoPane.beePopulation)
+        addChild(infoPane.gameStatus)
         addChild(infoPane.beeStatus)
         infoPane.hivePollen.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 10)
         infoPane.beePopulation.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 30)
         infoPane.tileName.position = CGPoint(x: frame.minX + 10, y: frame.maxY - 50)
-        infoPane.flowerPollen.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 70)
+        infoPane.pollenStatus.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 70)
         infoPane.beeName.position = CGPoint(x: frame.maxX - 100 , y: frame.maxY - 10)
         infoPane.beePollen.position = CGPoint(x: frame.maxX - 100 , y: frame.maxY - 30)
-        infoPane.beeStatus.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 30)
+        infoPane.beeStatus.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 50)
+        infoPane.gameStatus.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 30)
 
     }
     
@@ -33,7 +35,10 @@ extension GameScene {
         case "fog":
             infoPane.updateTileName("Fog")
         case "meadow":
-            infoPane.updateTileName("Meadow")
+            if let meadow = meadows.first(where: {$0.column == column && $0.row == row}) {
+              infoPane.updateTileName("Meadow")
+              infoPane.updateMeadowInfo(meadow)
+            }
         case "flowerMeadow":
             infoPane.updateTileName("Flower Meadow")
             let flower = flowers.first(where: {$0.column == column && $0.row == row})!

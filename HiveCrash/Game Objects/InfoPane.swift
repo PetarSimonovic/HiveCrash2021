@@ -10,11 +10,12 @@ import SpriteKit
 class InfoPane {
     
     var tileName = SKLabelNode(fontNamed: "Menlo-Regular")
-    var flowerPollen = SKLabelNode(fontNamed: "Menlo-Regular")
+    var pollenStatus = SKLabelNode(fontNamed: "Menlo-Regular")
     var hivePollen = SKLabelNode(fontNamed: "Menlo-Regular")
     var beeName = SKLabelNode(fontNamed: "Menlo-Regular")
     var beePollen = SKLabelNode(fontNamed: "Menlo-Regular")
     var beePopulation = SKLabelNode(fontNamed: "Menlo-Regular")
+    var gameStatus = SKLabelNode(fontNamed: "Menlo-Regular")
     var beeStatus = SKLabelNode(fontNamed: "Menlo-Regular")
     
     func updateTileName (_ name: String) {
@@ -24,11 +25,11 @@ class InfoPane {
      
     func updateFlowerInfo(_ column: Int, _ row: Int, _ flower: Flower) {
         if flower.inBloom {
-            self.flowerPollen.text = "Pollen count: \(flower.pollen)"
+            self.pollenStatus.text = "Pollen count: \(flower.pollen)"
         } else {
-          self.flowerPollen.text = "Dormant"
+          self.pollenStatus.text = "Dormant"
         }
-        formatText(self.flowerPollen)
+        formatText(self.pollenStatus)
     }
     
     func updateHiveInfo(_ hive: Hive, _ bees: Int) {
@@ -36,6 +37,11 @@ class InfoPane {
         self.beePopulation.text = "Bee population: \(bees)"
         formatText(self.hivePollen)
         formatText(self.beePopulation)
+    }
+    
+    func updateMeadowInfo(_ meadow: Meadow) {
+        self.pollenStatus.text = "Pollination: \(meadow.pollen)%"
+        formatText(self.pollenStatus)
     }
     
     func updateBeeInfo(_ bee: Bee) {
@@ -46,9 +52,14 @@ class InfoPane {
 
     }
     
+    func updateGameStatus(_ gameText: String) {
+        self.gameStatus.text = gameText
+        formatText(self.beeStatus)
+    }
+    
     func updateBeeStatus(_ beeText: String) {
         self.beeStatus.text = beeText
-        formatText(self.beeStatus)
+        formatText(self.gameStatus)
     }
     
     private func formatText(_ text: SKLabelNode) {

@@ -43,10 +43,6 @@ class Hive {
         bee.pollen = 0
     }
     
-    func checkPollen(_ bees: Int) {
-        print("bees are eating")
-        self.pollen -= bees * 5
-    }
 
     
     

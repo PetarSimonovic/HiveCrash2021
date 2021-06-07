@@ -15,13 +15,21 @@ extension GameScene {
         map.setTileGroup(tiles.meadow, forColumn: hive.column, row: hive.row)
         }
       self.hive.place(location, column, row)
-      infoPane.updateBeeStatus("Hive has moved")
+      infoPane.updateGameStatus("Hive has moved")
       clearFog(hive.column, hive.row, true)
       map.setTileGroup(tiles.hive, forColumn: hive.column, row: hive.row)
       map.addChild(hive.node)
     }
     
      @objc func updateHive() {
-        hive.checkPollen(bees.count)
+        feedBees()
+    }
+    
+    func feedBees() {
+        print("bees are eating")
+        for bee in bees {
+           hive.pollen -= 5
+            hive.pollen <= 0 ? infoPane.updateBeeStatus("Not enough food for \(bee.name)") : infoPane.updateBeeStatus("\(bee.name) has eaten")
+      }
     }
 }

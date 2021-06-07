@@ -68,6 +68,7 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
         }
         print("Meadow", meadow.pollen)
         if meadow.pollen >= 100 && meadow.flowerMeadow == false {
+            infoPane.updateGameStatus("Meadow \(column)-\(row) pollinated: flowers will bloom")
             meadow.flowerMeadow = true
             createFlowerMeadow(column, row)
         }
