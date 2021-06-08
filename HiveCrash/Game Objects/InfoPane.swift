@@ -19,7 +19,7 @@ class InfoPane {
     var gameStatus_2 = SKLabelNode(fontNamed: "Menlo-Regular")
     var gameStatus_3 = SKLabelNode(fontNamed: "Menlo-Regular")
     var beeStatus = SKLabelNode(fontNamed: "Menlo-Regular")
-    var gameInfo: [String] = ["HiveCrash", "Keep the hive alive", "Pollinate meadows", "Discover the world"]
+    var gameInfo: [String] = ["Pollinate meadows", "Feed the hive", "Explore the world"]
     
     func updateTileName (_ name: String) {
         self.tileName.text = name

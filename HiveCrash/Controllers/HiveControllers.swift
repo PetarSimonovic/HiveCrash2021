@@ -55,8 +55,7 @@ extension GameScene {
                 return
             } else if bee.scout == true {
                 infoPane.updateGameStatus("Already scouting new location")
-            } else
-            {
+            } else {
                 infoPane.updateGameStatus("Select meadow for new hive")
                 moveHive = true
             }

@@ -34,6 +34,7 @@ extension GameScene {
     
     func migrateBees (_ oldHive: CGPoint, _ newHive: CGPoint, _ column: Int, _ row: Int) {
         for bee in bees {
+            bee.removeBee()
             infoPane.updateGameStatus("\(bee.name) is migrtating")
             if bee.scout == false {
             bee.inHive = false

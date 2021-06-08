@@ -90,12 +90,14 @@ class Bee {
     func removeBee() {
        // self.inHive == true
         self.sprite.removeFromParent()
+        self.sprite.removeAllChildren()
         self.sprite.position = CGPoint(x: 0, y: 0)
         self.inHive = true
         self.homewardBound = false
         self.pollenCollecting = false
         self.pollen = 0
         self.scout = false
+        self.settler = false
 
 
     }
