@@ -53,6 +53,10 @@ extension GameScene {
         switch tile?.name! {
         case "fog":
              clearFog(column, row, false)
+        case "lake":
+            if  bee.pollen != 0 {
+              bee.pollen -= (bee.speed/10) / 2
+            }
         case "rock":
             bee.flyHome(hive.location, flightSpeed(bee, hive.location))
         case "meadow":
