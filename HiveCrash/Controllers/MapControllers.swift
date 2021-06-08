@@ -18,19 +18,25 @@ extension GameScene {
             for tile in adjacentTiles {
                 let checkTile = map.tileDefinition(atColumn: column + tile[0], row: row + tile[1])
                     if let _ = checkTile?.userData?.value(forKey: "fog") {
-                    let newTile = tiles.chooseTile()
+                    var newTile = tiles.chooseTile()
+                        if newTile == tiles.flowerMeadow {
+                            newTile = tiles.meadow
+                        }
                     map.setTileGroup(newTile, forColumn: column + tile[0], row: row + tile[1])
                     addMeadow(newTile, column + tile[0], row + tile[1])
-                    addFlower(newTile, column + tile[0], row + tile[1])
-                    adjustProgress()
                     }
                 }
         default:
-            let newTile = tiles.chooseTile()
+            var newTile = SKTileGroup()
+            if self.hive.firstFlowerMeadow == false {
+                newTile = tiles.flowerMeadow
+                self.hive.firstFlowerMeadow = true
+            } else {
+              newTile = tiles.chooseTile()
+            }
             map.setTileGroup(newTile, forColumn: column, row: row)
             addMeadow(newTile, column, row)
             addFlower(newTile, column, row)
-            adjustProgress()
         }
     }
     
@@ -42,13 +48,4 @@ extension GameScene {
         
     }
     
-    func adjustProgress() {
-        tileCounter -= 1
-        print(tileCounter)
-        infoPane.updateGameStatus("\(tileCounter) tiles remaimning")
-        if tileCounter <= 1 {
-            levelComplete()
-        }
-
-    }
 }

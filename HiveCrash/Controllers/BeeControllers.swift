@@ -55,7 +55,9 @@ extension GameScene {
              clearFog(column, row, false)
         case "lake":
             if  bee.pollen != 0 {
-              bee.pollen -= (bee.speed/10) / 2
+             let pollenLoss =  bee.pollen - (bee.speed/10) / 2
+                bee.pollen -= pollenLoss
+                infoPane.updateGameStatus("\(bee) shed \(pollenLoss) over Lake: \(bee.pollen)")
             }
         case "rock":
             bee.flyHome(hive.location, flightSpeed(bee, hive.location))
@@ -69,6 +71,7 @@ extension GameScene {
             if bee.homewardBound == true {
             hive.pulse()
             hive.updatePollen(bee)
+            infoPane.updateGameStatus("\(bee.name) added \(bee.pollen) to hive")
             infoPane.updateBeeStatus("\(bee.name) has returned to the hive")
             } else {
                 hive.pulse()

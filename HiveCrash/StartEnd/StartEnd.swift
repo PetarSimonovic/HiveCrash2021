@@ -56,7 +56,7 @@ extension GameScene {
         hive = Hive()
         infoPane.reset()
         moveHive = false
-        tileCounter = 132
+        tiles.fogCount = 132
         startGame()
     }
     

@@ -91,6 +91,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             infoPane.updateGameStatus("Move the hive to a new meadow")
         }
         beeFlight()
+        if tiles.fogCount <= 0 {
+            levelComplete()
+        }
         infoPane.updateHiveInfo(hive, bees.count)
 
 

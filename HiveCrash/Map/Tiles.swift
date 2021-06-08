@@ -21,6 +21,7 @@ class Tiles {
     var flowerMeadow = SKTileGroup()
     var hiveTile: [Int] = []
     var hivePlaced: Bool = false
+    var fogCount: Int = 132
     
     
     func startMap() -> SKTileMapNode {
@@ -88,6 +89,9 @@ class Tiles {
     }
     
     func chooseTile() -> SKTileGroup {
+        
+        self.fogCount -= 1
+        print("Remaining tiles: \(self.fogCount)")
     
        let tile = Int.random(in: 0...6)
     

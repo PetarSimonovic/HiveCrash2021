@@ -17,6 +17,7 @@ class Hive {
     var node: SKNode
     var pollen: Int = 0
     var pollenCount: Int
+    var firstFlowerMeadow: Bool
     
     init() {
         self.isPlaced = false
@@ -26,6 +27,7 @@ class Hive {
         self.pollen = 0
         self.node = SKNode()
         self.pollenCount = 1
+        self.firstFlowerMeadow = false
         
     }
 
