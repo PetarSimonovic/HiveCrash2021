@@ -22,6 +22,7 @@ extension GameScene {
                     map.setTileGroup(newTile, forColumn: column + tile[0], row: row + tile[1])
                     addMeadow(newTile, column + tile[0], row + tile[1])
                     addFlower(newTile, column + tile[0], row + tile[1])
+                    adjustProgress()
                     }
                 }
         default:
@@ -29,6 +30,7 @@ extension GameScene {
             map.setTileGroup(newTile, forColumn: column, row: row)
             addMeadow(newTile, column, row)
             addFlower(newTile, column, row)
+            adjustProgress()
         }
     }
     
@@ -38,5 +40,15 @@ extension GameScene {
             meadows.append(meadow)
         }
         
+    }
+    
+    func adjustProgress() {
+        tileCounter -= 1
+        print(tileCounter)
+        infoPane.updateGameStatus("\(tileCounter) tiles remaimning")
+        if tileCounter <= 1 {
+            levelComplete()
+        }
+
     }
 }

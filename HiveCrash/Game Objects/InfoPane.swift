@@ -67,15 +67,26 @@ class InfoPane {
         self.gameStatus.text = "Game Over"
     }
     
+    func levelComplete() {
+        self.beeStatus.text = "Level Complete"
+        self.gameStatus.text = "Level Comnplete"
+        self.tileName.text = "All meadows found"
+        self.pollenStatus.text = ""
+        self.hivePollen.text = ""
+        self.beeName.text = ""
+        self.beePollen.text = ""
+        self.beePopulation.text = ""
+    }
+    
     func reset() {
-        tileName.text = ""
-        pollenStatus.text = ""
-        hivePollen.text = ""
-        beeName.text = ""
-        beePollen.text = ""
-        beePopulation.text = ""
-        gameStatus.text = ""
-        beeStatus.text = ""
+        self.tileName.text = ""
+        self.pollenStatus.text = ""
+        self.hivePollen.text = ""
+        self.beeName.text = ""
+        self.beePollen.text = ""
+        self.beePopulation.text = ""
+        self.gameStatus.text = ""
+        self.beeStatus.text = ""
  
         
     }

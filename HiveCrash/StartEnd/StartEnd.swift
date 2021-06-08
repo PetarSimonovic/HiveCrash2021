@@ -38,10 +38,12 @@ extension GameScene {
     }
     
     func levelComplete() {
-        if hiddenTiles <= 0 {
-            levelComplete()
-        }        
-    }
+        infoPane.levelComplete()
+        let wait = SKAction.wait(forDuration: 20)
+        let reset = SKAction.run({ self.resetGame() } )
+        let gameOverSequence = SKAction.sequence([wait, reset])
+        self.run(gameOverSequence)
+        }
     
     @objc func resetGame() {
         gameTimer?.invalidate()
@@ -54,6 +56,7 @@ extension GameScene {
         hive = Hive()
         infoPane.reset()
         moveHive = false
+        tileCounter = 132
         startGame()
     }
     
