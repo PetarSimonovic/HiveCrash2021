@@ -97,7 +97,8 @@ extension GameScene {
     func killBee(_ bee: Bee) {
         if let beeIndex = bees.firstIndex(where: {$0.id == bee.id}) {
         bees.remove(at: beeIndex)
-        infoPane.updateBeeStatus("\(bee.name) starved")
+        infoPane.updateBeeStatus("\(bee.name) died")
+        bee.removeBee()
         gameOver()
         }
      }
