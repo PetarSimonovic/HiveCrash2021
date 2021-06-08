@@ -95,10 +95,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
 
         // Initialize _lastUpdateTime if it has not already been
-//        if moveHive == true {
-//            hive.pulse()
-//            infoPane.updateGameStatus("Move the hive to a new meadow")
-//        }
+        if scouting == true {
+            hive.pulse()
+        }
         beeFlight()
         if tiles.fogCount <= 0 {
             levelComplete()

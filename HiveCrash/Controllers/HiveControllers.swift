@@ -16,6 +16,7 @@ extension GameScene {
         addMeadow(tiles.meadow, hive.column, hive.row)
         moveHive = false
         let oldHive = hive.location
+        hive.pollen -= hiveCost
         migrateBees(oldHive, location, column, row)
         }
         if hive.isPlaced == true {
@@ -56,6 +57,7 @@ extension GameScene {
                 infoPane.updateGameStatus("Already scouting new location")
             } else
             {
+                infoPane.updateGameStatus("Select meadow for new hive")
                 moveHive = true
             }
         }

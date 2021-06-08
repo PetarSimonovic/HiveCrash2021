@@ -43,14 +43,12 @@ extension GameScene {
             map.addChild(bee.sprite)
             bee.sprite.position = oldHive
             bee.flyHome(newHive, flightSpeed(bee, newHive))
+            } else {
+              bee.removeBee()
             }
         }
-        if let bee = bees.first(where: { $0.scout == true }) {
-            bee.removeBee()
-            infoPane.updateGameStatus("Hive migrated")
-        }
-          scouting = false
-
+        infoPane.updateGameStatus("Hive migrated")
+        scouting = false
     }
 
     
@@ -91,6 +89,7 @@ extension GameScene {
                 infoPane.updateGameStatus("No clear path to meadow - select new location")
                 bee.scout = false
                 moveHive = false
+                scouting = false
             }
             bee.flyHome(hive.location, flightSpeed(bee, hive.location))
         case "meadow":
