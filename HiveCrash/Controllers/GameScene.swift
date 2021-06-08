@@ -46,14 +46,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 return
             }
             updateInfoPane(tile!, column, row)
-            if (tile?.name == "fog") && hive.isPlaced == false || (tile?.name == "meadow") && moveHive == true {
+            if (tile?.name == "fog") && hive.isPlaced == false  {
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
-                moveHive = false
             } else if tile!.name == "hive" {
                 hive.pollen > hiveCost ? allowHiveMove() : refuseHiveMove()
-            } else {
+            }
+            else {
                let bee = bees.first(where: {$0.inHive == true} )
+                if moveHive == true {
+                    bee?.scout = true
+                    moveHive = false
+                }
                switch bee {
                case nil:
                 infoPane.updateGameStatus("All bees are in flight")

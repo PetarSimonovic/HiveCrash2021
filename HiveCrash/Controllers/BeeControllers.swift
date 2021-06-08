@@ -60,6 +60,10 @@ extension GameScene {
                 infoPane.updateGameStatus("\(bee) shed \(pollenLoss) over Lake: \(bee.pollen)")
             }
         case "rock":
+            if bee.scout {
+                infoPane.updateGameStatus("No clear path to meadow - select new location")
+                bee.scout = false
+            }
             bee.flyHome(hive.location, flightSpeed(bee, hive.location))
         case "meadow":
             if bee.pollen != 0 {
