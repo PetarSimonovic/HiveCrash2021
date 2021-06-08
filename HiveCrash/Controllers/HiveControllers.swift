@@ -15,6 +15,8 @@ extension GameScene {
         map.setTileGroup(tiles.meadow, forColumn: hive.column, row: hive.row)
         addMeadow(tiles.meadow, hive.column, hive.row)
         moveHive = false
+        let oldHive = hive.location
+        migrateBees(oldHive, location, column, row)
         }
         if hive.isPlaced == true {
            infoPane.updateGameStatus("Hive has moved")
@@ -27,6 +29,7 @@ extension GameScene {
         gameTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(updateHive), userInfo: nil, repeats: true)
         }
       hive.place(location, column, row)
+      
       clearFog(hive.column, hive.row, true)
       map.setTileGroup(tiles.hive, forColumn: hive.column, row: hive.row)
       map.addChild(hive.node)

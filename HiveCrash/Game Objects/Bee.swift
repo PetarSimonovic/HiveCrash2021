@@ -85,6 +85,7 @@ class Bee {
          self.pollenCollecting = false
     }
     
+    
     func removeBee() {
        // self.inHive == true
         self.sprite.removeFromParent()

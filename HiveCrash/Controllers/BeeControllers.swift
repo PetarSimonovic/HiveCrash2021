@@ -31,6 +31,20 @@ extension GameScene {
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
         infoPane.updateGameStatus("\(bee.name) has left the hive")
     }
+    
+    func migrateBees (_ oldHive: CGPoint, _ newHive: CGPoint, _ column: Int, _ row: Int) {
+        infoPane.updateGameStatus("Hive is migrtating")
+        for bee in bees {
+            if bee.scout == false {
+            bee.destination = newHive
+            bee.destinationColumn = column
+            bee.destinationRow = row
+            map.addChild(bee.sprite)
+            bee.sprite.position = oldHive
+            bee.flyHome(newHive, flightSpeed(bee, newHive))
+            }
+        }
+    }
 
     
     func beeFlight() {

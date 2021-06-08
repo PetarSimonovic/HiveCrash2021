@@ -26,7 +26,7 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
     func checkPollination(_ bee: Bee, _ column: Int, _ row: Int) {
         for flower in flowers {
             if flower.column == column && flower.row == row {
-                if flower.inBloom {
+                if flower.inBloom && bee.scout == false {
                     bee.collectPollen(flower, hive.location, flightSpeed(bee, hive.location))
                     calculatePollen(bee, flower)
                 } else if bee.pollenCollecting {
