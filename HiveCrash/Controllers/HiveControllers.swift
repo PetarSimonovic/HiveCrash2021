@@ -13,6 +13,7 @@ extension GameScene {
     func placeHive(_ location: CGPoint, _ column: Int, _ row: Int) {
       if moveHive == true {
         map.setTileGroup(tiles.meadow, forColumn: hive.column, row: hive.row)
+        addMeadow(tiles.meadow, hive.column, hive.row)
         }
         if hive.isPlaced == true {
            infoPane.updateGameStatus("Hive has moved")
