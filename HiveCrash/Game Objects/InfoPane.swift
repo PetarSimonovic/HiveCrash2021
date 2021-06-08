@@ -15,8 +15,11 @@ class InfoPane {
     var beeName = SKLabelNode(fontNamed: "Menlo-Regular")
     var beePollen = SKLabelNode(fontNamed: "Menlo-Regular")
     var beePopulation = SKLabelNode(fontNamed: "Menlo-Regular")
-    var gameStatus = SKLabelNode(fontNamed: "Menlo-Regular")
+    var gameStatus_1 = SKLabelNode(fontNamed: "Menlo-Regular")
+    var gameStatus_2 = SKLabelNode(fontNamed: "Menlo-Regular")
+    var gameStatus_3 = SKLabelNode(fontNamed: "Menlo-Regular")
     var beeStatus = SKLabelNode(fontNamed: "Menlo-Regular")
+    var gameInfo: [String] = ["HiveCrash", "Keep the hive alive", "Pollinate meadows", "Discover the world"]
     
     func updateTileName (_ name: String) {
         self.tileName.text = name
@@ -52,25 +55,30 @@ class InfoPane {
 
     }
     
-    func updateGameStatus(_ gameText: String) {
-        self.gameStatus.text = gameText
-        formatText(self.gameStatus)
+    func updateGameStatus(_ text: String) {
+      self.gameInfo.insert(text, at: 0)
+      updateDisplay()
     }
     
-    func updateBeeStatus(_ beeText: String) {
-        self.beeStatus.text = beeText
-        formatText(self.beeStatus)
+    func updateDisplay() {
+        self.gameStatus_1.text = self.gameInfo[0]
+        self.gameStatus_2.text = self.gameInfo[1]
+        self.gameStatus_3.text = self.gameInfo[2]
+        formatText(self.gameStatus_1)
+        formatText(self.gameStatus_2)
+        formatText(self.gameStatus_3)
     }
     
     func gameOver() {
-        self.beeStatus.text = "HiveCrash"
-        self.gameStatus.text = "Game Over"
+        self.gameStatus_1.text = "HiveCrash"
+        self.gameStatus_2.text = "All bees have died"
+        self.gameStatus_3.text = "Game over"
     }
     
     func levelComplete() {
-        self.beeStatus.text = "Level Complete"
-        self.gameStatus.text = "Level Comnplete"
-        self.tileName.text = "All meadows found"
+        self.gameStatus_1.text = "Level Complete"
+        self.gameStatus_2.text = "All Meadows found"
+        self.gameStatus_3.text = "Bees have survived"
         self.pollenStatus.text = ""
         self.hivePollen.text = ""
         self.beeName.text = ""
@@ -85,7 +93,9 @@ class InfoPane {
         self.beeName.text = ""
         self.beePollen.text = ""
         self.beePopulation.text = ""
-        self.gameStatus.text = ""
+        self.gameStatus_1.text = ""
+        self.gameStatus_2.text = ""
+        self.gameStatus_3.text = ""
         self.beeStatus.text = ""
  
         
@@ -95,7 +105,7 @@ class InfoPane {
         text.fontColor = UIColor(red: 116, green: 120, blue: 128, alpha: 1)
         text.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         text.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
-        text.fontSize = 12
+        text.fontSize = 10
         text.zPosition = CGFloat(1.0)
     }
 

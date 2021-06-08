@@ -17,7 +17,9 @@ extension GameScene {
         addChild(infoPane.beeName)
         addChild(infoPane.beePollen)
         addChild(infoPane.beePopulation)
-        addChild(infoPane.gameStatus)
+        addChild(infoPane.gameStatus_1)
+        addChild(infoPane.gameStatus_2)
+        addChild(infoPane.gameStatus_3)
         addChild(infoPane.beeStatus)
         infoPane.hivePollen.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 10)
         infoPane.beePopulation.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 30)
@@ -25,9 +27,9 @@ extension GameScene {
         infoPane.pollenStatus.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 70)
         infoPane.beeName.position = CGPoint(x: frame.maxX - 100 , y: frame.maxY - 10)
         infoPane.beePollen.position = CGPoint(x: frame.maxX - 100 , y: frame.maxY - 30)
-        infoPane.beeStatus.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 50)
-        infoPane.gameStatus.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 30)
-
+        infoPane.gameStatus_1.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 65)
+        infoPane.gameStatus_2.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 50)
+        infoPane.gameStatus_3.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 35)
     }
     
     func updateInfoPane(_ tile: SKTileDefinition, _ column: Int, _ row: Int) {

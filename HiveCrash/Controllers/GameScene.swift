@@ -17,6 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var bees: [Bee] = []
    var flowers: [Flower] = []
    var meadows: [Meadow] = []
+   var gameInfo: [String] = []
    var infoPane = InfoPane()
    var moveHive: Bool = false
    var gameTimer: Timer?

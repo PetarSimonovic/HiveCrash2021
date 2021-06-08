@@ -29,7 +29,7 @@ extension GameScene {
         map.addChild(bee.sprite)
         bee.sprite.position = hive.location
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
-        infoPane.updateBeeStatus("\(bee.name) has left the hive")
+        infoPane.updateGameStatus("\(bee.name) has left the hive")
     }
 
     
@@ -70,9 +70,9 @@ extension GameScene {
         case "hive":
             if bee.homewardBound == true {
             hive.pulse()
-            hive.updatePollen(bee)
             infoPane.updateGameStatus("\(bee.name) added \(bee.pollen) to hive")
-            infoPane.updateBeeStatus("\(bee.name) has returned to the hive")
+            hive.updatePollen(bee)
+            infoPane.updateGameStatus("\(bee.name) has returned to the hive")
             } else {
                 hive.pulse()
             }
@@ -83,7 +83,7 @@ extension GameScene {
     
     func beeEats(_ bee: Bee) {
         bee.health += 1
-        infoPane.updateBeeStatus("\(bee.name) has eaten. Health is now \(bee.health)")
+        infoPane.updateGameStatus("\(bee.name) has eaten. Health is now \(bee.health)")
        }
     
      
@@ -93,14 +93,14 @@ extension GameScene {
         if bee.health <= 0 {
            killBee(bee)
         } else {
-        infoPane.updateBeeStatus("Not enough food for \(bee.name)")
+        infoPane.updateGameStatus("Not enough food for \(bee.name)")
        }
     }
     
     func killBee(_ bee: Bee) {
         if let beeIndex = bees.firstIndex(where: {$0.id == bee.id}) {
         bees.remove(at: beeIndex)
-        infoPane.updateBeeStatus("\(bee.name) died")
+        infoPane.updateGameStatus("\(bee.name) died")
         bee.removeBee()
         gameOver()
         }
