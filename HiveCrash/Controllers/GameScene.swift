@@ -54,9 +54,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             else {
                let bee = bees.first(where: {$0.inHive == true} )
-                if moveHive == true {
+                if moveHive == true && tile!.name == "meadow" {
                     bee?.scout = true
-                    moveHive = false
                 }
                switch bee {
                case nil:

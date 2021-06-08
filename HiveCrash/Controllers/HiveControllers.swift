@@ -14,6 +14,7 @@ extension GameScene {
       if moveHive == true {
         map.setTileGroup(tiles.meadow, forColumn: hive.column, row: hive.row)
         addMeadow(tiles.meadow, hive.column, hive.row)
+        moveHive = false
         }
         if hive.isPlaced == true {
            infoPane.updateGameStatus("Hive has moved")
@@ -48,7 +49,10 @@ extension GameScene {
             if bee.inHive == false {
                 infoPane.updateGameStatus("All bees must be in hive to move")
                 return
-            } else {
+            } else if bee.scout == true {
+                infoPane.updateGameStatus("Already scouting new location")
+            } else
+            {
                 moveHive = true
             }
         }

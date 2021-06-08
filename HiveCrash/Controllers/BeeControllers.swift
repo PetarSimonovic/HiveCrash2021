@@ -50,6 +50,11 @@ extension GameScene {
         let column = self.map.tileColumnIndex(fromPosition: bee.sprite.position)
         let row = self.map.tileRowIndex(fromPosition: bee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
+        if bee.settler {
+            bee.settler = false
+            let newHiveLocaiton = map.centerOfTile(atColumn: bee.destinationColumn, row: bee.destinationRow)
+            placeHive(newHiveLocaiton, bee.destinationColumn, bee.destinationRow)
+        }
         switch tile?.name! {
         case "fog":
              clearFog(column, row, false)
@@ -63,6 +68,7 @@ extension GameScene {
             if bee.scout {
                 infoPane.updateGameStatus("No clear path to meadow - select new location")
                 bee.scout = false
+                moveHive = false
             }
             bee.flyHome(hive.location, flightSpeed(bee, hive.location))
         case "meadow":
