@@ -72,6 +72,7 @@ extension GameScene {
             hive.pulse()
             infoPane.updateGameStatus("\(bee.name) added \(bee.pollen) to hive")
             hive.updatePollen(bee)
+            bee.homewardBound = false
             infoPane.updateGameStatus("\(bee.name) has returned to the hive")
             } else {
                 hive.pulse()

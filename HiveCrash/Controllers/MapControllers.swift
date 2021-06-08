@@ -31,6 +31,7 @@ extension GameScene {
             if self.hive.firstFlowerMeadow == false {
                 newTile = tiles.flowerMeadow
                 self.hive.firstFlowerMeadow = true
+                tiles.fogCount -= 1
             } else {
               newTile = tiles.chooseTile()
             }
