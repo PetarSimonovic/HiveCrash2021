@@ -43,6 +43,14 @@ extension GameScene {
     }
     
     func allowHiveMove() {
+        for bee in bees {
+            if bee.inHive == false {
+                infoPane.updateGameStatus("All bees must be in hive to move")
+                return
+            } else {
+                continue
+            }
+        }
         hive.pollen -= hiveCost
         moveHive = true
     }
