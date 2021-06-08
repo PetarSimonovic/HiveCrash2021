@@ -73,7 +73,8 @@ class Bee {
     func flyHome(_ destination: CGPoint, _ beeSpeed: TimeInterval ) {
         if self.homewardBound == false && self.scout == true {
             self.settler = true
-            self.sprite.run(SKAction.rotate(byAngle: 10, duration: 0.5))
+//            let waggleDance = SKAction.rotate(byAngle: 10, duration: 0.5)
+//            self.sprite.run(SKAction.repeatForever(waggleDance))
         } else if self.homewardBound == false {
             self.sprite.removeAllActions()
             let removeBee = SKAction.run( { self.removeBee() } )
@@ -94,13 +95,11 @@ class Bee {
         self.homewardBound = false
         self.pollenCollecting = false
         self.pollen = 0
+        self.scout = false
 
 
     }
     
-    func settleHive() -> Bool {
-        return self.settler
-    }
     
         
     func collectPollen(_ flower: Flower, _ hive: CGPoint,_ beeSpeed: TimeInterval) {

@@ -33,9 +33,10 @@ extension GameScene {
     }
     
     func migrateBees (_ oldHive: CGPoint, _ newHive: CGPoint, _ column: Int, _ row: Int) {
-        infoPane.updateGameStatus("Hive is migrtating")
         for bee in bees {
+            infoPane.updateGameStatus("\(bee.name) is migrtating")
             if bee.scout == false {
+            bee.inHive = false
             bee.destination = newHive
             bee.destinationColumn = column
             bee.destinationRow = row
@@ -44,6 +45,12 @@ extension GameScene {
             bee.flyHome(newHive, flightSpeed(bee, newHive))
             }
         }
+        if let bee = bees.first(where: { $0.scout == true }) {
+            bee.removeBee()
+            infoPane.updateGameStatus("Hive migrated")
+        }
+          scouting = false
+
     }
 
     
@@ -65,6 +72,7 @@ extension GameScene {
         let row = self.map.tileRowIndex(fromPosition: bee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
         if bee.settler {
+            infoPane.updateGameStatus("\(bee.name) has found a meadow for new hive")
             bee.settler = false
             let newHiveLocaiton = map.centerOfTile(atColumn: bee.destinationColumn, row: bee.destinationRow)
             placeHive(newHiveLocaiton, bee.destinationColumn, bee.destinationRow)
@@ -131,7 +139,7 @@ extension GameScene {
         }
      }
     
-    func buyBee() {
+    func hatchBee() {
         if hive.pollen >= beeCost {
            hive.pollen -= beeCost
            addBee()
