@@ -14,7 +14,7 @@ class BeeTests: XCTestCase {
     
     var sut: Bee!
     // Bee initialisation variables
-    let defaultBeeSpeed: Int = 100000
+    let defaultBeeSpeed: Int = 300
     let defaultPollenCapacity: Int = 10
     let defaultPollen: Int = 0
     let defaultAppetite: Int = 5
@@ -77,12 +77,36 @@ class BeeTests: XCTestCase {
     
     func testBeeSetsFlightPathCorrectly() {
         sut.createBee()
-        sut.setDestination(testTileLocation, testDestinationColumn, testDestinationRow)
         sut.fly(testTileLocation, flightTime)
-        print("Position start", sut.sprite.position)
         XCTAssert(sut.inHive == false, "Flying bee is still in hive")
         XCTAssert(sut.sprite.hasActions(), "Flying bee does not execute flight actions")
         }
+    
+    func testBeeKnowsWhenItsHomewardBound() {
+        sut.createBee()
+        sut.flyHome(testTileLocation, flightTime)
+        XCTAssert(sut.homewardBound == true, "Bee doesn't know it's goiung home")
+
+    }
+    
+    func funcRemoveBeeRestoresFlightDefaultsRemovesActions() {
+        sut.createBee()
+        sut.setDestination(testTileLocation, testDestinationColumn, testDestinationRow)
+        sut.fly(testTileLocation, flightTime)
+        sut.pollen = 100
+        XCTAssert(sut.sprite.hasActions(), "No actions assigned to testflight")
+        XCTAssert(sut.homewardBound == false, "Default Bee think it's going home before it's asked to return to hive")
+        sut.flyHome(testTileLocation, flightTime)
+        XCTAssert(sut.homewardBound == true, "Default Bee should know it's going home")
+        sut.removeBee()
+        XCTAssert(sut.homewardBound == false, "Bee shouldn't be homewardBound in the Hive")
+        XCTAssert(sut.pollen == defaultPollen, "Bee pollen should return to default in Hive")
+        XCTAssert(sut.sprite.hasActions() != true, "Default Bee still has actions after removeBee")
+        XCTAssert(sut.inHive == true, "Bee should know it's back in the hive")
+        XCTAssert(sut.pollenCollecting == false, "Bee can't collect pollen in hive")
+        XCTAssert(sut.scout == false, "Bee can't be a scout in the hive")
+        XCTAssert(sut.settler == false, "Bee can't be a settler in the hive")
+    }
 
 
 }

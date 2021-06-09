@@ -48,23 +48,15 @@ class Bee {
         self.pollenCloud.particleBirthRate = CGFloat(self.pollen)
    }
     
-//    func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {
-//        self.inHive = false
-//        self.pollenCollecting = false
-//        let flight = SKAction.move(to: self.destination, duration: beeSpeed)
-//        let flyHome = SKAction.run ( { self.flyHome(hiveLocation, beeSpeed)} )
-//        let flightPath = SKAction.sequence([flight, flyHome])
-//        self.sprite.run(flightPath, withKey: "flightPath")
-//    }
-    
     func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {
         self.inHive = false
         self.pollenCollecting = false
         let flight = SKAction.move(to: self.destination, duration: beeSpeed)
-//        let flyHome = SKAction.run ( { self.flyHome(hiveLocation, beeSpeed)} )
-//        let flightPath = SKAction.sequence([flight, flyHome])
-        self.sprite.run(flight)
+        let flyHome = SKAction.run ( { self.flyHome(hiveLocation, beeSpeed)} )
+        let flightPath = SKAction.sequence([flight, flyHome])
+        self.sprite.run(flightPath, withKey: "flightPath")
     }
+    
     
     func setDestination(_ destination: CGPoint, _ column: Int, _ row: Int) {
         self.destination = destination
@@ -90,7 +82,6 @@ class Bee {
     
     
     func removeBee() {
-       // self.inHive == true
         self.sprite.removeFromParent()
         self.sprite.removeAllChildren()
         self.sprite.position = CGPoint(x: 0, y: 0)
