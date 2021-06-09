@@ -27,6 +27,7 @@ class BeeTests: XCTestCase {
     let testHiveLocation: CGPoint = CGPoint(x: 100, y: 100)
     let testTileLocation: CGPoint = CGPoint(x: 50, y: 50)
     let flightTime: TimeInterval = 20
+    
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -109,5 +110,9 @@ class BeeTests: XCTestCase {
     }
 
 
+}
+
+class FakeFlower {
+    var pollen: Int = 100
 }
 
