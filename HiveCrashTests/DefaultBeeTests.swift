@@ -14,7 +14,7 @@ class BeeTests: XCTestCase {
     
     var sut: Bee!
     // Bee initialisation variables
-    let defaultBeeSpeed: Int = 300
+    let defaultBeeSpeed: Int = 100000
     let defaultPollenCapacity: Int = 10
     let defaultPollen: Int = 0
     let defaultAppetite: Int = 5
@@ -73,16 +73,16 @@ class BeeTests: XCTestCase {
         XCTAssert(sut.destinationColumn == testDestinationColumn, "Bee didn't receive correct destination Column")
         XCTAssert(sut.destinationRow == testDestinationRow, "Bee didn't receive correct destination Row")
 
-
-        
-   //     NOT BEING USED!?
-//        XCTAssert(sut.destinationRow == testDestinationRow, "Bee didn't receive correct destination row")
-//        XCTAssert(sut.destinationColumn == testDestinationColumn, "Bee didn't receive correct destination column")
-
-
-
-
     }
+    
+    func testBeeSetsFlightPathCorrectly() {
+        sut.createBee()
+        sut.setDestination(testTileLocation, testDestinationColumn, testDestinationRow)
+        sut.fly(testTileLocation, flightTime)
+        print("Position start", sut.sprite.position)
+        XCTAssert(sut.inHive == false, "Flying bee is still in hive")
+        XCTAssert(sut.sprite.hasActions(), "Flying bee does not execute flight actions")
+        }
 
 
 }

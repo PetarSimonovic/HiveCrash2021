@@ -48,13 +48,22 @@ class Bee {
         self.pollenCloud.particleBirthRate = CGFloat(self.pollen)
    }
     
+//    func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {
+//        self.inHive = false
+//        self.pollenCollecting = false
+//        let flight = SKAction.move(to: self.destination, duration: beeSpeed)
+//        let flyHome = SKAction.run ( { self.flyHome(hiveLocation, beeSpeed)} )
+//        let flightPath = SKAction.sequence([flight, flyHome])
+//        self.sprite.run(flightPath, withKey: "flightPath")
+//    }
+    
     func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {
         self.inHive = false
         self.pollenCollecting = false
         let flight = SKAction.move(to: self.destination, duration: beeSpeed)
-        let flyHome = SKAction.run ( { self.flyHome(hiveLocation, beeSpeed)} )
-        let flightPath = SKAction.sequence([flight, flyHome])
-        self.sprite.run(flightPath, withKey: "flight")
+//        let flyHome = SKAction.run ( { self.flyHome(hiveLocation, beeSpeed)} )
+//        let flightPath = SKAction.sequence([flight, flyHome])
+        self.sprite.run(flight)
     }
     
     func setDestination(_ destination: CGPoint, _ column: Int, _ row: Int) {
@@ -102,7 +111,7 @@ class Bee {
         // exrract the collection into its own class?
 //        print("BEE POLLEN", self.pollen)
 //        print("FLOWER POLLEN", flower.pollen)
-        self.sprite.removeAction(forKey: "flight")
+        self.sprite.removeAction(forKey: "flightPath")
         self.sprite.removeAction(forKey: "flyHome")
         self.sprite.run(SKAction.rotate(byAngle: 10, duration: 0.5))
         self.sprite.run(SKAction.move(to: flower.location, duration: 1))
