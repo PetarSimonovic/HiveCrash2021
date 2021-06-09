@@ -165,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				0D2F1164265E3B52008B1171 /* Particles */,
-				0DE92D0B265D0F2B00CE5F4B /* Game Objects */,
+				0DE92D0B265D0F2B00CE5F4B /* GameObjects */,
 				0DE92CFF265BE27600CE5F4B /* Controllers */,
 				0DE92CFC265BDD3900CE5F4B /* StartEnd */,
 				0DE92CF9265BDC3C00CE5F4B /* Map */,
@@ -231,7 +231,7 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		0DE92D0B265D0F2B00CE5F4B /* Game Objects */ = {
+		0DE92D0B265D0F2B00CE5F4B /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
 				0DE92D0C265D0F3A00CE5F4B /* Hive.swift */,
@@ -243,7 +243,7 @@
 				0D1A7378266E412E0076CCAE /* BeeNames.swift */,
 				0D1A737C266E8EBC0076CCAE /* BeeButton.swift */,
 			);
-			path = "Game Objects";
+			path = GameObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -538,6 +538,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

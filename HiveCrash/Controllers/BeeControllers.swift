@@ -44,6 +44,7 @@ extension GameScene {
             map.addChild(bee.sprite)
             bee.sprite.position = oldHive
             bee.flyHome(newHive, flightSpeed(bee, newHive))
+            self.run(SKAction.wait(forDuration: 1))
             } else {
               bee.removeBee()
             }

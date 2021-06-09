@@ -12,39 +12,26 @@ class Bee {
     
     // initalise this bee with some properties? Worker, drone etc? Then make newBee an instance of bee?
     
-    var destination: CGPoint
-    var destinationRow: Int
-    var destinationColumn: Int
-    var speed: Int
-    var sprite: SKSpriteNode
+    var destination: CGPoint = CGPoint(x: 0, y: 0)
+    var destinationRow: Int = 0
+    var destinationColumn: Int = 0
+    var speed: Int = 300
+    var sprite = SKSpriteNode()
     var id = UUID()
-    var pollen: Int
-    var pollenCapacity: Int
-    var homewardBound: Bool
-    var pollenCollecting: Bool
-    var inHive: Bool
-    var pollenCloud: SKEmitterNode
+    var pollen: Int = 0
+    var pollenCapacity: Int = 10
+    var homewardBound: Bool = false
+    var pollenCollecting: Bool = false
+    var inHive: Bool = true
+    var pollenCloud = SKEmitterNode ()
     var name: String
-    var appetite: Int
-    var health: Int
+    var appetite: Int = 5
+    var health: Int = 5
     var settler: Bool = false
     var scout: Bool = false
 
     
     init() {
-        self.appetite = 5
-        self.health = 5
-        self.destinationRow = 0
-        self.destinationColumn = 0
-        self.destination = CGPoint(x: 0, y: 0)
-        self.speed = 300
-        self.sprite = SKSpriteNode()
-        self.pollenCloud = SKEmitterNode()
-        self.pollen = 0
-        self.pollenCapacity = 10
-        self.pollenCollecting = false
-        self.homewardBound = false
-        self.inHive = true
         self.name = chooseName()
         self.createBee()
     }
