@@ -8,8 +8,8 @@
 import Foundation
 
 class Meadow {
-    var pollen: Int
-    var flowerMeadow: Bool
+    var pollen: Int = 0
+    var flowerMeadow: Bool = false
     var column: Int
     var row: Int
     
@@ -17,8 +17,6 @@ class Meadow {
     init(_ column: Int, _ row: Int) {
         self.column = column
         self.row = row
-        self.flowerMeadow = false
-        self.pollen = 0
     }
     
     
