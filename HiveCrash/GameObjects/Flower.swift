@@ -16,22 +16,17 @@ class Flower {
     var location: CGPoint
     var column: Int
     var row: Int
-    var pollen: Int
-    var sprite: SKSpriteNode
-    var particleNode: SKEmitterNode
-    var inBloom: Bool
-    var growthSpeed: TimeInterval
+    var pollen: Int = 100
+    var sprite = SKSpriteNode()
+    var particleNode = SKEmitterNode()
+    var inBloom: Bool = false
+    var growthSpeed: TimeInterval = 10
     
     
     init(_ location: CGPoint,_ column: Int, _ row: Int) {
         self.location = location
         self.row = row
         self.column = column
-        self.sprite = SKSpriteNode()
-        self.particleNode = SKEmitterNode()
-        self.pollen = 100
-        self.inBloom = false
-        self.growthSpeed = 10
         grow()
 
 //        createFlower()
