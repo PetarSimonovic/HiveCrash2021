@@ -23,9 +23,7 @@ extension GameScene {
     
     func releaseBee(_ bee: Bee, _ destination: CGPoint, _ column: Int, _ row: Int) {
         bees.rotateBees()
-        bee.destination = destination
-        bee.destinationColumn = column
-        bee.destinationRow = row
+        bee.setDestination(destination, column, row)
         map.addChild(bee.sprite)
         bee.sprite.position = hive.location
         bee.fly(hive.location, flightSpeed(bee, bee.destination))

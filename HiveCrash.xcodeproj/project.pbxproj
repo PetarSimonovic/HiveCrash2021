@@ -23,6 +23,7 @@
 		0D2F117C265F968D008B1171 /* hollyhockDisperse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F117B265F968D008B1171 /* hollyhockDisperse.sks */; };
 		0D2F117E265FB43F008B1171 /* HivePulse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F117D265FB43F008B1171 /* HivePulse.sks */; };
 		0D3B7A9C266FABD700150A15 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7A9B266FABD700150A15 /* GameInfo.swift */; };
+		0D3B7A9E2670C32200150A15 /* DefaultBeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7A9D2670C32200150A15 /* DefaultBeeTests.swift */; };
 		0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */; };
 		0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */; };
 		0DE92CD7265B8AFB00CE5F4B /* HiveCrashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CD6265B8AFB00CE5F4B /* HiveCrashTests.swift */; };
@@ -77,6 +78,7 @@
 		0D2F117B265F968D008B1171 /* hollyhockDisperse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hollyhockDisperse.sks; sourceTree = "<group>"; };
 		0D2F117D265FB43F008B1171 /* HivePulse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HivePulse.sks; sourceTree = "<group>"; };
 		0D3B7A9B266FABD700150A15 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
+		0D3B7A9D2670C32200150A15 /* DefaultBeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBeeTests.swift; sourceTree = "<group>"; };
 		0DE92CBB265B8AFA00CE5F4B /* HiveCrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveCrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		0DE92CD5265B8AFB00CE5F4B /* HiveCrashTests */ = {
 			isa = PBXGroup;
 			children = (
+				0D3B7A9D2670C32200150A15 /* DefaultBeeTests.swift */,
 				0DE92CD6265B8AFB00CE5F4B /* HiveCrashTests.swift */,
 				0DE92CD8265B8AFB00CE5F4B /* Info.plist */,
 			);
@@ -413,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DE92CD7265B8AFB00CE5F4B /* HiveCrashTests.swift in Sources */,
+				0D3B7A9E2670C32200150A15 /* DefaultBeeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

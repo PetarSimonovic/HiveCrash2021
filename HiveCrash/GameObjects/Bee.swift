@@ -57,6 +57,12 @@ class Bee {
         self.sprite.run(flightPath, withKey: "flight")
     }
     
+    func setDestination(_ destination: CGPoint, _ column: Int, _ row: Int) {
+        self.destination = destination
+        self.destinationColumn = column
+        self.destinationRow = row
+    }
+    
     func flyHome(_ destination: CGPoint, _ beeSpeed: TimeInterval ) {
         if self.homewardBound == false && self.scout == true {
             self.settler = true
