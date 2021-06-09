@@ -10,6 +10,19 @@ import SpriteKit
 @testable import HiveCrash
 
 var sut: Bee!
+// Bee initialisation variables
+let defaultBeeSpeed: Int = 300
+let defaultPollenCapacity: Int = 10
+let defaultPollen: Int = 0
+let defaultAppetite: Int = 5
+let defaultHealth: Int = 5
+
+
+// Bee testflight variables
+let destinationColumn: Int = 10
+let destinationRow: Int = 10
+
+
 
 class HiveCrashTests: XCTestCase {
 
@@ -45,12 +58,11 @@ class HiveCrashTests: XCTestCase {
     func testDefaultBeeIsInitialisedCorrectly() {
       sut.createBee()
       XCTAssert(beeNames.contains(sut.name), "Default Bee didn't reveive a name")
-      XCTAssert(sut.pollen == 0, "Default Bee didn't initialise with correct pollen")
-      XCTAssert(sut.pollen == 0, "Default Bee didn't initialise with correct pollen")
-      XCTAssert(sut.pollenCapacity == 10, "Default Bee didn't initialise with correct pollenCapacity")
-      XCTAssert(sut.appetite == 5, "Default Bee didn't initialise with correct appetite")
-      XCTAssert(sut.health == 5, "Default Bee didn't initialise with correct health")
-      XCTAssert(sut.speed == 300, "Default Bee didn't initialise with correct speed")
+      XCTAssert(sut.pollen == defaultPollen, "Default Bee didn't initialise with correct pollen")
+      XCTAssert(sut.pollenCapacity == defaultPollenCapacity, "Default Bee didn't initialise with correct pollenCapacity")
+      XCTAssert(sut.appetite == defaultAppetite, "Default Bee didn't initialise with correct appetite")
+      XCTAssert(sut.health == defaultHealth, "Default Bee didn't initialise with correct health")
+      XCTAssert(sut.speed == defaultBeeSpeed, "Default Bee didn't initialise with correct speed")
       XCTAssert(sut.homewardBound == false, "Default Bee starts with homewardBound activated")
       XCTAssert(sut.pollenCollecting == false, "Default Bee starts with pollenCollecting activated")
       XCTAssert(sut.inHive == true, "Default Bee starts outside Hive")
