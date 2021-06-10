@@ -34,9 +34,6 @@ class Bee {
     
     var sprite = SKSpriteNode()
     var pollenCloud = SKEmitterNode ()
-
- 
-
     
     init() {
         self.name = chooseName()

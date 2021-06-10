@@ -107,7 +107,10 @@ class BeeTests: XCTestCase {
         XCTAssert(sut.pollenCollecting == false, "Bee can't collect pollen in hive")
         XCTAssert(sut.scout == false, "Bee can't be a scout in the hive")
         XCTAssert(sut.settler == false, "Bee can't be a settler in the hive")
+        XCTAssert(sut.sprite.position == CGPoint(x: 0, y: 0), "Bee sprite position is 0")
+
     }
+    
 
 
 }
