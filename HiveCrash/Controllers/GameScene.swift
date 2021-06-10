@@ -102,9 +102,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hive.pulse()
         }
         beeFlight()
-        if tiles.fogCount <= 0 {
-            levelComplete()
-        }
         infoPane.updateHiveInfo(hive, bees.count)
 
 

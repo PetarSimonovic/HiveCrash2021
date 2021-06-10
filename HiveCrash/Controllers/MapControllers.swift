@@ -38,6 +38,9 @@ extension GameScene {
             map.setTileGroup(newTile, forColumn: column, row: row)
             addMeadow(newTile, column, row)
             addFlower(newTile, column, row)
+            if tiles.fogCount <= 0 {
+                levelComplete()
+            }
         }
     }
     

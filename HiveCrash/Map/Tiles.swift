@@ -23,6 +23,7 @@ class Tiles {
     var hivePlaced: Bool = false
     var fogCount: Int = 132
     var flowerMeadows: Int = 8
+    var difficulty: Int = 8
     
     func startMap() -> SKTileMapNode {
 
@@ -36,7 +37,10 @@ class Tiles {
     
     func prepareTiles(_ level: Int, _ tiles: SKTileSet) {
         self.flowerMeadows -= level
-        print("Flower Mead)
+        self.difficulty -= level
+        if self.difficulty < 3 {
+            self.difficulty = 3
+        }
         tileSet = tiles
         hive = assignTiles("hive")
         meadow = assignTiles("meadow")
@@ -86,7 +90,7 @@ class Tiles {
         self.fogCount -= 1
         print("Remaining tiles: \(self.fogCount)")
     
-       let tile = Int.random(in: 0...8-level)
+        let tile = Int.random(in: 0...self.difficulty)
     
        switch tile {
         case 1:
