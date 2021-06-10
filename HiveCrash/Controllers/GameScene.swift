@@ -60,7 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             else {
                let bee = bees.first(where: {$0.inHive == true} )
-                if moveHive == true && tile!.name == "meadow" {
+                if moveHive == true && tile!.name == "meadow" || moveHive == true && tile!.name == "flowerMeadow" {
                     bee?.scout = true
                     infoPane.updateGameStatus("\(bee!.name) is scouting for a new hive")
                     scouting = true
