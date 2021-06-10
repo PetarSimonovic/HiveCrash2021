@@ -114,7 +114,9 @@ extension GameScene {
     }
     
     func beeEats(_ bee: Bee) {
-        bee.health += 1
+        if bee.health < bee.maxHealth {
+            bee.health  += 1
+        }
         infoPane.updateGameStatus("\(bee.name) has eaten. Health is now \(bee.health)")
        }
     
@@ -152,6 +154,12 @@ extension GameScene {
             5.times {
             addBee()
            }
+        }
+    }
+    
+    func resetBees() {
+        for bee in bees {
+            bee.health = startHealth
         }
     }
     

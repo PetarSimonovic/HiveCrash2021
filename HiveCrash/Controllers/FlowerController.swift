@@ -79,6 +79,15 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
         map.setTileGroup(tiles.flowerMeadow, forColumn: column, row: row)
         addFlower(tiles.flowerMeadow, column, row)
     }
+    
+    func removeFlower(_ column: Int, _ row: Int) {
+        if let flowerIndex = flowers.firstIndex(where: {$0.column == column && $0.row == row}) {
+           let flower = flowers[flowerIndex]
+            flower.sprite.removeFromParent()
+            flowers.remove(at: flowerIndex)
+
+        }
+    }
 }
 
    

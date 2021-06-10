@@ -49,7 +49,8 @@ extension GameScene {
     
     
     @objc func resetGame() {
-        gameTimer?.invalidate()
+        resetBees()
+        gameTimer!.invalidate()
         print("Reset game")
         self.removeAllActions()
         self.removeAllChildren()

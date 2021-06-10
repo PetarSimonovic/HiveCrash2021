@@ -25,6 +25,7 @@ extension GameScene {
                     map.setTileGroup(newTile, forColumn: column + tile[0], row: row + tile[1])
                     addMeadow(newTile, column + tile[0], row + tile[1])
                     }
+                checkVictory()
                 }
         default:
             var newTile = SKTileGroup()
@@ -38,9 +39,7 @@ extension GameScene {
             map.setTileGroup(newTile, forColumn: column, row: row)
             addMeadow(newTile, column, row)
             addFlower(newTile, column, row)
-            if tiles.fogCount <= 0 {
-                levelComplete()
-            }
+            checkVictory()
         }
     }
     
@@ -51,5 +50,12 @@ extension GameScene {
         }
         
     }
+    
+    func checkVictory() {
+        if tiles.fogCount <= 0 {
+            levelComplete()
+        }
+    }
+    
     
 }

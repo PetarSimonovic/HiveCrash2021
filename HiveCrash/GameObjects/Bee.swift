@@ -24,7 +24,10 @@ class Bee {
     var pollen: Int = 0
     var pollenCapacity: Int = 10
     var appetite: Int = 5
-    var health: Int = 5
+    var startHealth: Int = 5
+    var maxHealth: Int = 10
+    var health: Int
+    
     
     var homewardBound: Bool = false
     var pollenCollecting: Bool = false
@@ -38,6 +41,7 @@ class Bee {
     init() {
         self.name = chooseName()
         self.createBee()
+        self.health = self.startHealth
     }
     
     func createBee() {
