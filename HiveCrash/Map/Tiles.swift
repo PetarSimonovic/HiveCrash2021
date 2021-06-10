@@ -22,7 +22,7 @@ class Tiles {
     var hiveTile: [Int] = []
     var hivePlaced: Bool = false
     var fogCount: Int = 132
-    
+    var flowerMeadows: Int = 8
     
     func startMap() -> SKTileMapNode {
 
@@ -34,8 +34,10 @@ class Tiles {
         return tileMap
            }
     
-    func prepareTiles() {
-        tileSet = loadTiles()
+    func prepareTiles(_ level: Int, _ tiles: SKTileSet) {
+        self.flowerMeadows -= level
+        print("Flower Mead)
+        tileSet = tiles
         hive = assignTiles("hive")
         meadow = assignTiles("meadow")
         flowerMeadow = assignTiles("flowerMeadow")
@@ -44,15 +46,6 @@ class Tiles {
         fog = assignTiles("fog")
       
     }
-    
-    private func loadTiles() -> SKTileSet {
-        guard let tiles = SKTileSet(named: "TileSet") else {
-                   // hint: don't use the filename for named, use the tileset inside
-                   fatalError()
-               }
-        return tiles
-    }
-    
 
     private func assignTiles(_ tileName: String) -> SKTileGroup {
         return tileSet.tileGroups.first { $0.name == tileName }!
@@ -88,12 +81,12 @@ class Tiles {
         }
     }
     
-    func chooseTile() -> SKTileGroup {
+    func chooseTile(_ level: Int) -> SKTileGroup {
         
         self.fogCount -= 1
         print("Remaining tiles: \(self.fogCount)")
     
-       let tile = Int.random(in: 0...6)
+       let tile = Int.random(in: 0...8-level)
     
        switch tile {
         case 1:
@@ -101,7 +94,13 @@ class Tiles {
        case 2:
             return lake
        case 3:
-            return flowerMeadow
+        print("Meadow/flower", self.flowerMeadows)
+        if self.flowerMeadows >= 3 {
+           self.flowerMeadows -= 1
+           return flowerMeadow
+        } else {
+          return meadow
+        }
         default:
             return meadow
         }

@@ -24,9 +24,7 @@ extension GameScene {
         } else {
         tiles.fogCount -= 1
         infoPane.updateGameStatus("Hive created")
-        5.times {
-           addBee()
-        }
+        emptyHive()
         gameTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(updateHive), userInfo: nil, repeats: true)
         }
       hive.place(location, column, row)

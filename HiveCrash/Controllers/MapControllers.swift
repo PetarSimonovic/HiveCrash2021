@@ -18,7 +18,7 @@ extension GameScene {
             for tile in adjacentTiles {
                 let checkTile = map.tileDefinition(atColumn: column + tile[0], row: row + tile[1])
                     if let _ = checkTile?.userData?.value(forKey: "fog") {
-                    var newTile = tiles.chooseTile()
+                    var newTile = tiles.chooseTile(level)
                         if newTile == tiles.flowerMeadow {
                             newTile = tiles.meadow
                         }
@@ -33,7 +33,7 @@ extension GameScene {
                 self.hive.firstFlowerMeadow = true
                 tiles.fogCount -= 1
             } else {
-              newTile = tiles.chooseTile()
+              newTile = tiles.chooseTile(level)
             }
             map.setTileGroup(newTile, forColumn: column, row: row)
             addMeadow(newTile, column, row)

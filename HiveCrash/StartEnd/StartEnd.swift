@@ -12,7 +12,7 @@ extension GameScene {
     
     func startGame() {
         print("Starting game")
-        tiles.prepareTiles()
+        tiles.prepareTiles(level, tileSet)
         map = tiles.startMap()
         self.addChild(map)
         map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
@@ -27,23 +27,26 @@ extension GameScene {
     func gameOver() {
         if bees.count <= 0 {
             infoPane.gameOver()
-            let wait = SKAction.wait(forDuration: 10)
-            let reset = SKAction.run({ self.resetGame() } )
-            let gameOverSequence = SKAction.sequence([wait, reset])
-            self.run(gameOverSequence)
+            level = 1
+            self.run(endGame())
         } else {
             return
         }
-
     }
     
     func levelComplete() {
         infoPane.levelComplete()
+        level += 1
+        self.run(endGame())
+        }
+    
+    func endGame() -> SKAction {
         let wait = SKAction.wait(forDuration: 20)
         let reset = SKAction.run({ self.resetGame() } )
         let gameOverSequence = SKAction.sequence([wait, reset])
-        self.run(gameOverSequence)
-        }
+        return gameOverSequence
+    }
+    
     
     @objc func resetGame() {
         gameTimer?.invalidate()
@@ -52,8 +55,8 @@ extension GameScene {
         self.removeAllChildren()
         flowers.removeAll()
         meadows.removeAll()
-        bees.removeAll()
         hive = Hive()
+        tiles = Tiles()
         infoPane.reset()
         moveHive = false
         tiles.fogCount = 132

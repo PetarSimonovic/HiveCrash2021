@@ -11,6 +11,7 @@ import SwiftUI
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+   var tileSet = loadTiles()
    var tiles = Tiles()
    var map = SKTileMapNode()
    var hive = Hive()
@@ -27,6 +28,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var tileCounter: Int = 130
    var button = createBeeButton()
    var scouting: Bool = false
+   var level: Int = 1
+    
   
     override func didMove(to view: SKView) {
      startGame()

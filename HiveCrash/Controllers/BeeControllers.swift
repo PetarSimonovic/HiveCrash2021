@@ -147,5 +147,13 @@ extension GameScene {
         }
     }
     
+    func emptyHive() {
+        if bees.count == 0 {
+            5.times {
+            addBee()
+           }
+        }
+    }
+    
     
 }

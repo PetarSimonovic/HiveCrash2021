@@ -34,7 +34,7 @@ class HiveCrashTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func test
+  //  func test
     
 
 //    func testPerformanceExample() throws {
