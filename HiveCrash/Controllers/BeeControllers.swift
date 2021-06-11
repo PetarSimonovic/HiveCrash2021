@@ -159,7 +159,7 @@ extension GameScene {
     
     func resetBees() {
         for bee in bees {
-            bee.health = startHealth
+            bee.health = bee.startHealth
         }
     }
     

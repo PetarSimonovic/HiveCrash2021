@@ -21,6 +21,7 @@ class Flower {
     var particleNode = SKEmitterNode()
     var inBloom: Bool = false
     var growthSpeed: TimeInterval = 10
+    var hasBee: Bool = false
     
     
     init(_ location: CGPoint,_ column: Int, _ row: Int) {
@@ -54,6 +55,7 @@ class Flower {
        // print("Dying!")
         self.inBloom = false
         let witherNode = SKEmitterNode(fileNamed: "hollyhockDisperse")!
+        self.sprite.zPosition = 1.5
         witherNode.advanceSimulationTime(3)
         self.sprite.removeAllChildren()
         self.sprite.addChild(witherNode)
