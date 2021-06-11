@@ -43,6 +43,8 @@ extension GameScene {
         }
     
     func endGame() -> SKAction {
+        gameTimer?.invalidate()
+        gameTimer = nil
         let wait = SKAction.wait(forDuration: 20)
         let reset = SKAction.run({ self.resetGame() } )
         let gameOverSequence = SKAction.sequence([wait, reset])
@@ -52,7 +54,6 @@ extension GameScene {
     
     @objc func resetGame() {
         resetBees()
-        gameTimer!.invalidate()
         print("Reset game")
         self.removeAllActions()
         self.removeAllChildren()
