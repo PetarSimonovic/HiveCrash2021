@@ -45,6 +45,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
             let tile = map.tileDefinition(atColumn: column, row: row)
+            print("Tile coordinates", column, row)
             
             // scouting clause will prevent taps on bee sprites now
             if scouting == true || tile?.name == nil {
@@ -103,6 +104,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         beeFlight()
         infoPane.updateHiveInfo(hive, bees.count)
+        checkStaleMate()
 
 
     }

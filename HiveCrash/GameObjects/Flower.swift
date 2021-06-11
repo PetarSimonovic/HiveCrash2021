@@ -16,7 +16,8 @@ class Flower {
     var location: CGPoint
     var column: Int
     var row: Int
-    var pollen: Int = 100
+    var defaultPollen: Int = 100
+    var pollen: Int
     var sprite = SKSpriteNode()
     var particleNode = SKEmitterNode()
     var inBloom: Bool = false
@@ -25,6 +26,7 @@ class Flower {
     
     
     init(_ location: CGPoint,_ column: Int, _ row: Int) {
+        self.pollen = self.defaultPollen
         self.location = location
         self.row = row
         self.column = column
@@ -41,6 +43,7 @@ class Flower {
         let wither = SKAction.run({self.wither() })
         let removeFlower = SKAction.run({self.removeFlower()})
         let growthCycle = SKAction.sequence([growthTimer, bloom, growthTimer, wither, witherTimer, removeFlower])
+        self.sprite.zPosition = 2
         self.sprite.run(SKAction.repeatForever(growthCycle))
     }
     
@@ -56,11 +59,10 @@ class Flower {
         self.hasBee = false
         self.inBloom = false
         let witherNode = SKEmitterNode(fileNamed: "hollyhockDisperse")!
-        self.sprite.zPosition = 1.5
         witherNode.advanceSimulationTime(3)
         self.sprite.removeAllChildren()
         self.sprite.addChild(witherNode)
-        self.pollen = 100
+        self.pollen = self.defaultPollen
         
     }
     

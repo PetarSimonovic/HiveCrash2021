@@ -57,4 +57,35 @@ extension GameScene {
         }
     }
     
+    func checkStaleMate() {
+        var column = 0
+        var row = 0
+        while column < 11 {
+            if let tile = map.tileDefinition(atColumn: column, row: row) {
+                if tile.name! == "fog" {
+                checkUnreachableTile(column, row)
+            }
+            row += 1
+            if row > 10 {
+              column += 1
+              row = 0
+            }
+        }
+        }
+    }
+    
+    func checkUnreachableTile(_ column: Int, _ row: Int) {
+        //REFACTOR: could be combined with clearfog?
+        let adjacentTiles = tiles.getTiles(column % 2)
+        for tile in adjacentTiles {
+            if let checkTile = map.tileDefinition(atColumn: column + tile[0], row: row + tile[1]) {
+               if checkTile.name != "rock" || checkTile.name != nil {
+                  return
+               }
+            }
+            }
+        infoPane.updateGameStatus("Stalemate detected")
+        clearFog(column, row, false)
+    }
+    
 }

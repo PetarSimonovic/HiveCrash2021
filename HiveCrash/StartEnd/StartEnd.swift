@@ -21,6 +21,7 @@ extension GameScene {
         button.setScale(self.frame.width / 800)
         button.position = CGPoint(x: self.frame.maxX/2, y: self.frame.minY + 80 )
         createInfoPane()
+        checkStaleMate()
  
     }
     

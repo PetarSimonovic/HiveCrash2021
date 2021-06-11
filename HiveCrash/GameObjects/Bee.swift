@@ -50,7 +50,7 @@ class Bee {
         self.sprite.name = "\(self.id)"
         self.sprite.physicsBody?.affectedByGravity = false
         self.sprite.physicsBody?.isDynamic = false
-        self.sprite.zPosition = 2
+        self.sprite.zPosition = 3
         self.pollenCloud = SKEmitterNode(fileNamed: "BeePollen")!
         self.sprite.addChild(self.pollenCloud)
         self.pollenCloud.particleBirthRate = CGFloat(self.pollen)

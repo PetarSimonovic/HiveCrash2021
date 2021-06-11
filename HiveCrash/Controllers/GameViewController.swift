@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
             skView.showsFPS = true
             skView.showsPhysics = true // Shows collision mask
             skView.showsNodeCount = true
-            skView.ignoresSiblingOrder = true
+            skView.ignoresSiblingOrder = false
             scene.scaleMode = .aspectFill
             skView.presentScene(scene)
             
