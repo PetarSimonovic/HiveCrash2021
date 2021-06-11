@@ -53,6 +53,7 @@ class Flower {
     
     func wither() {
        // print("Dying!")
+        self.hasBee = false
         self.inBloom = false
         let witherNode = SKEmitterNode(fileNamed: "hollyhockDisperse")!
         self.sprite.zPosition = 1.5
