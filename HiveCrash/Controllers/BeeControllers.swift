@@ -152,7 +152,7 @@ extension GameScene {
     
     func emptyHive() {
         if bees.count == 0 {
-            5.times {
+            3.times {
             addBee()
            }
         }

@@ -53,7 +53,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 return
             }
             updateInfoPane(tile!, column, row)
-            if (tile?.name == "fog") && hive.isPlaced == false  {
+            if tile?.name == "fog" && hive.isPlaced == false  {
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
             } else if tile!.name == "hive" {
@@ -74,14 +74,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.releaseBee(bee!, location, column, row)
                }
             }
-            let beePosition = touch.location(in: self)
-            let node:SKNode = self.atPoint(beePosition)
-            if node.name != nil {
-                  let beeID = UUID(uuidString: node.name!)
-                  if let bee = bees.first(where: {$0.id == beeID}) {
-                  infoPane.updateBeeInfo(bee)
-                }
-            }
+//            let beePosition = touch.location(in: self)
+//            let node:SKNode = self.atPoint(beePosition)
+//            if node.name != nil {
+//                  let beeID = UUID(uuidString: node.name!)
+//                  if let bee = bees.first(where: {$0.id == beeID}) {
+//                  infoPane.updateBeeInfo(bee)
+//                }
+//            }
     }
     }
     
@@ -104,6 +104,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         beeFlight()
         infoPane.updateHiveInfo(hive, bees.count)
+        infoPane.updateBeeInfo(bees)
         checkStaleMate()
 
 

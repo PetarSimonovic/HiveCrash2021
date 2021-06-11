@@ -47,11 +47,14 @@ class InfoPane {
         formatText(self.pollenStatus)
     }
     
-    func updateBeeInfo(_ bee: Bee) {
-        self.beeName.text = "\(bee.name)"
-        self.beePollen.text = "\(bee.pollen) | \(bee.health)"
-        formatText(self.beeName)
-        formatText(self.beePollen)
+    func updateBeeInfo(_ bees: [Bee]) {
+        if bees.count != 0 {
+          let bee = bees[0]
+          self.beeName.text = "\(bee.name)"
+          self.beePollen.text = "Health: \(bee.health)"
+          formatText(self.beeName)
+          formatText(self.beePollen)
+        }
 
     }
     
