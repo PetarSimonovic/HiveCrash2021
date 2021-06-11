@@ -51,10 +51,7 @@ class Bee {
         self.sprite.physicsBody?.affectedByGravity = false
         self.sprite.physicsBody?.isDynamic = false
         self.sprite.zPosition = 3
-        self.pollenCloud = SKEmitterNode(fileNamed: "BeePollen")!
-        self.sprite.addChild(self.pollenCloud)
-        self.pollenCloud.particleBirthRate = CGFloat(self.pollen)
-   }
+           }
     
     func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {
         self.inHive = false
@@ -82,6 +79,10 @@ class Bee {
             let removeBee = SKAction.run( { self.removeBee() } )
             let flyHome = SKAction.move(to: destination, duration: beeSpeed)
             let returnToHive = SKAction.sequence([flyHome, removeBee])
+            self.pollenCloud = SKEmitterNode(fileNamed: "BeePollen")!
+            self.sprite.addChild(self.pollenCloud)
+            self.pollenCloud.particleBirthRate = CGFloat(self.pollen)
+            self.pollenCloud.zPosition = 4
             self.sprite.run(returnToHive, withKey: "flyHome")
             self.homewardBound = true
         }
@@ -121,6 +122,12 @@ class Bee {
     //    }
        
 
+    }
+    
+    func updatePollenCloud() {
+        self.pollenCloud.particleBirthRate = CGFloat(self.pollen)
+    //    self.pollenCloud.advanceSimulationTime(5)
+        
     }
            
  }
