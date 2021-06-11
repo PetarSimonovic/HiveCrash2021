@@ -57,7 +57,7 @@ extension GameScene {
             switch bee.inHive {
             case false:
                 bee.pollenCloud.particleBirthRate = CGFloat(bee.pollen)
-                bee.sprite.zPosition = 3
+                bee.sprite.zPosition = CGFloat(3.0)
                 print(bee.pollenCloud.particleBirthRate)
                 checkFlightPath(bee)
             default:

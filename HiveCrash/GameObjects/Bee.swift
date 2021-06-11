@@ -114,6 +114,7 @@ class Bee {
         self.sprite.removeAction(forKey: "flyHome")
         self.sprite.run(SKAction.repeatForever(SKAction.rotate(byAngle: 10, duration: 0.5)))
         self.sprite.run(SKAction.move(to: flower.location, duration: 1))
+        self.sprite.zPosition = 5
      //   } else {
    //         homewardBound ? self.sprite.run(SKAction.move(to: hive, duration: beeSpeed)) : self.sprite.run(SKAction.move(to: self.destination, duration: beeSpeed))
 

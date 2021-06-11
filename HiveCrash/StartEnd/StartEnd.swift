@@ -15,6 +15,7 @@ extension GameScene {
         tiles.prepareTiles(level, tileSet)
         map = tiles.startMap()
         self.addChild(map)
+        self.map.zPosition = -1
         map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
         map.setScale(self.frame.width / 3200)
         self.addChild(button)

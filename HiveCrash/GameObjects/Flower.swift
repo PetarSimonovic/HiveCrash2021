@@ -43,7 +43,7 @@ class Flower {
         let wither = SKAction.run({self.wither() })
         let removeFlower = SKAction.run({self.removeFlower()})
         let growthCycle = SKAction.sequence([growthTimer, bloom, growthTimer, wither, witherTimer, removeFlower])
-        self.sprite.zPosition = 2
+        self.sprite.zPosition = 0
         self.sprite.run(SKAction.repeatForever(growthCycle))
     }
     
@@ -51,6 +51,7 @@ class Flower {
         self.inBloom = true
         let bloomNode = SKEmitterNode(fileNamed: "hollyhock")!
         self.sprite.addChild(bloomNode)
+        bloomNode.zPosition = 0
         
     }
     
