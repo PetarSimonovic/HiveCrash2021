@@ -26,8 +26,8 @@ extension GameScene {
         tiles.fogCount -= 1
         infoPane.updateGameStatus("Hive created")
         emptyHive()
-        gameTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(updateHive), userInfo: nil, repeats: true)
-        }
+        startTimer()
+                }
       hive.place(location, column, row)
       
       clearFog(hive.column, hive.row, true)

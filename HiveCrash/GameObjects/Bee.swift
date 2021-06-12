@@ -23,9 +23,8 @@ class Bee {
     var speed: Int = 300
     var pollen: Int = 0
     var pollenCapacity: Int = 10
-    var appetite: Int = 5
-    var startHealth: Int = 5
-    var maxHealth: Int = 10
+    var appetite: Int = 10
+    var maxHealth: Int = 5
     var health: Int
     
     
@@ -40,7 +39,7 @@ class Bee {
     
     init() {
         self.name = chooseName()
-        self.health = self.startHealth
+        self.health = self.maxHealth
         self.createBee()
     }
     

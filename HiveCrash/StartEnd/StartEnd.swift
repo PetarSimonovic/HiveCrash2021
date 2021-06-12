@@ -43,8 +43,7 @@ extension GameScene {
         }
     
     func endGame() -> SKAction {
-        gameTimer?.invalidate()
-        gameTimer = nil
+        endTimer()
         let wait = SKAction.wait(forDuration: 20)
         let reset = SKAction.run({ self.resetGame() } )
         let gameOverSequence = SKAction.sequence([wait, reset])
@@ -65,6 +64,17 @@ extension GameScene {
         moveHive = false
         tiles.fogCount = 132
         startGame()
+    }
+    
+    func startTimer() {
+      gameTimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(updateHive), userInfo: nil, repeats: true)
+        print("Timer, \(String(describing: gameTimer))")
+    }
+    
+    func endTimer() {
+        gameTimer?.invalidate()
+        gameTimer = nil
+        print("Timer, \(String(describing: gameTimer))")
     }
     
     

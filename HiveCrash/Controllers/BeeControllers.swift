@@ -57,7 +57,6 @@ extension GameScene {
             bee.updatePollenCloud()
             switch bee.inHive {
             case false:
-                print(bee.pollenCloud.particleBirthRate)
                 checkFlightPath(bee)
             default:
                 continue
@@ -152,7 +151,7 @@ extension GameScene {
     
     func emptyHive() {
         if bees.count == 0 {
-            3.times {
+            1.times {
             addBee()
            }
         }
