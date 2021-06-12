@@ -12,7 +12,7 @@ class RedMason : Bee {
     
     override init() {
      super.init()
-     self.type = "Common Carder"
+     self.type = "Red Mason"
      self.speed = 150
      self.pollenCapacity = 50
      self.appetite = 10
@@ -22,4 +22,6 @@ class RedMason : Bee {
      self.range = self.maxRange
      self.sprite = SKSpriteNode(imageNamed: "redmason")
     
+}
+
 }
