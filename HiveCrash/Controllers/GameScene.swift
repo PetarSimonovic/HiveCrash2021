@@ -101,6 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if scouting == true {
             hive.pulse()
         }
+        timeFlowers()
         beeFlight()
         infoPane.updateHiveInfo(hive, bees.count)
         infoPane.updateBeeInfo(bees)

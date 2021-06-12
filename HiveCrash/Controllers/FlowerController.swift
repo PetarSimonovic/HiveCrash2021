@@ -22,6 +22,12 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
     }
 
 }
+    
+    func timeFlowers() {
+        for flower in flowers {
+            flower.bloomTimer()
+        }
+    }
 
     func checkPollination(_ bee: Bee, _ column: Int, _ row: Int) {
         for flower in flowers {
@@ -29,10 +35,14 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
                 if flower.inBloom && bee.scout == false {
                     flower.hasBee = true
                     bee.setDestination(hive.location, column, row)
+                    bee.flowerTime = flower.bloomTime
                     bee.collectPollen(flower, hive.location, flightSpeed(bee, hive.location))
-                    calculatePollen(bee, flower)
+                    bee.flowerTime = flower.bloomTime
+                    bee.pollenCollecting = true
                 } else if bee.pollenCollecting {
                     bee.pollenCollecting = false
+                    calculatePollen(bee, flower)
+
                     bee.homewardBound = false
                     bee.flyHome(hive.location, flightSpeed(bee, hive.location))
                     continue
@@ -42,16 +52,26 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
     }
     
     func calculatePollen(_ bee: Bee, _ flower: Flower) {
-        if bee.pollenCollecting == false {
-            infoPane.updateGameStatus("\(bee.name) now has \(bee.pollen) pollen")
+        infoPane.updateGameStatus("\(bee.name) now has \(bee.pollen) pollen")
+        print("Bee joined flower at", bee.flowerTime)
+        print("Flower time was", flower.bloomTime)
+        let pollenCounter = flower.bloomTime - bee.flowerTime
+        print("PollenCounter:", pollenCounter)
+        let pollenCollected = (pollenCounter/flower.bloomTime) * 100
+        print("PollenCollected: \(pollenCollected)%")
+        bee.pollen = (flower.pollen/100) * Int(pollenCollected)
+        print("Bee collected", bee.pollen)
+        flower.bloomTime = 0
+        bee.flowerTime = 0
+        bee.checkPollenCapacity()
+        infoPane.updateGameStatus("\(bee.name) collected \(pollenCollected)% of pollen from flower")
+        infoPane.updateGameStatus("\(bee.name) has \(bee.pollen) pollen")
         }
-        bee.pollenCollecting = true
-    }
     
     func shedPollen(_ bee: Bee, _ column: Int, _ row: Int) {
       if let meadow = meadows.first(where: {$0.column == column && $0.row == row}) {
         let initialPollen = bee.pollen
-      if bee.pollen - (bee.speed/10) / 2 > 0 {
+        if bee.pollen - (bee.speed/10) / 2 > 0 {
              meadow.pollen += (bee.speed/10) / 2
             bee.pollen -= (bee.speed/10) / 2
         } else {

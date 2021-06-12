@@ -31,7 +31,7 @@ class Bee {
     var health: Int
     var maxRange: Int = 0
     var range: Int
-    
+    var flowerTime: Float = 0.0
     
     var homewardBound: Bool = false
     var pollenCollecting: Bool = false
@@ -135,6 +135,13 @@ class Bee {
         self.pollenCloud.particleBirthRate = CGFloat(self.pollen)
     //    self.pollenCloud.advanceSimulationTime(5)
         
+    }
+    
+    func checkPollenCapacity() {
+        if self.pollen > self.pollenCapacity {
+            self.pollen = self.pollenCapacity
+        }
+        print("Bee pollen is",self.pollen)
     }
     
            

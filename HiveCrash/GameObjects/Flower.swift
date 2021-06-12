@@ -23,6 +23,7 @@ class Flower {
     var inBloom: Bool = false
     var growthSpeed: TimeInterval = 10
     var hasBee: Bool = false
+    var bloomTime: Float = 0.0
     
     
     init(_ location: CGPoint,_ column: Int, _ row: Int) {
@@ -55,8 +56,16 @@ class Flower {
         
     }
     
+    func bloomTimer() {
+        if self.inBloom {
+          bloomTime += 1
+        }
+    }
+    
     func wither() {
        // print("Dying!")
+        print("BloomTime", self.bloomTime)
+        //self.bloomTime = 0
         self.hasBee = false
         self.inBloom = false
         let witherNode = SKEmitterNode(fileNamed: "hollyhockDisperse")!
