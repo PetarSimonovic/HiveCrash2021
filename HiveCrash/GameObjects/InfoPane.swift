@@ -12,7 +12,10 @@ class InfoPane {
     var tileName = SKLabelNode(fontNamed: "Menlo-Regular")
     var pollenStatus = SKLabelNode(fontNamed: "Menlo-Regular")
     var hivePollen = SKLabelNode(fontNamed: "Menlo-Regular")
-    var beeName = SKLabelNode(fontNamed: "Menlo-Regular")
+    var beeName = SKLabelNode(fontNamed: "Menlo-Bold")
+    var beeType = SKLabelNode(fontNamed: "Menlo-Regular")
+    var beeRange = SKLabelNode(fontNamed: "Menlo-Regular")
+    var beeHealth = SKLabelNode(fontNamed: "Menlo-Regular")
     var beePollen = SKLabelNode(fontNamed: "Menlo-Regular")
     var beePopulation = SKLabelNode(fontNamed: "Menlo-Regular")
     var gameStatus_1 = SKLabelNode(fontNamed: "Menlo-Regular")
@@ -21,9 +24,24 @@ class InfoPane {
     var beeStatus = SKLabelNode(fontNamed: "Menlo-Regular")
     var gameInfo: [String] = ["Pollinate meadows", "Feed the hive", "Explore the world"]
     
+    init() {
+        formatText(self.tileName)
+        formatText(self.pollenStatus)
+        formatText(self.hivePollen)
+        formatText(self.beeName)
+        formatText(self.beeType)
+        formatText(self.beeRange)
+        formatText(self.beeHealth)
+        formatText(self.beePollen)
+        formatText(self.beePopulation)
+        formatText(self.gameStatus_1)
+        formatText(self.gameStatus_2)
+        formatText(self.gameStatus_3)
+        formatText(self.beeStatus)
+    }
+    
     func updateTileName (_ name: String) {
         self.tileName.text = name
-        formatText(self.tileName)
         }
      
     func updateFlowerInfo(_ column: Int, _ row: Int, _ flower: Flower) {
@@ -32,31 +50,29 @@ class InfoPane {
         } else {
           self.pollenStatus.text = "Dormant"
         }
-        formatText(self.pollenStatus)
     }
     
     func updateHiveInfo(_ hive: Hive, _ bees: Int) {
         self.hivePollen.text = "Hive pollen count: \(hive.pollen)"
         self.beePopulation.text = "Bee population: \(bees)"
-        formatText(self.hivePollen)
-        formatText(self.beePopulation)
     }
     
     func updateMeadowInfo(_ meadow: Meadow) {
         self.pollenStatus.text = "Pollination: \(meadow.pollen)%"
-        formatText(self.pollenStatus)
     }
     
     func updateBeeInfo(_ bees: [Bee]) {
         if bees.count != 0 {
           let bee = bees[0]
           self.beeName.text = "\(bee.name)"
-          self.beePollen.text = "Health: \(bee.health)"
-          formatText(self.beeName)
-          formatText(self.beePollen)
+          self.beeType.text = "\(bee.type)"
+          self.beeHealth.text = "Health: \(bee.health)"
+          self.beePollen.text = "Pollen capacity: \(bee.pollenCapacity)"
+          self.beeRange.text = "Range: \(bee.maxRange)"
         }
 
     }
+ 
     
     func updateGameStatus(_ text: String) {
       self.gameInfo.insert(text, at: 0)
@@ -67,9 +83,6 @@ class InfoPane {
         self.gameStatus_1.text = self.gameInfo[0]
         self.gameStatus_2.text = self.gameInfo[1]
         self.gameStatus_3.text = self.gameInfo[2]
-        formatText(self.gameStatus_1)
-        formatText(self.gameStatus_2)
-        formatText(self.gameStatus_3)
     }
     
     func gameOver() {
