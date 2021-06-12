@@ -15,6 +15,8 @@ extension GameScene {
      //   let beeSprite = bee.createBee()
        // map.addChild(bee.sprite)
         bees.append(bee)
+        bee.currentRow = hive.row
+        bee.currentColumn = hive.column
         infoPane.updateGameStatus("\(bee.name) has joined the hive")
        // bee.sprite.position = hive.location
        // hive.pulse()
@@ -69,11 +71,9 @@ extension GameScene {
         let column = self.map.tileColumnIndex(fromPosition: bee.sprite.position)
         let row = self.map.tileRowIndex(fromPosition: bee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
+        checkRange(bee, column, row)
         if bee.settler {
-            infoPane.updateGameStatus("\(bee.name) has found a meadow for new hive")
-            bee.settler = false
-            let newHiveLocaiton = map.centerOfTile(atColumn: bee.destinationColumn, row: bee.destinationRow)
-            placeHive(newHiveLocaiton, bee.destinationColumn, bee.destinationRow)
+           newHive(bee)
         }
         switch tile?.name! {
         case "fog":
@@ -149,6 +149,24 @@ extension GameScene {
         }
     }
     
+    func checkRange(_ bee: Bee, _ column: Int, _ row: Int) {
+        if bee.currentColumn != column || bee.currentRow != row {
+            bee.range -= 1
+            print("Range", bee.range)
+            bee.currentColumn = column
+            bee.currentRow = row
+            rangeReached(bee)
+        }
+    }
+    
+    func rangeReached(_ bee: Bee) {
+        if bee.range < 0 {
+            infoPane.updateGameStatus("Destiantion is out of range for \(bee.name)")
+            print(bee.range)
+            bee.flyHome(hive.location, flightSpeed(bee, hive.location))
+        }
+    }
+    
     func emptyHive() {
         if bees.count == 0 {
             1.times {
@@ -159,7 +177,7 @@ extension GameScene {
     
     func resetBees() {
         for bee in bees {
-            bee.health = bee.startHealth
+            bee.health = bee.maxHealth
         }
     }
     

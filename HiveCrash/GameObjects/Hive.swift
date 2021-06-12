@@ -29,6 +29,8 @@ class Hive {
         self.node.position = location
     }
     
+    
+    
     func pulse() {
         let pulseNode = SKEmitterNode(fileNamed: "HivePulse")!
         let addEmitterAction = SKAction.run({self.node.addChild(pulseNode)})

@@ -19,6 +19,8 @@ class Bee {
     var destination: CGPoint = CGPoint(x: 0, y: 0)
     var destinationRow: Int = 0
     var destinationColumn: Int = 0
+    var currentColumn: Int = 0
+    var currentRow: Int = 0
     
     var speed: Int = 300
     var pollen: Int = 0
@@ -26,6 +28,8 @@ class Bee {
     var appetite: Int = 10
     var maxHealth: Int = 5
     var health: Int
+    var maxRange: Int = 3
+    var range: Int
     
     
     var homewardBound: Bool = false
@@ -40,6 +44,7 @@ class Bee {
     init() {
         self.name = chooseName()
         self.health = self.maxHealth
+        self.range = self.maxRange
         self.createBee()
     }
     
@@ -99,8 +104,9 @@ class Bee {
         self.pollen = 0
         self.scout = false
         self.settler = false
-
-
+        self.range = self.maxRange
+        self.currentColumn = 0
+        self.currentRow = 0
     }
     
     
@@ -128,6 +134,7 @@ class Bee {
     //    self.pollenCloud.advanceSimulationTime(5)
         
     }
+    
            
  }
     

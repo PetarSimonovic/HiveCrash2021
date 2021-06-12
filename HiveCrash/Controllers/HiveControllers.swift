@@ -64,4 +64,12 @@ extension GameScene {
     func refuseHiveMove() {
         infoPane.updateGameStatus("Not enough pollen to move the hive")
     }
+    
+    func newHive(_ bee: Bee) {
+        infoPane.updateGameStatus("\(bee.name) has found a meadow for new hive")
+        bee.settler = false
+        let newHiveLocaiton = map.centerOfTile(atColumn: bee.destinationColumn, row: bee.destinationRow)
+        placeHive(newHiveLocaiton, bee.destinationColumn, bee.destinationRow)
+    }
+    
 }
