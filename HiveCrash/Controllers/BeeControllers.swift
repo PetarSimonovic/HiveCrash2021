@@ -170,6 +170,12 @@ extension GameScene {
     
     func rangeReached(_ bee: Bee) {
         if bee.range < 0 {
+            if bee.scout {
+                bee.settler = true
+                bee.setDestination(bee.sprite.position, bee.currentColumn, bee.currentRow)
+                newHive(bee)
+            }
+            
             infoPane.updateGameStatus("Destiantion is out of range for \(bee.name)")
             bee.flyHome(hive.location, flightSpeed(bee, hive.location))
         }

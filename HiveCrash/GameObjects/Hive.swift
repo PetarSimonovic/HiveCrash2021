@@ -15,10 +15,10 @@ class Hive {
     var row: Int = 0
     var location: CGPoint = CGPoint(x: 0, y: 0)
     var node = SKNode ()
-    var pollen: Int = 0
+    var pollen: Int = 1500
     var pollenCount: Int = 1
     var firstFlowerMeadow: Bool = false
-    var maxPollen: Int = 150
+    var maxPollen: Int = 1500
 
     func place(_ location: CGPoint, _ column: Int, _ row: Int) {
         self.node.removeFromParent()
