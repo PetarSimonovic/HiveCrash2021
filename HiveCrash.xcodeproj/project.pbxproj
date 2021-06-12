@@ -26,6 +26,9 @@
 		0D3B7A9E2670C32200150A15 /* DefaultBeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7A9D2670C32200150A15 /* DefaultBeeTests.swift */; };
 		0D3B7AA0267264AC00150A15 /* LoadSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7A9F267264AC00150A15 /* LoadSave.swift */; };
 		0D3B7AA42673AC1B00150A15 /* PollenCloud.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D3B7AA32673AC1B00150A15 /* PollenCloud.sks */; };
+		0D3B7AA72674C68900150A15 /* CommonCarder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AA62674C68900150A15 /* CommonCarder.swift */; };
+		0D3B7AA92674C95F00150A15 /* RedMason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AA82674C95F00150A15 /* RedMason.swift */; };
+		0D3B7AAB2674CA5000150A15 /* LeafCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AAA2674CA5000150A15 /* LeafCutter.swift */; };
 		0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */; };
 		0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */; };
 		0DE92CD7265B8AFB00CE5F4B /* HiveCrashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CD6265B8AFB00CE5F4B /* HiveCrashTests.swift */; };
@@ -83,6 +86,9 @@
 		0D3B7A9D2670C32200150A15 /* DefaultBeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBeeTests.swift; sourceTree = "<group>"; };
 		0D3B7A9F267264AC00150A15 /* LoadSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadSave.swift; sourceTree = "<group>"; };
 		0D3B7AA32673AC1B00150A15 /* PollenCloud.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PollenCloud.sks; sourceTree = "<group>"; };
+		0D3B7AA62674C68900150A15 /* CommonCarder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCarder.swift; sourceTree = "<group>"; };
+		0D3B7AA82674C95F00150A15 /* RedMason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedMason.swift; sourceTree = "<group>"; };
+		0D3B7AAA2674CA5000150A15 /* LeafCutter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafCutter.swift; sourceTree = "<group>"; };
 		0DE92CBB265B8AFA00CE5F4B /* HiveCrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveCrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -145,6 +151,17 @@
 				0D3B7AA32673AC1B00150A15 /* PollenCloud.sks */,
 			);
 			path = Particles;
+			sourceTree = "<group>";
+		};
+		0D3B7AA52674C67300150A15 /* Bees */ = {
+			isa = PBXGroup;
+			children = (
+				0DE92D12265D372500CE5F4B /* Bee.swift */,
+				0D3B7AA62674C68900150A15 /* CommonCarder.swift */,
+				0D3B7AA82674C95F00150A15 /* RedMason.swift */,
+				0D3B7AAA2674CA5000150A15 /* LeafCutter.swift */,
+			);
+			path = Bees;
 			sourceTree = "<group>";
 		};
 		0DE92CB2265B8AFA00CE5F4B = {
@@ -243,8 +260,8 @@
 		0DE92D0B265D0F2B00CE5F4B /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				0D3B7AA52674C67300150A15 /* Bees */,
 				0DE92D0C265D0F3A00CE5F4B /* Hive.swift */,
-				0DE92D12265D372500CE5F4B /* Bee.swift */,
 				0DE92D1A265D6A1F00CE5F4B /* Rock.swift */,
 				0D2F1169265E3C93008B1171 /* Flower.swift */,
 				0D151FC526639A2C00E933E1 /* Meadow.swift */,
@@ -401,6 +418,8 @@
 				0D1A7379266E412E0076CCAE /* BeeNames.swift in Sources */,
 				0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */,
 				0D1A737D266E8EBC0076CCAE /* BeeButton.swift in Sources */,
+				0D3B7AAB2674CA5000150A15 /* LeafCutter.swift in Sources */,
+				0D3B7AA72674C68900150A15 /* CommonCarder.swift in Sources */,
 				0DE92D19265D4E4700CE5F4B /* HiveControllers.swift in Sources */,
 				0D2F117A265EACBE008B1171 /* Collision.swift in Sources */,
 				0DE92CFE265BDD4A00CE5F4B /* StartEnd.swift in Sources */,
@@ -413,6 +432,7 @@
 				0D151FC626639A2C00E933E1 /* Meadow.swift in Sources */,
 				0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */,
 				0DE92D17265D4DCB00CE5F4B /* MapControllers.swift in Sources */,
+				0D3B7AA92674C95F00150A15 /* RedMason.swift in Sources */,
 				0D3B7A9C266FABD700150A15 /* GameInfo.swift in Sources */,
 				0D1A7377266B7E060076CCAE /* InfoPaneControllers.swift in Sources */,
 				0DE92D0D265D0F3A00CE5F4B /* Hive.swift in Sources */,

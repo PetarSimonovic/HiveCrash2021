@@ -25,11 +25,11 @@ class Bee {
     var type: String = "Default"
     var speed: Int = 300
     var pollen: Int = 0
-    var pollenCapacity: Int = 10
-    var appetite: Int = 10
-    var maxHealth: Int = 5
+    var pollenCapacity: Int = 0
+    var appetite: Int = 0
+    var maxHealth: Int = 0
     var health: Int
-    var maxRange: Int = 3
+    var maxRange: Int = 0
     var range: Int
     
     
@@ -50,7 +50,7 @@ class Bee {
     }
     
     func createBee() {
-        self.sprite = SKSpriteNode(imageNamed: "bee")
+        self.sprite = SKSpriteNode(imageNamed: "commoncarder")
         self.sprite.physicsBody = SKPhysicsBody(texture: self.sprite.texture!, size: self.sprite.size)
         self.sprite.name = "\(self.id)"
         self.sprite.physicsBody?.affectedByGravity = false
@@ -121,6 +121,7 @@ class Bee {
         self.sprite.removeAction(forKey: "flyHome")
         self.sprite.run(SKAction.repeatForever(SKAction.rotate(byAngle: 10, duration: 0.5)))
         self.sprite.run(SKAction.move(to: flower.location, duration: 1))
+        self.pollen = self.pollenCapacity
         self.sprite.zPosition = 5
      //   } else {
    //         homewardBound ? self.sprite.run(SKAction.move(to: hive, duration: beeSpeed)) : self.sprite.run(SKAction.move(to: self.destination, duration: beeSpeed))

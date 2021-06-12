@@ -11,7 +11,17 @@ import SpriteKit
 extension GameScene {
     
     func addBee() {
-        let bee = Bee()
+        let choice = Int.random(in: 0...2)
+        var bee = Bee()
+        switch choice {
+         case 0:
+             bee = CommonCarder()
+        case 1:
+             bee = RedMason()
+         default:
+             bee = LeafCutter()
+         }
+        print(bee)
      //   let beeSprite = bee.createBee()
        // map.addChild(bee.sprite)
         bees.append(bee)
@@ -152,7 +162,6 @@ extension GameScene {
     func checkRange(_ bee: Bee, _ column: Int, _ row: Int) {
         if bee.currentColumn != column || bee.currentRow != row {
             bee.range -= 1
-            print("Range", bee.range)
             bee.currentColumn = column
             bee.currentRow = row
             rangeReached(bee)
@@ -162,7 +171,6 @@ extension GameScene {
     func rangeReached(_ bee: Bee) {
         if bee.range < 0 {
             infoPane.updateGameStatus("Destiantion is out of range for \(bee.name)")
-            print(bee.range)
             bee.flyHome(hive.location, flightSpeed(bee, hive.location))
         }
     }
@@ -180,6 +188,5 @@ extension GameScene {
             bee.health = bee.maxHealth
         }
     }
-    
     
 }

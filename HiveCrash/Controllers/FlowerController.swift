@@ -43,13 +43,6 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
     
     func calculatePollen(_ bee: Bee, _ flower: Flower) {
         if bee.pollenCollecting == false {
-            if flower.pollen > bee.speed/10 {
-                bee.pollen += bee.speed/10
-                flower.pollen -= bee.speed/10
-            } else {
-                bee.pollen += flower.pollen
-                flower.pollen = 0
-            }
             infoPane.updateGameStatus("\(bee.name) now has \(bee.pollen) pollen")
         }
         bee.pollenCollecting = true
@@ -65,7 +58,6 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
             meadow.pollen += bee.pollen
             bee.pollen -= bee.pollen
         }
-        print("Meadow", meadow.pollen)
         infoPane.updateGameStatus("\(bee.name) shed \(initialPollen - bee.pollen) over \(column)-\(row)")
         if meadow.pollen >= 100 && meadow.flowerMeadow == false {
             infoPane.updateGameStatus("Meadow \(column)-\(row) pollinated: flowers will bloom")
