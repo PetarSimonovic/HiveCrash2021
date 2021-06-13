@@ -12,6 +12,7 @@ extension GameScene {
     
     func startGame() {
         print("Starting game")
+        gamePlaying = true
         tiles.prepareTiles(level, tileSet)
         map = tiles.startMap()
         self.addChild(map)
@@ -41,6 +42,7 @@ extension GameScene {
         }
     
     func endGame() -> SKAction {
+        gamePlaying = false
         endTimer()
         let wait = SKAction.wait(forDuration: 20)
         let reset = SKAction.run({ self.resetGame() } )

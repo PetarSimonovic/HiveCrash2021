@@ -44,7 +44,7 @@ extension GameScene {
         for bee in bees {
             hive.pollen -= bee.appetite
             hive.pollen <= 0 ? beeStarves(bee) : beeEats(bee)
-            hive.noPollen()
+            hive.checkNoPollen()
       }
 
     }

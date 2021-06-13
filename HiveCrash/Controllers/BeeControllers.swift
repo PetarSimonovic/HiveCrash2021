@@ -19,6 +19,7 @@ extension GameScene {
         bee.currentRow = hive.row
         bee.currentColumn = hive.column
         infoPane.updateGameStatus("\(bee.name) has joined the hive")
+        hive.expandHive(bees.count, infoPane)
        // bee.sprite.position = hive.location
        // hive.pulse()
        // bee.fly(hive.location, flightSpeed(bee, bee.destination))

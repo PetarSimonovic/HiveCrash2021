@@ -15,7 +15,7 @@ class Hive {
     var row: Int = 0
     var location: CGPoint = CGPoint(x: 0, y: 0)
     var node = SKNode ()
-    var pollen: Int = 1000
+    var pollen: Int = 0
     var pollenCount: Int = 1
     var firstFlowerMeadow: Bool = false
     var maxPollen: Int = 150
@@ -51,12 +51,18 @@ class Hive {
         bee.pollen = 0
     }
     
-    func noPollen() {
+    func checkNoPollen() {
         if self.pollen <= 0 {
             self.pollen = 0
         }
     }
     
+    func expandHive(_ bees: Int, _ infoPane: InfoPane) {
+        if bees % 5 == 0 {
+            self.maxPollen += 25
+            infoPane.updateGameStatus("Hive pollen capacity expanded to \(self.maxPollen)")
+        }
+    }
 
     
     

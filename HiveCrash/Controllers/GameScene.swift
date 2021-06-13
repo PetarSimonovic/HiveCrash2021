@@ -28,6 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var tileCounter: Int = 130
    var scouting: Bool = false
    var level: Int = 1
+   var gamePlaying: Bool = false
     
   
     override func didMove(to view: SKView) {
@@ -38,7 +39,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        if gamePlaying == false {
+            return
+        }
         for touch in touches {
             let location = touch.location(in: map)
             let column = map.tileColumnIndex(fromPosition: location)
@@ -94,11 +97,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if scouting == true {
             hive.pulse()
         }
+        if gamePlaying == true {
         timeFlowers()
         beeFlight()
         infoPane.updateHiveInfo(hive, bees.count)
         infoPane.updateBeeInfo(bees)
         checkStaleMate()
+        }
 
 
     }
