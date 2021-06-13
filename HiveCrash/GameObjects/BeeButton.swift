@@ -25,19 +25,19 @@ func addButtons() {
 }
 
 func addCommonCarderButton() {
-  let commonCarderButton = createBeeButton("commoncarder")
+  commonCarderButton = createBeeButton("commoncarder")
   self.addChild(commonCarderButton)
   positionButton(commonCarderButton, 0)
 }
 
 func addRedMasonButton() {
-  let redMasonButton = createBeeButton("redmason")
+  redMasonButton = createBeeButton("redmason")
   self.addChild(redMasonButton)
   positionButton(redMasonButton, 50)
 }
 
 func addLeafCutterButton() {
-  let leafCutterButton = createBeeButton("leafcutter")
+  leafCutterButton = createBeeButton("leafcutter")
   self.addChild(leafCutterButton)
   positionButton(leafCutterButton, -50)
 }
@@ -46,8 +46,7 @@ func addLeafCutterButton() {
         
         button.setScale(self.frame.width / 1300)
         button.position = CGPoint(x: self.frame.maxX/2 + xPos, y: self.frame.minY + 80 )
-        
-    
+        button.alpha = dimButton
 }
     
     func checkButtonTap(_ touch: UITouch ) {
@@ -69,6 +68,13 @@ func addLeafCutterButton() {
 
             }
         hatchBee(bee)
+    }
+    
+    func setButtonAlpha(_ alpha: CGFloat) {
+        self.commonCarderButton.alpha = alpha
+        self.redMasonButton.alpha = alpha
+        self.leafCutterButton.alpha = alpha
+        
     }
 
 }

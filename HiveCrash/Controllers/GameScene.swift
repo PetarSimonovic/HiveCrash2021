@@ -30,6 +30,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var level: Int = 1
    var gamePlaying: Bool = false
     
+   var commonCarderButton = SKSpriteNode()
+   var redMasonButton = SKSpriteNode()
+   var leafCutterButton = SKSpriteNode()
+    var dimButton: CGFloat = 0.2
+
   
     override func didMove(to view: SKView) {
      startGame()
@@ -98,6 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             hive.pulse()
         }
         if gamePlaying == true {
+        checkHivePollen()
         timeFlowers()
         beeFlight()
         infoPane.updateHiveInfo(hive, bees.count)

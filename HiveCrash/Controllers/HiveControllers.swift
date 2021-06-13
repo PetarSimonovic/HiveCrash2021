@@ -74,4 +74,12 @@ extension GameScene {
         placeHive(newHiveLocaiton, bee.destinationColumn, bee.destinationRow)
     }
     
+    func checkHivePollen() {
+        if hive.pollen >= 25 {
+            setButtonAlpha(1.0)
+        } else {
+            setButtonAlpha(dimButton)
+        }
+    }
+    
 }
