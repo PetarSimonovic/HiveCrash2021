@@ -26,7 +26,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var beeCost: Int = 25
    var hiveCost: Int = 100
    var tileCounter: Int = 130
-   var button = createBeeButton()
    var scouting: Bool = false
    var level: Int = 1
     
@@ -84,13 +83,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     }
     
-    func checkButtonTap(_ touch: UITouch ) {
-        let position = touch.location(in: self)
-        let node:SKNode = self.atPoint(position)
-        if node.name != nil && node.name == "beeButton" {
-            hatchBee()
-            }
-    }
+
 
     
 

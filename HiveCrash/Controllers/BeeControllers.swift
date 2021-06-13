@@ -10,17 +10,8 @@ import SpriteKit
 
 extension GameScene {
     
-    func addBee() {
-        let choice = Int.random(in: 0...2)
-        var bee = Bee()
-        switch choice {
-         case 0:
-             bee = CommonCarder()
-        case 1:
-             bee = RedMason()
-         default:
-             bee = LeafCutter()
-         }
+    func addBee(_ bee: Bee) {
+        
         print(bee)
      //   let beeSprite = bee.createBee()
        // map.addChild(bee.sprite)
@@ -150,10 +141,10 @@ extension GameScene {
         }
      }
     
-    func hatchBee() {
+    func hatchBee(_ bee: Bee) {
         if hive.pollen >= beeCost {
            hive.pollen -= beeCost
-           addBee()
+           addBee(bee)
         } else {
             infoPane.updateGameStatus("Not enough pollen to create a bee")
         }
@@ -184,7 +175,8 @@ extension GameScene {
     func emptyHive() {
         if bees.count == 0 {
             1.times {
-            addBee()
+            let bee = CommonCarder()
+            addBee(bee)
            }
         }
     }

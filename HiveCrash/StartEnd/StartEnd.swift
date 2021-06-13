@@ -18,9 +18,7 @@ extension GameScene {
         self.map.zPosition = -1
         map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
         map.setScale(self.frame.width / 3200)
-        self.addChild(button)
-        button.setScale(self.frame.width / 800)
-        button.position = CGPoint(x: self.frame.maxX/2, y: self.frame.minY + 80 )
+        addButtons()
         createInfoPane()
         checkStaleMate()
  
@@ -76,6 +74,8 @@ extension GameScene {
         gameTimer = nil
         print("Timer, \(String(describing: gameTimer))")
     }
+    
+    
     
     
 
