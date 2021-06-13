@@ -69,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
                switch bee {
                case nil:
-                infoPane.updateGameStatus("All bees are in flight")
+                infoPane.updateGameStatus("No bees in hive")
                default:
                 hive.pulse()
                 self.releaseBee(bee!, location, column, row)
