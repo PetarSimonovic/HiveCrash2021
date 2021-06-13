@@ -72,7 +72,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 infoPane.updateGameStatus("No bees in hive")
                default:
                 hive.pulse()
-                self.releaseBee(bee!, location, column, row)
+                self.releaseBee(bee!, column, row)
                }
             }
 //            let beePosition = touch.location(in: self)
