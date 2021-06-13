@@ -75,7 +75,7 @@ extension GameScene {
     }
     
     func checkHivePollen() {
-        if hive.pollen >= 25 {
+        if hive.pollen >= beeCost {
             setButtonAlpha(1.0)
         } else {
             setButtonAlpha(dimButton)

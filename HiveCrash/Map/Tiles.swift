@@ -18,6 +18,7 @@ class Tiles {
     var lake = SKTileGroup()
     var rock = SKTileGroup()
     var fog = SKTileGroup()
+    var enemyHive = SKTileGroup()
     var flowerMeadow = SKTileGroup()
     var hiveTile: [Int] = []
     var hivePlaced: Bool = false
@@ -48,6 +49,7 @@ class Tiles {
         lake = assignTiles("lake")
         rock = assignTiles("rock")
         fog = assignTiles("fog")
+        enemyHive = assignTiles("enemyHive")
       
     }
 

@@ -29,6 +29,9 @@
 		0D3B7AA72674C68900150A15 /* CommonCarder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AA62674C68900150A15 /* CommonCarder.swift */; };
 		0D3B7AA92674C95F00150A15 /* RedMason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AA82674C95F00150A15 /* RedMason.swift */; };
 		0D3B7AAB2674CA5000150A15 /* LeafCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AAA2674CA5000150A15 /* LeafCutter.swift */; };
+		0D3B7AAF2676467700150A15 /* EnemyHive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AAE2676467700150A15 /* EnemyHive.swift */; };
+		0D3B7ABA26764AB500150A15 /* EnemyHiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AB926764AB500150A15 /* EnemyHiveTests.swift */; };
+		0D3B7AC226764AEC00150A15 /* EnemyHive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AC126764AEC00150A15 /* EnemyHive.swift */; };
 		0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */; };
 		0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */; };
 		0DE92CD7265B8AFB00CE5F4B /* HiveCrashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CD6265B8AFB00CE5F4B /* HiveCrashTests.swift */; };
@@ -50,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0D3B7ABC26764AB500150A15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DE92CB3265B8AFA00CE5F4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DE92CBA265B8AFA00CE5F4B;
+			remoteInfo = HiveCrash;
+		};
 		0DE92CD3265B8AFB00CE5F4B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0DE92CB3265B8AFA00CE5F4B /* Project object */;
@@ -89,6 +99,11 @@
 		0D3B7AA62674C68900150A15 /* CommonCarder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCarder.swift; sourceTree = "<group>"; };
 		0D3B7AA82674C95F00150A15 /* RedMason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedMason.swift; sourceTree = "<group>"; };
 		0D3B7AAA2674CA5000150A15 /* LeafCutter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafCutter.swift; sourceTree = "<group>"; };
+		0D3B7AAE2676467700150A15 /* EnemyHive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyHive.swift; sourceTree = "<group>"; };
+		0D3B7AB726764AB500150A15 /* EnemyHiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnemyHiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D3B7AB926764AB500150A15 /* EnemyHiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyHiveTests.swift; sourceTree = "<group>"; };
+		0D3B7ABB26764AB500150A15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D3B7AC126764AEC00150A15 /* EnemyHive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyHive.swift; sourceTree = "<group>"; };
 		0DE92CBB265B8AFA00CE5F4B /* HiveCrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveCrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -116,6 +131,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0D3B7AB426764AB500150A15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0DE92CB8265B8AFA00CE5F4B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,6 +186,24 @@
 			path = Bees;
 			sourceTree = "<group>";
 		};
+		0D3B7AB226764A7500150A15 /* Hives */ = {
+			isa = PBXGroup;
+			children = (
+				0D3B7AAE2676467700150A15 /* EnemyHive.swift */,
+				0DE92D0C265D0F3A00CE5F4B /* Hive.swift */,
+			);
+			path = Hives;
+			sourceTree = "<group>";
+		};
+		0D3B7AB826764AB500150A15 /* EnemyHiveTests */ = {
+			isa = PBXGroup;
+			children = (
+				0D3B7AB926764AB500150A15 /* EnemyHiveTests.swift */,
+				0D3B7ABB26764AB500150A15 /* Info.plist */,
+			);
+			path = EnemyHiveTests;
+			sourceTree = "<group>";
+		};
 		0DE92CB2265B8AFA00CE5F4B = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +211,7 @@
 				0DE92CBD265B8AFA00CE5F4B /* HiveCrash */,
 				0DE92CD5265B8AFB00CE5F4B /* HiveCrashTests */,
 				0DE92CE0265B8AFB00CE5F4B /* HiveCrashUITests */,
+				0D3B7AB826764AB500150A15 /* EnemyHiveTests */,
 				0DE92CBC265B8AFA00CE5F4B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -181,6 +222,7 @@
 				0DE92CBB265B8AFA00CE5F4B /* HiveCrash.app */,
 				0DE92CD2265B8AFB00CE5F4B /* HiveCrashTests.xctest */,
 				0DE92CDD265B8AFB00CE5F4B /* HiveCrashUITests.xctest */,
+				0D3B7AB726764AB500150A15 /* EnemyHiveTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +245,7 @@
 		0DE92CD5265B8AFB00CE5F4B /* HiveCrashTests */ = {
 			isa = PBXGroup;
 			children = (
+				0D3B7AC126764AEC00150A15 /* EnemyHive.swift */,
 				0D3B7A9D2670C32200150A15 /* DefaultBeeTests.swift */,
 				0DE92CD6265B8AFB00CE5F4B /* HiveCrashTests.swift */,
 				0DE92CD8265B8AFB00CE5F4B /* Info.plist */,
@@ -260,8 +303,8 @@
 		0DE92D0B265D0F2B00CE5F4B /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				0D3B7AB226764A7500150A15 /* Hives */,
 				0D3B7AA52674C67300150A15 /* Bees */,
-				0DE92D0C265D0F3A00CE5F4B /* Hive.swift */,
 				0DE92D1A265D6A1F00CE5F4B /* Rock.swift */,
 				0D2F1169265E3C93008B1171 /* Flower.swift */,
 				0D151FC526639A2C00E933E1 /* Meadow.swift */,
@@ -275,6 +318,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0D3B7AB626764AB500150A15 /* EnemyHiveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D3B7ABE26764AB500150A15 /* Build configuration list for PBXNativeTarget "EnemyHiveTests" */;
+			buildPhases = (
+				0D3B7AB326764AB500150A15 /* Sources */,
+				0D3B7AB426764AB500150A15 /* Frameworks */,
+				0D3B7AB526764AB500150A15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D3B7ABD26764AB500150A15 /* PBXTargetDependency */,
+			);
+			name = EnemyHiveTests;
+			productName = EnemyHiveTests;
+			productReference = 0D3B7AB726764AB500150A15 /* EnemyHiveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		0DE92CBA265B8AFA00CE5F4B /* HiveCrash */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DE92CE6265B8AFB00CE5F4B /* Build configuration list for PBXNativeTarget "HiveCrash" */;
@@ -337,6 +398,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					0D3B7AB626764AB500150A15 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 0DE92CBA265B8AFA00CE5F4B;
+					};
 					0DE92CBA265B8AFA00CE5F4B = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -366,11 +431,19 @@
 				0DE92CBA265B8AFA00CE5F4B /* HiveCrash */,
 				0DE92CD1265B8AFB00CE5F4B /* HiveCrashTests */,
 				0DE92CDC265B8AFB00CE5F4B /* HiveCrashUITests */,
+				0D3B7AB626764AB500150A15 /* EnemyHiveTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0D3B7AB526764AB500150A15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0DE92CB9265B8AFA00CE5F4B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +478,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0D3B7AB326764AB500150A15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D3B7ABA26764AB500150A15 /* EnemyHiveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0DE92CB7265B8AFA00CE5F4B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,6 +502,7 @@
 				0D3B7AAB2674CA5000150A15 /* LeafCutter.swift in Sources */,
 				0D3B7AA72674C68900150A15 /* CommonCarder.swift in Sources */,
 				0DE92D19265D4E4700CE5F4B /* HiveControllers.swift in Sources */,
+				0D3B7AAF2676467700150A15 /* EnemyHive.swift in Sources */,
 				0D2F117A265EACBE008B1171 /* Collision.swift in Sources */,
 				0DE92CFE265BDD4A00CE5F4B /* StartEnd.swift in Sources */,
 				0DE92D0F265D10CA00CE5F4B /* Map.swift in Sources */,
@@ -443,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D3B7AC226764AEC00150A15 /* EnemyHive.swift in Sources */,
 				0DE92CD7265B8AFB00CE5F4B /* HiveCrashTests.swift in Sources */,
 				0D3B7A9E2670C32200150A15 /* DefaultBeeTests.swift in Sources */,
 			);
@@ -459,6 +542,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0D3B7ABD26764AB500150A15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0DE92CBA265B8AFA00CE5F4B /* HiveCrash */;
+			targetProxy = 0D3B7ABC26764AB500150A15 /* PBXContainerItemProxy */;
+		};
 		0DE92CD4265B8AFB00CE5F4B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0DE92CBA265B8AFA00CE5F4B /* HiveCrash */;
@@ -472,6 +560,46 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0D3B7ABF26764AB500150A15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6TPWY3BLL8;
+				INFOPLIST_FILE = EnemyHiveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PetarSimonovic.EnemyHiveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HiveCrash.app/HiveCrash";
+			};
+			name = Debug;
+		};
+		0D3B7AC026764AB500150A15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6TPWY3BLL8;
+				INFOPLIST_FILE = EnemyHiveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = PetarSimonovic.EnemyHiveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HiveCrash.app/HiveCrash";
+			};
+			name = Release;
+		};
 		0DE92CE4265B8AFB00CE5F4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -714,6 +842,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0D3B7ABE26764AB500150A15 /* Build configuration list for PBXNativeTarget "EnemyHiveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D3B7ABF26764AB500150A15 /* Debug */,
+				0D3B7AC026764AB500150A15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0DE92CB6265B8AFA00CE5F4B /* Build configuration list for PBXProject "HiveCrash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

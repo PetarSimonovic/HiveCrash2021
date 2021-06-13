@@ -18,9 +18,14 @@ extension GameScene {
             for tile in adjacentTiles {
                 let checkTile = map.tileDefinition(atColumn: column + tile[0], row: row + tile[1])
                     if let _ = checkTile?.userData?.value(forKey: "fog") {
-                    var newTile = tiles.chooseTile(level)
+                        var newTile = SKTileGroup()
+                        if enemyHiveFound(tile) {
+                            newTile = tiles.enemyHive
+                        } else {
+                        newTile = tiles.chooseTile(level)
                         if newTile == tiles.flowerMeadow {
                             newTile = tiles.meadow
+                        }
                         }
                     map.setTileGroup(newTile, forColumn: column + tile[0], row: row + tile[1])
                     addMeadow(newTile, column + tile[0], row + tile[1])
@@ -33,7 +38,10 @@ extension GameScene {
                 newTile = tiles.flowerMeadow
                 self.hive.firstFlowerMeadow = true
                 tiles.fogCount -= 1
-            } else {
+                enemyHive.choosePosition(self.hive.column, self.hive.row)
+            } else if enemyHiveFound([column, row]) {
+                newTile = tiles.enemyHive
+                } else {
               newTile = tiles.chooseTile(level)
             }
             map.setTileGroup(newTile, forColumn: column, row: row)
@@ -86,6 +94,15 @@ extension GameScene {
             }
         infoPane.updateGameStatus("Stalemate detected")
         clearFog(column, row, false)
+    }
+    
+    func enemyHiveFound(_ tile: [Int]) -> Bool {
+        if enemyHive.column == tile[0] && enemyHive.row == tile[1] {
+            return true
+        } else {
+            return false
+        }
+
     }
     
 }

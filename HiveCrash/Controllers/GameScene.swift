@@ -15,6 +15,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var tiles = Tiles()
    var map = SKTileMapNode()
    var hive = Hive()
+   var enemyHive = EnemyHive()
+    
    var bees: [Bee] = []
    var flowers: [Flower] = []
    var meadows: [Meadow] = []
@@ -62,6 +64,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if tile?.name == "fog" && hive.isPlaced == false  {
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
+                enemyHive.choosePosition(hive.column, hive.row)
             } else if tile!.name == "hive" {
                 hive.pollen > hiveCost ? allowHiveMove() : refuseHiveMove()
             }
