@@ -14,7 +14,7 @@ class CommonCarder : Bee {
    override init() {
     super.init()
     self.type = "Common Carder"
-    self.speed = 300
+    self.speed = self.defaultSpeed
     self.pollenCapacity = 30
     self.appetite = 10
     self.maxHealth = 5

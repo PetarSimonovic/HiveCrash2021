@@ -13,7 +13,7 @@ class LeafCutter : Bee {
     override init() {
          super.init()
          self.type = "Leaf Cutter"
-         self.speed = 600
+        self.speed = self.defaultSpeed + 400
          self.pollenCapacity = 15
          self.appetite = 10
          self.maxHealth = 5
