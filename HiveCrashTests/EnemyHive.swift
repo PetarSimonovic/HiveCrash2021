@@ -12,7 +12,7 @@ import SpriteKit
 class EnemyHiveTests: XCTestCase {
     
     var sut: EnemyHive!
-    
+        
     let testColumn: Int = 5
     let testRow: Int = 5
 
@@ -60,6 +60,7 @@ class EnemyHiveTests: XCTestCase {
         }
 
     }
-
+    
+ 
 
 }

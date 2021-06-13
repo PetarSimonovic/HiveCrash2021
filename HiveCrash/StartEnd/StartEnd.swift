@@ -19,6 +19,10 @@ extension GameScene {
         self.map.zPosition = -1
         map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
         map.setScale(self.frame.width / 3200)
+        if hive.bees.count == 0 {
+            populateHive(1, true)
+        }
+        populateHive(5, false)
         addButtons()
         createInfoPane()
         checkStaleMate()
@@ -26,7 +30,7 @@ extension GameScene {
     }
     
     func gameOver() {
-        if bees.count <= 0 {
+        if hive.bees.count <= 0 {
             infoPane.gameOver()
             level = 1
             self.run(endGame())
@@ -44,7 +48,7 @@ extension GameScene {
     func endGame() -> SKAction {
         gamePlaying = false
         endTimer()
-        let wait = SKAction.wait(forDuration: 20)
+        let wait = SKAction.wait(forDuration: 10)
         let reset = SKAction.run({ self.resetGame() } )
         let gameOverSequence = SKAction.sequence([wait, reset])
         return gameOverSequence
@@ -58,7 +62,9 @@ extension GameScene {
         self.removeAllChildren()
         flowers.removeAll()
         meadows.removeAll()
+        enemyHive.bees.removeAll()
         hive = Hive()
+        enemyHive = EnemyHive()
         tiles = Tiles()
         infoPane.reset()
         moveHive = false

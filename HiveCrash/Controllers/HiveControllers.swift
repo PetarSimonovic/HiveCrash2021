@@ -25,7 +25,6 @@ extension GameScene {
         } else {
         tiles.fogCount -= 1
         infoPane.updateGameStatus("Hive created")
-        emptyHive()
         startTimer()
                 }
       hive.place(location, column, row)
@@ -41,7 +40,7 @@ extension GameScene {
     
     func feedBees() {
         print("bees are eating")
-        for bee in bees {
+        for bee in hive.bees {
             hive.pollen -= bee.appetite
             hive.pollen <= 0 ? beeStarves(bee) : beeEats(bee)
             hive.checkNoPollen()
@@ -50,7 +49,7 @@ extension GameScene {
     }
     
     func allowHiveMove() {
-        for bee in bees {
+        for bee in hive.bees {
             if bee.inHive == false {
                 infoPane.updateGameStatus("All bees must be in hive to move")
                 return

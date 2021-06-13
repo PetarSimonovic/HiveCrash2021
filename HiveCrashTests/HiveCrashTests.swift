@@ -16,6 +16,8 @@ import SpriteKit
 class HiveCrashTests: XCTestCase {
     
   //  var sut: HiveCrash!
+    
+
 
 
     override func setUpWithError() throws {
@@ -34,6 +36,16 @@ class HiveCrashTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    
+//    func testEnemyBeesAreGenerated() {
+//        var enemyBees: [Bee] = []
+//        sut.populateHive(5, false)
+//        XCTAssert(enemyBees.count == 5, "Enemy Bees aren't being generated")
+//        
+//
+//
+//    }
+
   //  func test
     
 

@@ -8,12 +8,9 @@
 import Foundation
 
 class EnemyHive : Hive {
-//            
-//    override init() {
-//        super.init()
-//        self.column = 0
-//        self.row = 0
-//    }
+ 
+    var discovered: Bool = false
+    
     
      func choosePosition(_ playerColumn: Int, _ playerRow: Int) {
         self.column = Int.random(in: 0...11)

@@ -10,23 +10,23 @@ import SpriteKit
 
 extension GameScene {
     
-    func addBee(_ bee: Bee) {
+    func addBee(_ bee: Bee, _ player: Bool) {
         
         print(bee)
      //   let beeSprite = bee.createBee()
        // map.addChild(bee.sprite)
-        bees.append(bee)
+        player ? hive.bees.append(bee) : enemyHive.bees.append(bee)
         bee.currentRow = hive.row
         bee.currentColumn = hive.column
-        infoPane.updateGameStatus("\(bee.name) has joined the hive")
-        hive.expandHive(bees.count, infoPane)
+        if player { infoPane.updateGameStatus("\(bee.name) has joined the hive") }
+        hive.expandHive(hive.bees.count, infoPane)
        // bee.sprite.position = hive.location
        // hive.pulse()
        // bee.fly(hive.location, flightSpeed(bee, bee.destination))
     }
     
     func releaseBee(_ bee: Bee, _ column: Int, _ row: Int) {
-        bees.rotateBees()
+        hive.bees.rotateBees()
         let destination = map.centerOfTile(atColumn: column, row: row)
         bee.setDestination(destination, column, row)
         map.addChild(bee.sprite)
@@ -36,7 +36,7 @@ extension GameScene {
     }
     
     func migrateBees (_ oldHive: CGPoint, _ newHive: CGPoint, _ column: Int, _ row: Int) {
-        for bee in bees {
+        for bee in hive.bees {
             bee.removeBee()
             infoPane.updateGameStatus("\(bee.name) is migrtating")
             if bee.scout == false {
@@ -58,7 +58,7 @@ extension GameScene {
 
     
     func beeFlight() {
-        for bee in bees {
+        for bee in hive.bees {
             bee.updatePollenCloud()
             switch bee.inHive {
             case false:
@@ -135,8 +135,8 @@ extension GameScene {
     }
     
     func killBee(_ bee: Bee) {
-        if let beeIndex = bees.firstIndex(where: {$0.id == bee.id}) {
-        bees.remove(at: beeIndex)
+        if let beeIndex = hive.bees.firstIndex(where: {$0.id == bee.id}) {
+        hive.bees.remove(at: beeIndex)
         infoPane.updateGameStatus("\(bee.name) died")
         bee.removeBee()
         gameOver()
@@ -146,7 +146,7 @@ extension GameScene {
     func hatchBee(_ bee: Bee) {
         if hive.pollen >= beeCost {
            hive.pollen -= beeCost
-           addBee(bee)
+           addBee(bee, true)
         } else {
             infoPane.updateGameStatus("Not enough pollen to create a bee")
         }
@@ -174,17 +174,15 @@ extension GameScene {
         }
     }
     
-    func emptyHive() {
-        if bees.count == 0 {
-            1.times {
+    func populateHive(_ numberOfBees: Int, _ player: Bool) {
+            numberOfBees.times {
             let bee = CommonCarder()
-            addBee(bee)
-           }
-        }
+            addBee(bee, player)
+      }
     }
     
     func resetBees() {
-        for bee in bees {
+        for bee in hive.bees {
             bee.health = bee.maxHealth
         }
     }

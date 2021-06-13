@@ -16,8 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var map = SKTileMapNode()
    var hive = Hive()
    var enemyHive = EnemyHive()
-    
-   var bees: [Bee] = []
+        
    var flowers: [Flower] = []
    var meadows: [Meadow] = []
    var gameInfo: [String] = []
@@ -69,7 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 hive.pollen > hiveCost ? allowHiveMove() : refuseHiveMove()
             }
             else {
-               let bee = bees.first(where: {$0.inHive == true} )
+                let bee = hive.bees.first(where: {$0.inHive == true} )
                 if moveHive == true && tile!.name == "meadow" || moveHive == true && tile!.name == "flowerMeadow" {
                     bee?.scout = true
                     infoPane.updateGameStatus("\(bee!.name) is scouting for a new hive")
@@ -109,8 +108,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         checkHivePollen()
         timeFlowers()
         beeFlight()
-        infoPane.updateHiveInfo(hive, bees.count)
-        infoPane.updateBeeInfo(bees)
+            infoPane.updateHiveInfo(hive, hive.bees.count)
+            infoPane.updateBeeInfo(hive.bees)
         checkStaleMate()
         }
 

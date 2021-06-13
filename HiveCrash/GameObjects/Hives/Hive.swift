@@ -19,6 +19,7 @@ class Hive {
     var pollenCount: Int = 1
     var firstFlowerMeadow: Bool = false
     var maxPollen: Int = 150
+    var bees: [Bee] = []
 
     func place(_ location: CGPoint, _ column: Int, _ row: Int) {
         self.node.removeFromParent()
