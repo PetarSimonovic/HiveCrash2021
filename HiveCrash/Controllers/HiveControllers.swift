@@ -27,7 +27,8 @@ extension GameScene {
         infoPane.updateGameStatus("Hive created")
         startTimer()
                 }
-      hive.place(location, column, row)
+      let centredLocation = map.centerOfTile(atColumn: column, row: row)
+      hive.place(centredLocation, column, row)
       
       clearFog(hive.column, hive.row, true)
       map.setTileGroup(tiles.hive, forColumn: hive.column, row: hive.row)

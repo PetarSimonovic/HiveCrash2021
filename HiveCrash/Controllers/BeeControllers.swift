@@ -10,15 +10,12 @@ import SpriteKit
 
 extension GameScene {
     
-    func addBee(_ bee: Bee, _ player: Bool) {
+    func addBee(_ bee: Bee, _ hive: Hive) {
         
         print(bee)
-     //   let beeSprite = bee.createBee()
-       // map.addChild(bee.sprite)
-        player ? hive.bees.append(bee) : enemyHive.bees.append(bee)
+        hive.bees.append(bee)
         bee.currentRow = hive.row
         bee.currentColumn = hive.column
-        if player { infoPane.updateGameStatus("\(bee.name) has joined the hive") }
         hive.expandHive(hive.bees.count, infoPane)
        // bee.sprite.position = hive.location
        // hive.pulse()
@@ -34,6 +31,8 @@ extension GameScene {
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
         infoPane.updateGameStatus("\(bee.name) has left the hive")
     }
+    
+
     
     func migrateBees (_ oldHive: CGPoint, _ newHive: CGPoint, _ column: Int, _ row: Int) {
         for bee in hive.bees {
@@ -74,6 +73,7 @@ extension GameScene {
         let column = self.map.tileColumnIndex(fromPosition: bee.sprite.position)
         let row = self.map.tileRowIndex(fromPosition: bee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
+       // print("Bee tile", column, row)
         checkRange(bee, column, row)
         if bee.settler {
            newHive(bee)
@@ -146,7 +146,7 @@ extension GameScene {
     func hatchBee(_ bee: Bee) {
         if hive.pollen >= beeCost {
            hive.pollen -= beeCost
-           addBee(bee, true)
+           addBee(bee, hive)
         } else {
             infoPane.updateGameStatus("Not enough pollen to create a bee")
         }
@@ -175,10 +175,19 @@ extension GameScene {
     }
     
     func populateHive(_ numberOfBees: Int, _ player: Bool) {
+        if player {
             numberOfBees.times {
             let bee = CommonCarder()
-            addBee(bee, player)
-      }
+            addBee(bee, hive)
+            infoPane.updateGameStatus("\(bee.name) has joined the hive")
+            
+            }
+            } else {
+                numberOfBees.times {
+                let bee = VestalCuckoo()
+                addBee(bee, enemyHive)
+                }
+            }
     }
     
     func resetBees() {

@@ -6,18 +6,21 @@
 //
 
 import Foundation
+import SpriteKit
 
 class EnemyHive : Hive {
  
     var discovered: Bool = false
     
     
-     func choosePosition(_ playerColumn: Int, _ playerRow: Int) {
+    func choosePosition(_ playerColumn: Int, _ playerRow: Int, _ map: SKTileMapNode) {
         self.column = Int.random(in: 0...11)
         self.row = Int.random(in: 0...10)
         if self.column == playerColumn && self.row == playerRow {
-            choosePosition(playerColumn, playerRow)
+            choosePosition(playerColumn, playerRow, map)
         }
+        self.location = map.centerOfTile(atColumn: column, row: row)
+
 
     }
 }

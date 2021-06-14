@@ -53,6 +53,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
             let tile = map.tileDefinition(atColumn: column, row: row)
+            print("Tile", column, row)
             
             // scouting clause will prevent taps on bee sprites now
             if scouting == true || tile?.name == nil {
@@ -63,7 +64,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if tile?.name == "fog" && hive.isPlaced == false  {
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
-                enemyHive.choosePosition(hive.column, hive.row)
+                enemyHive.choosePosition(hive.column, hive.row, map)
             } else if tile!.name == "hive" {
                 hive.pollen > hiveCost ? allowHiveMove() : refuseHiveMove()
             }
@@ -101,16 +102,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
 
         // Initialize _lastUpdateTime if it has not already been
-        if scouting == true {
-            hive.pulse()
-        }
+        if scouting == true { hive.pulse() }
         if gamePlaying == true {
-        checkHivePollen()
-        timeFlowers()
-        beeFlight()
+            checkHivePollen()
+            timeFlowers()
+            beeFlight()
             infoPane.updateHiveInfo(hive, hive.bees.count)
             infoPane.updateBeeInfo(hive.bees)
-        checkStaleMate()
+            checkStaleMate()
+        if enemyHive.discovered { controlEnemyHive() }
         }
 
 

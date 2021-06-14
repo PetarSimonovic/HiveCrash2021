@@ -32,6 +32,8 @@
 		0D3B7AAF2676467700150A15 /* EnemyHive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AAE2676467700150A15 /* EnemyHive.swift */; };
 		0D3B7ABA26764AB500150A15 /* EnemyHiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AB926764AB500150A15 /* EnemyHiveTests.swift */; };
 		0D3B7AC226764AEC00150A15 /* EnemyHive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AC126764AEC00150A15 /* EnemyHive.swift */; };
+		0D3B7AC426778A5100150A15 /* EnemyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AC326778A5100150A15 /* EnemyController.swift */; };
+		0D3B7AC626778E1900150A15 /* VestalCuckoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AC526778E1900150A15 /* VestalCuckoo.swift */; };
 		0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */; };
 		0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */; };
 		0DE92CD7265B8AFB00CE5F4B /* HiveCrashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CD6265B8AFB00CE5F4B /* HiveCrashTests.swift */; };
@@ -104,6 +106,8 @@
 		0D3B7AB926764AB500150A15 /* EnemyHiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyHiveTests.swift; sourceTree = "<group>"; };
 		0D3B7ABB26764AB500150A15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D3B7AC126764AEC00150A15 /* EnemyHive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyHive.swift; sourceTree = "<group>"; };
+		0D3B7AC326778A5100150A15 /* EnemyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyController.swift; sourceTree = "<group>"; };
+		0D3B7AC526778E1900150A15 /* VestalCuckoo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VestalCuckoo.swift; sourceTree = "<group>"; };
 		0DE92CBB265B8AFA00CE5F4B /* HiveCrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveCrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				0D3B7AA62674C68900150A15 /* CommonCarder.swift */,
 				0D3B7AA82674C95F00150A15 /* RedMason.swift */,
 				0D3B7AAA2674CA5000150A15 /* LeafCutter.swift */,
+				0D3B7AC526778E1900150A15 /* VestalCuckoo.swift */,
 			);
 			path = Bees;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				0D2F1175265E8AD7008B1171 /* FlightSpeedCalculator.swift */,
 				0D2F1177265EAB97008B1171 /* FlowerController.swift */,
 				0D2F1179265EACBE008B1171 /* Collision.swift */,
+				0D3B7AC326778A5100150A15 /* EnemyController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -492,6 +498,7 @@
 			files = (
 				0D1A737B266E463C0076CCAE /* Extensions.swift in Sources */,
 				0DE92D1B265D6A1F00CE5F4B /* Rock.swift in Sources */,
+				0D3B7AC426778A5100150A15 /* EnemyController.swift in Sources */,
 				0DE92D13265D372500CE5F4B /* Bee.swift in Sources */,
 				0D2F116A265E3C93008B1171 /* Flower.swift in Sources */,
 				0D1A7373266B76880076CCAE /* InfoPane.swift in Sources */,
@@ -513,6 +520,7 @@
 				0DE92D15265D4D9900CE5F4B /* BeeControllers.swift in Sources */,
 				0D151FC626639A2C00E933E1 /* Meadow.swift in Sources */,
 				0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */,
+				0D3B7AC626778E1900150A15 /* VestalCuckoo.swift in Sources */,
 				0DE92D17265D4DCB00CE5F4B /* MapControllers.swift in Sources */,
 				0D3B7AA92674C95F00150A15 /* RedMason.swift in Sources */,
 				0D3B7A9C266FABD700150A15 /* GameInfo.swift in Sources */,

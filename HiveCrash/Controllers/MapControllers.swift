@@ -38,7 +38,7 @@ extension GameScene {
                 newTile = tiles.flowerMeadow
                 self.hive.firstFlowerMeadow = true
                 tiles.fogCount -= 1
-                enemyHive.choosePosition(self.hive.column, self.hive.row)
+                enemyHive.choosePosition(self.hive.column, self.hive.row, map)
             } else if enemyHiveFound([column, row]) {
                 newTile = tiles.enemyHive
                 } else {
@@ -98,6 +98,8 @@ extension GameScene {
     
     func enemyHiveFound(_ tile: [Int]) -> Bool {
         if enemyHive.column == tile[0] && enemyHive.row == tile[1] {
+            enemyHive.discovered = true
+            infoPane.updateGameStatus("Enemy hive discovered")
             return true
         } else {
             return false
