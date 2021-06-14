@@ -73,8 +73,9 @@ extension GameScene {
         let column = self.map.tileColumnIndex(fromPosition: bee.sprite.position)
         let row = self.map.tileRowIndex(fromPosition: bee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
-       // print("Bee tile", column, row)
-        checkRange(bee, column, row)
+                       // print("Bee tile", column, row)
+       // NO LONGER CHECKING FOR RANGE
+       // checkRange(bee, column, row)
         if bee.settler {
            newHive(bee)
         }

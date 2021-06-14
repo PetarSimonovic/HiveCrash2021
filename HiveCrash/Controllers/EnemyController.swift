@@ -16,8 +16,7 @@ extension GameScene {
           enemyBee.updatePollenCloud()
                 switch enemyBee.inHive {
                 case true:
-                    print ("Releasing \(enemyBee.name)")
-                    releaseEnemyBee(enemyBee)
+                   return
                 default:
                     checkEnemyFlightPath(enemyBee)
                 }
@@ -59,7 +58,7 @@ extension GameScene {
         case "hive":
             enemyBee.flyHome(enemyHive.location, flightSpeed(enemyBee, enemyHive.location))
             hive.pulse()
-            infoPane.updateGameStatus("\(enemyBee.name) attacked hive")
+       //     infoPane.updateGameStatus("\(enemyBee.name) stole \(enemyBee.pollenCapacity) pollen from hive")
 
         case "enemyHive":
             if enemyBee.homewardBound == true {
@@ -74,4 +73,17 @@ extension GameScene {
         }
     }
     
+    func activateEnemies() {
+        let launch = SKAction.run( {self.launchEnemy()} )
+        let pauseLaunch = SKAction.wait(forDuration: 10)
+        let launchSequence = SKAction.sequence([launch, pauseLaunch])
+        self.run(SKAction.repeatForever(launchSequence))
+    }
+    
+    
+    func launchEnemy() {
+        if let enemyBee = enemyHive.bees.first(where: { $0.inHive == true} ) {
+                releaseEnemyBee(enemyBee)
+            }
+        }
 }

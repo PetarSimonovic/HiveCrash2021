@@ -21,6 +21,6 @@ class EnemyHive : Hive {
         }
         self.location = map.centerOfTile(atColumn: column, row: row)
 
-
+    
     }
 }

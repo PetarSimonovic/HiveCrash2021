@@ -35,9 +35,7 @@ extension GameScene {
       map.addChild(hive.node)
     }
     
-     @objc func updateHive() {
-        feedBees()
-    }
+  
     
     func feedBees() {
         print("bees are eating")

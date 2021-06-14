@@ -73,7 +73,7 @@ extension GameScene {
     }
     
     func startTimer() {
-      gameTimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(updateHive), userInfo: nil, repeats: true)
+      gameTimer = createTimer()
         print("Timer, \(String(describing: gameTimer))")
     }
     

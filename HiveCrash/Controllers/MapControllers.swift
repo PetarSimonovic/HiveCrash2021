@@ -100,6 +100,7 @@ extension GameScene {
         if enemyHive.column == tile[0] && enemyHive.row == tile[1] {
             enemyHive.discovered = true
             infoPane.updateGameStatus("Enemy hive discovered")
+            activateEnemies()
             return true
         } else {
             return false
