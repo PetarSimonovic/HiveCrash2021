@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "leafCutter2-2.png",
+      "filename" : "beeshadow.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "leafCutter2-1.png",
+      "filename" : "beeshadow-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "leafCutter2.png",
+      "filename" : "beeshadow-1.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

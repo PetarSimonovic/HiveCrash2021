@@ -209,6 +209,13 @@
 			path = EnemyHiveTests;
 			sourceTree = "<group>";
 		};
+		0D5DFB1C2679243300B59694 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		0DE92CB2265B8AFA00CE5F4B = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +242,7 @@
 		0DE92CBD265B8AFA00CE5F4B /* HiveCrash */ = {
 			isa = PBXGroup;
 			children = (
+				0D5DFB1C2679243300B59694 /* Animation */,
 				0D2F1164265E3B52008B1171 /* Particles */,
 				0DE92D0B265D0F2B00CE5F4B /* GameObjects */,
 				0DE92CFF265BE27600CE5F4B /* Controllers */,

@@ -24,5 +24,6 @@ class CommonCarder : Bee {
     self.sprite = SKSpriteNode(imageNamed: "commoncarder")
 
    // self.createBee()
-}
+ }
+    
 }

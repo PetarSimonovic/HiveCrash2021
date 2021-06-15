@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "redmason.png",
+      "filename" : "redMason 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "redmason-1.png",
+      "filename" : "redMason 2-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "redmason-2.png",
+      "filename" : "redMason 2-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -41,17 +41,19 @@ class Bee {
     var scout: Bool = false
     
     var sprite = SKSpriteNode()
-    var pollenCloud = SKEmitterNode ()
+    var pollenCloud = SKEmitterNode()
+    var beeSpinFrames: [SKTexture] = []
     
     init() {
         self.name = chooseName()
         self.health = self.maxHealth
         self.range = self.maxRange
+       // self.beeSpinFrames = self.buildTextures("commoncarderAtlas")
         self.createBee()
     }
     
     func createBee() {
-        self.sprite = SKSpriteNode(imageNamed: "commoncarder")
+        self.sprite = SKSpriteNode(imageNamed: "comoncarder")
         self.sprite.physicsBody = SKPhysicsBody(texture: self.sprite.texture!, size: self.sprite.size)
         self.sprite.name = "\(self.id)"
         self.sprite.physicsBody?.affectedByGravity = false
@@ -66,6 +68,7 @@ class Bee {
         let flyHome = SKAction.run ( { self.flyHome(hiveLocation, beeSpeed)} )
         let flightPath = SKAction.sequence([flight, flyHome])
         self.sprite.run(flightPath, withKey: "flightPath")
+       // animateBee()
     }
     
     
@@ -91,8 +94,10 @@ class Bee {
             self.pollenCloud.zPosition = 4
             self.sprite.run(returnToHive, withKey: "flyHome")
             self.homewardBound = true
+           // animateBee()
         }
          self.pollenCollecting = false
+        self.sprite.run(SKAction.rotate(toAngle: 0, duration: 0.1))
     }
     
     
@@ -145,6 +150,27 @@ class Bee {
         print("Bee pollen is",self.pollen)
     }
     
+    
+    func buildTextures(_ atlas: String) -> [SKTexture] {
+      let beeAnimatedAtlas = SKTextureAtlas(named: atlas)
+      print(beeAnimatedAtlas)
+      var spinFrames: [SKTexture] = []
+
+      let numImages = beeAnimatedAtlas.textureNames.count
+        print("Images", numImages)
+      for i in 1...numImages {
+        let beeTextureName = "bee\(i)"
+        spinFrames.append(beeAnimatedAtlas.textureNamed(beeTextureName))
+      }
+      return spinFrames
+    }
+    
+    func animateBee() {
+        
+       let spinBee = SKAction.animate(with: self.beeSpinFrames, timePerFrame: 0.1, resize: false, restore: true)
+        self.sprite.run(SKAction.repeatForever(spinBee), withKey: "spinBee")
+   }
+
            
  }
     

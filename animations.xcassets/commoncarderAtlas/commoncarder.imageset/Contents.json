@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "leafCutter2-2.png",
+      "filename" : "commoncarder.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "leafCutter2-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "leafCutter2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

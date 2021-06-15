@@ -18,7 +18,7 @@ extension GameScene {
         self.addChild(map)
         self.map.zPosition = -1
         map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
-        map.setScale(self.frame.width/1500)
+        map.setScale(self.frame.width/500)
         if hive.bees.count == 0 {
             populateHive(1, true)
         }
