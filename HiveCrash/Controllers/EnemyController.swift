@@ -30,6 +30,7 @@ extension GameScene {
         enemyBee.setDestination(destination, hive.column, hive.row)
         map.addChild(enemyBee.sprite)
         enemyBee.sprite.position = enemyHive.location
+        enemyBee.sprite.setScale(0.4)
         enemyBee.fly(enemyHive.location, flightSpeed(enemyBee, enemyBee.destination))
     }
     

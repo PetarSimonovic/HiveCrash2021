@@ -35,7 +35,6 @@ extension GameScene {
                 }
             }
         default:
-            print("Clearing fog here=!")
             var newTile = SKTileGroup()
             if self.hive.firstFlowerMeadow == false {
                 newTile = tiles.flowerMeadow

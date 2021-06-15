@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var commonCarderButton = SKSpriteNode()
    var redMasonButton = SKSpriteNode()
    var leafCutterButton = SKSpriteNode()
-    var dimButton: CGFloat = 0.2
+   var dimButton: CGFloat = 0.2
 
   
     override func didMove(to view: SKView) {

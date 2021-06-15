@@ -27,6 +27,7 @@ extension GameScene {
         let destination = map.centerOfTile(atColumn: column, row: row)
         bee.setDestination(destination, column, row)
         map.addChild(bee.sprite)
+        bee.sprite.setScale(0.4)
         bee.sprite.position = hive.location
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
         infoPane.updateGameStatus("\(bee.name) has left the hive")
@@ -75,11 +76,10 @@ extension GameScene {
         let tile = self.map.tileDefinition(atColumn: column, row: row)
                        // print("Bee tile", column, row)
        // NO LONGER CHECKING FOR RANGE
-       // checkRange(bee, column, row)
+        checkRange(bee, column, row)
         if bee.settler {
            newHive(bee)
         }
-        print(tile?.name!)
         switch tile?.name! {
         case "fog":
              clearFog(column, row, false)
