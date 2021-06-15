@@ -11,7 +11,7 @@ import SpriteKit
 //extension GameScene {
 
 func loadTiles() -> SKTileSet {
-    guard let tiles = SKTileSet(named: "TileSet") else {
+    guard let tiles = SKTileSet(named: "TileSetIso") else {
                // hint: don't use the filename for named, use the tileset inside
                fatalError()
            }

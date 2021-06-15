@@ -28,7 +28,7 @@ class Tiles {
     
     func startMap() -> SKTileMapNode {
 
-          let tileSize = tileSet.defaultTileSize // from image size
+        let tileSize = CGSize(width: 128, height: 64) // from image size
           let tileMap = SKTileMapNode(tileSet: tileSet, columns: 12, rows: 11, tileSize: tileSize)
               tileMap.fill(with: fog) // fill or set by column/row
                //tileMap.setTileGroup(tileGroup, forColumn: 5, row: 5)
