@@ -13,7 +13,7 @@ class RedMason : Bee {
     override init() {
      super.init()
      self.type = "Red Mason"
-     self.speed = self.defaultSpeed - 100
+     self.speed = self.defaultSpeed - 20
      self.pollenCapacity = 50
      self.appetite = 10
      self.maxHealth = 5

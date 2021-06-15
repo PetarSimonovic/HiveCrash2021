@@ -12,25 +12,34 @@ extension GameScene {
 
     func createInfoPane() {
         
+        addHiveInfo()
         addBeeInfo()
         positionBeeInfo()
+        positionHiveInfo()
 
-        addChild(infoPane.tileName)
-        addChild(infoPane.hivePollen)
-        addChild(infoPane.pollenStatus)
-        addChild(infoPane.beePopulation)
+     
         addChild(infoPane.gameStatus_1)
         addChild(infoPane.gameStatus_2)
         addChild(infoPane.gameStatus_3)
         addChild(infoPane.beeStatus)
+                infoPane.gameStatus_1.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 65)
+        infoPane.gameStatus_2.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 50)
+        infoPane.gameStatus_3.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 35)
+    }
+    
+    func addHiveInfo() {
+        addChild(infoPane.tileName)
+        addChild(infoPane.hivePollen)
+        addChild(infoPane.pollenStatus)
+        addChild(infoPane.beePopulation)
+    }
+    
+    func positionHiveInfo() {
         infoPane.updateDisplay()
         infoPane.hivePollen.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 10)
         infoPane.beePopulation.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 30)
         infoPane.tileName.position = CGPoint(x: frame.minX + 10, y: frame.maxY - 50)
         infoPane.pollenStatus.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 70)
-                infoPane.gameStatus_1.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 65)
-        infoPane.gameStatus_2.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 50)
-        infoPane.gameStatus_3.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 35)
     }
     
     func addBeeInfo() {
@@ -42,11 +51,11 @@ extension GameScene {
     }
     
     func positionBeeInfo() {
-        infoPane.beeName.position = CGPoint(x: frame.midX + 10 , y: frame.maxY - 10)
-        infoPane.beeType.position = CGPoint(x: frame.midX + 10 , y: frame.maxY - 25)
-        infoPane.beeHealth.position = CGPoint(x: frame.midX + 10 , y: frame.maxY - 40)
-        infoPane.beePollen.position = CGPoint(x: frame.midX + 10 , y: frame.maxY - 55)
-        infoPane.beeRange.position = CGPoint(x: frame.midX + 10 , y: frame.maxY - 70)
+        infoPane.beeName.position = CGPoint(x: (frame.midX + frame.midX / 3) , y: frame.maxY - 10)
+        infoPane.beeType.position = CGPoint(x: (frame.midX + frame.midX / 3), y: frame.maxY - 25)
+        infoPane.beeHealth.position = CGPoint(x: (frame.midX + frame.midX / 3), y: frame.maxY - 40)
+        infoPane.beePollen.position = CGPoint(x: (frame.midX + frame.midX / 3) , y: frame.maxY - 55)
+        infoPane.beeRange.position = CGPoint(x: (frame.midX + frame.midX / 3) , y: frame.maxY - 70)
     }
     
     func updateInfoPane(_ tile: SKTileDefinition, _ column: Int, _ row: Int) {
