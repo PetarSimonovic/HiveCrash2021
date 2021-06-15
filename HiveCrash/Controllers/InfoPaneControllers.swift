@@ -14,18 +14,23 @@ extension GameScene {
         
         addHiveInfo()
         addBeeInfo()
+        addGameInfo()
         positionBeeInfo()
         positionHiveInfo()
+        positionGameInfo()
+        
 
-     
-        addChild(infoPane.gameStatus_1)
-        addChild(infoPane.gameStatus_2)
-        addChild(infoPane.gameStatus_3)
-        addChild(infoPane.beeStatus)
-                infoPane.gameStatus_1.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 65)
-        infoPane.gameStatus_2.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 50)
-        infoPane.gameStatus_3.position = CGPoint(x: frame.minX + 10 , y: frame.minY + 35)
     }
+    
+//    func infoPane.updateGameStatus(_ text: String) {
+//        let scrollNode = infoPane.updateGameStatus(text)
+//        self.addChild((scrollNode))
+//        scrollNode.position = CGPoint(x: self.frame.maxX + (previousScrollNode.position.x + 20), y: self.frame.minY + 100)
+//        scrollNodes.insert(scrollNode, at: 0)
+//        previousScrollNode = scrollNode
+//    }
+    
+
     
     func addHiveInfo() {
         addChild(infoPane.tileName)
@@ -35,7 +40,6 @@ extension GameScene {
     }
     
     func positionHiveInfo() {
-        infoPane.updateDisplay()
         infoPane.hivePollen.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 10)
         infoPane.beePopulation.position = CGPoint(x: frame.minX + 10 , y: frame.maxY - 30)
         infoPane.tileName.position = CGPoint(x: frame.minX + 10, y: frame.maxY - 50)
@@ -58,6 +62,20 @@ extension GameScene {
         infoPane.beeRange.position = CGPoint(x: (frame.midX + frame.midX / 3) , y: frame.maxY - 70)
     }
     
+    func addGameInfo() {
+        self.addChild(infoPane.gameStatus_1)
+        self.addChild(infoPane.gameStatus_2)
+        self.addChild(infoPane.gameStatus_3)
+    }
+    
+    
+    func positionGameInfo() {
+        infoPane.gameStatus_1.position = CGPoint(x: (frame.minX + 10) , y: frame.minY + 50)
+        infoPane.gameStatus_2.position = CGPoint(x: (frame.minX + 10), y: frame.minY + 45)
+        infoPane.gameStatus_3.position = CGPoint(x: (frame.minX + 10), y: frame.minY + 20)
+      
+    }
+    
     func updateInfoPane(_ tile: SKTileDefinition, _ column: Int, _ row: Int) {
         switch tile.name {
         case "fog":
@@ -78,6 +96,20 @@ extension GameScene {
         default:
             return
         }
+    }
+    
+    func scrollText() {
+    
+    enumerateChildNodes(withName: "gameInfo", using: ({
+        (node, error) in
+        let textNode = node as! SKLabelNode
+        textNode.position = CGPoint(x: textNode.position.x - 1, y: textNode.position.y)
+        if textNode.position.x <= self.frame.minX - textNode.frame.width {
+            textNode.removeFromParent()
+       
+        }
+    }))
+        
     }
     
 }

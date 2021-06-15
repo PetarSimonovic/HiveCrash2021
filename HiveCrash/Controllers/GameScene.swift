@@ -35,8 +35,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var redMasonButton = SKSpriteNode()
    var leafCutterButton = SKSpriteNode()
    var dimButton: CGFloat = 0.2
+    
+    var scrollNodes: [SKLabelNode] = []
+    var previousScrollNode = SKLabelNode()
 
-  
+        
     override func didMove(to view: SKView) {
      startGame()
     }
@@ -115,6 +118,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             infoPane.updateBeeInfo(hive.bees)
             checkStaleMate()
         if enemyHive.discovered { controlEnemyHive() }
+            scrollText()
         }
 
 

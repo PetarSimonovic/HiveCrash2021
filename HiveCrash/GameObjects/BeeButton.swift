@@ -45,7 +45,7 @@ func addLeafCutterButton() {
     func positionButton(_ button: SKSpriteNode, _ xPos: CGFloat) {
         
         button.setScale(self.frame.width / 1300)
-        button.position = CGPoint(x: (self.frame.midX + self.frame.midX / 3) + xPos, y: (self.frame.minY + 20))
+        button.position = CGPoint(x: (self.frame.midX + self.frame.midX / 1.5) + xPos, y: (self.frame.minY + 50))
         button.alpha = dimButton
 }
     

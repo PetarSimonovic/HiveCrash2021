@@ -30,7 +30,7 @@ extension GameScene {
         bee.sprite.setScale(0.4)
         bee.sprite.position = hive.location
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
-        infoPane.updateGameStatus("\(bee.name) has left the hive")
+        infoPane.updateGameStatus("\(bee.name) has taken flight")
     }
     
 
@@ -91,7 +91,7 @@ extension GameScene {
             }
         case "rock":
             if bee.scout {
-                infoPane.updateGameStatus("No clear path to meadow - select new location")
+                infoPane.updateGameStatus("\(bee.name) could not reach the new hive location")
                 bee.scout = false
                 moveHive = false
                 scouting = false

@@ -62,7 +62,6 @@ class Hive {
     func expandHive(_ bees: Int, _ infoPane: InfoPane) {
         if bees % 5 == 0 {
             self.maxPollen += 25
-            infoPane.updateGameStatus("Hive pollen capacity expanded to \(self.maxPollen)")
         }
     }
 
