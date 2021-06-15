@@ -79,6 +79,7 @@ extension GameScene {
         if bee.settler {
            newHive(bee)
         }
+        print(tile?.name!)
         switch tile?.name! {
         case "fog":
              clearFog(column, row, false)

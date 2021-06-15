@@ -49,6 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         for touch in touches {
+            print("reading touches")
             let location = touch.location(in: map)
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
@@ -62,6 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             updateInfoPane(tile!, column, row)
             if tile?.name == "fog" && hive.isPlaced == false  {
+                print("Reading tile")
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
                 enemyHive.choosePosition(hive.column, hive.row, map)

@@ -16,8 +16,9 @@ extension GameScene {
         case true:
             let adjacentTiles = tiles.getTiles(column % 2)
             for tile in adjacentTiles {
-                let checkTile = map.tileDefinition(atColumn: column + tile[0], row: row + tile[1])
-                    if let _ = checkTile?.userData?.value(forKey: "fog") {
+                if let checkTile = map.tileDefinition(atColumn: column + tile[0], row: row + tile[1]) {
+                if checkTile.name! == "fog" {
+                       print("Fog tile here")
                         var newTile = SKTileGroup()
                         if enemyHiveFound(tile) {
                             newTile = tiles.enemyHive
@@ -32,7 +33,9 @@ extension GameScene {
                     }
                 checkVictory()
                 }
+            }
         default:
+            print("Clearing fog here=!")
             var newTile = SKTileGroup()
             if self.hive.firstFlowerMeadow == false {
                 newTile = tiles.flowerMeadow

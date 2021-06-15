@@ -34,13 +34,14 @@ class Hive {
     
     
     func pulse() {
-        let pulseNode = SKEmitterNode(fileNamed: "HivePulse")!
-        let addEmitterAction = SKAction.run({self.node.addChild(pulseNode)})
-        let emitterDuration = Double(pulseNode.numParticlesToEmit) / Double(pulseNode.particleBirthRate) + Double(pulseNode.particleLifetime + pulseNode.particleLifetimeRange/2)
-        let wait = SKAction.wait(forDuration: TimeInterval(emitterDuration))
-        let remove = SKAction.run( {pulseNode.removeFromParent()} )
-        let pulseSequence = SKAction.sequence([addEmitterAction, wait, remove])
-        self.node.run(pulseSequence)
+//        let pulseNode = SKEmitterNode(fileNamed: "HivePulse")!
+//        let addEmitterAction = SKAction.run({self.node.addChild(pulseNode)})
+//        let emitterDuration = Double(pulseNode.numParticlesToEmit) / Double(pulseNode.particleBirthRate) + Double(pulseNode.particleLifetime + pulseNode.particleLifetimeRange/2)
+//        let wait = SKAction.wait(forDuration: TimeInterval(emitterDuration))
+//        let remove = SKAction.run( {pulseNode.removeFromParent()} )
+//        let pulseSequence = SKAction.sequence([addEmitterAction, wait, remove])
+//        self.node.run(pulseSequence)
+        print("pulsing")
     
     }
     

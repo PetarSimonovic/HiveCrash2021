@@ -23,7 +23,7 @@ class Bee {
     var currentRow: Int = 0
     
     var type: String = "Default"
-    var defaultSpeed = 400
+    var defaultSpeed = 200
     var speed: Int = 300
     var pollen: Int = 0
     var pollenCapacity: Int = 0

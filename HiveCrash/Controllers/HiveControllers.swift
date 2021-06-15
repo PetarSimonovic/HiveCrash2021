@@ -11,6 +11,7 @@ import SpriteKit
 extension GameScene {
     
     func placeHive(_ location: CGPoint, _ column: Int, _ row: Int) {
+     print("placing hive")
       if moveHive == true {
         map.setTileGroup(tiles.meadow, forColumn: hive.column, row: hive.row)
         removeFlower(column, row)

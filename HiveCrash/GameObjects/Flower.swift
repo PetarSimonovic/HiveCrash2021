@@ -46,6 +46,7 @@ class Flower {
         let growthCycle = SKAction.sequence([growthTimer, bloom, growthTimer, wither, witherTimer, removeFlower])
         self.sprite.zPosition = 0
         self.sprite.run(SKAction.repeatForever(growthCycle))
+        self.sprite.setScale(0.3)
     }
     
     func bloom() {
