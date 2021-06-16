@@ -48,13 +48,21 @@ extension GameScene {
     }
     
     func allowHiveMove() {
+        print("In allowHiveMove")
         for bee in hive.bees {
+            print("\(bee.name) inHive", bee.inHive)
+            print("\(bee.name) scout", bee.scout)
+            print(bee.inHive, bee.scout)
             if bee.inHive == false {
+                print("InHive False")
                 infoPane.updateGameStatus("All bees must be in hive to move")
                 return
             } else if bee.scout == true {
+                print("Scout is True")
                 infoPane.updateGameStatus("Already scouting new location")
+                return
             } else {
+                print("All good for Hive Move")
                 infoPane.updateGameStatus("Select meadow for new hive")
                 moveHive = true
             }
@@ -67,7 +75,7 @@ extension GameScene {
     
     func newHive(_ bee: Bee) {
         infoPane.updateGameStatus("\(bee.name) has found a meadow for new hive")
-        bee.settler = false
+        bee.settle()
         let newHiveLocaiton = map.centerOfTile(atColumn: bee.destinationColumn, row: bee.destinationRow)
         placeHive(newHiveLocaiton, bee.destinationColumn, bee.destinationRow)
     }

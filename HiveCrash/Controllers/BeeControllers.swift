@@ -35,25 +35,33 @@ extension GameScene {
 
     
     func migrateBees (_ oldHive: CGPoint, _ newHive: CGPoint, _ column: Int, _ row: Int) {
+        migration = true
         for bee in hive.bees {
-            bee.removeBee()
-            infoPane.updateGameStatus("\(bee.name) is migrtating")
-            if bee.scout == false {
-            bee.inHive = false
-            bee.destination = newHive
-            bee.destinationColumn = column
-            bee.destinationRow = row
-            map.addChild(bee.sprite)
-            bee.sprite.position = oldHive
-            bee.flyHome(newHive, flightSpeed(bee, newHive))
-            self.run(SKAction.wait(forDuration: 1))
-            } else {
+            if bee.settler == false {
               bee.removeBee()
-            }
+              infoPane.updateGameStatus("\(bee.name) is migrtating")
+              if bee.scout == false {
+                bee.inHive = false
+                bee.destination = newHive
+                bee.destinationColumn = column
+                bee.destinationRow = row
+                map.addChild(bee.sprite)
+                bee.sprite.position = oldHive
+                bee.flyHome(newHive, flightSpeed(bee, newHive))
+            } 
         }
         infoPane.updateGameStatus("Hive migrated")
         scouting = false
     }
+    }
+        
+        func checkMigration() {
+            for bee in hive.bees {
+              if bee.inHive == false { return }
+            }
+            migration = false
+            removeBees()
+        }
 
     
     func beeFlight() {
@@ -75,10 +83,11 @@ extension GameScene {
         let tile = self.map.tileDefinition(atColumn: column, row: row)
                        // print("Bee tile", column, row)
        // NO LONGER CHECKING FOR RANGE
-       // checkRange(bee, column, row)
+        checkRange(bee, column, row)
         if bee.settler {
            newHive(bee)
         }
+        checkCombat(bee)
         switch tile?.name! {
         case "fog":
              clearFog(column, row, false)
@@ -196,5 +205,11 @@ extension GameScene {
             bee.health = bee.maxHealth
         }
     }
+        
+        func removeBees() {
+            for bee in hive.bees {
+                bee.removeBee()
+            }
+        }
     
 }

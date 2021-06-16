@@ -39,6 +39,7 @@ class Bee {
     var inHive: Bool = true
     var settler: Bool = false
     var scout: Bool = false
+    var inCombat: Bool = false
     
     var sprite = SKSpriteNode()
     var pollenCloud = SKEmitterNode ()
@@ -143,6 +144,13 @@ class Bee {
             self.pollen = self.pollenCapacity
         }
         print("Bee pollen is",self.pollen)
+    }
+    
+    func settle() {
+        self.inHive = true
+        self.sprite.run(SKAction.repeatForever(SKAction.rotate(byAngle: 10, duration: 0.5)))
+        self.sprite.zPosition = 3
+
     }
     
            

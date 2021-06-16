@@ -30,6 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var scouting: Bool = false
    var level: Int = 1
    var gamePlaying: Bool = false
+   var migration: Bool = false
     
    var commonCarderButton = SKSpriteNode()
    var redMasonButton = SKSpriteNode()
@@ -56,7 +57,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("Tile", column, row)
             
             // scouting clause will prevent taps on bee sprites now
-            if scouting == true || tile?.name == nil {
+            if scouting == true || migration == true || tile?.name == nil {
                 checkButtonTap(touch)
                 return
             }
@@ -104,8 +105,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
 
         // Initialize _lastUpdateTime if it has not already been
-        if scouting == true { hive.pulse() }
         if gamePlaying == true {
+            if scouting == true { hive.pulse() }
+            if migration == true {checkMigration()}
             checkHivePollen()
             timeFlowers()
             beeFlight()
