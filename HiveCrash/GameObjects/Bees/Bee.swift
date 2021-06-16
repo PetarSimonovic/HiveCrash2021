@@ -19,8 +19,8 @@ class Bee {
     var destination: CGPoint = CGPoint(x: 0, y: 0)
     var destinationRow: Int = 0
     var destinationColumn: Int = 0
-    var currentColumn: Int = 0
-    var currentRow: Int = 0
+    var currentColumn: Int = 1000
+    var currentRow: Int = 1000
     
     var type: String = "Default"
     var defaultSpeed = 400
@@ -100,7 +100,8 @@ class Bee {
     func removeBee() {
         self.sprite.removeFromParent()
         self.sprite.removeAllChildren()
-        self.sprite.position = CGPoint(x: 0, y: 0)
+        self.sprite.removeAllActions()
+        self.sprite.position = CGPoint(x: 1000, y: 1000)
         self.inHive = true
         self.homewardBound = false
         self.pollenCollecting = false
@@ -108,8 +109,8 @@ class Bee {
         self.scout = false
         self.settler = false
         self.range = self.maxRange
-        self.currentColumn = 0
-        self.currentRow = 0
+        self.currentColumn = 1000
+        self.currentRow = 1000
     }
     
     

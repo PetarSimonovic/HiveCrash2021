@@ -48,21 +48,14 @@ extension GameScene {
     }
     
     func allowHiveMove() {
-        print("In allowHiveMove")
         for bee in hive.bees {
-            print("\(bee.name) inHive", bee.inHive)
-            print("\(bee.name) scout", bee.scout)
-            print(bee.inHive, bee.scout)
             if bee.inHive == false {
-                print("InHive False")
                 infoPane.updateGameStatus("All bees must be in hive to move")
                 return
             } else if bee.scout == true {
-                print("Scout is True")
                 infoPane.updateGameStatus("Already scouting new location")
                 return
             } else {
-                print("All good for Hive Move")
                 infoPane.updateGameStatus("Select meadow for new hive")
                 moveHive = true
             }

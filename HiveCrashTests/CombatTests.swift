@@ -55,8 +55,8 @@ class CombatTests: XCTestCase {
         bee.currentRow = beeTestRow
         bee.currentColumn = beeTestColumn
         let enemyBee = VestalCuckoo()
-        let enemyHive = EnemyHive()
-        enemyHive.bees.append(enemyBee)
+        sut.enemyHive.bees.removeAll()
+        sut.enemyHive.bees.append(enemyBee)
         sut.checkCombat(bee)
         XCTAssert(bee.inCombat == false, "Bee should not be in combat")
         XCTAssert(enemyBee.inCombat == false, "Enemy Bee should not be in combat")
@@ -64,16 +64,13 @@ class CombatTests: XCTestCase {
         bee.currentColumn = beeTestColumn
         enemyBee.currentRow = bee.currentRow
         enemyBee.currentColumn = bee.currentColumn
-        sut.beesFight(bee, enemyBee)
+        sut.checkCombat(bee)
         XCTAssert(bee.inCombat == true, "Bee should be in combat")
         XCTAssert(enemyBee.inCombat == true, "Enemy Bee should be in combat")
         
- 
-        
-        
-        
-        
     }
+    
+    
     
     
     

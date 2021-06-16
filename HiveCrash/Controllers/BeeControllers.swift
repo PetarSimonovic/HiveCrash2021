@@ -66,6 +66,7 @@ extension GameScene {
     
     func beeFlight() {
         for bee in hive.bees {
+            debugInfo(bee)
             bee.updatePollenCloud()
             switch bee.inHive {
             case false:
@@ -76,6 +77,7 @@ extension GameScene {
            
             }
     }
+    
     
     func checkFlightPath(_ bee: Bee) {
         let column = self.map.tileColumnIndex(fromPosition: bee.sprite.position)
@@ -211,5 +213,21 @@ extension GameScene {
                 bee.removeBee()
             }
         }
+    
+    func debugInfo(_ bee: Bee) {
+        if bee.inHive == false {
+            print(bee.name)
+            print("Scout", bee.scout)
+            print("Settler", bee.settler)
+            print("Current", bee.currentColumn, bee.currentRow)
+            print("Destination", bee.destinationColumn, bee.destinationRow)
+            print("HomewardBound", bee.homewardBound)
+            print("HomewardBound", bee.inCombat)
+
+
+
+
+        }
+    }
     
 }
