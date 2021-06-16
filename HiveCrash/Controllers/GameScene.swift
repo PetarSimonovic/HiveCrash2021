@@ -114,7 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             infoPane.updateHiveInfo(hive, hive.bees.count)
             infoPane.updateBeeInfo(hive.bees)
             checkStaleMate()
-        if enemyHive.discovered { controlEnemyHive() }
+            controlEnemyHive() 
         }
 
 

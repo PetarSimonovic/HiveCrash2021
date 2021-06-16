@@ -13,14 +13,16 @@ extension GameScene {
     func checkCombat(_ bee: Bee) {
         
         for enemyBee in enemyHive.bees {
-            print("Bee combat rows", bee.currentColumn, bee.currentRow, enemyBee.inCombat)
-            print("Bee enemy rows", bee.currentColumn, bee.currentRow, enemyBee.inCombat)
-            if enemyBee.currentRow == bee.currentRow && enemyBee.currentColumn == bee.currentColumn && enemyBee.inHive == false {
+            if enemyBee.inHive == false {
+//            print("Bee combat rows", bee.currentColumn, bee.currentRow, enemyBee.inCombat)
+//            print("Bee enemy rows", enemyBee.currentColumn, enemyBee.currentRow, enemyBee.inCombat)
+            if enemyBee.currentRow == bee.currentRow && enemyBee.currentColumn == bee.currentColumn {
                 print("Bee combat meets conditions for fight")
                 beesFight(bee, enemyBee)
             }
         }
         
+    }
     }
     
     func beesFight(_ bee: Bee, _ enemyBee: Bee) {
