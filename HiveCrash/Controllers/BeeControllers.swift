@@ -177,6 +177,7 @@ extension GameScene {
         if bee.range < 0 {
             if bee.scout {
                 bee.settler = true
+                bee.settle()
                 bee.setDestination(bee.sprite.position, bee.currentColumn, bee.currentRow)
                 newHive(bee)
             }
