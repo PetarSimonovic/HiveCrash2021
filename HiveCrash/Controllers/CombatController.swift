@@ -13,8 +13,10 @@ extension GameScene {
     func checkCombat(_ bee: Bee) {
         
         for enemyBee in enemyHive.bees {
-            print("Bee in combat?", bee.inCombat)
-            if enemyBee.currentRow == bee.currentRow && enemyBee.currentColumn == bee.currentColumn {
+            print("Bee combat rows", bee.currentColumn, bee.currentRow, enemyBee.inCombat)
+            print("Bee enemy rows", bee.currentColumn, bee.currentRow, enemyBee.inCombat)
+            if enemyBee.currentRow == bee.currentRow && enemyBee.currentColumn == bee.currentColumn && enemyBee.inHive == false {
+                print("Bee combat meets conditions for fight")
                 beesFight(bee, enemyBee)
             }
         }
@@ -22,6 +24,7 @@ extension GameScene {
     }
     
     func beesFight(_ bee: Bee, _ enemyBee: Bee) {
+        infoPane.updateGameStatus("\(bee.name) is in combat with \(enemyBee.name)")
         print("Bees are figthing")
         bee.inCombat = true
         enemyBee.inCombat = true

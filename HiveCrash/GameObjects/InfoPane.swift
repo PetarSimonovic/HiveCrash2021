@@ -63,12 +63,13 @@ class InfoPane {
     
     func updateBeeInfo(_ bees: [Bee]) {
         if bees.count != 0 {
-          let bee = bees[0]
+        if let bee = bees.first(where: {$0.inHive == true }) {
           self.beeName.text = "\(bee.name)"
           self.beeType.text = "\(bee.type)"
           self.beeHealth.text = "Health: \(bee.health)"
           self.beePollen.text = "Pollen capacity: \(bee.pollenCapacity)"
           self.beeRange.text = "Range: \(bee.maxRange)"
+        }
         }
 
     }

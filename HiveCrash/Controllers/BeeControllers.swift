@@ -66,7 +66,6 @@ extension GameScene {
     
     func beeFlight() {
         for bee in hive.bees {
-            debugInfo(bee)
             bee.updatePollenCloud()
             switch bee.inHive {
             case false:
@@ -80,16 +79,17 @@ extension GameScene {
     
     
     func checkFlightPath(_ bee: Bee) {
+        if migration == true { return }
         let column = self.map.tileColumnIndex(fromPosition: bee.sprite.position)
         let row = self.map.tileRowIndex(fromPosition: bee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
                        // print("Bee tile", column, row)
        // NO LONGER CHECKING FOR RANGE
+        checkCombat(bee)
         checkRange(bee, column, row)
         if bee.settler {
            newHive(bee)
         }
-        checkCombat(bee)
         switch tile?.name! {
         case "fog":
              clearFog(column, row, false)
@@ -214,20 +214,20 @@ extension GameScene {
             }
         }
     
-    func debugInfo(_ bee: Bee) {
-        if bee.inHive == false {
-            print(bee.name)
-            print("Scout", bee.scout)
-            print("Settler", bee.settler)
-            print("Current", bee.currentColumn, bee.currentRow)
-            print("Destination", bee.destinationColumn, bee.destinationRow)
-            print("HomewardBound", bee.homewardBound)
-            print("HomewardBound", bee.inCombat)
-
-
-
-
-        }
-    }
+//    func debugInfo(_ bee: Bee) {
+//        if bee.inHive == false {
+//            print(bee.name)
+//            print("Scout", bee.scout)
+//            print("Settler", bee.settler)
+//            print("Current", bee.currentColumn, bee.currentRow)
+//            print("Destination", bee.destinationColumn, bee.destinationRow)
+//            print("HomewardBound", bee.homewardBound)
+//            print("HomewardBound", bee.inCombat)
+//
+//
+//
+//
+//        }
+//    }
     
 }

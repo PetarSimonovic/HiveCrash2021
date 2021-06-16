@@ -68,6 +68,7 @@ class CombatTests: XCTestCase {
         XCTAssert(bee.inCombat == true, "Bee should be in combat")
         XCTAssert(enemyBee.inCombat == true, "Enemy Bee should be in combat")
         
+        
     }
     
     
