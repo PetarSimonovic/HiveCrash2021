@@ -34,13 +34,11 @@ extension GameScene {
     }
     
     func checkEnemyFlightPath(_ enemyBee: Bee) {
-        print("Checking enemy flightpath")
         let column = self.map.tileColumnIndex(fromPosition: enemyBee.sprite.position)
         let row = self.map.tileRowIndex(fromPosition: enemyBee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
         enemyBee.currentRow = row
         enemyBee.currentColumn = column
-        print("Updated enemy column row to", enemyBee.currentRow, enemyBee.currentColumn)
        // print("Bee tile", column, row)
       //  checkRange(enemyBee, column, row)
         switch tile?.name! {

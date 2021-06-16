@@ -57,6 +57,7 @@ class CombatTests: XCTestCase {
         let enemyBee = VestalCuckoo()
         sut.enemyHive.bees.removeAll()
         sut.enemyHive.bees.append(enemyBee)
+        enemyBee.inHive = false
         sut.checkCombat(bee)
         XCTAssert(bee.inCombat == false, "Bee should not be in combat")
         XCTAssert(enemyBee.inCombat == false, "Enemy Bee should not be in combat")

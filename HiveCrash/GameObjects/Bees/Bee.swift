@@ -111,6 +111,7 @@ class Bee {
         self.range = self.maxRange
         self.currentColumn = 1000
         self.currentRow = 1000
+        self.inCombat = false
     }
     
     
