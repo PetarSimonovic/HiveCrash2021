@@ -116,7 +116,7 @@ extension GameScene {
               shedPollen(bee, column, row)
             }
         case "flowerMeadow":
-            checkPollination(bee, column, row)
+            checkPollination(bee, column, row, hive)
         case "hive":
             if bee.homewardBound == true {
             hive.pulse()

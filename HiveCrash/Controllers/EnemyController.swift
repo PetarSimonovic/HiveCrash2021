@@ -12,6 +12,7 @@ extension GameScene {
     
     
     func controlEnemyHive() {
+        checkEnemyDefeat()
         for enemyBee in enemyHive.bees {
                 switch enemyBee.inHive {
                 case true:
@@ -23,6 +24,13 @@ extension GameScene {
                
                 }
         }
+    
+    func checkEnemyDefeat() {
+        if enemyHive.bees.isEmpty {
+            infoPane.updateGameStatus("Enemy hive defeated")
+            map.setTileGroup(tiles.meadow, forColumn: enemyHive.column, row: enemyHive.row)
+        }
+    }
     
     func releaseEnemyBee(_ enemyBee: Bee) {
         enemyHive.bees.rotateBees()
@@ -56,7 +64,7 @@ extension GameScene {
               shedPollen(enemyBee, column, row)
             }
         case "flowerMeadow":
-            checkPollination(enemyBee, column, row)
+            checkPollination(enemyBee, column, row, enemyHive)
         case "hive":
             enemyBee.flyHome(enemyHive.location, flightSpeed(enemyBee, enemyHive.location))
             hive.pulse()

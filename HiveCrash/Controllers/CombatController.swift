@@ -30,14 +30,16 @@ extension GameScene {
         print("Bees are figthing")
         setCombatUp(bee)
         setCombatUp(enemyBee)
-        let rotate = SKAction.rotate(byAngle: 1, duration: 1)
-        let moveIn = SKAction.moveBy(x: 10, y: 10, duration: 1)
-        let moveOut = SKAction.moveBy(x: -10, y: -10, duration: 1)
+        let rotate = SKAction.rotate(byAngle: 10, duration: 0.5)
+        let moveIn = SKAction.moveBy(x: 10, y: 10, duration: 0.5)
+        let moveOut = SKAction.moveBy(x: -10, y: -10, duration: 0.5)
         let calculate = SKAction.run( { self.calculateWinner(bee, enemyBee)} )
+        let wait = SKAction.wait(forDuration: 5)
         let fightSequence = SKAction.sequence([rotate, moveIn, moveOut])
+        let calculateSequence = SKAction.sequence([wait, calculate])
         bee.sprite.run(SKAction.repeat(fightSequence, count: 5))
         enemyBee.sprite.run(SKAction.repeat(fightSequence, count: 5))
-        calculateWinner(bee, enemyBee)
+        bee.sprite.run(calculateSequence)
       
     }
     
@@ -62,12 +64,14 @@ extension GameScene {
             infoPane.updateGameStatus("\(bee.name) defeated \(enemyBee.name)")
             bee.flyHome(hive.location, flightSpeed(bee, hive.location))
             killBee(enemyBee, enemyHive)
+            bee.inCombat = false
         } else {
             print("enemy wins")
             enemyBee.health -= bee.health
             infoPane.updateGameStatus("\(enemyBee.name) defeated \(bee.name)")
             enemyBee.flyHome(enemyHive.location, flightSpeed(enemyBee, hive.location))
             killBee(bee, hive)
+            enemyBee.inCombat = false
         }
     }
 }
