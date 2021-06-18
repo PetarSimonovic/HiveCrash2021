@@ -66,6 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
                 enemyHive.choosePosition(hive.column, hive.row, map)
+                print("EnemyHive placed on: \(enemyHive.column)-\(enemyHive.row)")
             } else if tile!.name == "hive" {
                 hive.pollen > hiveCost ? allowHiveMove() : refuseHiveMove()
             }
@@ -106,15 +107,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         // Initialize _lastUpdateTime if it has not already been
         if gamePlaying == true {
+            if hive.bees.count <= 0 {gameOver()}
             if scouting == true { hive.pulse() }
             if migration == true {checkMigration()}
             checkHivePollen()
             timeFlowers()
             beeFlight()
             infoPane.updateHiveInfo(hive, hive.bees.count)
-            infoPane.updateBeeInfo(hive.bees)
+            infoPane.updateFlightInfo(hive.bees)
             checkStaleMate()
-            controlEnemyHive() 
+            controlEnemyHive()
         }
 
 

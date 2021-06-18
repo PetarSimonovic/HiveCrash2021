@@ -40,6 +40,7 @@ extension GameScene {
                 tiles.fogCount -= 1
                 enemyHive.choosePosition(self.hive.column, self.hive.row, map)
             } else if enemyHiveFound([column, row]) {
+                tiles.fogCount -= 1
                 newTile = tiles.enemyHive
                 } else {
               newTile = tiles.chooseTile(level)
@@ -60,7 +61,7 @@ extension GameScene {
     }
     
     func checkVictory() {
-        if tiles.fogCount <= 0 {
+        if tiles.fogCount <= 0 && enemyHive.bees.isEmpty {
             levelComplete()
         }
     }

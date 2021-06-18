@@ -123,10 +123,13 @@ extension GameScene {
             infoPane.updateGameStatus("\(bee.name) added \(bee.pollen) to hive")
             hive.updatePollen(bee)
             bee.homewardBound = false
+              //  hive.bees.rotateBees()
             infoPane.updateGameStatus("\(bee.name) has returned to the hive")
             } else {
                 hive.pulse()
             }
+        case "enemyHive":
+            stealPollen(bee, enemyHive)
         default:
             return
         }
@@ -143,17 +146,15 @@ extension GameScene {
     
     func beeStarves(_ bee: Bee) {
         bee.health -= 1
-        if bee.health <= 0 {
-           killBee(bee, hive)
-        } else {
         infoPane.updateGameStatus("Not enough food for \(bee.name)")
+        checkHealth(bee, hive)
        }
-    }
     
     func killBee(_ bee: Bee, _ hive: Hive) {
         if let beeIndex = hive.bees.firstIndex(where: {$0.id == bee.id}) {
         hive.bees.remove(at: beeIndex)
         infoPane.updateGameStatus("\(bee.name) died")
+            print("\(bee.name), \(bee.type) died")
         bee.removeBee()
         gameOver()
         }
@@ -218,6 +219,29 @@ extension GameScene {
                 bee.removeBee()
             }
         }
+    
+    func checkHealth(_ bee: Bee, _ hive: Hive) {
+        if bee.health <= 0 {
+           killBee(bee, hive)
+        }
+    }
+    
+    func stealPollen(_ bee: Bee, _ hive: Hive) {
+        var stolenPollen = 0
+        if hive.pollen - bee.pollenCapacity <= 0 {
+            stolenPollen = hive.pollen
+            hive.pollen = 0
+            bee.pollen += stolenPollen
+        } else {
+            stolenPollen = hive.pollen - bee.pollenCapacity
+            hive.pollen -= bee.pollenCapacity
+            bee.pollen += stolenPollen
+        }
+        infoPane.updateGameStatus("\(bee.name) stole \(stolenPollen)")
+        hive.checkNoPollen()
+
+    }
+    
     
 //    func debugInfo(_ bee: Bee) {
 //        if bee.inHive == false {

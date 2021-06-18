@@ -61,17 +61,29 @@ class InfoPane {
         self.pollenStatus.text = "Pollination: \(meadow.pollen)%"
     }
     
-    func updateBeeInfo(_ bees: [Bee]) {
+    func updateFlightInfo(_ bees: [Bee]) {
         if bees.count != 0 {
-        if let bee = bees.first(where: {$0.inHive == true }) {
-          self.beeName.text = "\(bee.name)"
-          self.beeType.text = "\(bee.type)"
-          self.beeHealth.text = "Health: \(bee.health)"
-          self.beePollen.text = "Pollen capacity: \(bee.pollenCapacity)"
-          self.beeRange.text = "Range: \(bee.maxRange)"
+        let bee = bees.first(where: {$0.inHive == true })
+        if bee == nil {
+                self.beeName.text = "Hive is empty"
+                self.beeType.text = ""
+                self.beeHealth.text = ""
+                self.beePollen.text = ""
+                self.beeRange.text = ""
+                
+         } else {
+          updateBeeInfo(bee!)
         }
         }
 
+    }
+    
+    func updateBeeInfo(_ bee: Bee) {
+        self.beeName.text = "\(bee.name)"
+        self.beeType.text = "\(bee.type)"
+        self.beeHealth.text = "Health: \(bee.health)"
+        self.beePollen.text = "Pollen capacity: \(bee.pollenCapacity)"
+        self.beeRange.text = "Range: \(bee.maxRange)"
     }
  
     

@@ -59,16 +59,31 @@ func addLeafCutterButton() {
         switch node.name {
         case "commoncarderButton":
              bee = CommonCarder()
+            hatchBee(bee)
+
         case "redmasonButton":
             bee = RedMason()
+            hatchBee(bee)
+
         case "leafcutterButton":
             bee = LeafCutter()
-        default:
-            return
+            hatchBee(bee)
 
-            }
-        hatchBee(bee)
+        default:
+           return
+        }
+
     }
+    
+//    func getBee(_ node: SKNode) {
+//        print("Getting bee info for \(node.name!)")
+//        let beeID = UUID(uuidString: node.name!)
+//        var bee = hive.bees.first(where: {$0.id == beeID})
+//        if bee == nil {
+//            bee = enemyHive.bees.first(where: {$0.id == beeID})!
+//        }
+//        infoPane.updateBeeInfo(bee!)
+//    }
     
     func setButtonAlpha(_ alpha: CGFloat) {
         self.commonCarderButton.alpha = alpha

@@ -53,7 +53,7 @@ class Hive {
     }
     
     func checkNoPollen() {
-        if self.pollen <= 0 {
+        if self.pollen < 0 {
             self.pollen = 0
         }
     }

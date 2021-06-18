@@ -11,6 +11,8 @@ import SpriteKit
 extension GameScene {
     
     
+    //ARE ENEMIES EATING, REPRODUCING AND STARVING????
+    
     func controlEnemyHive() {
         checkEnemyDefeat()
         for enemyBee in enemyHive.bees {
@@ -26,9 +28,10 @@ extension GameScene {
         }
     
     func checkEnemyDefeat() {
-        if enemyHive.bees.isEmpty {
+        if enemyHive.bees.isEmpty && enemyHive.discovered {
             infoPane.updateGameStatus("Enemy hive defeated")
             map.setTileGroup(tiles.meadow, forColumn: enemyHive.column, row: enemyHive.row)
+            enemyHive.discovered = false
         }
     }
     
@@ -67,6 +70,8 @@ extension GameScene {
             checkPollination(enemyBee, column, row, enemyHive)
         case "hive":
             enemyBee.flyHome(enemyHive.location, flightSpeed(enemyBee, enemyHive.location))
+
+           stealPollen(enemyBee, hive)
             hive.pulse()
        //     infoPane.updateGameStatus("\(enemyBee.name) stole \(enemyBee.pollenCapacity) pollen from hive")
 
