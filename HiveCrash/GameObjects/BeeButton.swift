@@ -27,22 +27,22 @@ func addButtons() {
 func addBeeButton() {
   beeButton = createButton("addBeeButton")
   self.addChild(beeButton)
-    positionButton(beeButton, 0)
+    positionInGameButton(beeButton, 0)
 }
 
 func addMoveHiveButton() {
   moveHiveButton = createButton("moveHiveButton")
   self.addChild(moveHiveButton)
-    positionButton(moveHiveButton, -(self.frame.width/4))
+    positionInGameButton(moveHiveButton, -(self.frame.width/4))
 }
 
 func addPauseButton() {
   pauseButton = createButton("pauseButton")
   self.addChild(pauseButton)
-    positionButton(pauseButton, self.frame.width/4)
+    positionInGameButton(pauseButton, self.frame.width/4)
 }
 
-    func positionButton(_ button: SKSpriteNode, _ xPos: CGFloat) {
+    func positionInGameButton(_ button: SKSpriteNode, _ xPos: CGFloat) {
         
         button.setScale(map.frame.width / (map.frame.height + map.frame.width + map.frame.midX + map.frame.midY))
         print(map.frame.width, map.frame.height)
@@ -56,12 +56,12 @@ func addPauseButton() {
         if node.name == nil {
             return
         }
-        var bee = Bee()
         print(node.name)
+        var bee = Bee()
         switch node.name {
         case "addBeeButton":
-            bee = CommonCarder()
-            hatchBee(bee)
+            pauseGame()
+            presentBeeOptions()
         case "moveHiveButton":
             return
 //            bee = RedMason()
@@ -69,8 +69,11 @@ func addPauseButton() {
 
         case "pauseButton":
              pauseGame()
+            createPlayButton()
+           createEndGameButton()
         case "playButton":
              resumeGame()
+            removePauseButtons()
         case "endGameButton":
             if endGameConfirm == true {
                 removePauseButtons()
@@ -81,18 +84,30 @@ func addPauseButton() {
             } else {
                 endGameConfirm = true
             }
+        case "commoncarder":
+            purchaseBee(CommonCarder())
+        case "redmason":
+            purchaseBee(RedMason())
+         case "leafcutter":
+            purchaseBee(LeafCutter())
         default:
            return
         }
 
     }
     
+    func purchaseBee(_ bee: Bee) {
+        hive.pollen -= beeCost
+        resumeGame()
+        removeBeeButtons()
+        addBee(bee, hive)
+    }
+    
     func pauseGame() {
         self.isPaused = true
-        map.alpha = 0.5
-         pauseButton.alpha = 0.5
-         createPlayButton()
-        createEndGameButton()
+        map.alpha = 0.2
+         pauseButton.alpha = 0.2
+       
     }
     
     func createPlayButton() {
@@ -112,13 +127,19 @@ func addPauseButton() {
     func resumeGame() {
         endGameConfirm = false
         self.isPaused = false
-        removePauseButtons()
     }
     
     func removePauseButtons() {
         map.alpha = 1.0
         playButton.removeFromParent()
         endGameButton.removeFromParent()
+    }
+    
+    func removeBeeButtons() {
+        map.alpha = 1.0
+        commonCarderButton.removeFromParent()
+        redMasonButton.removeFromParent()
+        leafCutterButton.removeFromParent()
     }
     
 //    func getBee(_ node: SKNode) {
@@ -137,5 +158,40 @@ func addPauseButton() {
         self.pauseButton.alpha = 1.0
         
     }
+    
+   func presentBeeOptions() {
+       var yPos = map.frame.midY
+       commonCarderButton = createButton("commoncarder")
+       placeBeeOptionButton(commonCarderButton, yPos)
+      addBeeInfoNode(commonCarderButton, "Common Carder: all-rounder with steady speed and solid pollen capacity", yPos)
+       yPos = map.frame.midY + map.frame.midY/4
+       redMasonButton = createButton("redmason")
+       placeBeeOptionButton(redMasonButton, yPos)
+       addBeeInfoNode(redMasonButton, "Red Mason: methodical and strong - a pollen-collecting juggernaut", yPos)
+       leafCutterButton = createButton("leafcutter")
+       yPos = map.frame.midY - map.frame.midY/4
+       placeBeeOptionButton(leafCutterButton, yPos)
+       addBeeInfoNode(leafCutterButton, "Leaf Cutter: leaves pollen behind to focus on speed and attack", yPos)
+    }
+    
+    func placeBeeOptionButton(_ button: SKSpriteNode, _ yPos: CGFloat) {
+        self.addChild(button)
+        print(button.size.height)
+        button.setScale(0.5)
+        print(button.size.height)
+        button.position = CGPoint(x: map.frame.midX/2, y: yPos)
+    }
+    
+    func addBeeInfoNode(_ button: SKSpriteNode, _ text: String, _ yPos: CGFloat) {
+        let beeLabel = SKLabelNode(fontNamed: "Menlo-Regular")
+        button.addChild(beeLabel)
+        beeLabel.position = CGPoint(x: button.position.x + button.size.width, y: button.anchorPoint.y + button.size.height/2)
+        beeLabel.text = text
+        beeLabel.numberOfLines = 3
+        beeLabel.preferredMaxLayoutWidth = map.frame.width
+        beeLabel.fontColor = UIColor(red: 116, green: 120, blue: 128, alpha: 1)
+        beeLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+        beeLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
+        beeLabel.fontSize = 17    }
 
 }

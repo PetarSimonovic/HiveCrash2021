@@ -79,11 +79,11 @@ class InfoPane {
     }
     
     func updateBeeInfo(_ bee: Bee) {
-        self.beeName.text = "\(bee.name)"
+        self.beeName.text = "Next to fly: \(bee.name)"
         self.beeType.text = "\(bee.type)"
         self.beeHealth.text = "Health: \(bee.health)"
         self.beePollen.text = "Pollen capacity: \(bee.pollenCapacity)"
-        self.beeRange.text = "Range: \(bee.maxRange)"
+        self.beeRange.text = ""
     }
  
     

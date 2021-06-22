@@ -88,7 +88,7 @@ extension GameScene {
         checkCombat(bee)
 
        // NO LONGER CHECKING FOR RANGE - CURRENTROW/COLUMN UPDATED GHERE
-//        checkRange(bee, column, row)
+       // checkDistanceFlown(bee, column, row)
         bee.currentColumn = column
         bee.currentRow = row
         if bee.settler {
@@ -169,12 +169,10 @@ extension GameScene {
         }
     }
     
-    func checkRange(_ bee: Bee, _ column: Int, _ row: Int) {
+    func checkDistanceFlown(_ bee: Bee, _ column: Int, _ row: Int) {
         if bee.currentColumn != column || bee.currentRow != row {
-            bee.range -= 1
             bee.currentColumn = column
             bee.currentRow = row
-            rangeReached(bee)
         }
     }
     

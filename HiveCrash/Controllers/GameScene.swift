@@ -37,6 +37,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var pauseButton = SKSpriteNode()
    var playButton = SKSpriteNode()
    var endGameButton = SKSpriteNode()
+   var commonCarderButton = SKSpriteNode()
+   var redMasonButton = SKSpriteNode()
+   var leafCutterButton = SKSpriteNode()
    var endGameConfirm = false
    var dimButton: CGFloat = 0.2
 

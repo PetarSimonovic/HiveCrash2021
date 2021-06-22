@@ -23,4 +23,10 @@ class EnemyHive : Hive {
 
     
     }
+    
+   override func expandHive(_ bees: Int, _ infoPane: InfoPane) {
+        if bees % 5 == 0 {
+            self.maxPollen += 25
+        }
+    }
 }
