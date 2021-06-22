@@ -10,42 +10,43 @@ import SpriteKit
 
 extension GameScene {
         
-func createBeeButton(_ image: String) -> SKSpriteNode {
+func createButton(_ image: String) -> SKSpriteNode {
         let button = SKSpriteNode(imageNamed: "\(image)")
-        button.name = "\(image)Button"
+        button.name = "\(image)"
         button.zPosition = 1
         return button
 
    }
     
 func addButtons() {
-    addCommonCarderButton()
-    addRedMasonButton()
-    addLeafCutterButton()
+    addBeeButton()
+    addMoveHiveButton()
+    addPauseButton()
 }
 
-func addCommonCarderButton() {
-  commonCarderButton = createBeeButton("commoncarder")
-  self.addChild(commonCarderButton)
-  positionButton(commonCarderButton, 0)
+func addBeeButton() {
+  beeButton = createButton("addBeeButton")
+  self.addChild(beeButton)
+    positionButton(beeButton, 0)
 }
 
-func addRedMasonButton() {
-  redMasonButton = createBeeButton("redmason")
-  self.addChild(redMasonButton)
-  positionButton(redMasonButton, 50)
+func addMoveHiveButton() {
+  moveHiveButton = createButton("moveHiveButton")
+  self.addChild(moveHiveButton)
+    positionButton(moveHiveButton, -(self.frame.width/4))
 }
 
-func addLeafCutterButton() {
-  leafCutterButton = createBeeButton("leafcutter")
-  self.addChild(leafCutterButton)
-  positionButton(leafCutterButton, -50)
+func addPauseButton() {
+  pauseButton = createButton("pauseButton")
+  self.addChild(pauseButton)
+    positionButton(pauseButton, self.frame.width/4)
 }
 
     func positionButton(_ button: SKSpriteNode, _ xPos: CGFloat) {
         
-        button.setScale(self.frame.width / 1300)
-        button.position = CGPoint(x: self.frame.maxX/2 + xPos, y: self.frame.minY + 80 )
+        button.setScale(map.frame.width / (map.frame.height + map.frame.width + map.frame.midX + map.frame.midY))
+        print(map.frame.width, map.frame.height)
+        button.position = CGPoint(x: self.frame.midX + xPos, y: self.frame.minY + (self.frame.height/self.frame.midY*16) )
         button.alpha = dimButton
 }
     
@@ -86,9 +87,9 @@ func addLeafCutterButton() {
 //    }
     
     func setButtonAlpha(_ alpha: CGFloat) {
-        self.commonCarderButton.alpha = alpha
-        self.redMasonButton.alpha = alpha
-        self.leafCutterButton.alpha = alpha
+        self.beeButton.alpha = alpha
+        self.moveHiveButton.alpha = alpha
+        self.pauseButton.alpha = 1.0
         
     }
 

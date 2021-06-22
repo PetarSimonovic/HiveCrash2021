@@ -32,10 +32,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var gamePlaying: Bool = false
    var migration: Bool = false
     
-   var commonCarderButton = SKSpriteNode()
-   var redMasonButton = SKSpriteNode()
-   var leafCutterButton = SKSpriteNode()
-    var dimButton: CGFloat = 0.2
+   var beeButton = SKSpriteNode()
+   var moveHiveButton = SKSpriteNode()
+   var pauseButton = SKSpriteNode()
+   var dimButton: CGFloat = 0.2
 
   
     override func didMove(to view: SKView) {
