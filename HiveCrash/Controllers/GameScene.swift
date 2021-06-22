@@ -35,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var beeButton = SKSpriteNode()
    var moveHiveButton = SKSpriteNode()
    var pauseButton = SKSpriteNode()
+   var playButton = SKSpriteNode()
    var dimButton: CGFloat = 0.2
 
   
@@ -57,7 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("Tile", column, row)
             
             // scouting clause will prevent taps on bee sprites now
-            if scouting == true || migration == true || tile?.name == nil {
+            if scouting == true || migration == true || tile?.name == nil || self.isPaused {
                 checkButtonTap(touch)
                 return
             }

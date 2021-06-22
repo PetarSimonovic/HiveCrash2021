@@ -57,19 +57,27 @@ func addPauseButton() {
             return
         }
         var bee = Bee()
+        print(node.name)
         switch node.name {
-        case "commoncarderButton":
-             bee = CommonCarder()
+        case "addBeeButton":
+            bee = CommonCarder()
             hatchBee(bee)
+        case "moveHiveButton":
+            return
+//            bee = RedMason()
+//            hatchBee(bee)
 
-        case "redmasonButton":
-            bee = RedMason()
-            hatchBee(bee)
-
-        case "leafcutterButton":
-            bee = LeafCutter()
-            hatchBee(bee)
-
+        case "pauseButton":
+                self.isPaused = true
+                map.alpha = 0.5
+                playButton = createButton("playButton")
+            self.addChild(playButton)
+                playButton.position = CGPoint(x: map.frame.midX, y: map.frame.midY)
+            playButton.zPosition = 5
+        case "playButton":
+            self.isPaused = false
+            map.alpha = 1.0
+            playButton.removeFromParent()
         default:
            return
         }
