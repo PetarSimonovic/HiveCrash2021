@@ -39,6 +39,8 @@ extension GameScene {
     
     func setCombatUp(_ bee: Bee) {
         bee.inCombat = true
+        bee.homewardBound = false
+        bee.pollenCollecting = false
         bee.sprite.removeAllActions()
     }
     
@@ -82,7 +84,6 @@ extension GameScene {
     
     func checkBeeAfterFight(_ bee: Bee, _ hive: Hive) {
         print("Checking")
-        bee.homewardBound = false
         bee.setDestination(hive.location, hive.column, hive.row)
         bee.health <= 0 ? killBee(bee, hive) : bee.flyHome(hive.location, flightSpeed(bee, hive.location))
     }
