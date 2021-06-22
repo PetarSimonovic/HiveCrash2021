@@ -68,20 +68,57 @@ func addPauseButton() {
 //            hatchBee(bee)
 
         case "pauseButton":
-                self.isPaused = true
-                map.alpha = 0.5
-                playButton = createButton("playButton")
-            self.addChild(playButton)
-                playButton.position = CGPoint(x: map.frame.midX, y: map.frame.midY)
-            playButton.zPosition = 5
+             pauseGame()
         case "playButton":
-            self.isPaused = false
-            map.alpha = 1.0
-            playButton.removeFromParent()
+             resumeGame()
+        case "endGameButton":
+            if endGameConfirm == true {
+                removePauseButtons()
+                self.isPaused = false
+                self.removeAllActions()
+                self.removeAllChildren()
+                gameOver()
+            } else {
+                endGameConfirm = true
+            }
         default:
            return
         }
 
+    }
+    
+    func pauseGame() {
+        self.isPaused = true
+        map.alpha = 0.5
+         pauseButton.alpha = 0.5
+         createPlayButton()
+        createEndGameButton()
+    }
+    
+    func createPlayButton() {
+        playButton = createButton("playButton")
+        self.addChild(playButton)
+        playButton.position = CGPoint(x: map.frame.midX/2, y: map.frame.midY)
+        playButton.zPosition = 5
+    }
+    
+    func createEndGameButton() {
+        endGameButton = createButton("endGameButton")
+        self.addChild(endGameButton)
+        endGameButton.position = CGPoint(x: (map.frame.midX/4 * 2) + map.frame.midX, y: map.frame.midY)
+        endGameButton.zPosition = 5
+    }
+    
+    func resumeGame() {
+        endGameConfirm = false
+        self.isPaused = false
+        removePauseButtons()
+    }
+    
+    func removePauseButtons() {
+        map.alpha = 1.0
+        playButton.removeFromParent()
+        endGameButton.removeFromParent()
     }
     
 //    func getBee(_ node: SKNode) {

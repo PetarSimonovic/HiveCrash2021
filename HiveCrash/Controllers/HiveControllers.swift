@@ -25,6 +25,7 @@ extension GameScene {
         } else {
         tiles.fogCount -= 1
         infoPane.updateGameStatus("Hive created")
+        
         startTimer()
                 }
       let centredLocation = map.centerOfTile(atColumn: column, row: row)

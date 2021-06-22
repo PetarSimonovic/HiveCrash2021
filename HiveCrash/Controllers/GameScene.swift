@@ -36,6 +36,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var moveHiveButton = SKSpriteNode()
    var pauseButton = SKSpriteNode()
    var playButton = SKSpriteNode()
+   var endGameButton = SKSpriteNode()
+   var endGameConfirm = false
    var dimButton: CGFloat = 0.2
 
   
