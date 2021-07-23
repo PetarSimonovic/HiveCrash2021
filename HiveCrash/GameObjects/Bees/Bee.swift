@@ -41,8 +41,10 @@ class Bee {
     var settler: Bool = false
     var scout: Bool = false
     var inCombat: Bool = false
+    var displayInfo: Bool = false
     
     var sprite = SKSpriteNode()
+    var infoPane = SKLabelNode(fontNamed: "Menlo-Regular")
     var pollenCloud = SKEmitterNode ()
     
     
@@ -51,6 +53,7 @@ class Bee {
         self.health = self.maxHealth
         self.range = self.maxRange
         self.createBee()
+        self.createInfoPane()
     }
     
     func createBee() {
@@ -101,6 +104,7 @@ class Bee {
     
     func removeBee() {
         self.sprite.removeFromParent()
+        self.infoPane.removeFromParent()
         self.sprite.removeAllChildren()
         self.sprite.removeAllActions()
         self.sprite.position = CGPoint(x: 1000, y: 1000)
@@ -114,6 +118,7 @@ class Bee {
         self.currentColumn = 1000
         self.currentRow = 1000
         self.inCombat = false
+        self.displayInfo = false
     }
     
     
@@ -157,6 +162,25 @@ class Bee {
 
     }
     
+    func createInfoPane() {
+        self.infoPane.fontColor = UIColor(red: 116, green: 120, blue: 128, alpha: 1)
+//        self.infoPane.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+//        self.infoPane.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
+        self.infoPane.fontSize = 10
+        self.infoPane.zPosition = 6
+        self.infoPane.text = ""
+      //  self.sprite.addChild(self.infoPane)
+
+
+    }
+    
+    func updateInfoPane() {
+        if self.displayInfo {
+            print("Displaying info", self.name, self.infoPane.position)
+            self.infoPane.position = self.sprite.position
+
+        }
            
  }
+}
     

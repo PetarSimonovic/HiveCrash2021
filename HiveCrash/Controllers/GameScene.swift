@@ -110,9 +110,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func getBeeInfo(_ column: Int, _ row: Int) {
         if let bee = hive.bees.first(where: {$0.currentColumn == column && $0.currentRow == row}) {
-            print(bee.name)
-        }
+            if bee.displayInfo {
+                print("not displaying info")
+                bee.displayInfo = false
+                bee.infoPane.text = bee.name
+            } else {
+                print("Now displaying info", bee.infoPane.position)
+                bee.displayInfo = true
+                bee.infoPane.text = ""
+            }
     }
+    }
+
     
 
 
@@ -134,6 +143,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             infoPane.updateFlightInfo(hive.bees)
             checkStaleMate()
             controlEnemyHive()
+            updateBeeInfoPanes()
         }
 
 

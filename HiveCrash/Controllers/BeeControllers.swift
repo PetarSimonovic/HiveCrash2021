@@ -26,9 +26,11 @@ extension GameScene {
         hive.bees.rotateBees()
         let destination = map.centerOfTile(atColumn: column, row: row)
         bee.setDestination(destination, column, row)
+        map.addChild(bee.infoPane)
         map.addChild(bee.sprite)
         bee.sprite.position = hive.location
         bee.sprite.setScale(0.93)
+        bee.infoPane.setScale(10)
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
         infoPane.updateGameStatus("\(bee.name) has left the hive")
     }

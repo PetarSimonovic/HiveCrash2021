@@ -71,5 +71,11 @@ extension GameScene {
         }
     }
     
+    func updateBeeInfoPanes() {
+        for bee in hive.bees {
+            bee.infoPane.position = bee.sprite.position
+        }
+    }
+    
 }
 

@@ -130,7 +130,7 @@ class InfoPane {
         
     }
     
-    private func formatText(_ text: SKLabelNode) {
+    func formatText(_ text: SKLabelNode) {
         text.fontColor = UIColor(red: 116, green: 120, blue: 128, alpha: 1)
         text.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         text.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
