@@ -100,7 +100,7 @@ extension GameScene {
     func enemyHiveFound(_ tile: [Int]) -> Bool {
         if enemyHive.column == tile[0] && enemyHive.row == tile[1] {
             enemyHive.discovered = true
-            infoPane.updateGameStatus("Enemy hive discovered")
+            infoPane.updateGameStatus("Enemy hive disturbed")
             activateEnemies()
             return true
         } else {

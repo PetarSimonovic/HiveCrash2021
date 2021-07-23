@@ -174,13 +174,7 @@ class Bee {
 
     }
     
-    func updateInfoPane() {
-        if self.displayInfo {
-            print("Displaying info", self.name, self.infoPane.position)
-            self.infoPane.position = self.sprite.position
 
-        }
            
- }
 }
     

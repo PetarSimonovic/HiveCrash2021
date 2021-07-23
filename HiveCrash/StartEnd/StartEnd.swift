@@ -22,7 +22,7 @@ extension GameScene {
         if hive.bees.count == 0 {
             populateHive(1, true)
         }
-        populateHive(5, false)
+        populateHive(4 + level, false)
         addButtons()
         createInfoPane()
         checkStaleMate()
