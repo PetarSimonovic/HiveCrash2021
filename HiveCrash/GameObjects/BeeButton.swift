@@ -52,16 +52,18 @@ func addPauseButton() {
     
     func checkButtonTap(_ touch: UITouch ) {
         let position = touch.location(in: self)
-        let node:SKNode = self.atPoint(position)
+        let node: SKNode = self.atPoint(position)
         if node.name == nil {
             return
         }
-        print(node.name)
-        var bee = Bee()
+        getBee(node)
+        print(node.name!)
         switch node.name {
         case "addBeeButton":
+            if self.isPaused == false {
             pauseGame()
             presentBeeOptions()
+            }
         case "moveHiveButton":
             return
 //            bee = RedMason()
@@ -91,7 +93,8 @@ func addPauseButton() {
          case "leafcutter":
             purchaseBee(LeafCutter())
         default:
-           return
+            print("Here")
+            return
         }
 
     }
@@ -142,15 +145,15 @@ func addPauseButton() {
         leafCutterButton.removeFromParent()
     }
     
-//    func getBee(_ node: SKNode) {
-//        print("Getting bee info for \(node.name!)")
-//        let beeID = UUID(uuidString: node.name!)
-//        var bee = hive.bees.first(where: {$0.id == beeID})
-//        if bee == nil {
-//            bee = enemyHive.bees.first(where: {$0.id == beeID})!
-//        }
-//        infoPane.updateBeeInfo(bee!)
-//    }
+    func getBee(_ node: SKNode) {
+        print("Getting bee info for \(node.name!)")
+        if  let beeID = UUID(uuidString: node.name!) {
+        var bee = hive.bees.first(where: {$0.id == beeID})
+        if bee == nil {
+            bee = enemyHive.bees.first(where: {$0.id == beeID})!
+        }
+        }
+    }
     
     func setButtonAlpha(_ alpha: CGFloat) {
         self.beeButton.alpha = alpha

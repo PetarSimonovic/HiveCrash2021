@@ -55,12 +55,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if gamePlaying == false {
             return
         }
+        
         for touch in touches {
             let location = touch.location(in: map)
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
             let tile = map.tileDefinition(atColumn: column, row: row)
-            print("Tile", column, row)
+            let node: SKNode = self.atPoint(location)
+            getBeeInfo(column, row)
+            if let name = node.name {
+              print(name)
+              getBee(node)
+            }
             
             // scouting clause will prevent taps on bee sprites now
             if scouting == true || migration == true || tile?.name == nil || self.isPaused {
@@ -102,6 +108,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     }
     
+    func getBeeInfo(_ column: Int, _ row: Int) {
+        if let bee = hive.bees.first(where: {$0.currentColumn == column && $0.currentRow == row}) {
+            print(bee.name)
+        }
+    }
     
 
 
