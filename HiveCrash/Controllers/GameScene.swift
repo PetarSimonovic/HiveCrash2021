@@ -20,7 +20,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var flowers: [Flower] = []
    var meadows: [Meadow] = []
    var gameInfo: [String] = []
-   var infoPane = InfoPane()
+        
+    var infoPane = InfoPane()
    var moveHive: Bool = false
    var gameTimer: Timer?
    var appetite: Int =  5

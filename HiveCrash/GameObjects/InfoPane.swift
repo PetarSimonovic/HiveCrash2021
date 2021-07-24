@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 class InfoPane {
-    
+        
     var tileName = SKLabelNode(fontNamed: "Menlo-Regular")
     var pollenStatus = SKLabelNode(fontNamed: "Menlo-Regular")
     var hivePollen = SKLabelNode(fontNamed: "Menlo-Regular")
@@ -22,6 +22,7 @@ class InfoPane {
     var gameStatus_2 = SKLabelNode(fontNamed: "Menlo-Regular")
     var gameStatus_3 = SKLabelNode(fontNamed: "Menlo-Regular")
     var beeStatus = SKLabelNode(fontNamed: "Menlo-Regular")
+    var scale = UIScreen.main.bounds.width * 0.03125
     var gameInfo: [String] = ["Pollinate meadows", "Feed the hive", "Explore the world"]
     
     init() {
@@ -134,7 +135,9 @@ class InfoPane {
         text.fontColor = UIColor(red: 116, green: 120, blue: 128, alpha: 1)
         text.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         text.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
-        text.fontSize = 10
+        text.fontSize = self.scale
+        print("Size", print(UIScreen.main.bounds.width)
+, text.fontSize)
         text.zPosition = CGFloat(1.0)
     }
 
