@@ -23,7 +23,7 @@ extension GameScene {
             populateHive(1, true)
         }
         populateHive(4 + level, false)
-        addButtons()
+        addButtons(map.frame.minY)
         createInfoPane()
         checkStaleMate()
  

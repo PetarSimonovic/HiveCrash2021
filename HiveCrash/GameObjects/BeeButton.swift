@@ -18,35 +18,36 @@ func createButton(_ image: String) -> SKSpriteNode {
 
    }
     
-func addButtons() {
-    addBeeButton()
-    addMoveHiveButton()
-    addPauseButton()
+    func addButtons(_ mapFrame: CGFloat) {
+        let yPos = mapFrame * 0.8
+    addBeeButton(yPos)
+    addMoveHiveButton(yPos)
+    addPauseButton(yPos)
 }
 
-func addBeeButton() {
+    func addBeeButton(_ yPos: CGFloat) {
   beeButton = createButton("addBeeButton")
   self.addChild(beeButton)
-    positionInGameButton(beeButton, 0)
+    positionInGameButton(beeButton, 0, yPos)
 }
 
-func addMoveHiveButton() {
+func addMoveHiveButton(_ yPos: CGFloat) {
   moveHiveButton = createButton("moveHiveButton")
   self.addChild(moveHiveButton)
-    positionInGameButton(moveHiveButton, -(self.frame.width/4))
+    positionInGameButton(moveHiveButton, -(self.frame.width/4), yPos)
 }
 
-func addPauseButton() {
+func addPauseButton(_ yPos: CGFloat) {
   pauseButton = createButton("pauseButton")
   self.addChild(pauseButton)
-    positionInGameButton(pauseButton, self.frame.width/4)
+    positionInGameButton(pauseButton, self.frame.width/4, yPos)
 }
 
-    func positionInGameButton(_ button: SKSpriteNode, _ xPos: CGFloat) {
+    func positionInGameButton(_ button: SKSpriteNode, _ xPos: CGFloat, _ yPos: CGFloat) {
         let scaler = UIScreen.main.bounds.width/UIScreen.main.bounds.height * 0.5
         button.setScale(scaler)
         print(map.frame.width, map.frame.height)
-        button.position = CGPoint(x: self.frame.midX + xPos, y: self.frame.minY + (self.frame.height/self.frame.midY*16) )
+        button.position = CGPoint(x: self.frame.midX + xPos, y: yPos)
         button.alpha = dimButton
 }
     

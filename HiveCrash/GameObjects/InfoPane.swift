@@ -22,7 +22,7 @@ class InfoPane {
     var gameStatus_2 = SKLabelNode(fontNamed: "Menlo-Regular")
     var gameStatus_3 = SKLabelNode(fontNamed: "Menlo-Regular")
     var beeStatus = SKLabelNode(fontNamed: "Menlo-Regular")
-    var scale = UIScreen.main.bounds.width * 0.03125
+    var scale = UIScreen.main.bounds.width * 0.03
     var gameInfo: [String] = ["Pollinate meadows", "Feed the hive", "Explore the world"]
     
     init() {
