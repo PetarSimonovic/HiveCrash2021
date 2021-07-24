@@ -43,8 +43,8 @@ func addPauseButton() {
 }
 
     func positionInGameButton(_ button: SKSpriteNode, _ xPos: CGFloat) {
-        
-        button.setScale(map.frame.width / (map.frame.height + map.frame.width + map.frame.midX + map.frame.midY))
+        let scaler = UIScreen.main.bounds.width/UIScreen.main.bounds.height * 0.5
+        button.setScale(scaler)
         print(map.frame.width, map.frame.height)
         button.position = CGPoint(x: self.frame.midX + xPos, y: self.frame.minY + (self.frame.height/self.frame.midY*16) )
         button.alpha = dimButton
