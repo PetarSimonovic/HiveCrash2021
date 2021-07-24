@@ -61,6 +61,8 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
         bee.checkPollenCapacity()
         infoPane.updateGameStatus("\(bee.name) collected \(pollenCollected)% of pollen from flower")
         infoPane.updateGameStatus("\(bee.name) has \(bee.pollen) pollen")
+        updateSavedBee(bee.id, "flower", 1)
+        updateSavedBee(bee.id, "pollen", bee.pollen)
         }
     
     func shedPollen(_ bee: Bee, _ column: Int, _ row: Int) {

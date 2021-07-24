@@ -12,6 +12,7 @@ import SwiftUI
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
    var tileSet = loadTiles()
+    
    var tiles = Tiles()
    var map = SKTileMapNode()
    var hive = Hive()
@@ -43,10 +44,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var leafCutterButton = SKSpriteNode()
    var endGameConfirm = false
    var dimButton: CGFloat = 0.2
+    
+   var eternalHive: [SavedBee] = []
+
+
 
   
     override func didMove(to view: SKView) {
+     loadEternalHive()
+     print(eternalHive)
      startGame()
+     
     }
     
 

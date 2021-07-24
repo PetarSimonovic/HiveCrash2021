@@ -10,13 +10,14 @@ import SpriteKit
 
 extension GameScene {
     
-    func addBee(_ bee: Bee, _ hive: Hive) {
+    func addBee(_ bee: Bee, _ hive: Hive, _ enemy: Bool) {
         
         print(bee)
         hive.bees.append(bee)
         bee.currentRow = hive.row
         bee.currentColumn = hive.column
         hive.expandHive(hive.bees.count, infoPane)
+        if !enemy { saveBee(bee) }
        // bee.sprite.position = hive.location
        // hive.pulse()
        // bee.fly(hive.location, flightSpeed(bee, bee.destination))
@@ -33,6 +34,7 @@ extension GameScene {
         bee.infoPane.setScale(10)
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
         infoPane.updateGameStatus("\(bee.name) has left the hive")
+        updateSavedBee(bee.id, "flights", 1)
     }
     
 
@@ -165,7 +167,7 @@ extension GameScene {
     func hatchBee(_ bee: Bee) {
         if hive.pollen >= beeCost {
            hive.pollen -= beeCost
-           addBee(bee, hive)
+           addBee(bee, hive, false)
         } else {
             infoPane.updateGameStatus("Not enough pollen to create a bee")
         }
@@ -196,14 +198,14 @@ extension GameScene {
         if player {
             numberOfBees.times {
             let bee = CommonCarder()
-            addBee(bee, hive)
+            addBee(bee, hive, false)
             infoPane.updateGameStatus("\(bee.name) has joined the hive")
             
             }
             } else {
                 numberOfBees.times {
                 let bee = VestalCuckoo()
-                addBee(bee, enemyHive)
+                addBee(bee, enemyHive, true)
                 }
             }
     }

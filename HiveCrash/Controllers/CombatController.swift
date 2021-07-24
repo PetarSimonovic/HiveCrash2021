@@ -67,14 +67,17 @@ extension GameScene {
             bee.health -= 1
             enemyBee.health -= 1
             infoPane.updateGameStatus("Draw: \(bee.name) has \(bee.health) health")
+            updateSavedBee(bee.id, "battle", 0)
         } else if bee.health > enemyBee.health {
             print("bee wins")
             enemyBee.health -= 1
             infoPane.updateGameStatus("\(bee.name) defeated \(enemyBee.name)")
+            updateSavedBee(bee.id, "battle", 1)
         } else {
             print("\(bee.name), \(bee.type) enemy wins")
             infoPane.updateGameStatus("\(enemyBee.name) defeated \(bee.name)")
             bee.health -= 1
+            updateSavedBee(bee.id, "battle", 0)
         }
         print(bee.health, enemyBee.health)
         print(bee.inCombat, enemyBee.inCombat)

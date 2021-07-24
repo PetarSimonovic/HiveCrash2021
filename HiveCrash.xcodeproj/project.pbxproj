@@ -22,8 +22,10 @@
 		0D2F117A265EACBE008B1171 /* Collision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F1179265EACBE008B1171 /* Collision.swift */; };
 		0D2F117C265F968D008B1171 /* hollyhockDisperse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F117B265F968D008B1171 /* hollyhockDisperse.sks */; };
 		0D2F117E265FB43F008B1171 /* HivePulse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F117D265FB43F008B1171 /* HivePulse.sks */; };
+		0D3312A226AC4B3700E25FEE /* SavedBee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3312A126AC4B3700E25FEE /* SavedBee.swift */; };
+		0D3312A426AC4F9A00E25FEE /* EternalHive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3312A326AC4F9A00E25FEE /* EternalHive.swift */; };
 		0D3B7A9E2670C32200150A15 /* DefaultBeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7A9D2670C32200150A15 /* DefaultBeeTests.swift */; };
-		0D3B7AA0267264AC00150A15 /* LoadSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7A9F267264AC00150A15 /* LoadSave.swift */; };
+		0D3B7AA0267264AC00150A15 /* LoadTiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7A9F267264AC00150A15 /* LoadTiles.swift */; };
 		0D3B7AA42673AC1B00150A15 /* PollenCloud.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D3B7AA32673AC1B00150A15 /* PollenCloud.sks */; };
 		0D3B7AA72674C68900150A15 /* CommonCarder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AA62674C68900150A15 /* CommonCarder.swift */; };
 		0D3B7AA92674C95F00150A15 /* RedMason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AA82674C95F00150A15 /* RedMason.swift */; };
@@ -95,8 +97,10 @@
 		0D2F1179265EACBE008B1171 /* Collision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collision.swift; sourceTree = "<group>"; };
 		0D2F117B265F968D008B1171 /* hollyhockDisperse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hollyhockDisperse.sks; sourceTree = "<group>"; };
 		0D2F117D265FB43F008B1171 /* HivePulse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HivePulse.sks; sourceTree = "<group>"; };
+		0D3312A126AC4B3700E25FEE /* SavedBee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBee.swift; sourceTree = "<group>"; };
+		0D3312A326AC4F9A00E25FEE /* EternalHive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EternalHive.swift; sourceTree = "<group>"; };
 		0D3B7A9D2670C32200150A15 /* DefaultBeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBeeTests.swift; sourceTree = "<group>"; };
-		0D3B7A9F267264AC00150A15 /* LoadSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadSave.swift; sourceTree = "<group>"; };
+		0D3B7A9F267264AC00150A15 /* LoadTiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadTiles.swift; sourceTree = "<group>"; };
 		0D3B7AA32673AC1B00150A15 /* PollenCloud.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PollenCloud.sks; sourceTree = "<group>"; };
 		0D3B7AA62674C68900150A15 /* CommonCarder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCarder.swift; sourceTree = "<group>"; };
 		0D3B7AA82674C95F00150A15 /* RedMason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedMason.swift; sourceTree = "<group>"; };
@@ -191,6 +195,7 @@
 				0D3B7AA82674C95F00150A15 /* RedMason.swift */,
 				0D3B7AAA2674CA5000150A15 /* LeafCutter.swift */,
 				0D3B7AC526778E1900150A15 /* VestalCuckoo.swift */,
+				0D3312A126AC4B3700E25FEE /* SavedBee.swift */,
 			);
 			path = Bees;
 			sourceTree = "<group>";
@@ -288,7 +293,8 @@
 			children = (
 				0DE92CFD265BDD4A00CE5F4B /* StartEnd.swift */,
 				0D1A737A266E463C0076CCAE /* Extensions.swift */,
-				0D3B7A9F267264AC00150A15 /* LoadSave.swift */,
+				0D3B7A9F267264AC00150A15 /* LoadTiles.swift */,
+				0D3312A326AC4F9A00E25FEE /* EternalHive.swift */,
 			);
 			path = StartEnd;
 			sourceTree = "<group>";
@@ -510,6 +516,7 @@
 				0D1A7373266B76880076CCAE /* InfoPane.swift in Sources */,
 				0DE92D0A265BE99C00CE5F4B /* GameViewController.swift in Sources */,
 				0D1A7379266E412E0076CCAE /* BeeNames.swift in Sources */,
+				0D3312A226AC4B3700E25FEE /* SavedBee.swift in Sources */,
 				0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */,
 				0D5DFB472679DD1500B59694 /* CombatController.swift in Sources */,
 				0D1A737D266E8EBC0076CCAE /* BeeButton.swift in Sources */,
@@ -524,13 +531,14 @@
 				0D2F1176265E8AD7008B1171 /* FlightSpeedCalculator.swift in Sources */,
 				0D2F1178265EAB97008B1171 /* FlowerController.swift in Sources */,
 				0DE92CFB265BDC7C00CE5F4B /* Tiles.swift in Sources */,
-				0D3B7AA0267264AC00150A15 /* LoadSave.swift in Sources */,
+				0D3B7AA0267264AC00150A15 /* LoadTiles.swift in Sources */,
 				0DE92D15265D4D9900CE5F4B /* BeeControllers.swift in Sources */,
 				0D151FC626639A2C00E933E1 /* Meadow.swift in Sources */,
 				0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */,
 				0D3B7AC626778E1900150A15 /* VestalCuckoo.swift in Sources */,
 				0DE92D17265D4DCB00CE5F4B /* MapControllers.swift in Sources */,
 				0D3B7AA92674C95F00150A15 /* RedMason.swift in Sources */,
+				0D3312A426AC4F9A00E25FEE /* EternalHive.swift in Sources */,
 				0D1A7377266B7E060076CCAE /* InfoPaneControllers.swift in Sources */,
 				0DE92D0D265D0F3A00CE5F4B /* Hive.swift in Sources */,
 			);

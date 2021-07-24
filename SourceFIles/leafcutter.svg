@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg28"
+   sodipodi:docname="leafcutter.svg"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)"
+   inkscape:export-filename="/Users/petarsimonovic/Library/Mobile Documents/com~apple~CloudDocs/Pete/Coding/Swift/HiveCrash/SourceFIles/commoncarder.png"
+   inkscape:export-xdpi="99.141502"
+   inkscape:export-ydpi="99.141502">
+  <defs
+     id="defs22">
+    <filter
+       y="-0.25"
+       height="1.5"
+       inkscape:menu-tooltip="Darkens the edge with an inner blur and adds a flexible glow"
+       inkscape:menu="Shadows and Glows"
+       inkscape:label="Drop Shadow"
+       style="color-interpolation-filters:sRGB;"
+       id="filter1281">
+      <feGaussianBlur
+         stdDeviation="5"
+         result="result6"
+         id="feGaussianBlur1271" />
+      <feComposite
+         result="result8"
+         in="SourceGraphic"
+         operator="atop"
+         in2="result6"
+         id="feComposite1273" />
+      <feComposite
+         result="result9"
+         operator="over"
+         in2="SourceAlpha"
+         in="result8"
+         id="feComposite1275" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 "
+         result="result10"
+         id="feColorMatrix1277" />
+      <feBlend
+         in="result10"
+         mode="normal"
+         in2="result6"
+         id="feBlend1279"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix1331" />
+      <feFlood
+         id="feFlood1333"
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         in="fbSourceGraphic" />
+      <feComposite
+         in2="fbSourceGraphic"
+         id="feComposite1335"
+         in="flood"
+         operator="in"
+         result="composite1" />
+      <feGaussianBlur
+         id="feGaussianBlur1337"
+         in="composite1"
+         stdDeviation="11.4114"
+         result="blur" />
+      <feOffset
+         id="feOffset1339"
+         dx="-8.68263"
+         dy="-8.08383"
+         result="offset" />
+      <feComposite
+         in2="offset"
+         id="feComposite1341"
+         in="fbSourceGraphic"
+         operator="over"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix1343" />
+      <feFlood
+         id="feFlood1345"
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         in="fbSourceGraphic" />
+      <feComposite
+         in2="fbSourceGraphic"
+         id="feComposite1347"
+         in="flood"
+         operator="in"
+         result="composite1" />
+      <feGaussianBlur
+         id="feGaussianBlur1349"
+         in="composite1"
+         stdDeviation="11.4114"
+         result="blur" />
+      <feOffset
+         id="feOffset1351"
+         dx="-8.68263"
+         dy="-8.08383"
+         result="offset" />
+      <feComposite
+         in2="offset"
+         id="feComposite1353"
+         in="fbSourceGraphic"
+         operator="over"
+         result="composite2" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.40606247"
+     inkscape:cx="433.12433"
+     inkscape:cy="383.23629"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="789"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata25">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       sodipodi:type="star"
+       style="fill:#161616;fill-opacity:0.87450981;fill-rule:evenodd;stroke:#161616;stroke-width:2.6;stroke-miterlimit:4.3;stroke-opacity:0.87451;filter:url(#filter1281)"
+       id="path46"
+       sodipodi:sides="6"
+       sodipodi:cx="104.32143"
+       sodipodi:cy="130.77975"
+       sodipodi:r1="78.956322"
+       sodipodi:r2="68.378181"
+       sodipodi:arg1="1.0385868"
+       sodipodi:arg2="1.5621856"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 144.3869,198.81547 65.433509,199.49533 25.368032,131.45962 64.255949,62.744042 143.20934,62.064177 183.27482,130.09989 Z"
+       transform="matrix(-0.30055114,-0.17352327,0.17352327,-0.30055114,144.20284,164.83612)"
+       inkscape:transform-center-x="-2.7563032e-06"
+       inkscape:transform-center-y="4.5435485e-06"
+       inkscape:export-xdpi="99.141502"
+       inkscape:export-ydpi="99.141502" />
+    <rect
+       style="fill:#fff200;fill-opacity:1;fill-rule:evenodd;stroke:#161616;stroke-width:0.70737;stroke-miterlimit:4.3;stroke-opacity:0.87451"
+       id="rect891"
+       width="47.766125"
+       height="18.021727"
+       x="111.6592"
+       y="99.028168"
+       inkscape:export-xdpi="99.141502"
+       inkscape:export-ydpi="99.141502" />
+  </g>
+</svg>
