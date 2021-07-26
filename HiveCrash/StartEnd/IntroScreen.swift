@@ -14,13 +14,15 @@ extension GameScene {
         chooseIntroHiveLocation()
         startIntroSequence()
         createEternalHive()
+        displayTitle()
         
     }
     
     func chooseIntroHiveLocation() {
-        let column = randomNumber(12)
-        let row = randomNumber(12)
+        let column = randomNumber(10)
+        let row = randomNumber(10)
         let CG = map.centerOfTile(atColumn: column, row: row)
+        print("Intro hive at", column, row)
         placeHive(CG, column, row)
     }
     
@@ -59,6 +61,8 @@ extension GameScene {
     func setBeeProperties(_ bee: Bee, _ savedBee: SavedBee) {
         bee.name = savedBee.name
         bee.id = savedBee.id
+        bee.displayInfo = true
+        bee.infoPane.text = bee.name
         hive.bees.append(bee)
         print("Hive intro bees", hive.bees)
     }
@@ -70,6 +74,15 @@ extension GameScene {
         releaseBee(bee, column, row)
         }
     }
+    
+    func displayTitle() {
+        let title = SKLabelNode(fontNamed: "Menlo-Regular")
+        self.addChild(title)
+        title.position = CGPoint(x: self.frame.midX, y: self.frame.maxY - (UIScreen.main.bounds.height * 0.09))
+        title.text = "H I V E C R A S H"
+        title.fontColor = UIColor(red: 116, green: 120, blue: 128, alpha: 1)
+        title.fontSize =  UIScreen.main.bounds.width * 0.08
+           }
 
     
 }
