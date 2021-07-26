@@ -198,6 +198,7 @@
 				0D3B7AAA2674CA5000150A15 /* LeafCutter.swift */,
 				0D3B7AC526778E1900150A15 /* VestalCuckoo.swift */,
 				0D3312A126AC4B3700E25FEE /* SavedBee.swift */,
+				0D2F1169265E3C93008B1171 /* Flower.swift */,
 			);
 			path = Bees;
 			sourceTree = "<group>";
@@ -328,7 +329,6 @@
 				0D3B7AB226764A7500150A15 /* Hives */,
 				0D3B7AA52674C67300150A15 /* Bees */,
 				0DE92D1A265D6A1F00CE5F4B /* Rock.swift */,
-				0D2F1169265E3C93008B1171 /* Flower.swift */,
 				0D151FC526639A2C00E933E1 /* Meadow.swift */,
 				0D1A7372266B76880076CCAE /* InfoPane.swift */,
 				0D1A7378266E412E0076CCAE /* BeeNames.swift */,

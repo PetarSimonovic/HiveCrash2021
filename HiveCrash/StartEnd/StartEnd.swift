@@ -29,7 +29,7 @@ extension GameScene {
     }
     
     func gameOver() {
-        if hive.bees.count <= 0 || endGameConfirm == true || intro == false {
+        if hive.bees.count <= 0 || endGameConfirm == true || intro == true {
             infoPane.gameOver()
             level = 1
             self.run(endGame())
@@ -70,6 +70,7 @@ extension GameScene {
         infoPane.reset()
         moveHive = false
         tiles.fogCount = 132
+        toggleIntro()
         startGame()
     }
     

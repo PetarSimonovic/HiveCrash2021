@@ -83,6 +83,14 @@ extension GameScene {
         title.fontColor = UIColor(red: 116, green: 120, blue: 128, alpha: 1)
         title.fontSize =  UIScreen.main.bounds.width * 0.08
            }
+    
+    func toggleIntro() {
+        if intro {
+            intro = false
+        } else {
+            intro = false
+        }
+    }
 
     
 }

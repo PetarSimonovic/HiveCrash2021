@@ -69,7 +69,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         for touch in touches {
             if intro {
-                intro = false
                 print("Here")
                 gameOver()
                 
