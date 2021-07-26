@@ -104,7 +104,7 @@ func addPauseButton(_ yPos: CGFloat) {
         hive.pollen -= beeCost
         resumeGame()
         removeBeeButtons()
-        addBee(bee, hive)
+        addBee(bee, hive, false)
     }
     
     func pauseGame() {

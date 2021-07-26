@@ -10,27 +10,26 @@ import SpriteKit
 
 extension GameScene {
     
+
+    
     func startGame() {
+        createMap()
         print("Starting game")
         gamePlaying = true
-        tiles.prepareTiles(level, tileSet)
-        map = tiles.startMap()
-        self.addChild(map)
-        self.map.zPosition = -1
-        map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
-        map.setScale(UIScreen.main.bounds.width / 3250)
-        if hive.bees.count == 0 {
-            populateHive(1, true)
-        }
+        if intro {
+            startDemo()
+        } else
+        { if hive.bees.count == 0 { populateHive(1, true) }
         populateHive(4 + level, false)
         addButtons(map.frame.minY)
         createInfoPane()
         checkStaleMate()
+        }
  
     }
     
     func gameOver() {
-        if hive.bees.count <= 0 || endGameConfirm == true {
+        if hive.bees.count <= 0 || endGameConfirm == true || intro == false {
             infoPane.gameOver()
             level = 1
             self.run(endGame())
@@ -77,7 +76,8 @@ extension GameScene {
     func startTimer() {
         let feederDelay = SKAction.wait(forDuration: 20)
         let feedBees = SKAction.run({ self.feedBees() })
-        let feederSequence = SKAction.sequence([feederDelay, feedBees])
+        let updateIntroBees = SKAction.run({ self.beeFlight() })
+        let feederSequence = SKAction.sequence([feederDelay, feedBees, updateIntroBees])
         self.run(SKAction.repeatForever(feederSequence))
 
     }

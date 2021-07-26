@@ -10,6 +10,15 @@ import SpriteKit
 
 extension GameScene {
     
+    func createMap()    {
+        tiles.prepareTiles(level, tileSet)
+        map = tiles.startMap()
+        self.addChild(map)
+        self.map.zPosition = -1
+        map.position = CGPoint(x: self.frame.maxX/2, y: self.frame.maxY/2)
+        map.setScale(UIScreen.main.bounds.width / 3250)
+    }
+    
     func clearFog(_ column: Int, _ row: Int, _ hive: Bool) {
         
         switch hive {

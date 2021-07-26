@@ -24,6 +24,7 @@
 		0D2F117E265FB43F008B1171 /* HivePulse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F117D265FB43F008B1171 /* HivePulse.sks */; };
 		0D3312A226AC4B3700E25FEE /* SavedBee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3312A126AC4B3700E25FEE /* SavedBee.swift */; };
 		0D3312A426AC4F9A00E25FEE /* EternalHive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3312A326AC4F9A00E25FEE /* EternalHive.swift */; };
+		0D3312A626AC655C00E25FEE /* IntroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3312A526AC655C00E25FEE /* IntroScreen.swift */; };
 		0D3B7A9E2670C32200150A15 /* DefaultBeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7A9D2670C32200150A15 /* DefaultBeeTests.swift */; };
 		0D3B7AA0267264AC00150A15 /* LoadTiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7A9F267264AC00150A15 /* LoadTiles.swift */; };
 		0D3B7AA42673AC1B00150A15 /* PollenCloud.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D3B7AA32673AC1B00150A15 /* PollenCloud.sks */; };
@@ -99,6 +100,7 @@
 		0D2F117D265FB43F008B1171 /* HivePulse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HivePulse.sks; sourceTree = "<group>"; };
 		0D3312A126AC4B3700E25FEE /* SavedBee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBee.swift; sourceTree = "<group>"; };
 		0D3312A326AC4F9A00E25FEE /* EternalHive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EternalHive.swift; sourceTree = "<group>"; };
+		0D3312A526AC655C00E25FEE /* IntroScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreen.swift; sourceTree = "<group>"; };
 		0D3B7A9D2670C32200150A15 /* DefaultBeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBeeTests.swift; sourceTree = "<group>"; };
 		0D3B7A9F267264AC00150A15 /* LoadTiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadTiles.swift; sourceTree = "<group>"; };
 		0D3B7AA32673AC1B00150A15 /* PollenCloud.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PollenCloud.sks; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				0D1A737A266E463C0076CCAE /* Extensions.swift */,
 				0D3B7A9F267264AC00150A15 /* LoadTiles.swift */,
 				0D3312A326AC4F9A00E25FEE /* EternalHive.swift */,
+				0D3312A526AC655C00E25FEE /* IntroScreen.swift */,
 			);
 			path = StartEnd;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				0DE92CFE265BDD4A00CE5F4B /* StartEnd.swift in Sources */,
 				0DE92D0F265D10CA00CE5F4B /* Map.swift in Sources */,
 				0D3B7AC826779E3800150A15 /* TimerController.swift in Sources */,
+				0D3312A626AC655C00E25FEE /* IntroScreen.swift in Sources */,
 				0D2F1176265E8AD7008B1171 /* FlightSpeedCalculator.swift in Sources */,
 				0D2F1178265EAB97008B1171 /* FlowerController.swift in Sources */,
 				0DE92CFB265BDC7C00CE5F4B /* Tiles.swift in Sources */,

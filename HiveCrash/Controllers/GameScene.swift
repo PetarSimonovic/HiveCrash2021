@@ -22,9 +22,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var meadows: [Meadow] = []
    var gameInfo: [String] = []
         
-    var infoPane = InfoPane()
+   var infoPane = InfoPane()
    var moveHive: Bool = false
    var gameTimer: Timer?
+   var introTimer: Timer?
    var appetite: Int =  5
    var beeCost: Int = 25
    var hiveCost: Int = 100
@@ -46,14 +47,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var dimButton: CGFloat = 0.2
     
    var eternalHive: [SavedBee] = []
+    var intro: Bool = true
 
 
 
   
     override func didMove(to view: SKView) {
      loadEternalHive()
-     print(eternalHive)
      startGame()
+     print(eternalHive)
      
     }
     
@@ -61,11 +63,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if gamePlaying == false {
-            return
-        }
+        if gamePlaying == false { return }
+        
+       
         
         for touch in touches {
+            if intro {
+                intro = false
+                print("Here")
+                gameOver()
+                
+            }
             let location = touch.location(in: map)
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)

@@ -39,6 +39,7 @@ extension GameScene {
   
     
     func feedBees() {
+        if intro { return }
         print("bees are eating")
         for bee in hive.bees {
             hive.pollen -= bee.appetite
