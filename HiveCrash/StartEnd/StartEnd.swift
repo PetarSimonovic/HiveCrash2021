@@ -71,6 +71,7 @@ extension GameScene {
         moveHive = false
         tiles.fogCount = 132
         toggleIntro()
+        print("Intro", intro)
         startGame()
     }
     

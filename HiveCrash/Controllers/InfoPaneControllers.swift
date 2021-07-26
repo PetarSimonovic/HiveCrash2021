@@ -15,7 +15,7 @@ extension GameScene {
         addBeeInfo()
         positionBeeInfo(scaler)
 
-        addChild(infoPane.tileName)
+       // addChild(infoPane.tileName)
         addChild(infoPane.hivePollen)
         addChild(infoPane.pollenStatus)
         addChild(infoPane.beePopulation)

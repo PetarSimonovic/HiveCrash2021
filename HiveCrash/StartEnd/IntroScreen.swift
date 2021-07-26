@@ -33,7 +33,8 @@ extension GameScene {
     func startIntroSequence() {
         let launchDelay = SKAction.wait(forDuration: 5)
         let launchIntroBees = SKAction.run({ self.launchIntroBees() })
-        let introSequence = SKAction.sequence([launchDelay, launchIntroBees])
+        let updateBeeDisplay = SKAction.run({ self.updateBeeDisplay() })
+        let introSequence = SKAction.sequence([launchDelay, launchIntroBees, updateBeeDisplay])
         self.run(SKAction.repeatForever(introSequence))
 
     }
@@ -88,9 +89,28 @@ extension GameScene {
         if intro {
             intro = false
         } else {
-            intro = false
+            intro = true
         }
     }
-
+    
+    func updateBeeDisplay() {
+        for bee in hive.bees {
+        let savedBee = eternalHive.first(where: {$0.id == bee.id})
+        switch bee.infoPane.text {
+        case "\(bee.name) - Level reached: \(savedBee!.levelsCompleted)":
+            bee.infoPane.text = "\(bee.name) - born on \(savedBee!.birthday)"
+        case "\(bee.name) - born on \(savedBee!.birthday)":
+            bee.infoPane.text = "\(bee.name) - Pollen collected: \(savedBee!.pollen)"
+        case  "\(bee.name) - Pollen collected: \(savedBee!.pollen)":
+            bee.infoPane.text = "\(bee.name) - Battles won: \(savedBee!.battlesWon)/\(savedBee!.battlesFought)"
+        case "\(bee.name) - Battles won: \(savedBee!.battlesWon)/\(savedBee!.battlesFought)":
+            bee.infoPane.text = "\(bee.name) - Flowers visited: \(savedBee!.flowersVisited)"
+        case "\(bee.name) - Flowers visited: \(savedBee!.flowersVisited)":
+            bee.infoPane.text = "\(bee.name) - Flights: \(savedBee!.flights)"
+        default:
+            bee.infoPane.text = "\(bee.name) - Level reached: \(savedBee!.levelsCompleted)"
+        }
+    }
+    }
     
 }
