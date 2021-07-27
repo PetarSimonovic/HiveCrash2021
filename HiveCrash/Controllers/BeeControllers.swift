@@ -149,9 +149,11 @@ extension GameScene {
      
     
     func beeStarves(_ bee: Bee) {
+        if !intro {
         bee.health -= 1
         infoPane.updateGameStatus("Not enough food for \(bee.name)")
         checkHealth(bee, hive)
+        }
        }
     
     func killBee(_ bee: Bee, _ hive: Hive) {
