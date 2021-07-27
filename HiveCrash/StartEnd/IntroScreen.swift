@@ -34,7 +34,7 @@ extension GameScene {
         let launchDelay = SKAction.wait(forDuration: 5)
         let launchIntroBees = SKAction.run({ self.launchIntroBees() })
         let updateBeeDisplay = SKAction.run({ self.updateBeeDisplay() })
-        let introSequence = SKAction.sequence([launchDelay, launchIntroBees, updateBeeDisplay])
+        let introSequence = SKAction.sequence([launchIntroBees, launchDelay, updateBeeDisplay])
         self.run(SKAction.repeatForever(introSequence))
 
     }

@@ -32,6 +32,7 @@ extension GameScene {
         if hive.bees.count <= 0 || endGameConfirm == true || intro == true {
             infoPane.gameOver()
             level = 1
+            gamePlaying = false
             self.run(endGame())
         } else {
             return
@@ -46,9 +47,8 @@ extension GameScene {
         }
     
     func endGame() -> SKAction {
-        gamePlaying = false
       //  endTimer()
-        let wait = SKAction.wait(forDuration: 3)
+        let wait = SKAction.wait(forDuration: 1)
         let reset = SKAction.run({ self.resetGame() } )
         let gameOverSequence = SKAction.sequence([wait, reset])
         return gameOverSequence
