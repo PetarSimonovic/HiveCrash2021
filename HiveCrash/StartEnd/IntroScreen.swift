@@ -69,6 +69,7 @@ extension GameScene {
     }
     
     func launchIntroBees() {
+        hive.bees.shuffle()
         if let bee = hive.bees.first(where: {$0.inHive == true} ) {
         let row = randomNumber(12)
         let column = randomNumber(12)
