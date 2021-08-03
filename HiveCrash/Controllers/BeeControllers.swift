@@ -33,6 +33,7 @@ extension GameScene {
         bee.sprite.setScale(1.6)
         bee.infoPane.setScale(10)
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
+        if tutorial.firstBee {tutorial.updateStatus() }
         infoPane.updateGameStatus("\(bee.name) has left the hive")
         updateSavedBee(bee.id, "flights", 1)
     }

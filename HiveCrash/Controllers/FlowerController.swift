@@ -19,6 +19,7 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
         map.addChild(flower.sprite)
         flowers.append(flower)
         flower.sprite.position = location
+        
     }
 
 }
@@ -39,6 +40,7 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
                     bee.collectPollen(flower, hive.location, flightSpeed(bee, hive.location))
                     bee.flowerTime = flower.bloomTime
                     bee.pollenCollecting = true
+                    if tutorial.firstFlower {tutorial.updateStatus()}
                 } else if bee.pollenCollecting {
                     bee.pollenCollecting = false
                     calculatePollen(bee, flower)
