@@ -40,6 +40,7 @@ extension GameScene {
         let destination = map.centerOfTile(atColumn: hive.column, row: hive.row)
         enemyBee.setDestination(destination, hive.column, hive.row)
         map.addChild(enemyBee.sprite)
+        enemyBee.sprite.setScale(1.6)
         enemyBee.sprite.position = enemyHive.location
         enemyBee.fly(enemyHive.location, flightSpeed(enemyBee, enemyBee.destination))
     }
