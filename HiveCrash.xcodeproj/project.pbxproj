@@ -38,6 +38,8 @@
 		0D3B7AC826779E3800150A15 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7AC726779E3800150A15 /* TimerController.swift */; };
 		0D5DFB472679DD1500B59694 /* CombatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5DFB462679DD1500B59694 /* CombatController.swift */; };
 		0D5DFB492679F9BE00B59694 /* SettlementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5DFB482679F9BE00B59694 /* SettlementTests.swift */; };
+		0DA0CC7D26B99925005B7763 /* tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0CC7C26B99925005B7763 /* tutorial.swift */; };
+		0DA0CC7F26B99BDA005B7763 /* TutorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0CC7E26B99BDA005B7763 /* TutorialController.swift */; };
 		0DE92CBF265B8AFA00CE5F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */; };
 		0DE92CC5265B8AFA00CE5F4B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */; };
 		0DE92CD7265B8AFB00CE5F4B /* CombatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92CD6265B8AFB00CE5F4B /* CombatTests.swift */; };
@@ -118,6 +120,8 @@
 		0D5DFB4B2679FF5A00B59694 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/iOSSupport/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		0D5DFB4D2679FF7700B59694 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		0D5DFB4F267A000C00B59694 /* libdyld.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libdyld.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/usr/lib/system/libdyld.tbd; sourceTree = DEVELOPER_DIR; };
+		0DA0CC7C26B99925005B7763 /* tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutorial.swift; sourceTree = "<group>"; };
+		0DA0CC7E26B99BDA005B7763 /* TutorialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialController.swift; sourceTree = "<group>"; };
 		0DE92CBB265B8AFA00CE5F4B /* HiveCrash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveCrash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE92CBE265B8AFA00CE5F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE92CC4265B8AFA00CE5F4B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -222,6 +226,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0DA0CC7B26B99913005B7763 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				0DA0CC7C26B99925005B7763 /* tutorial.swift */,
+				0DA0CC7E26B99BDA005B7763 /* TutorialController.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		0DE92CB2265B8AFA00CE5F4B = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +261,7 @@
 		0DE92CBD265B8AFA00CE5F4B /* HiveCrash */ = {
 			isa = PBXGroup;
 			children = (
+				0DA0CC7B26B99913005B7763 /* Tutorial */,
 				0D2F1164265E3B52008B1171 /* Particles */,
 				0DE92D0B265D0F2B00CE5F4B /* GameObjects */,
 				0DE92CFF265BE27600CE5F4B /* Controllers */,
@@ -545,6 +559,8 @@
 				0D3312A426AC4F9A00E25FEE /* EternalHive.swift in Sources */,
 				0D1A7377266B7E060076CCAE /* InfoPaneControllers.swift in Sources */,
 				0DE92D0D265D0F3A00CE5F4B /* Hive.swift in Sources */,
+				0DA0CC7D26B99925005B7763 /* tutorial.swift in Sources */,
+				0DA0CC7F26B99BDA005B7763 /* TutorialController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

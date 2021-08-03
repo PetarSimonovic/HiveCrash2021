@@ -50,6 +50,7 @@ extension GameScene {
     }
     
     func updateInfoPane(_ tile: SKTileDefinition, _ column: Int, _ row: Int) {
+        if tutorial.on {return}
         switch tile.name {
         case "fog":
             infoPane.updateTileName("Fog")

@@ -23,6 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var gameInfo: [String] = []
         
    var infoPane = InfoPane()
+   var tutorial = Tutorial()
    var moveHive: Bool = false
    var gameTimer: Timer?
    var introTimer: Timer?
@@ -63,8 +64,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if gamePlaying == false { return }
-        
+        if !gamePlaying { return }
+
        
         
         for touch in touches {
@@ -155,13 +156,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             checkHivePollen()
             timeFlowers()
             beeFlight()
-            infoPane.updateHiveInfo(hive, hive.bees.count)
-            infoPane.updateFlightInfo(hive.bees)
+            tutorial.on ? updateTutorialInfo() : updateGameInfo()
             checkStaleMate()
             controlEnemyHive()
             updateBeeInfoPanes()
         }
-
+        
+        func updateGameInfo() {
+            infoPane.updateHiveInfo(hive, hive.bees.count)
+            infoPane.updateFlightInfo(hive.bees)
+        }
 
     }
 }

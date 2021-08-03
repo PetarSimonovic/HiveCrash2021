@@ -27,9 +27,8 @@ class Tiles {
     var difficulty: Int = 8
     
     func startMap() -> SKTileMapNode {
-
           let tileSize = tileSet.defaultTileSize // from image size
-          let tileMap = SKTileMapNode(tileSet: tileSet, columns: 12, rows: 11, tileSize: tileSize)
+          let tileMap = SKTileMapNode(tileSet: tileSet, columns: 12, rows: 12, tileSize: tileSize)
               tileMap.fill(with: fog) // fill or set by column/row
                //tileMap.setTileGroup(tileGroup, forColumn: 5, row: 5)
        

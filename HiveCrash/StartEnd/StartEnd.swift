@@ -13,6 +13,8 @@ extension GameScene {
 
     
     func startGame() {
+       // self.isPaused = false
+        tutorial.reset()
         createMap()
         print("Starting game")
         gamePlaying = true
@@ -48,6 +50,7 @@ extension GameScene {
     
     func endGame() -> SKAction {
       //  endTimer()
+      //  self.isPaused = true
         let wait = SKAction.wait(forDuration: 1)
         let reset = SKAction.run({ self.resetGame() } )
         let gameOverSequence = SKAction.sequence([wait, reset])
