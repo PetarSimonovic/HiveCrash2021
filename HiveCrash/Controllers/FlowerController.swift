@@ -40,7 +40,10 @@ func addFlower(_ tile: SKTileGroup, _ column: Int, _ row: Int) {
                     bee.collectPollen(flower, hive.location, flightSpeed(bee, hive.location))
                     bee.flowerTime = flower.bloomTime
                     bee.pollenCollecting = true
-                    if tutorial.firstFlower {tutorial.updateStatus()}
+                    if tutorial.on && tutorial.status == "flower" || tutorial.on && tutorial.status == "consumption" {
+                        tutorial.updateStatus()
+                        
+                    }
                 } else if bee.pollenCollecting {
                     bee.pollenCollecting = false
                     calculatePollen(bee, flower)

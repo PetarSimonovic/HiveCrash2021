@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 class InfoPane {
         
-    var tileName = SKLabelNode(fontNamed: "Menlo-Regular")
+    var moveHivePercentage = SKLabelNode(fontNamed: "Menlo-Regular")
     var pollenStatus = SKLabelNode(fontNamed: "Menlo-Regular")
     var hivePollen = SKLabelNode(fontNamed: "Menlo-Regular")
     var beeName = SKLabelNode(fontNamed: "Menlo-Bold")
@@ -26,7 +26,7 @@ class InfoPane {
     var gameInfo: [String] = ["Pollinate meadows", "Feed the hive", "Explore the world"]
     
     init() {
-        formatText(self.tileName)
+        formatText(self.moveHivePercentage)
         formatText(self.pollenStatus)
         formatText(self.hivePollen)
         formatText(self.beeName)
@@ -40,10 +40,6 @@ class InfoPane {
         formatText(self.gameStatus_3)
         formatText(self.beeStatus)
     }
-    
-    func updateTileName (_ name: String) {
-        self.tileName.text = name
-        }
      
     func updateFlowerInfo(_ column: Int, _ row: Int, _ flower: Flower) {
         if flower.inBloom {
@@ -53,9 +49,10 @@ class InfoPane {
         }
     }
     
-    func updateHiveInfo(_ hive: Hive, _ bees: Int) {
+    func updateHiveInfo(_ hive: Hive) {
         self.hivePollen.text = "Hive pollen count: \(hive.pollen)"
-        self.beePopulation.text = "Bee population: \(bees)"
+        self.beePopulation.text = "Bee population: \(hive.bees.count)"
+        self.moveHivePercentage.text = "Move hive: \(hive.pollen/hive.moveCost * 100)"
     }
     
     func updateMeadowInfo(_ meadow: Meadow) {
@@ -117,7 +114,7 @@ class InfoPane {
     }
     
     func reset() {
-        self.tileName.text = ""
+        self.moveHivePercentage.text = ""
         self.pollenStatus.text = ""
         self.hivePollen.text = ""
         self.beeName.text = ""

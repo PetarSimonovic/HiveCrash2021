@@ -26,10 +26,16 @@ class Tutorial {
             self.firstFlower = false
             self.status = "pollen"
         case "pollen":
-            self.status = "finished"
+            self.status = "consumption"
+        case "consumption":
+            self.status = "conditions"
+        case "conditions":
+            self.on = false
+            self.status = "complete"
         default:
             return
         }
+        print(self.status)
     }
     
     func reset() {

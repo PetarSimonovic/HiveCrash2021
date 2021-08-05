@@ -17,7 +17,7 @@ extension GameScene {
         addMeadow(tiles.meadow, hive.column, hive.row)
         moveHive = false
         let oldHive = hive.location
-        hive.pollen -= hiveCost
+        hive.pollen -= hive.moveCost
         migrateBees(oldHive, location, column, row)
         }
         if hive.isPlaced == true {

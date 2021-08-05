@@ -29,7 +29,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var introTimer: Timer?
    var appetite: Int =  5
    var beeCost: Int = 25
-   var hiveCost: Int = 100
    var tileCounter: Int = 130
    var scouting: Bool = false
    var level: Int = 1
@@ -70,7 +69,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         for touch in touches {
             if intro {
-                print("Here")
                 gameOver()
                 
             }
@@ -90,14 +88,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 checkButtonTap(touch)
                 return
             }
-            updateInfoPane(tile!, column, row)
+           // updateInfoPane(tile!, column, row)
             if tile?.name == "fog" && hive.isPlaced == false  {
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
-                enemyHive.choosePosition(hive.column, hive.row, map)
-                print("EnemyHive placed on: \(enemyHive.column)-\(enemyHive.row)")
+                if level > 1 {
+                    enemyHive.choosePosition(hive.column, hive.row, map)
+                    print("EnemyHive placed on: \(enemyHive.column)-\(enemyHive.row)")
+                }
             } else if tile!.name == "hive" {
-                hive.pollen > hiveCost ? allowHiveMove() : refuseHiveMove()
+                hive.pollen > hive.moveCost ? allowHiveMove() : refuseHiveMove()
             }
             else {
                 let bee = hive.bees.first(where: {$0.inHive == true} )
@@ -156,14 +156,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             checkHivePollen()
             timeFlowers()
             beeFlight()
-            tutorial.on ? updateTutorialInfo() : updateGameInfo()
+            if tutorial.on { updateTutorialInfo() }
+            updateGameInfo()
             checkStaleMate()
             controlEnemyHive()
             updateBeeInfoPanes()
         }
         
         func updateGameInfo() {
-            infoPane.updateHiveInfo(hive, hive.bees.count)
+            infoPane.updateHiveInfo(hive)
             infoPane.updateFlightInfo(hive.bees)
         }
 

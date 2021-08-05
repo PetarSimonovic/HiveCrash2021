@@ -47,7 +47,7 @@ extension GameScene {
                 newTile = tiles.flowerMeadow
                 self.hive.firstFlowerMeadow = true
                 tiles.fogCount -= 1
-                enemyHive.choosePosition(self.hive.column, self.hive.row, map)
+                //enemyHive.choosePosition(self.hive.column, self.hive.row, map)
             } else if enemyHiveFound([column, row]) {
                 tiles.fogCount -= 1
                 newTile = tiles.enemyHive

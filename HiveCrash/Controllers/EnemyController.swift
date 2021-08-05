@@ -90,6 +90,7 @@ extension GameScene {
     }
     
     func activateEnemies() {
+        if level == 1 {return}
         let launch = SKAction.run( {self.launchEnemy()} )
         let pauseLaunch = SKAction.wait(forDuration: 10)
         let launchSequence = SKAction.sequence([launch, pauseLaunch])

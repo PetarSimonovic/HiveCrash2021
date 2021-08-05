@@ -269,6 +269,7 @@ let beeNames = [
     "Maasym",
     "Marcus",
     "Dylan",
+    "Scarlett",
     "Claude",
     "Petar",
     "Samantha",
