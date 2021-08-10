@@ -166,7 +166,6 @@ class Bee {
         self.infoPane.fontColor = UIColor(red: 116, green: 120, blue: 128, alpha: 1)
 //        self.infoPane.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
 //        self.infoPane.verticalAlignmentMode = SKLabelVerticalAlignmentMode.top
-        self.infoPane.fontSize = 10
         self.infoPane.zPosition = 6
         self.infoPane.text = ""
       //  self.sprite.addChild(self.infoPane)

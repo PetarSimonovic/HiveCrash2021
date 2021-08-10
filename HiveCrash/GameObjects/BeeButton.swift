@@ -71,7 +71,8 @@ func addPauseButton(_ yPos: CGFloat) {
 //            hatchBee(bee)
 
         case "pauseButton":
-             pauseGame()
+            if self.isPaused { return }
+            pauseGame()
             createPlayButton()
            createEndGameButton()
         case "playButton":

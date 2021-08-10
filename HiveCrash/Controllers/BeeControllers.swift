@@ -31,7 +31,7 @@ extension GameScene {
         map.addChild(bee.sprite)
         bee.sprite.position = hive.location
         bee.sprite.setScale(1.6)
-        bee.infoPane.setScale(10)
+        bee.infoPane.setScale(UIScreen.main.bounds.width * 0.01)
         bee.fly(hive.location, flightSpeed(bee, bee.destination))
         if tutorial.on && tutorial.status == "flight" {tutorial.updateStatus() }
         infoPane.updateGameStatus("\(bee.name) has left the hive")
