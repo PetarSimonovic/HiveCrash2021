@@ -22,7 +22,7 @@ class Tiles {
     var flowerMeadow = SKTileGroup()
     var hiveTile: [Int] = []
     var hivePlaced: Bool = false
-    var fogCount: Int = 132
+    var fogCount: Int = 144
     var flowerMeadows: Int = 8
     var difficulty: Int = 8
     

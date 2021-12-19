@@ -48,6 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
    var eternalHive: [SavedBee] = []
     var intro: Bool = true
+    var enemies: Bool = false
 
 
 
@@ -55,7 +56,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
      loadEternalHive()
      startGame()
-     print(eternalHive)
      
     }
     
@@ -69,7 +69,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         for touch in touches {
             if intro {
+                removeBees()
                 gameOver()
+                return
                 
             }
             let location = touch.location(in: map)
@@ -92,7 +94,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if tile?.name == "fog" && hive.isPlaced == false  {
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
-                if level > 1 {
+                if enemies {
                     enemyHive.choosePosition(hive.column, hive.row, map)
                     print("EnemyHive placed on: \(enemyHive.column)-\(enemyHive.row)")
                 }
@@ -161,6 +163,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             checkStaleMate()
             controlEnemyHive()
             updateBeeInfoPanes()
+        } else {
+            return
         }
         
         func updateGameInfo() {

@@ -17,7 +17,7 @@ extension GameScene {
         bee.currentRow = hive.row
         bee.currentColumn = hive.column
         hive.expandHive(hive.bees.count, infoPane)
-        if !enemy { saveBee(bee) }
+        if !enemy && !intro { saveBee(bee) }
        // bee.sprite.position = hive.location
        // hive.pulse()
        // bee.fly(hive.location, flightSpeed(bee, bee.destination))

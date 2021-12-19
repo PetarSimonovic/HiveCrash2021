@@ -61,7 +61,7 @@ func addPauseButton(_ yPos: CGFloat) {
         print(node.name!)
         switch node.name {
         case "addBeeButton":
-            if self.isPaused == false {
+            if hive.pollen >= beeCost {
             pauseGame()
             presentBeeOptions()
             }

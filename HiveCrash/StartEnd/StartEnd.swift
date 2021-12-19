@@ -32,9 +32,10 @@ extension GameScene {
     
     func gameOver() {
         if hive.bees.count <= 0 || endGameConfirm == true || intro == true {
+            gamePlaying = false
             infoPane.gameOver()
             level = 1
-            gamePlaying = false
+            enemies = false
             self.run(endGame())
         } else {
             return
@@ -44,6 +45,7 @@ extension GameScene {
     func levelComplete() {
         infoPane.levelComplete()
         level += 1
+        enemies = true
         self.run(endGame())
         updateSavedBeeLevels()
         }

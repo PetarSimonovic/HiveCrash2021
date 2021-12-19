@@ -84,5 +84,22 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C62C585B-436C-41E8-9281-B348CFBC601B"
+            shouldBeEnabled = "No"
+            nameForDebugger = "enemyHivePlaced"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HiveCrash/Controllers/GameScene.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "touchesBegan(_:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

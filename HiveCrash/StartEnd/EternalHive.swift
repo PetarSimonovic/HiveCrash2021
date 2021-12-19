@@ -29,6 +29,10 @@ extension GameScene {
     }
 
     func saveEternalHive() {
+        if intro {
+            print("eternalHive not saved")
+            return
+        }
         
         do {
             // Create JSON Encoder
@@ -51,8 +55,8 @@ extension GameScene {
         let savedBee = SavedBee(bee.name, bee.type)
         eternalHive.append(savedBee)
         saveEternalHive()
-        
-    }
+        }
+    
     
     func updateSavedBee(_ id: UUID, _ property: String, _ value: Int) {
         var savedBee = eternalHive.first(where: {$0.id == id})

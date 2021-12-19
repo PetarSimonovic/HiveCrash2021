@@ -52,7 +52,7 @@ class InfoPane {
     func updateHiveInfo(_ hive: Hive) {
         self.hivePollen.text = "Hive pollen count: \(hive.pollen)"
         self.beePopulation.text = "Bee population: \(hive.bees.count)"
-        self.moveHivePercentage.text = "Move hive: \(hive.pollen/hive.moveCost * 100)"
+        self.moveHivePercentage.text = "Move hive: \((hive.moveCost/100) * hive.pollen)%"
     }
     
     func updateMeadowInfo(_ meadow: Meadow) {
