@@ -78,13 +78,13 @@ extension GameScene {
     func checkStaleMate() {
         var column = 0
         var row = 0
-        while column < 11 {
+        while column < tiles.mapColumns - 1 {
             if let tile = map.tileDefinition(atColumn: column, row: row) {
                 if tile.name! == "fog" {
                 checkUnreachableTile(column, row)
             }
             row += 1
-            if row > 10 {
+                if row > tiles.mapRows - 1{
               column += 1
               row = 0
             }

@@ -36,6 +36,7 @@ extension GameScene {
             infoPane.gameOver()
             level = 1
             enemies = false
+            hive = Hive()
             self.run(endGame())
         } else {
             return
@@ -69,13 +70,14 @@ extension GameScene {
         flowers.removeAll()
         meadows.removeAll()
         enemyHive.bees.removeAll()
-        hive = Hive()
         enemyHive = EnemyHive()
         tiles = Tiles()
         infoPane.reset()
         moveHive = false
-        tiles.fogCount = 132
-        toggleIntro()
+        tiles.fogCount = tiles.mapRows * tiles.mapColumns
+        if level == 1 {
+            toggleIntro()
+        }
         print("Intro", intro)
         startGame()
     }

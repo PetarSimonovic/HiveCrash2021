@@ -99,7 +99,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     print("EnemyHive placed on: \(enemyHive.column)-\(enemyHive.row)")
                 }
             } else if tile!.name == "hive" {
-                hive.pollen > hive.moveCost ? allowHiveMove() : refuseHiveMove()
+                hive.pollen > hive.moveCost && allowHiveMove() ? moveHive = true : refuseHiveMove()
             }
             else {
                 let bee = hive.bees.first(where: {$0.inHive == true} )
