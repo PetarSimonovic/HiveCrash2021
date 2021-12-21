@@ -15,7 +15,7 @@ class Hive {
     var row: Int = 0
     var location: CGPoint = CGPoint(x: 0, y: 0)
     var node = SKNode ()
-    var pollen: Int = 20
+    var pollen: Int = 50
     var pollenCount: Int = 1
     var firstFlowerMeadow: Bool = false
     var maxPollen: Int = 150

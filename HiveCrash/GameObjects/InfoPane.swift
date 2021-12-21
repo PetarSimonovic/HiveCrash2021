@@ -52,7 +52,13 @@ class InfoPane {
     func updateHiveInfo(_ hive: Hive) {
         self.hivePollen.text = "Hive pollen count: \(hive.pollen)"
         self.beePopulation.text = "Bee population: \(hive.bees.count)"
-        self.moveHivePercentage.text = "Move hive: \((hive.moveCost/100) * hive.pollen)%"
+        if hive.pollen > hive.moveCost {
+            self.moveHivePercentage.text = "Tap Hive to move it when all bees are home"
+            self.moveHivePercentage.fontColor = UIColor.yellow
+        } else {
+            self.moveHivePercentage.text = "Move hive: \((hive.moveCost/100) * hive.pollen)%"
+            self.moveHivePercentage.fontColor = UIColor.white
+        }
     }
     
     func updateMeadowInfo(_ meadow: Meadow) {
