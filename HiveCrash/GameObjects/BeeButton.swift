@@ -20,27 +20,31 @@ func createButton(_ image: String) -> SKSpriteNode {
     
     func addButtons(_ mapFrame: CGFloat) {
         let yPos = mapFrame * 0.8
-    addBeeButton(yPos)
-    addMoveHiveButton(yPos)
-    addPauseButton(yPos)
+        let left = -(self.frame.width/4)
+        let centre = self.frame.width/2
+        let right = self.frame.width/4
+
+    addBeeButton(left, yPos)
+   // addMoveHiveButton(yPos)
+    addPauseButton(right, yPos)
 }
 
-    func addBeeButton(_ yPos: CGFloat) {
+    func addBeeButton(_ xPos: CGFloat, _ yPos: CGFloat) {
   beeButton = createButton("addBeeButton")
   self.addChild(beeButton)
-    positionInGameButton(beeButton, 0, yPos)
+  positionInGameButton(beeButton, xPos, yPos)
 }
 
-func addMoveHiveButton(_ yPos: CGFloat) {
-  moveHiveButton = createButton("moveHiveButton")
-  self.addChild(moveHiveButton)
-    positionInGameButton(moveHiveButton, -(self.frame.width/4), yPos)
-}
+//func addMoveHiveButton(_ yPos: CGFloat) {
+//  moveHiveButton = createButton("moveHiveButton")
+//  self.addChild(moveHiveButton)
+//    positionInGameButton(moveHiveButton, -(self.frame.width/4), yPos)
+//}
 
-func addPauseButton(_ yPos: CGFloat) {
-  pauseButton = createButton("pauseButton")
-  self.addChild(pauseButton)
-    positionInGameButton(pauseButton, self.frame.width/4, yPos)
+    func addPauseButton(_ xPos: CGFloat, _ yPos: CGFloat) {
+     pauseButton = createButton("pauseButton")
+    self.addChild(pauseButton)
+    positionInGameButton(pauseButton, xPos, yPos)
 }
 
     func positionInGameButton(_ button: SKSpriteNode, _ xPos: CGFloat, _ yPos: CGFloat) {
@@ -71,10 +75,9 @@ func addPauseButton(_ yPos: CGFloat) {
 //            hatchBee(bee)
 
         case "pauseButton":
-            if self.isPaused { return }
-            pauseGame()
-            createPlayButton()
-           createEndGameButton()
+            self.isPaused ? resumeGame() : pauseGame()
+           // createPlayButton()
+//           createEndGameButton()
         case "playButton":
              resumeGame()
             removePauseButtons()
@@ -111,7 +114,7 @@ func addPauseButton(_ yPos: CGFloat) {
     func pauseGame() {
         self.isPaused = true
         map.alpha = 0.2
-         pauseButton.alpha = 0.2
+        // pauseButton.alpha = 0.2
        
     }
     
@@ -130,8 +133,10 @@ func addPauseButton(_ yPos: CGFloat) {
     }
     
     func resumeGame() {
-        endGameConfirm = false
+    //    endGameConfirm = false
         self.isPaused = false
+        map.alpha = 1
+
     }
     
     func removePauseButtons() {

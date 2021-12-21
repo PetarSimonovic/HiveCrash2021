@@ -65,6 +65,22 @@ class Hive {
             infoPane.updateGameStatus("Hive pollen capacity expanded to \(self.maxPollen)")
         }
     }
+    
+    func reset() {
+        self.isPlaced = false
+        self.column = 0
+        self.row = 0
+        self.location = CGPoint(x: 0, y: 0)
+        self.firstFlowerMeadow = false
+        bringBeesHome()
+       
+    }
+    
+    func bringBeesHome() {
+        for bee in self.bees {
+            bee.removeBee();
+        }
+    }
 
     
     

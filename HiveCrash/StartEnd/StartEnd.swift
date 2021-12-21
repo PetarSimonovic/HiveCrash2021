@@ -47,6 +47,7 @@ extension GameScene {
         infoPane.levelComplete()
         level += 1
         enemies = true
+        hive.reset()
         self.run(endGame())
         updateSavedBeeLevels()
         }
