@@ -110,7 +110,7 @@ extension GameScene {
         case "hive":
             enemyBee.flyHome(enemyHive.location, flightSpeed(enemyBee, enemyHive.location))
 
-           stealPlayerPollen(enemyBee)
+            if !enemyBee.inCombat {stealPlayerPollen(enemyBee)}
             hive.pulse()
        //     infoPane.updateGameStatus("\(enemyBee.name) stole \(enemyBee.pollenCapacity) pollen from hive")
 

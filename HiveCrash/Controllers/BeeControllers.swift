@@ -137,7 +137,7 @@ extension GameScene {
                 hive.pulse()
             }
         case "enemyHive":
-            stealEnemyPollen(bee, column, row)
+            if !bee.inCombat {stealEnemyPollen(bee, column, row)}
         default:
             return
         }
@@ -234,18 +234,18 @@ extension GameScene {
         }
     }
     
-    func stealPlayerPollen(_ bee: Bee) {
+    func stealPlayerPollen(_ enemyBee: Bee) {
         var stolenPollen = 0
-        if hive.pollen - bee.pollenCapacity <= 0 {
+        if hive.pollen - enemyBee.pollenCapacity <= 0 {
             stolenPollen = hive.pollen
             hive.pollen = 0
-            bee.pollen += stolenPollen
+            enemyBee.pollen += stolenPollen
         } else {
-            stolenPollen = hive.pollen - bee.pollenCapacity
-            hive.pollen -= bee.pollenCapacity
-            bee.pollen += stolenPollen
+            stolenPollen = hive.pollen - enemyBee.pollenCapacity
+            hive.pollen -= enemyBee.pollenCapacity
+            enemyBee.pollen += stolenPollen
         }
-        infoPane.updateGameStatus("\(bee.name) stole \(stolenPollen)")
+        infoPane.updateGameStatus("\(enemyBee.name) stole \(stolenPollen)")
         hive.checkNoPollen()
 
     }
