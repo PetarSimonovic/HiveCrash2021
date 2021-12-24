@@ -81,6 +81,16 @@ class Hive {
             bee.removeBee();
         }
     }
+    
+    func allBeesHome() -> Bool {
+        for bee in self.bees {
+            if !bee.inHive {
+                return false
+            }
+        }
+        return true;
+    }
+
 
     
     
