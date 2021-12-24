@@ -70,7 +70,7 @@ extension GameScene {
     }
     
     func checkVictory() {
-        if tiles.fogCount <= 0 && (enemyHive.bees.isEmpty || enemies == false) {
+        if tiles.fogCount <= 0 && (enemyHives.isEmpty || enemies == false) {
             levelComplete()
         }
     }
@@ -107,15 +107,16 @@ extension GameScene {
     }
     
     func enemyHiveFound(_ tile: [Int]) -> Bool {
-        if enemies == false {return false}
+        if enemyHives.isEmpty {return false}
+        for enemyHive in enemyHives {
         if enemyHive.column == tile[0] && enemyHive.row == tile[1] {
             enemyHive.discovered = true
             infoPane.updateGameStatus("Enemy hive disturbed")
-            activateEnemies()
+            activateEnemies(enemyHive)
             return true
-        } else {
-            return false
         }
+        }
+        return false
 
     }
     

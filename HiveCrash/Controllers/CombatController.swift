@@ -11,12 +11,18 @@ import SpriteKit
 extension GameScene {
     
     func checkCombat(_ bee: Bee) {
-        
+      
+        for enemyHive in enemyHives {
+            checkBeeCombat(bee, enemyHive)
+        }
+    }
+    
+    func checkBeeCombat(_ bee: Bee, _ enemyHive: EnemyHive) {
         for enemyBee in enemyHive.bees {
             if enemyBee.inHive == false && bee.inCombat == false && enemyBee.inCombat == false {
             if enemyBee.currentRow == bee.currentRow && enemyBee.currentColumn == bee.currentColumn {
                 print("Bee combat meets conditions for fight")
-                beesFight(bee, enemyBee)
+                beesFight(bee, enemyBee, enemyHive)
             }
         }
         
@@ -24,13 +30,13 @@ extension GameScene {
     }
     
     
-    func beesFight(_ bee: Bee, _ enemyBee: Bee) {
+    func beesFight(_ bee: Bee, _ enemyBee: Bee, _ enemyHive: EnemyHive) {
         infoPane.updateGameStatus("\(bee.name) is in combat with \(enemyBee.name)")
         print("Bees are figthing")
         setCombatUp(bee)
         setCombatUp(enemyBee)
         let fightSequence = createFightSequence()
-        let calculateSequence = createCalculateSequence(bee, enemyBee)
+        let calculateSequence = createCalculateSequence(bee, enemyBee, enemyHive)
         bee.sprite.run(SKAction.repeat(fightSequence, count: 5))
         enemyBee.sprite.run(SKAction.repeat(fightSequence, count: 5))
         bee.sprite.run(calculateSequence)
@@ -51,15 +57,15 @@ extension GameScene {
         return SKAction.sequence([rotate, moveIn, moveOut])
     }
     
-    func createCalculateSequence(_ bee: Bee, _ enemyBee: Bee) -> SKAction {
+    func createCalculateSequence(_ bee: Bee, _ enemyBee: Bee, _ enemyHive: EnemyHive) -> SKAction {
         
         let wait = SKAction.wait(forDuration: 5)
-        let calculate = SKAction.run( { self.calculateWinner(bee, enemyBee)} )
+        let calculate = SKAction.run( { self.calculateWinner(bee, enemyBee, enemyHive)} )
         return SKAction.sequence([wait, calculate])
 
     }
     
-    func calculateWinner(_ bee: Bee, _ enemyBee: Bee) {
+    func calculateWinner(_ bee: Bee, _ enemyBee: Bee, _ enemyHive: EnemyHive) {
         bee.sprite.removeAllActions()
         enemyBee.sprite.removeAllActions()
         if bee.health == enemyBee.health {

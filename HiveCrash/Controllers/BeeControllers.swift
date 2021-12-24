@@ -10,14 +10,14 @@ import SpriteKit
 
 extension GameScene {
     
-    func addBee(_ bee: Bee, _ hive: Hive, _ enemy: Bool) {
+    func addBee(_ bee: Bee) {
         
         print(bee)
         hive.bees.append(bee)
         bee.currentRow = hive.row
         bee.currentColumn = hive.column
         hive.expandHive(hive.bees.count, infoPane)
-        if !enemy && !intro { saveBee(bee) }
+        if !intro { saveBee(bee) }
        // bee.sprite.position = hive.location
        // hive.pulse()
        // bee.fly(hive.location, flightSpeed(bee, bee.destination))
@@ -137,7 +137,7 @@ extension GameScene {
                 hive.pulse()
             }
         case "enemyHive":
-            stealPollen(bee, enemyHive)
+            stealEnemyPollen(bee, column, row)
         default:
             return
         }
@@ -173,7 +173,7 @@ extension GameScene {
     func hatchBee(_ bee: Bee) {
         if hive.pollen >= beeCost {
            hive.pollen -= beeCost
-           addBee(bee, hive, false)
+           addBee(bee)
         } else {
             infoPane.updateGameStatus("Not enough pollen to create a bee")
         }
@@ -204,14 +204,14 @@ extension GameScene {
         if player {
             numberOfBees.times {
             let bee = CommonCarder()
-            addBee(bee, hive, false)
+            addBee(bee)
             infoPane.updateGameStatus("\(bee.name) has joined the hive")
             
             }
             } else {
                 numberOfBees.times {
                 let bee = VestalCuckoo()
-                addBee(bee, enemyHive, true)
+                addBee(bee)
                 }
             }
     }
@@ -234,7 +234,7 @@ extension GameScene {
         }
     }
     
-    func stealPollen(_ bee: Bee, _ hive: Hive) {
+    func stealPlayerPollen(_ bee: Bee) {
         var stolenPollen = 0
         if hive.pollen - bee.pollenCapacity <= 0 {
             stolenPollen = hive.pollen
@@ -249,6 +249,29 @@ extension GameScene {
         hive.checkNoPollen()
 
     }
+    
+    func stealEnemyPollen(_ bee: Bee, _ column: Int, _ row: Int) {
+        let enemyHive = getEnemyHive(column, row)
+        var stolenPollen = 0
+        if enemyHive.pollen - bee.pollenCapacity <= 0 {
+            stolenPollen = enemyHive.pollen
+            enemyHive.pollen = 0
+            bee.pollen += stolenPollen
+        } else {
+            stolenPollen = enemyHive.pollen - bee.pollenCapacity
+            enemyHive.pollen -= bee.pollenCapacity
+            bee.pollen += stolenPollen
+        }
+        infoPane.updateGameStatus("\(bee.name) stole \(stolenPollen)")
+        hive.checkNoPollen()
+
+    }
+    
+    func getEnemyHive(_ column: Int, _ row: Int ) -> EnemyHive {
+        let enemyHive = enemyHives.firstIndex(where: {$0.column == column && $0.row == row})!
+        return enemyHives[enemyHive]
+    }
+
     
     
 //    func debugInfo(_ bee: Bee) {

@@ -16,7 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var tiles = Tiles()
    var map = SKTileMapNode()
    var hive = Hive()
-   var enemyHive = EnemyHive()
+    var enemyHives: [EnemyHive] = []
         
    var flowers: [Flower] = []
    var meadows: [Meadow] = []
@@ -31,7 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var beeCost: Int = 25
    var tileCounter: Int = 130
    var scouting: Bool = false
-   var level: Int = 1
+   var level: Int = 3
    var gamePlaying: Bool = false
    var migration: Bool = false
     
@@ -48,7 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
    var eternalHive: [SavedBee] = []
     var intro: Bool = true
-    var enemies: Bool = false
+    var enemies: Bool = true
 
 
 
@@ -94,11 +94,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if tile?.name == "fog" && hive.isPlaced == false  {
                 let hiveLocation = map.centerOfTile(atColumn: column, row: row)
                 placeHive(hiveLocation, column, row)
-                if enemies {
-                    enemyHive.choosePosition(hive.column, hive.row, map)
-                    print("EnemyHive placed on: \(enemyHive.column)-\(enemyHive.row)")
-                }
-            } else if tile!.name == "hive" {
+                } else if tile!.name == "hive" {
                 hive.pollen > hive.moveCost && allowHiveMove() ? moveHive = true : refuseHiveMove()
             }
             else {
@@ -161,7 +157,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if tutorial.on { updateTutorialInfo() }
             updateGameInfo()
             checkStaleMate()
-            controlEnemyHive()
+            controlEnemyHives()
             updateBeeInfoPanes()
         } else {
             return

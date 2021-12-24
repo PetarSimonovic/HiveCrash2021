@@ -13,29 +13,67 @@ extension GameScene {
     
     //ARE ENEMIES EATING, REPRODUCING AND STARVING????
     
-    func controlEnemyHive() {
-        checkEnemyDefeat()
+    func controlEnemyHives() {
+        for enemyHive in enemyHives {
+            controlEnemyHive(enemyHive)
+        }
+    }
+    
+    func createEnemies(_ numberOfEnemies: Int) {
+        print("Creating enemies: ", numberOfEnemies)
+        numberOfEnemies.times {
+            let enemyHive = EnemyHive()
+            populateEnemyHive(4 + level, enemyHive)
+            print("EnemyHive created")
+            print(enemyHive)
+            enemyHives.append(enemyHive)
+            enemyHive.choosePosition(hive.column, hive.row, map)
+        }
+    }
+    
+    func populateEnemyHive(_ numberOfBees: Int, _ enemyHive: EnemyHive) {
+        numberOfBees.times {
+            let bee = VestalCuckoo()
+            addEnemyBee(bee, enemyHive)
+        }
+
+    }
+    
+    func addEnemyBee(_ bee: Bee, _ enemyHive: EnemyHive) {
+        print(bee)
+        enemyHive.bees.append(bee)
+        bee.currentRow = enemyHive.row
+        bee.currentColumn = enemyHive.column
+      //  enemyHive.expandHive(enemyHive.bees.count, infoPane)
+       // bee.sprite.position = hive.location
+       // hive.pulse()
+       // bee.fly(hive.location, flightSpeed(bee, bee.destination))
+    }
+    
+    
+    func controlEnemyHive(_ enemyHive: EnemyHive) {
+        checkEnemyDefeat(enemyHive)
         for enemyBee in enemyHive.bees {
                 switch enemyBee.inHive {
                 case true:
                    continue
                 default:
                     enemyBee.updatePollenCloud()
-                    checkEnemyFlightPath(enemyBee)
+                    checkEnemyFlightPath(enemyBee, enemyHive)
                 }
                
                 }
         }
     
-    func checkEnemyDefeat() {
+    func checkEnemyDefeat(_ enemyHive: EnemyHive) {
         if enemyHive.bees.isEmpty && enemyHive.discovered {
             infoPane.updateGameStatus("Enemy hive defeated")
             map.setTileGroup(tiles.meadow, forColumn: enemyHive.column, row: enemyHive.row)
-            enemyHive.discovered = false
+            removeEnemyHive(enemyHive)
         }
     }
     
-    func releaseEnemyBee(_ enemyBee: Bee) {
+    func releaseEnemyBee(_ enemyBee: Bee, _ enemyHive: EnemyHive) {
         enemyHive.bees.rotateBees()
         let destination = map.centerOfTile(atColumn: hive.column, row: hive.row)
         enemyBee.setDestination(destination, hive.column, hive.row)
@@ -45,7 +83,7 @@ extension GameScene {
         enemyBee.fly(enemyHive.location, flightSpeed(enemyBee, enemyBee.destination))
     }
     
-    func checkEnemyFlightPath(_ enemyBee: Bee) {
+    func checkEnemyFlightPath(_ enemyBee: Bee, _ enemyHive: EnemyHive) {
         let column = self.map.tileColumnIndex(fromPosition: enemyBee.sprite.position)
         let row = self.map.tileRowIndex(fromPosition: enemyBee.sprite.position)
         let tile = self.map.tileDefinition(atColumn: column, row: row)
@@ -72,7 +110,7 @@ extension GameScene {
         case "hive":
             enemyBee.flyHome(enemyHive.location, flightSpeed(enemyBee, enemyHive.location))
 
-           stealPollen(enemyBee, hive)
+           stealPlayerPollen(enemyBee)
             hive.pulse()
        //     infoPane.updateGameStatus("\(enemyBee.name) stole \(enemyBee.pollenCapacity) pollen from hive")
 
@@ -89,18 +127,24 @@ extension GameScene {
         }
     }
     
-    func activateEnemies() {
-        if level == 1 {return}
-        let launch = SKAction.run( {self.launchEnemy()} )
+    func activateEnemies(_ enemyHive: EnemyHive) {
+        let launch = SKAction.run( {self.launchEnemy(enemyHive)} )
         let pauseLaunch = SKAction.wait(forDuration: 10)
         let launchSequence = SKAction.sequence([launch, pauseLaunch])
         self.run(SKAction.repeatForever(launchSequence))
     }
     
     
-    func launchEnemy() {
+    func launchEnemy(_ enemyHive: EnemyHive) {
         if let enemyBee = enemyHive.bees.first(where: { $0.inHive == true} ) {
-                releaseEnemyBee(enemyBee)
+                releaseEnemyBee(enemyBee, enemyHive)
             }
         }
+    
+    func removeEnemyHive(_ enemyHive: EnemyHive) {
+        if let enemyIndex = enemyHives.firstIndex(where: {$0.id == enemyHive.id}) {
+        enemyHives.remove(at: enemyIndex)
+    }
+     }
+
 }

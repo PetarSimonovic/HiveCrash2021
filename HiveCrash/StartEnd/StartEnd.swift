@@ -22,7 +22,7 @@ extension GameScene {
             startDemo()
         } else
         { if hive.bees.count == 0 { populateHive(1, true) }
-        populateHive(4 + level, false)
+        createEnemies(3)
         addButtons(map.frame.minY)
         createInfoPane()
         checkStaleMate()
@@ -70,8 +70,7 @@ extension GameScene {
         self.removeAllChildren()
         flowers.removeAll()
         meadows.removeAll()
-        enemyHive.bees.removeAll()
-        enemyHive = EnemyHive()
+        enemyHives.removeAll()
         tiles = Tiles()
         infoPane.reset()
         moveHive = false

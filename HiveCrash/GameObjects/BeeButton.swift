@@ -108,7 +108,7 @@ func createButton(_ image: String) -> SKSpriteNode {
         hive.pollen -= beeCost
         resumeGame()
         removeBeeButtons()
-        addBee(bee, hive, false)
+        addBee(bee)
     }
     
     func pauseGame() {
@@ -156,9 +156,9 @@ func createButton(_ image: String) -> SKSpriteNode {
         print("Getting bee info for \(node.name!)")
         if  let beeID = UUID(uuidString: node.name!) {
         var bee = hive.bees.first(where: {$0.id == beeID})
-        if bee == nil {
-            bee = enemyHive.bees.first(where: {$0.id == beeID})!
-        }
+//        if bee == nil {
+//            bee = enemyHive.bees.first(where: {$0.id == beeID})!
+//        }
         }
     }
     

@@ -9,7 +9,8 @@ import Foundation
 import SpriteKit
 
 class EnemyHive : Hive {
- 
+    
+    var id = UUID()
     var discovered: Bool = false
     
     
