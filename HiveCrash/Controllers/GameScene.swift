@@ -168,7 +168,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         func updateGameInfo() {
-            infoPane.updateHiveInfo(hive)
+            infoPane.updateHiveInfo(hive, moveHive)
             infoPane.updateFlightInfo(hive.bees)
         }
 
