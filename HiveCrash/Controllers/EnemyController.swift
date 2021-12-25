@@ -26,9 +26,27 @@ extension GameScene {
             populateEnemyHive(4 + level, enemyHive)
             print("EnemyHive created")
             print(enemyHive)
+            while checkEnemyHiveTileClash(enemyHive) {
+                enemyHive.choosePosition(self.hive.column, self.hive.row, self.map)
+            }
+            print("EnemyHive locations")
+            print("EnemyHive column: \(enemyHive.column), EnemyHive.row: \(enemyHive.row)")
             enemyHives.append(enemyHive)
-            enemyHive.choosePosition(hive.column, hive.row, map)
         }
+    }
+    
+    func checkEnemyHiveTileClash(_ enemyHive: EnemyHive) -> Bool{
+        for existingEnemyHive in enemyHives {
+            if existingEnemyHive.row == enemyHive.row && existingEnemyHive.column == enemyHive.column {
+                return true
+            }
+        }
+        if enemyHive.row == 0 && enemyHive.column == 0 {
+            return true
+        } else if enemyHive.row == 11 && enemyHive.column == 11 {
+            return true
+        }
+        return false
     }
     
     func populateEnemyHive(_ numberOfBees: Int, _ enemyHive: EnemyHive) {

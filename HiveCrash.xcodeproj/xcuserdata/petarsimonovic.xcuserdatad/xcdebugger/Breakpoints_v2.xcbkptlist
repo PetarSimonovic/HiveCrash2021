@@ -78,8 +78,8 @@
             filePath = "HiveCrash/StartEnd/IntroScreen.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "updateBeeDisplay()"
             landmarkType = "7">
          </BreakpointContent>

@@ -65,7 +65,6 @@ extension GameScene {
         bee.displayInfo = true
         bee.infoPane.text = bee.name
         hive.bees.append(bee)
-        print("Hive intro bees", hive.bees)
     }
     
     func launchIntroBees() {
