@@ -10,6 +10,11 @@ import SpriteKit
 
 extension GameScene {
     
+    // bees are locked into combat if they collide
+    // the victor is the bee with the highest health + attack
+    // the victor takes the loser's pollen, up to the victor's max pollen capacity
+    // the loser is left with no pollen
+    
     func checkCombat(_ bee: Bee) {
       
         for enemyHive in enemyHives {
@@ -66,16 +71,17 @@ extension GameScene {
 
     }
     
+    
     func calculateWinner(_ bee: Bee, _ enemyBee: Bee, _ enemyHive: EnemyHive) {
         bee.sprite.removeAllActions()
         enemyBee.sprite.removeAllActions()
-        if bee.health == enemyBee.health {
+        if bee.health + bee.attack == enemyBee.health + enemyBee.attack {
             print("Draw")
             bee.health -= 1
             enemyBee.health -= 1
             infoPane.updateGameStatus("Draw: \(bee.name) has \(bee.health) health")
             updateSavedBee(bee.id, "battle", 0)
-        } else if bee.health > enemyBee.health {
+        } else if bee.health + bee.attack > enemyBee.health + enemyBee.attack {
             print("bee wins")
             enemyBee.health -= 1
             bee.pollen += enemyBee.pollen

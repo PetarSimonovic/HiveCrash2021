@@ -17,6 +17,7 @@ class RedMason : Bee {
      self.maxPollen = 50
      self.appetite = 10
      self.maxHealth = 5
+     self.attack = 3
      self.health = self.maxHealth
      self.maxRange = 2
      self.range = self.maxRange

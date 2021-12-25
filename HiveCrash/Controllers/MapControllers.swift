@@ -90,6 +90,28 @@ extension GameScene {
             }
         }
         }
+        checkCornerTiles()
+    }
+    
+    func checkCornerTiles() {
+        if (getMapTile(0, 1) == "rock" && getMapTile(1 ,0) == "rock") && getMapTile(0, 0) == "fog" {
+            clearFog(0, 0, false)
+        } else if (getMapTile(10, 11) == "rock" && getMapTile(11, 10) == "rock") && getMapTile(11, 11) == "fog"
+            {
+            clearFog(11, 11, false)
+        }
+
+    }
+    
+    func getMapTile(_ column: Int, _ row: Int) -> String {
+       
+        if let tile = map.tileDefinition(atColumn: column, row: row) {
+            return tile.name!
+        }
+        else {
+            return "none"
+        }
+
     }
     
     func checkUnreachableTile(_ column: Int, _ row: Int) {

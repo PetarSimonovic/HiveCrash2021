@@ -17,6 +17,7 @@ class CommonCarder : Bee {
     self.speed = self.defaultSpeed
     self.maxPollen = 30
     self.appetite = 10
+    self.attack = 5
     self.maxHealth = 5
     self.health = self.maxHealth
     self.maxRange = 3

@@ -33,7 +33,7 @@ class Bee {
     var maxRange: Int = 0
     var range: Int
     var flowerTime: Float = 0.0
-    var strength: Int = 5
+    var attack: Int = 5
     
     var homewardBound: Bool = false
     var pollenCollecting: Bool = false

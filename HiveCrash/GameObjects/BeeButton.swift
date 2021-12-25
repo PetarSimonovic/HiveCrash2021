@@ -173,11 +173,11 @@ func createButton(_ image: String) -> SKSpriteNode {
        var yPos = map.frame.midY
        commonCarderButton = createButton("commoncarder")
        placeBeeOptionButton(commonCarderButton, yPos)
-      addBeeInfoNode(commonCarderButton, "Common Carder: all-rounder with steady speed and solid pollen capacity", yPos)
+      addBeeInfoNode(commonCarderButton, "Common Carder: all-rounder with solid spped, strength and pollen capacity", yPos)
        yPos = map.frame.midY + map.frame.midY/4
        redMasonButton = createButton("redmason")
        placeBeeOptionButton(redMasonButton, yPos)
-       addBeeInfoNode(redMasonButton, "Red Mason: methodical and strong - a pollen-collecting juggernaut", yPos)
+       addBeeInfoNode(redMasonButton, "Red Mason: pollen-collecting juggernaut - methodical but open to attack", yPos)
        leafCutterButton = createButton("leafcutter")
        yPos = map.frame.midY - map.frame.midY/4
        placeBeeOptionButton(leafCutterButton, yPos)

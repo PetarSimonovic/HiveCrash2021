@@ -16,7 +16,8 @@ class VestalCuckoo : Bee {
      self.speed = self.defaultSpeed
      self.maxPollen = 30
      self.appetite = 10
-     self.maxHealth = 2
+     self.maxHealth = 5
+     self.attack = 5
      self.health = self.maxHealth
      self.maxRange = 7
      self.range = self.maxRange

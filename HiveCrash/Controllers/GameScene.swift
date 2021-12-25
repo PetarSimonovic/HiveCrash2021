@@ -77,6 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let location = touch.location(in: map)
             let column = map.tileColumnIndex(fromPosition: location)
             let row = map.tileRowIndex(fromPosition: location)
+            print("Column \(column); Row \(row);")
             let tile = map.tileDefinition(atColumn: column, row: row)
             let node: SKNode = self.atPoint(location)
             getBeeInfo(column, row)
