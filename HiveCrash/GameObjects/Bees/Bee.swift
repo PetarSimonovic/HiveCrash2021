@@ -26,7 +26,7 @@ class Bee {
     var defaultSpeed = 600
     var speed: Int = 300
     var pollen: Int = 0
-    var pollenCapacity: Int = 0
+    var maxPollen: Int = 0
     var appetite: Int = 0
     var maxHealth: Int = 0
     var health: Int
@@ -128,11 +128,12 @@ class Bee {
         // exrract the collection into its own class?
 //        print("BEE POLLEN", self.pollen)
 //        print("FLOWER POLLEN", flower.pollen)
+        if self.inCombat { return }
         self.sprite.removeAction(forKey: "flightPath")
         self.sprite.removeAction(forKey: "flyHome")
         self.sprite.run(SKAction.repeatForever(SKAction.rotate(byAngle: 10, duration: 0.5)))
         self.sprite.run(SKAction.move(to: flower.location, duration: 1))
-        self.pollen = self.pollenCapacity
+        self.pollen = self.maxPollen
         self.sprite.zPosition = 5
      //   } else {
    //         homewardBound ? self.sprite.run(SKAction.move(to: hive, duration: beeSpeed)) : self.sprite.run(SKAction.move(to: self.destination, duration: beeSpeed))
@@ -149,8 +150,8 @@ class Bee {
     }
     
     func checkPollenCapacity() {
-        if self.pollen > self.pollenCapacity {
-            self.pollen = self.pollenCapacity
+        if self.pollen > self.maxPollen {
+            self.pollen = self.maxPollen
         }
         print("Bee pollen is",self.pollen)
     }

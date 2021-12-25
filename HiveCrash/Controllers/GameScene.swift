@@ -31,7 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var beeCost: Int = 25
    var tileCounter: Int = 130
    var scouting: Bool = false
-   var level: Int = 3
+   var level: Int = 0
    var gamePlaying: Bool = false
    var migration: Bool = false
     

@@ -15,7 +15,7 @@ class CommonCarder : Bee {
     super.init()
     self.type = "Common Carder"
     self.speed = self.defaultSpeed
-    self.pollenCapacity = 30
+    self.maxPollen = 30
     self.appetite = 10
     self.maxHealth = 5
     self.health = self.maxHealth

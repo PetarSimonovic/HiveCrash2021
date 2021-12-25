@@ -135,7 +135,7 @@ func createButton(_ image: String) -> SKSpriteNode {
     func resumeGame() {
     //    endGameConfirm = false
         self.isPaused = false
-        map.alpha = 1
+        map.alpha = 1.0
 
     }
     

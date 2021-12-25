@@ -58,7 +58,7 @@ class BeeTests: XCTestCase {
       sut.createBee()
       XCTAssert(beeNames.contains(sut.name), "Default Bee didn't reveive a name")
       XCTAssert(sut.pollen == defaultPollen, "Default Bee didn't initialise with correct pollen")
-      XCTAssert(sut.pollenCapacity == defaultPollenCapacity, "Default Bee didn't initialise with correct pollenCapacity")
+      XCTAssert(sut.maxPollen == defaultPollenCapacity, "Default Bee didn't initialise with correct pollenCapacity")
       XCTAssert(sut.appetite == defaultAppetite, "Default Bee didn't initialise with correct appetite")
       XCTAssert(sut.health == defaultHealth, "Default Bee didn't initialise with correct health")
       XCTAssert(sut.speed == defaultBeeSpeed, "Default Bee didn't initialise with correct speed")

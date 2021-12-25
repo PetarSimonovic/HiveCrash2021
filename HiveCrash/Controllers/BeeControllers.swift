@@ -236,13 +236,13 @@ extension GameScene {
     
     func stealPlayerPollen(_ enemyBee: Bee) {
         var stolenPollen = 0
-        if hive.pollen - enemyBee.pollenCapacity <= 0 {
+        if hive.pollen - enemyBee.maxPollen <= 0 {
             stolenPollen = hive.pollen
             hive.pollen = 0
             enemyBee.pollen += stolenPollen
         } else {
-            stolenPollen = hive.pollen - enemyBee.pollenCapacity
-            hive.pollen -= enemyBee.pollenCapacity
+            stolenPollen = hive.pollen - enemyBee.maxPollen
+            hive.pollen -= enemyBee.maxPollen
             enemyBee.pollen += stolenPollen
         }
         infoPane.updateGameStatus("\(enemyBee.name) stole \(stolenPollen)")
@@ -253,13 +253,13 @@ extension GameScene {
     func stealEnemyPollen(_ bee: Bee, _ column: Int, _ row: Int) {
         let enemyHive = getEnemyHive(column, row)
         var stolenPollen = 0
-        if enemyHive.pollen - bee.pollenCapacity <= 0 {
+        if enemyHive.pollen - bee.maxPollen <= 0 {
             stolenPollen = enemyHive.pollen
             enemyHive.pollen = 0
             bee.pollen += stolenPollen
         } else {
-            stolenPollen = enemyHive.pollen - bee.pollenCapacity
-            enemyHive.pollen -= bee.pollenCapacity
+            stolenPollen = enemyHive.pollen - bee.maxPollen
+            enemyHive.pollen -= bee.maxPollen
             bee.pollen += stolenPollen
         }
         infoPane.updateGameStatus("\(bee.name) stole \(stolenPollen)")
@@ -270,6 +270,10 @@ extension GameScene {
     func getEnemyHive(_ column: Int, _ row: Int ) -> EnemyHive {
         let enemyHive = enemyHives.firstIndex(where: {$0.column == column && $0.row == row})!
         return enemyHives[enemyHive]
+    }
+    
+    func limitPollenToMaxPollen(_ bee: Bee) {
+        if bee.pollen > bee.maxPollen { bee.pollen = bee.maxPollen }
     }
 
     

@@ -89,7 +89,7 @@ class InfoPane {
         self.beeName.text = "Next to fly: \(bee.name)"
         self.beeType.text = "\(bee.type)"
         self.beeHealth.text = "Health: \(bee.health)"
-        self.beePollen.text = "Pollen capacity: \(bee.pollenCapacity)"
+        self.beePollen.text = "Pollen capacity: \(bee.maxPollen)"
         self.beeRange.text = ""
     }
  

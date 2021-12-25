@@ -14,7 +14,7 @@ class LeafCutter : Bee {
          super.init()
          self.type = "Leaf Cutter"
         self.speed = self.defaultSpeed + 400
-         self.pollenCapacity = 15
+         self.maxPollen = 15
          self.appetite = 10
          self.maxHealth = 5
          self.health = self.maxHealth

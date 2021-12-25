@@ -78,6 +78,7 @@ extension GameScene {
             print("bee wins")
             enemyBee.health -= 1
             bee.pollen += enemyBee.pollen
+            limitPollenToMaxPollen(bee)
             enemyBee.pollen = 0
             infoPane.updateGameStatus("\(bee.name) defeated \(enemyBee.name)")
             updateSavedBee(bee.id, "battle", 1)
@@ -86,6 +87,7 @@ extension GameScene {
             infoPane.updateGameStatus("\(enemyBee.name) defeated \(bee.name)")
             bee.health -= 1
             enemyBee.pollen += bee.pollen
+            limitPollenToMaxPollen(enemyBee)
             bee.pollen = 0
             updateSavedBee(bee.id, "battle", 0)
         }
@@ -100,4 +102,6 @@ extension GameScene {
         bee.setDestination(hive.location, hive.column, hive.row)
         bee.health <= 0 ? killBee(bee, hive) : bee.flyHome(hive.location, flightSpeed(bee, hive.location))
     }
+    
+    
 }

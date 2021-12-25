@@ -14,7 +14,7 @@ class RedMason : Bee {
      super.init()
      self.type = "Red Mason"
      self.speed = self.defaultSpeed - 300
-     self.pollenCapacity = 50
+     self.maxPollen = 50
      self.appetite = 10
      self.maxHealth = 5
      self.health = self.maxHealth

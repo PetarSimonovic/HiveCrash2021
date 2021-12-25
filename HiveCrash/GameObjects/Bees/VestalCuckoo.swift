@@ -14,7 +14,7 @@ class VestalCuckoo : Bee {
      super.init()
      self.type = "Vestal Cuckoo"
      self.speed = self.defaultSpeed
-     self.pollenCapacity = 30
+     self.maxPollen = 30
      self.appetite = 10
      self.maxHealth = 2
      self.health = self.maxHealth
