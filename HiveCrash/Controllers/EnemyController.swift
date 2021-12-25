@@ -108,9 +108,10 @@ extension GameScene {
         case "flowerMeadow":
             checkPollination(enemyBee, column, row, enemyHive)
         case "hive":
-            enemyBee.flyHome(enemyHive.location, flightSpeed(enemyBee, enemyHive.location))
-
-            if !enemyBee.inCombat {stealPlayerPollen(enemyBee)}
+            if !enemyBee.inCombat {
+                stealPlayerPollen(enemyBee)
+                enemyBee.flyHome(enemyHive.location, flightSpeed(enemyBee, enemyHive.location))
+            }
             hive.pulse()
        //     infoPane.updateGameStatus("\(enemyBee.name) stole \(enemyBee.pollenCapacity) pollen from hive")
 

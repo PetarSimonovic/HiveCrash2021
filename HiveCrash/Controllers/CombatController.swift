@@ -44,10 +44,11 @@ extension GameScene {
     }
     
     func setCombatUp(_ bee: Bee) {
+        bee.sprite.removeAllActions()
         bee.inCombat = true
         bee.homewardBound = false
         bee.pollenCollecting = false
-        bee.sprite.removeAllActions()
+        print("\(bee.name) is in combat: \(bee.inCombat)")
     }
     
     func createFightSequence() -> SKAction {

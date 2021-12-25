@@ -235,6 +235,7 @@ extension GameScene {
     }
     
     func stealPlayerPollen(_ enemyBee: Bee) {
+        print("Enemy is stealing pollen")
         var stolenPollen = 0
         if hive.pollen - enemyBee.maxPollen <= 0 {
             stolenPollen = hive.pollen
@@ -252,6 +253,7 @@ extension GameScene {
     
     func stealEnemyPollen(_ bee: Bee, _ column: Int, _ row: Int) {
         let enemyHive = getEnemyHive(column, row)
+        print("player is stealing pollen")
         var stolenPollen = 0
         if enemyHive.pollen - bee.maxPollen <= 0 {
             stolenPollen = enemyHive.pollen
