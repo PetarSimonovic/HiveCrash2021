@@ -66,8 +66,7 @@ func createButton(_ image: String) -> SKSpriteNode {
         switch node.name {
         case "addBeeButton":
             if hive.pollen >= beeCost {
-            pauseGame()
-            presentBeeOptions()
+                self.isPaused ? resumeGame() : displayBeeShop()
             }
         case "moveHiveButton":
             return
@@ -107,7 +106,7 @@ func createButton(_ image: String) -> SKSpriteNode {
     func purchaseBee(_ bee: Bee) {
         hive.pollen -= beeCost
         resumeGame()
-        removeBeeButtons()
+        removeBeeShop()
         addBee(bee)
     }
     
@@ -134,6 +133,7 @@ func createButton(_ image: String) -> SKSpriteNode {
     
     func resumeGame() {
     //    endGameConfirm = false
+        if beeShopDisplayed {removeBeeShop()}
         self.isPaused = false
         map.alpha = 1.0
 
@@ -145,11 +145,13 @@ func createButton(_ image: String) -> SKSpriteNode {
         endGameButton.removeFromParent()
     }
     
-    func removeBeeButtons() {
+    func removeBeeShop() {
         map.alpha = 1.0
         commonCarderButton.removeFromParent()
         redMasonButton.removeFromParent()
         leafCutterButton.removeFromParent()
+        beeShopDisplayed = false
+
     }
     
     func getBee(_ node: SKNode) {
@@ -169,7 +171,8 @@ func createButton(_ image: String) -> SKSpriteNode {
         
     }
     
-   func presentBeeOptions() {
+   func displayBeeShop() {
+       pauseGame()
        var yPos = map.frame.midY
        commonCarderButton = createButton("commoncarder")
        placeBeeOptionButton(commonCarderButton, yPos)
@@ -182,6 +185,7 @@ func createButton(_ image: String) -> SKSpriteNode {
        yPos = map.frame.midY - map.frame.midY/4
        placeBeeOptionButton(leafCutterButton, yPos)
        addBeeInfoNode(leafCutterButton, "Leaf Cutter: leaves pollen behind to focus on speed and attack", yPos)
+       beeShopDisplayed = true
     }
     
     func placeBeeOptionButton(_ button: SKSpriteNode, _ yPos: CGFloat) {

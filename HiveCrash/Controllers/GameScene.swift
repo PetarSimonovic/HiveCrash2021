@@ -45,6 +45,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
    var leafCutterButton = SKSpriteNode()
    var endGameConfirm = false
    var dimButton: CGFloat = 0.2
+   var beeShopDisplayed: Bool = false
+
+    
     
    var eternalHive: [SavedBee] = []
     var intro: Bool = true
