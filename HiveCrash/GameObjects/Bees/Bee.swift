@@ -23,7 +23,7 @@ class Bee {
     var currentRow: Int = 1000
     
     var type: String = "Default"
-    var defaultSpeed = 600
+    var defaultSpeed = 900
     var speed: Int = 300
     var pollen: Int = 0
     var maxPollen: Int = 0
@@ -63,6 +63,7 @@ class Bee {
         self.sprite.physicsBody?.affectedByGravity = false
         self.sprite.physicsBody?.isDynamic = false
         self.sprite.zPosition = 3
+
            }
     
     func fly(_ hiveLocation: CGPoint, _ beeSpeed: TimeInterval) {

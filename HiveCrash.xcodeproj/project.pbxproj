@@ -58,6 +58,7 @@
 		0DE92D17265D4DCB00CE5F4B /* MapControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D16265D4DCB00CE5F4B /* MapControllers.swift */; };
 		0DE92D19265D4E4700CE5F4B /* HiveControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D18265D4E4700CE5F4B /* HiveControllers.swift */; };
 		0DE92D1B265D6A1F00CE5F4B /* Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE92D1A265D6A1F00CE5F4B /* Rock.swift */; };
+		0DEA320A2779E0640012081C /* addGlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEA32092779E0640012081C /* addGlow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		0DE92D16265D4DCB00CE5F4B /* MapControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapControllers.swift; sourceTree = "<group>"; };
 		0DE92D18265D4E4700CE5F4B /* HiveControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveControllers.swift; sourceTree = "<group>"; };
 		0DE92D1A265D6A1F00CE5F4B /* Rock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rock.swift; sourceTree = "<group>"; };
+		0DEA32092779E0640012081C /* addGlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addGlow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 		0DE92CBD265B8AFA00CE5F4B /* HiveCrash */ = {
 			isa = PBXGroup;
 			children = (
+				0DEA32082779E0520012081C /* Imaging */,
 				0DA0CC7B26B99913005B7763 /* Tutorial */,
 				0D2F1164265E3B52008B1171 /* Particles */,
 				0DE92D0B265D0F2B00CE5F4B /* GameObjects */,
@@ -349,6 +352,14 @@
 				0D1A737C266E8EBC0076CCAE /* BeeButton.swift */,
 			);
 			path = GameObjects;
+			sourceTree = "<group>";
+		};
+		0DEA32082779E0520012081C /* Imaging */ = {
+			isa = PBXGroup;
+			children = (
+				0DEA32092779E0640012081C /* addGlow.swift */,
+			);
+			path = Imaging;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,6 +558,7 @@
 				0D3B7AC826779E3800150A15 /* TimerController.swift in Sources */,
 				0D3312A626AC655C00E25FEE /* IntroScreen.swift in Sources */,
 				0D2F1176265E8AD7008B1171 /* FlightSpeedCalculator.swift in Sources */,
+				0DEA320A2779E0640012081C /* addGlow.swift in Sources */,
 				0D2F1178265EAB97008B1171 /* FlowerController.swift in Sources */,
 				0DE92CFB265BDC7C00CE5F4B /* Tiles.swift in Sources */,
 				0D3B7AA0267264AC00150A15 /* LoadTiles.swift in Sources */,
